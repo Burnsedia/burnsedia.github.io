@@ -3,7 +3,7 @@ layout: post
 
 ---
 
-#FOSS and Why you sould love it to
+# FOSS and Why you sould love it to
 
     If you are reading this blog and are wondering what I mean by FOSS, you probly don't know much about IP
 property right laws and the legal ramifications when compies brack them, Amazon and Microsoft come to mind
