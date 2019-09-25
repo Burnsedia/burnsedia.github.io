@@ -32,7 +32,7 @@ twitter_username: Burnsedia3d
 github_username:  Burnsedia
 
 # Build settings
-theme: jekyll-theme-hacker
+theme: minima
 plugins:
   - jekyll-feed
 
