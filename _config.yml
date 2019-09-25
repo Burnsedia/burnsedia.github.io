@@ -18,16 +18,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Burnsedia Game Dev Blog
+email: bburnsed1995@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Hello and Welcome to my blog and Youtube Channel, My name is Bailey Burnsed and my Github username is Burnedia -subject to 
+  change in the future. My Goal is to make a 4x RTS Space Simulation type game for Android, Linux plus Windows and XboxOne
+  through UWP. I habe been developing the game Consept scence late 2018 and now, starting in late 2019 I am developing the game 
+  as my side project will I am a Full Time College Student, going for my Computer Science Degree.
+  I am a Massive nerd and lover of all things Open Source/FOOS and Sci-Fi, also a history buff and I love art, music and food
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: Burnsedia3d
+github_username:  Burnsedia
 
 # Build settings
 theme: jekyll-theme-hacker
