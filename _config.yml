@@ -35,6 +35,7 @@ github_username:  Burnsedia
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-pwa-plugin
 
 # Exclude from processing.
 # The following items will not be processed, by default.
