@@ -1,58 +1,21 @@
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
+# which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-title: Burnsedia Game Dev Blog
-email: bburnsed1995@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Hello and Welcome to my blog and Youtube Channel, My name is Bailey Burnsed and my Github username is Burnedia -subject to 
-  change in the future. My Goal is to make a 4x RTS Space Simulation type game for Android, Linux plus Windows and XboxOne
-  through UWP. I habe been developing the game Consept scence late 2018 and now, starting in late 2019 I am developing the game 
-  as my side project will I am a Full Time College Student, going for my Computer Science Degree.
-  I am a Massive nerd and lover of all things Open Source/FOOS and Sci-Fi, also a history buff and I love art, music and food
+# Site settings
+title: Your awesome title
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: Burnsedia3d
-github_username:  Burnsedia
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: jekyllrb
+github_username:  jekyll
 
 # Build settings
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-pwa-plugin
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+markdown: kramdown
