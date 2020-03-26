@@ -4,7 +4,7 @@
     <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bailey Burnsed</title>
+<title>About Me</title>
 <meta name="description" content="A blog about a Aspie Nerd/FullStack Developer.">
 
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -49,11 +49,12 @@
     <nav id="my-menu">
   <div>
     <p>Bailey Burnsed</p>
+
     <ul class="pages">
       <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-      <li><a href="/about"><i class="fa fa-about"></i> About</a></li>
-      <li><a href="/contact"><i class="fa fa-contact"></i> Contact</a></li>
-      <li><a href="/projects"><i class="fa fa-projects"></i> Projects</a></li>
+      <li><a href="/"><i class="fa fa-about"></i> About</a></li>
+      <li><a href="/"><i class="fa fa-contact"></i> Contact</a></li>
+      <li><a href="/"><i class="fa fa-projects"></i> Projects</a></li>
       <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
       <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
     </ul>
@@ -80,23 +81,12 @@
       <div class="wrap">
       <div class="container-fluid index">
   <div class="row index all-posts">
+    <h2 class="header" itemprop="headline"> About Me </h2>
+    <div class="col-md-12 content-panel articles">
+       <p>I am Bailey Burnsed, I am a Selft Tought Software Developer and a College student. I am now studing for my BS. in Computer Science at Univerity of the People.
+I am a passinit programmer and I love to develop application to solve almost and problom or repitive task that I come across. I love the Arts and the Sciences.</p>
 
-    <h1 class="header author-header"></h1>
-    <h2 class="header" itemprop="headline">All posts</h2>
-    <h2 class="header categories" itemprop="headline"><small>grouped by
-
-      <div class="dropdown btn-group">
-        <button class="btn btn-categories dropdown-toggle btn-xs" type="button" data-toggle="dropdown">Categories
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a href="/posts/">Years</a></li>
-        </ul>
-      </div>
-
-    </small></h2>
-      
-
+    </div>
   </div>
 </div>
 
@@ -129,48 +119,6 @@
    });
 </script>
 
-
-<script type="text/javascript">
-
-  function setFontSize() {
-
-    var title, dateOfTitle, fontSizeOfTitle, listOfA, listOfSmall, listOfArticlesDiv, divWidth;
-
-    listOfArticlesDiv = document.getElementsByClassName("articles");
-
-    for (i = 0; i < listOfArticlesDiv.length; i++) {
-
-      listOfA = document.getElementsByClassName("articles")[i].getElementsByTagName("a");
-      listOfSmall = document.getElementsByClassName("articles")[i].getElementsByTagName("small");
-
-      divWidth = document.getElementsByClassName("articles")[i].offsetWidth;
-
-      for (k = 0; k < listOfSmall.length; k++) {
-
-        title = $(listOfA[k]);
-        dateOfTitle = $(listOfSmall[k]);
-
-        fontSizeOfTitle = startingFontSize;
-        title.css("font-size", fontSizeOfTitle);
-
-        while (title.width() + dateOfTitle.width() >= divWidth)
-          title.css("font-size", fontSizeOfTitle -= 0.5);
-
-      }
-    }
-  }
-
-  function getStartFontSize() {
-    try {
-      startingFontSize = parseInt($(document.getElementsByClassName("articles")[0].getElementsByTagName("a")[0]).css("font-size"));
-      setFontSize();
-      window.addEventListener('resize', setFontSize, true);
-    } catch (e) {}
-  }
-
-  $(document).ready(getStartFontSize);
-
-</script>
 
 
 
