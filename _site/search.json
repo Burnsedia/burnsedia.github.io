@@ -1,6 +1,7 @@
 [
   
   {
+<<<<<<< HEAD
     "title"    : "Projects",
     "category" : "",
     "tags"     : "",
@@ -22,6 +23,13 @@
     "tags"     : "",
     "url"      : "/2020/03/28/20-54-resume/",
     "date"     : "2020-03-28 20:54:00 -0400"
+=======
+    "title"    : "About",
+    "category" : "",
+    "tags"     : "",
+    "url"      : "/2020/03/27/About/",
+    "date"     : "2020-03-27 00:00:00 -0400"
+>>>>>>> c0b7ed92fb5cb9631c2fc590cf5f868e0daee946
     } 
     
   ]
