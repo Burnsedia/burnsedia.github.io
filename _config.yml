@@ -4,8 +4,8 @@ email: bburnsed1995@gmail.com
 description: "A blog about a Aspie Nerd/FullStack Developer."
 baseurl: ""
 url: "https://www.baileyburnsed.dev"
-title_description: ""
-title_image: "https://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
+title_description: "I am Bailey Burnsed, I am a Self Taught Software Developer and a College student, now studying Computer Science. I am a passionate programmer and I love to develop applications in the Flutter framework and the MEVN,  JAM and LAMP stacks for my applications. I also develop games in the Godot Game engine and use Firebase and Playfab for the game backends."
+title_image: "https://secure.gravatar.com/avatar/95ca0276401807bd839003f4577d4a3f"
 google_analytics: "UA-20365477-4"
 disqus_account: cartenoire
 github_repository: https://github.com/jacobtomlinson/carte-noire

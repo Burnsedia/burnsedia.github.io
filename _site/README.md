@@ -32,7 +32,8 @@ This jekyll theme has been created from scratch. Ideas and inspiration are taken
 from other places but the code is my own.
 
 ## Tools and Libraries
-The following tools and libraries are used in this theme
+The following tools and lib9+
+raries are used in this theme
 
 ### JavaScript
  * [jQuery](http://jquery.com/)

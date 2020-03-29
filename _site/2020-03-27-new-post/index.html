@@ -4,7 +4,7 @@
     <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bailey Burnsed</title>
+<title>Bio</title>
 <meta name="description" content="A blog about a Aspie Nerd/FullStack Developer.">
 
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -76,54 +76,97 @@
 
     <div class="page-content">
       <div class="wrap">
-      <div class="container-fluid index">
-  <div class="row index all-posts">
+      
 
-    <h1 class="header author-header"></h1>
-    <h2 class="header" itemprop="headline">All posts</h2>
-    <h2 class="header categories" itemprop="headline"><small>grouped by
+<div class="container-fluid single">
+  <div class="row">
 
-      <div class="dropdown btn-group">
-        <button class="btn btn-categories dropdown-toggle btn-xs" type="button" data-toggle="dropdown">Categories
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a href="/posts/">Years</a></li>
-        </ul>
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+
+      <h1 class="header" itemprop="name">Bio</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Bailey Burnsed</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28"></span>
+           under 
+        </i></small>
       </div>
 
-    </small></h2>
-      
-      <div class="col-md-12 content-panel articles">
-        <h2 id="jekyll-ref">jekyll</h2>
-        <ul>
-          
-            
-              <li>
-                <a href=""></a>
-                <small class="hidden-xs"></small>
-              </li>
-            
-          
-            
-              <li>
-                <a href="/jekyll/2020/03/28/20-54-projects/">Projects</a>
-                <small class="hidden-xs">March 28, 2020</small>
-              </li>
-            
-              <li>
-                <a href="/jekyll/2020/03/28/20-54-welcome/">Welcome</a>
-                <small class="hidden-xs">March 28, 2020</small>
-              </li>
-            
-          
+      <div class="read-time">
+        <small>
+          1 minute read
+        </small>
+      </div>
 
-        </ul>
+      <div class="content-panel content">
+
+        
+
+        <span itemprop="articleBody"><p>Hello Cruel World!! I am your tipical Aspie Nerd who programs all night and develops stupid apps. 
+Aspie Simulator 2020 is my next project after I finilay finish my stupid SpaceCombat Sim/ Tactical Shooter.</p>
+</span>
+
+        
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+
+      </div>
+
+      
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/Burnsedia3dArt">@Burnsedia3dArt</a> or leave a comment below!
       </div>
       
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
 
   </div>
+
 </div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "cartenoire"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
 
       </div>
     </div>
@@ -154,48 +197,6 @@
    });
 </script>
 
-
-<script type="text/javascript">
-
-  function setFontSize() {
-
-    var title, dateOfTitle, fontSizeOfTitle, listOfA, listOfSmall, listOfArticlesDiv, divWidth;
-
-    listOfArticlesDiv = document.getElementsByClassName("articles");
-
-    for (i = 0; i < listOfArticlesDiv.length; i++) {
-
-      listOfA = document.getElementsByClassName("articles")[i].getElementsByTagName("a");
-      listOfSmall = document.getElementsByClassName("articles")[i].getElementsByTagName("small");
-
-      divWidth = document.getElementsByClassName("articles")[i].offsetWidth;
-
-      for (k = 0; k < listOfSmall.length; k++) {
-
-        title = $(listOfA[k]);
-        dateOfTitle = $(listOfSmall[k]);
-
-        fontSizeOfTitle = startingFontSize;
-        title.css("font-size", fontSizeOfTitle);
-
-        while (title.width() + dateOfTitle.width() >= divWidth)
-          title.css("font-size", fontSizeOfTitle -= 0.5);
-
-      }
-    }
-  }
-
-  function getStartFontSize() {
-    try {
-      startingFontSize = parseInt($(document.getElementsByClassName("articles")[0].getElementsByTagName("a")[0]).css("font-size"));
-      setFontSize();
-      window.addEventListener('resize', setFontSize, true);
-    } catch (e) {}
-  }
-
-  $(document).ready(getStartFontSize);
-
-</script>
 
 
 
