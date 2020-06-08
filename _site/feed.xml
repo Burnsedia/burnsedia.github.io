@@ -3,11 +3,11 @@
   <channel>
     <title>Bailey Burnsed</title>
     <description>A blog about a Aspie Nerd/FullStack Developer.</description>
-    <link>https://www.baileyburnsed.dev/</link>
-    <atom:link href="https://www.baileyburnsed.dev/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 29 Mar 2020 00:36:49 -0400</pubDate>
-    <lastBuildDate>Sun, 29 Mar 2020 00:36:49 -0400</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 07 Jun 2020 21:19:38 -0400</pubDate>
+    <lastBuildDate>Sun, 07 Jun 2020 21:19:38 -0400</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
     
       <item>
         <title>Projects</title>
@@ -24,8 +24,8 @@ Helment.js is a framework that is meant to prevent code and command injection at
 
 </description>
         <pubDate>Sat, 28 Mar 2020 22:00:00 -0400</pubDate>
-        <link>https://www.baileyburnsed.dev/jekyll/2020/03/28/20-54-projects/</link>
-        <guid isPermaLink="true">https://www.baileyburnsed.dev/jekyll/2020/03/28/20-54-projects/</guid>
+        <link>http://localhost:4000/jekyll/2020/03/28/20-54-projects/</link>
+        <guid isPermaLink="true">http://localhost:4000/jekyll/2020/03/28/20-54-projects/</guid>
         
         
         <category>jekyll</category>
@@ -55,8 +55,8 @@ not really good for production in my case.&lt;/p&gt;
 &lt;p&gt;Please share my blog and Star my GitHub projects, Thank you for your time, have a good day.&lt;/p&gt;
 </description>
         <pubDate>Sat, 28 Mar 2020 20:54:00 -0400</pubDate>
-        <link>https://www.baileyburnsed.dev/jekyll/2020/03/28/20-54-welcome/</link>
-        <guid isPermaLink="true">https://www.baileyburnsed.dev/jekyll/2020/03/28/20-54-welcome/</guid>
+        <link>http://localhost:4000/jekyll/2020/03/28/20-54-welcome/</link>
+        <guid isPermaLink="true">http://localhost:4000/jekyll/2020/03/28/20-54-welcome/</guid>
         
         <category>welcome</category>
         
@@ -220,8 +220,8 @@ development project. I have used Godot to make games for android&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 28 Mar 2020 20:54:00 -0400</pubDate>
-        <link>https://www.baileyburnsed.dev/2020/03/28/20-54-resume/</link>
-        <guid isPermaLink="true">https://www.baileyburnsed.dev/2020/03/28/20-54-resume/</guid>
+        <link>http://localhost:4000/2020/03/28/20-54-resume/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/03/28/20-54-resume/</guid>
         
         
       </item>
