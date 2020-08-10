@@ -1,0 +1,20 @@
+{
+  "name": "baileyburnsed",
+  "version": "0.0.1",
+  "description": "my personal blog, Vlog and devlog for my personal apps and game.",
+  "main": "index.js",
+  "authors": {
+    "name": "Bailey",
+    "email": "bburnsed1995@gmail.com"
+  },
+  "repository": "burnsedia.github.io/baileyburnsed",
+  "scripts": {
+    "dev": "vuepress dev blog",
+    "build": "vuepress build blog"
+  },
+  "license": "AGPLv3",
+  "devDependencies": {
+    "vuepress": "^1.3.1",
+    "@vuepress/theme-blog": "^2.1.0"
+  }
+}
