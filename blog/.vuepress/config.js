@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'VuePress Blog Example',
-  description: 'This is a blog example built by VuePress',
+  title: 'Bailey Burnsed',
+  description: 'Personal Blog of a Aspie Nerd and Self Tought FullStack Software Developer/Devops Engineer',
   theme: '@vuepress/theme-blog', // OR shortcut: @vuepress/blog
   themeConfig: {
     /**
@@ -14,13 +14,24 @@ module.exports = {
      */
     nav: [
       {
-        text: 'Blog',
+        text: 'Home',
         link: '/',
+      },
+      {
+        text: 'Blog',
+        link: '/_posts',
       },
       {
         text: 'Tags',
         link: '/tag/',
       },
+      { text: 'Portflio',
+		    link: '/portflio/',
+      },
+      {
+        text: 'Contact',
+        link: '/contact.html'
+      }
     ],
     /**
      * Ref: https://vuepress-theme-blog.ulivz.com/#footer
@@ -29,12 +40,16 @@ module.exports = {
       contact: [
         {
           type: 'github',
-          link: 'https://github.com/ulivz',
+          link: 'https://github.com/Burnsedia',
+        },
+        {
+          type: 'email',
+          link: 'bburnsed1995@gmail.com',
         },
         {
           type: 'twitter',
-          link: 'https://twitter.com/_ulivz',
-        },
+          link: 'https://twitter.com/Burnsed3dArt'
+        }
       ],
       copyright: [
         {
@@ -42,7 +57,7 @@ module.exports = {
           link: 'https://policies.google.com/privacy?hl=en-US',
         },
         {
-          text: 'MIT Licensed | Copyright © 2018-present Vue.js',
+          text: 'AGPLv3 | Copyright © 2020-present Burnsedia',
           link: '',
         },
       ],
