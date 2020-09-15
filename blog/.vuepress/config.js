@@ -23,16 +23,20 @@ theme: '@vuepress/blog',  // OR shortcut: @vuepress/blog
         text: 'Blog',
         link: '/blog/'
       },
-      {
-        text: 'Tags',
-        link: '/tag/',
-      },
       { text: 'Portflio',
         link: '/portflio/',
       },
       {
         text: 'Contact',
         link: '/contact.html'
+      },
+      {
+        text:'Store',
+        link:'/store/'
+      },
+      {
+        text:'Services',
+        link: '/services/'
       }
     ],
     sidebar: {
