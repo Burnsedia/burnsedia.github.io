@@ -27,17 +27,18 @@ theme: '@vuepress/blog',  // OR shortcut: @vuepress/blog
         link: '/portflio/',
       },
       {
-        text: 'Contact',
-        link: '/contact.html'
-      },
-      {
         text:'Store',
         link:'/store/'
       },
       {
         text:'Services',
         link: '/services/'
+      },
+      {
+        text: 'Contact',
+        link: '/contact.html'
       }
+ 
     ],
     sidebar: {
       '/portflio/':[

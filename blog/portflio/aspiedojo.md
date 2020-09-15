@@ -8,11 +8,7 @@ tag:
 author: Bailey Burnsed
 ---
 
-# AspieDojo, a App to help Aspies learn Socal Skill, made for aspies by Aspies
+# AspieDojo
+## Learn Social Skill, from those Nerotipicals
+### by aspies for aspies
 
-Test test Test
-
-test test test
-
-
-test test Test
