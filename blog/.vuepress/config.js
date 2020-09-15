@@ -16,8 +16,12 @@ theme: '@vuepress/blog',  // OR shortcut: @vuepress/blog
      */
     nav: [
       {
-        text: 'blog',
+        text:'Home',
         link: '/'
+      },
+      {
+        text: 'Blog',
+        link: '/blog/'
       },
       {
         text: 'Tags',
