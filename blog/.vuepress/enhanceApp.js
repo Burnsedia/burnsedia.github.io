@@ -1,6 +1,11 @@
 /**
  * Client app enhancement file.
  *
+ * @ settup SignUp
+ * @ settup Login
+ * @ setup Maillist
+ * @ setup Patreon
+ *
  * https://v1.vuepress.vuejs.org/guide/basic-config.html#app-level-enhancements
  */
 
