@@ -43,4 +43,3 @@ I am building a "small" 4x FPS Space Combat and Empire mangagement sim, that I h
 
 I am also making a serias of apps to help autisic people with finding jobs, friends and nice places to go that are not overwealming. 
 
-

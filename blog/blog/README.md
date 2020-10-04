@@ -14,5 +14,10 @@ The reasons why I love open source, and freespeech.
 
 Working on the Tech Tree for The Hive, an InterStellar Despot Simulator.
 
+# [DevLog| Tech Tree part 2](./DevLog_TechTree_DevLog-2.md)
+ShipCraftig and Subsystems.
+
 # [DevLog - VuePress Plugin Development](./DevLog_VuePress_Plugin.md)
+Working on VuePress Plugin for my work
+
 
