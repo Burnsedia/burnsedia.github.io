@@ -8,22 +8,9 @@ sidebar:auto
 
 A Retro 4x Space Combat Sim
 
-# 3d Models
+# [3d Models](./3dModels)
 
 I make and Sell 3d models made in Blender in GLTF files and FBX fiels
-
-## Weapons and Tools
-
-3d models of Chartor Props such as weapons and tools
-like Sci-Fi Tools, Laser/Plamsa Cutters and Rifles.
-
-## Ships and Vehicals
-
-3d Models of Ships and Vehicals in a Flat Color/Low Polly Models, Optimized for Video Game and Animations
-
-## Charetors and Creatures
-
-Charetor Models for Video Games
 
 # Blender Plugins
 

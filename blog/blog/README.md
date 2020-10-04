@@ -10,14 +10,16 @@ I have started the prosces of starting a bussness.
 
 The reasons why I love open source, and freespeech. 
 
-# [DevLog Working the Tech Tree for The Hive](./DevLog_TechTree_Space_Game.md)
+# Game Devlog
+## [DevLog Working the Tech Tree for The Hive](./DevLog_TechTree_Space_Game.md)
 
 Working on the Tech Tree for The Hive, an InterStellar Despot Simulator.
 
-# [DevLog| Tech Tree part 2](./DevLog_TechTree_DevLog-2.md)
+## [DevLog | Tech Tree part 2](./DevLog_TechTree_DevLog-2.md)
 ShipCraftig and Subsystems.
 
-# [DevLog - VuePress Plugin Development](./DevLog_VuePress_Plugin.md)
+# VuePress & Vuejs Devlog
+## [DevLog - VuePress Plugin Development](./DevLog_VuePress_Plugin.md)
 Working on VuePress Plugin for my work
 
 
