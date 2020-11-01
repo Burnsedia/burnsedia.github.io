@@ -1,5 +1,5 @@
 ---
-sidebar:auto
+work_index: true
 ---
 
-<BlogPostListings>
+<ProjectLists/>
