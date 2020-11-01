@@ -1,21 +1,14 @@
 {
-  "name": "baileyburnsed",
-  "version": "0.0.1",
-  "description": "my personal blog, Vlog and devlog for my personal apps and game.",
-  "main": "index.js",
-  "authors": {
-    "name": "Bailey",
-    "email": "bburnsed1995@gmail.com"
-  },
-  "repository": "burnsedia.github.io/baileyburnsed",
+  "name": "portfolio-vuepress",
   "scripts": {
-    "dev": "vuepress dev blog",
-    "build": "vuepress build blog"
+    "site:build": "vuepress build portfolio",
+    "site:develop": "vuepress dev portfolio"
   },
-  "license": "AGPLv3",
-  "devDependencies": {
-    "@vuepress/plugin-blog": "^1.9.2",
-    "@vuepress/theme-blog": "^2.3.2",
-    "vuepress": "^1.3.1"
+  "author": "Nichlas W. Andersen",
+  "license": "MIT",
+  "dependencies": {
+    "package.json": "^2.0.1",
+    "vuepress": "^1.2.0",
+    "webpack-dev-middleware": "3.6.0"
   }
 }
