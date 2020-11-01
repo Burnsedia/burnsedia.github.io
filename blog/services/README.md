@@ -67,6 +67,7 @@ PWAs, and Material Design are my personal favorit.
 - MongoDB
 - Postgressdb
 - SQLite
+---
 
 ## Mobile Development
 
@@ -85,6 +86,7 @@ technologes.
 - C#
 - Firebase
 - SQLite
+---
 
 ## Game Development
 

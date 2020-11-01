@@ -14,6 +14,8 @@
   },
   "license": "AGPLv3",
   "devDependencies": {
+    "@vuepress/plugin-blog": "^1.9.2",
+    "@vuepress/theme-blog": "^2.3.2",
     "vuepress": "^1.3.1"
   }
 }

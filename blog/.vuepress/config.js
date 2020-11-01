@@ -1,12 +1,13 @@
 module.exports = {
   title: 'Bailey Burnsed',
   description: 'Personal Blog of a Aspie Nerd and Self Tought FullStack Software Developer/Devops Engineer',
-theme: '@vuepress/blog',  // OR shortcut: @vuepress/blog
+
+ theme: '@vuepress/blog',  // OR shortcut: @vuepress/blog
   themeConfig: {
     /**
      * Ref: https://vuepress-theme-blog.ulivz.com/#modifyblogpluginoptions
      */
-/**
+    /**
     modifyBlogPluginOptions(blogPluginOptions) {
       return blogPluginOptions
     },
@@ -21,7 +22,7 @@ theme: '@vuepress/blog',  // OR shortcut: @vuepress/blog
       },
       {
         text: 'Blog',
-        link: '/blog/'
+        link: '/_post/'
       },
       { text: 'Portflio',
         link: '/portflio/',
@@ -38,17 +39,10 @@ theme: '@vuepress/blog',  // OR shortcut: @vuepress/blog
         text: 'Contact',
         link: '/contact.html'
       }
- 
     ],
-    sidebar: {
-      '/portflio/':[
-        '',
-        'aspie_meets_nerd',
-        'aspiedojo',
-        'kupcakerie_pwa',
-        'the-hive'
-      ]
-    },
+    
+    sidebar: 'auto',
+
     /**
      * Ref: https://vuepress-theme-blog.ulivz.com/#footer
      */
@@ -63,8 +57,16 @@ theme: '@vuepress/blog',  // OR shortcut: @vuepress/blog
           link: 'bburnsed1995@gmail.com',
         },
         {
+          type: 'linkedin',
+          link: 'https://www.linkedin.com/in/bailey-burnsed-50051115a/'
+        },
+        {
           type: 'twitter',
           link: 'https://twitter.com/Burnsed3dArt'
+        },
+        {
+          type: 'medium',
+          link: 'https://medium.com/baileyburnsed'
         }
       ],
       copyright: [
