@@ -1,7 +1,0 @@
-{
- "hosting": {
-   "public": "./src/.vuepress/dist",
-   "ignore": []
- }
-}
-
