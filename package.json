@@ -15,7 +15,7 @@
     "personal-blog"
   ],
   "dependencies": {
-    "firebase": "^8.2.5",
+    "firebase": "^8.2.6",
     "vuepress": "1.8.0",
     "vuepress-theme-hope": "1.9.3"
   }
