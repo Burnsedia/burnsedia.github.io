@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>DevLog, Space Game - Bailey Burnsed</title><meta name="gridsome:hash" content="5ed145787bfc674e6ab2df4d7bf6598610170fae"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.23"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" data-key="description" name="description" content="A blog of a apsie nerd who makes freedom respacting apps and games"><meta data-vue-tag="ssr" name="description" content=""><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/burnsedia.github.io/assets/static/favicon.ce0531f.d56e50e36202098550390390950bd9bb.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/burnsedia.github.io/assets/static/favicon.ac8d93a.d56e50e36202098550390390950bd9bb.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/burnsedia.github.io/assets/static/favicon.b9532cc.d56e50e36202098550390390950bd9bb.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/burnsedia.github.io/assets/static/favicon.f22e9f3.d56e50e36202098550390390950bd9bb.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/burnsedia.github.io/assets/static/favicon.62d22cb.d56e50e36202098550390390950bd9bb.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/burnsedia.github.io/assets/static/favicon.1539b60.d56e50e36202098550390390950bd9bb.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/burnsedia.github.io/assets/static/favicon.dc0cdc5.d56e50e36202098550390390950bd9bb.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/burnsedia.github.io/assets/static/favicon.7b22250.d56e50e36202098550390390950bd9bb.png"><link rel="preload" href="/burnsedia.github.io/assets/css/6.styles.793ca337.css" as="style"><link rel="preload" href="/burnsedia.github.io/assets/js/app.569c034f.js" as="script"><link rel="preload" href="/burnsedia.github.io/assets/js/page--src--templates--post-vue.d9db976a.js" as="script"><link rel="prefetch" href="/burnsedia.github.io/assets/js/page--node-modules--gridsome--app--pages--404-vue.d65d0dec.js"><link rel="prefetch" href="/burnsedia.github.io/assets/js/page--src--pages--about-vue.f9d3bf42.js"><link rel="prefetch" href="/burnsedia.github.io/assets/js/page--src--pages--index-vue.33a7091d.js"><link rel="prefetch" href="/burnsedia.github.io/assets/js/page--src--templates--tag-vue.9b6911ee.js"><link rel="stylesheet" href="/burnsedia.github.io/assets/css/6.styles.793ca337.css"><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <script>
+      // Add dark / light detection that runs before Vue.js load. Borrowed from overreacted.io
+      (function() {
+        window.__onThemeChange = function() {};
+        function setTheme(newTheme) {
+          window.__theme = newTheme;
+          preferredTheme = newTheme;
+          document.body.setAttribute('data-theme', newTheme);
+          window.__onThemeChange(newTheme);
+        }
+
+        var preferredTheme;
+        try {
+          preferredTheme = localStorage.getItem('theme');
+        } catch (err) { }
+
+        window.__setPreferredTheme = function(newTheme) {
+          setTheme(newTheme);
+          try {
+            localStorage.setItem('theme', newTheme);
+          } catch (err) {}
+        }
+
+        var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        darkQuery.addListener(function(e) {
+          window.__setPreferredTheme(e.matches ? 'dark' : 'light')
+        });
+
+        setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+      })();
+    </script>
+
+    <div id="app" data-server-rendered="true"><nav role="navigation" aria-label="primary navigation" class="navbar"><div class="container"><div class="navbar-brand"><a href="/burnsedia.github.io/" class="navbar-item is-size-4 has-text-weight-bold active">
+  Bailey Burnsed
+</a><a role="button" aria-label="menu" aria-expanded="false" class="navbar-burger burger"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></a></div><div class="navbar-menu"><div class="navbar-end"><a href="/burnsedia.github.io/about" class="navbar-item">
+            About
+          </a><a href="//github.com/Burnsedia" class="navbar-item">
+            GitHub
+          </a><a href="//www.patreon.com/RetroFOSS" class="navbar-item">
+            Patreon
+          </a><a href="//www.youtube.com/channel/UC71vuzjHKhS4Wv4Px44FKjg" class="navbar-item">
+          Youtube
+          </a></div></div></div></nav><main class="section"><div class="has-text-centered"><h1 class="title is-1">
+      DevLog, Space Game
+    </h1><div class="content subtitle is-size-6">
+  Posted 15. October 2020.
+  <strong>1 min read.</strong></div></div><div class="post content section container"><!----><div><h1 id="tech-tree---ship-mudals"><a href="#tech-tree---ship-mudals" aria-hidden="true"><span class="icon icon-link"></span></a>Tech Tree - Ship Mudals</h1>
+<p>Do you like Ships? Do you like the meta game of crafting you ships and weapons?
+Well I got a Suprise for you! The Hive: Interstellar Despot Sim is getting a ship crafting and
+costumization system. This new crafting systgem will allow you to play the way you wnat.</p>
+<p>Moduals will have interals slots, mountpoints and hardpoints. Interal slots are for subsystems like
+Reactors, Fual Tanks and hargo and hanger bays. Exteral hardpoints are for Sensors/Communitcatins,
+Weapons and Engines. Mountpoints are for adding for ship moduals.</p>
+<h2 id="core-mudals"><a href="#core-mudals" aria-hidden="true"><span class="icon icon-link"></span></a>Core Mudals</h2>
+<ul>
+<li>Ship Core</li>
+<li>Ship Forward</li>
+<li>Ship Aft</li>
+</ul>
+<p>Ships in this update will have at leat 3 core mudals.
+Thes core moduals will have hardpoints that will allow sensors, weapons, and
+Hangers for you fightert.</p>
+<h3 id="ship-cores"><a href="#ship-cores" aria-hidden="true"><span class="icon icon-link"></span></a>Ship Cores</h3>
+<p>Ship cores contain 3 to 5 interal slots and 2 mount point and 3-4 hardpoint to mount exteral
+subsystems.</p>
+<h2 id="advance-moduals"><a href="#advance-moduals" aria-hidden="true"><span class="icon icon-link"></span></a>Advance Moduals.</h2>
+<ul>
+<li>Hangers</li>
+<li>Command structors</li>
+<li>Minning Systems</li>
+<li>Station Constution Systems</li>
+</ul>
+<h2 id="subsyteswms"><a href="#subsyteswms" aria-hidden="true"><span class="icon icon-link"></span></a>Subsyteswms</h2>
+<ul>
+<li>Heat Sencks and Radators</li>
+<li>Power Generators</li>
+<li>Power Storages</li>
+<li>Cargo Storage</li>
+</ul>
+</div><footer><div class="tags"></div></footer></div><div class="post-comments"></div></main><footer class="footer has-text-centered"><span>Copyright © 2021. </span><span>Powered by <a href="//gridsome.org"> Gridsome </a></span></footer></div>
+    <script>window.__INITIAL_STATE__={"data":{"post":{"title":"DevLog, Space Game","path":"\u002Fdev-log-space-game\u002F","date":"15. October 2020","timeToRead":1,"tags":[],"description":"","content":"\u003Ch1 id=\"tech-tree---ship-mudals\"\u003E\u003Ca href=\"#tech-tree---ship-mudals\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003ETech Tree - Ship Mudals\u003C\u002Fh1\u003E\n\u003Cp\u003EDo you like Ships? Do you like the meta game of crafting you ships and weapons?\nWell I got a Suprise for you! The Hive: Interstellar Despot Sim is getting a ship crafting and\ncostumization system. This new crafting systgem will allow you to play the way you wnat.\u003C\u002Fp\u003E\n\u003Cp\u003EModuals will have interals slots, mountpoints and hardpoints. Interal slots are for subsystems like\nReactors, Fual Tanks and hargo and hanger bays. Exteral hardpoints are for Sensors\u002FCommunitcatins,\nWeapons and Engines. Mountpoints are for adding for ship moduals.\u003C\u002Fp\u003E\n\u003Ch2 id=\"core-mudals\"\u003E\u003Ca href=\"#core-mudals\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003ECore Mudals\u003C\u002Fh2\u003E\n\u003Cul\u003E\n\u003Cli\u003EShip Core\u003C\u002Fli\u003E\n\u003Cli\u003EShip Forward\u003C\u002Fli\u003E\n\u003Cli\u003EShip Aft\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\n\u003Cp\u003EShips in this update will have at leat 3 core mudals.\nThes core moduals will have hardpoints that will allow sensors, weapons, and\nHangers for you fightert.\u003C\u002Fp\u003E\n\u003Ch3 id=\"ship-cores\"\u003E\u003Ca href=\"#ship-cores\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003EShip Cores\u003C\u002Fh3\u003E\n\u003Cp\u003EShip cores contain 3 to 5 interal slots and 2 mount point and 3-4 hardpoint to mount exteral\nsubsystems.\u003C\u002Fp\u003E\n\u003Ch2 id=\"advance-moduals\"\u003E\u003Ca href=\"#advance-moduals\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003EAdvance Moduals.\u003C\u002Fh2\u003E\n\u003Cul\u003E\n\u003Cli\u003EHangers\u003C\u002Fli\u003E\n\u003Cli\u003ECommand structors\u003C\u002Fli\u003E\n\u003Cli\u003EMinning Systems\u003C\u002Fli\u003E\n\u003Cli\u003EStation Constution Systems\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\n\u003Ch2 id=\"subsyteswms\"\u003E\u003Ca href=\"#subsyteswms\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003ESubsyteswms\u003C\u002Fh2\u003E\n\u003Cul\u003E\n\u003Cli\u003EHeat Sencks and Radators\u003C\u002Fli\u003E\n\u003Cli\u003EPower Generators\u003C\u002Fli\u003E\n\u003Cli\u003EPower Storages\u003C\u002Fli\u003E\n\u003Cli\u003ECargo Storage\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\n","cover_image":null}},"context":{}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="/burnsedia.github.io/assets/js/app.569c034f.js" defer></script><script src="/burnsedia.github.io/assets/js/page--src--templates--post-vue.d9db976a.js" defer></script>
+  </body>
+</html>
