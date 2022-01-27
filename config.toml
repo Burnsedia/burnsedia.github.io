@@ -12,7 +12,7 @@ paginate = 5
   themeColor = "red"
 
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2
+  showMenuItems = 5
 
   # show selector to switch language
   showLanguageSelector = false
@@ -40,8 +40,15 @@ paginate = 5
   # set Twitter handles for Twitter cards
   # see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
   # do not include @
-  creator = ""
-  site = ""
+  creator = "Bailey"
+  site = "https://twitter.com/Burnsed3dArt"
+[params.github]
+  # set Twitter handles for Twitter cards
+  # see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
+  # do not include @
+  creator = "Burnsedia"
+  site = "https://github.com/Burnsedia"
+
 
 [languages]
   [languages.en]
@@ -69,12 +76,11 @@ paginate = 5
         name = "About"
         url = "/about"
       [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
-
-      [[languages.en.menu.main]]
         identifier = "contact"
         name = "Contact"
-        url = "/Contact"
-     
+        url = "/contact"
+      [[languages.en.menu.main]]
+        identifier = "Games"
+        name = "Games"
+        url = "/games"
+    

@@ -34,8 +34,24 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>I am your tipical autisic nerd, that makes termainal apps in rust and freelances web development</description>
-      <content>&lt;p&gt;I am your tipical autisic nerd, that makes termainal apps in rust and freelances web development&lt;/p&gt;
+      <description>I am your typical autistic nerd, that makes CLI applications in rust and Games in Godot Engine, and in Rust. This is my blog were I go over how I became a self taught developer, with just blood, sweet and lots of coffee. I also make Tutorial on Rust and Godot engine, Python frameworks. I love Tech, art and music.
+I love to learn about new tech, discoveries in physics and biology.</description>
+      <content>&lt;p&gt;I am your typical autistic nerd, that makes CLI applications in rust and Games in Godot Engine, and in Rust.
+This is my blog were I go over how I became a self taught developer, with just blood, sweet and lots of coffee.
+I also make Tutorial on Rust and Godot engine, Python frameworks. I love Tech, art and music.&lt;/p&gt;
+&lt;p&gt;I love to learn about new tech, discoveries in physics and biology.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>I you would like to schedule a consulting session you can email me at bburnsed1995@gmail.com</description>
+      <content>&lt;h1 id=&#34;i-you-would-like-to-schedule-a-consulting-session-you-can-email-me-at&#34;&gt;I you would like to schedule a consulting session you can email me at&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:bburnsed1995@gmail.com&#34;&gt;bburnsed1995@gmail.com&lt;/a&gt;&lt;/p&gt;
 </content>
     </item>
     
