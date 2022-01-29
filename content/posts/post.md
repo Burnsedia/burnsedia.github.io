@@ -4,11 +4,13 @@ date = "2021-05-28T11:37:54-04:00"
 author = ""
 authorTwitter = "" #do not include @
 cover = ""
-tags = ["Linux", ""]
+tags = ["Linux", "Self-Toughs"]
 keywords = ["", ""]
 description = ""
 showFullContent = false
 +++
 
-THis is a post
+# Going Pro
+
+I have gone p
 

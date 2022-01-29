@@ -56,7 +56,7 @@ paginate = 5
     title = "Bailey Burnsed"
     subtitle = "freelance developer and aspi nerd"
     owner = ""
-    keywords = ""
+    keywords = "blog vlog cybersecurity foss"
     copyright = ""
     menuMore = "Show more"
     readMore = "Read more"
@@ -79,8 +79,4 @@ paginate = 5
         identifier = "contact"
         name = "Contact"
         url = "/contact"
-      [[languages.en.menu.main]]
-        identifier = "Games"
-        name = "Games"
-        url = "/games"
-    
+  
