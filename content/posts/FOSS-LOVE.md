@@ -1,11 +1,15 @@
----
-preview_image: "/uploads/undraw_explore_7ofa.png"
-author: Bailey Burnsed
-title: Why I love FOSS
-published: true
-date: 2019-09-15T05:00:00Z
-excerpt: This is a summary of the blog post that will display in the article list.
----
++++
+title = "Why I love FOSS"
+date = "2021-05-28T11:37:54-04:00"
+author = "Bailey Burnsed"
+authorTwitter = "Burnsedia3dArt" 
+cover = ""
+tags = ["Linux", "Self-Toughs", "FOSS"]
+keywords = ["FOSS", "Linux","Self-Toughs", ""]
+description = ""
+showFullContent = false
++++
+
 
 
 

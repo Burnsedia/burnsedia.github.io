@@ -25,9 +25,11 @@ I fell that all the apps these days, are a massive security risk. I am developin
 
 I started programming as a kid, making mods to Civilization 5 and Command and Conquer. 
 When I was in high school, I started freelancing web development with Django, and WordPress. I fell in loved it.
-I found it easier to work as a freelance web developer because my Autism makes it easier for me to understand computers and software systems
+I found it easier to work as a freelance web developer because my Autism makes it easier for me to understand computers and software systems, and 
+there is less of a stigma being autistic, while working in tech. 
 
-But that is not to say there were no challenges, there were to many to count. negosationg prices is was a big one.
-I got past the challenge of negosationg with people, I took a long time. I found people, that I can understand and I know have friends and calleges, that I can work with and I love to learn network. So I started freelancing again and I am now supporting myself as a dev. I am building and selling apps, games, and I am building a SaaS to help people with managing your privacy.
-
-A massive thank you to all the people who have help me regain my love for code and start my life.
+I am also making my own Mobile Apps and Games. I love making apps a that just solve problems and not spy on people. All apps need data,
+but not every app needs your browser history, payment history and your personal beliefs. The apps that I am developing are FOSS,
+which means Free and Open Source Software. The Free part of FOSS is Free as in Libra, not Cost. You always pay for software,
+the software is either crowdfunded, premium(Pay for Downloads), Ecosystem, your you pay for user made plugins and the developer of the main app
+takes a cut of the sales, or data monetization. Even FOSS apps do this, free as in speech not free as in free beer. 
