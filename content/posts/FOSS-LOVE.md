@@ -20,4 +20,4 @@ are licensed in such a way, that I know what I can and cannot do with the softwa
 I own my art with FOSS, in many cases, your ownership of your work when using Adobe or AutoDesk projects, that can be call into question because of the vagueness of the licence, 
 most of the time it is not a big deal, but when it is, it's a never good. 
 
-I found that I am more productive using open source because I can modify it to fit my actact needs. You can not do that with any closed source software and if you are a small business, you can hire that nerd friend of yours to fix it, tweak it and fork it to make it work best for you.
+I found that I am more productive using open source because I can modify it to fit my actual needs. You can not do that with any closed source software and if you are a small business, you can hire that nerd friend of yours to fix it, tweak it and fork it to make it work best for you.

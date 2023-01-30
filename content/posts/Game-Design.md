@@ -24,15 +24,14 @@ Weapons and Engines. Mountpoints are for adding for ship moduals.
 - Ship Forward
 - Ship Aft
 
-Ships in this update will have at leat 3 core mudals.
-Thes core moduals will have hardpoints that will allow sensors, weapons, and
-Hangers for you fightert.
+Ships in this update will have at lest 3 core modules.
+These core modules will have hard-points that will allow sensors, weapons, and
+Hangers for you fighters.
 
 ### Ship Cores
-Ship cores contain 3 to 5 interal slots and 2 mount point and 3-4 hardpoint to mount exteral
-subsystems.
+Ship cores contain 3 to 5 internal slots and 2 mount point and 3-4 hard-points to mount external subsystems.
 
-## Advance Moduals.
+## Advance Modules.
 
 - Hangers
 - Command structors
@@ -41,7 +40,7 @@ subsystems.
 
 ## Subsyteswms
 
-- Heat Sencks and Radators
+- Heat Syncs and Raddatores
 - Power Generators
 - Power Storages
 - Cargo Storage
