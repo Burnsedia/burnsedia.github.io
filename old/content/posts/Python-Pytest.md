@@ -35,12 +35,12 @@ sudo pip install pytest
 sudo pip install selenium
 ```
 
-Then we need to download the Selenium driver, on windows just got to the site and put the binarry in the same directory as the project, on linux and macos you can use a package manager, BTW I use Arch so I will just run 
+Then we need to download the Selenium driver, on windows just got to the site and put the binary in the same directory as the project, on linux and macos you can use a package manager, BTW I use Arch so I will just run 
 
 ```
 sudo yay -S chromedriver
 ```
-If you are on MacOS or Anyother linux Distro I recommend Nix package mangager
+If you are on MacOS or another Linux Distro I recommend Nix package manager
 
 ```
 nix-shell -p chromedriver
@@ -53,7 +53,7 @@ import pytest
 import selenium
 ```
 
-now we neeed to create a test setup function
+Now we need to create a test setup function
 
 ```python
 
