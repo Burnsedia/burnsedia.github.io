@@ -53,16 +53,44 @@ import pytest
 import selenium
 ```
 
-now we neeed to create a test setup function
+now we need to create a test setup function
 
 ```python
 
-webdriver = 
 
 def test_setup():
     global driver 
-    driver
+    driver_path = "/path/to/chromedriver"
+    driver = webdriver.Chrome(driver_path)
+    #Wait for Page to Load
+    driver.implicitly_wait(10)
+    # get a website, so demo
+    driver.get(https://initpro.dev/)
+```
+Now lets find the contact for and send a Email
+
+```python
+def email_form_test():
+    driver.find_element_by_id("name")
+    driver.find_element_by_id("email")
+    driver.find_element_by_id("message")
 ```
 
+We can also test other thinks like the website's title
 
-### How to Setup OOP Testing
+```python
+def title_test():
+    t = driver.title
+    x = driver.title
+    assert x == "iniPro - initPro"
+```
+You can test almost anything on the website, such as Modals, Form and Menus. After all test have passed you need to "tare down" the webdriver. 
+To do this I recommend just having a function at the end call 
+
+```python
+def test_teardown():
+    driver.close()
+    driver.quit()
+    print("Test Complete")
+```
+
