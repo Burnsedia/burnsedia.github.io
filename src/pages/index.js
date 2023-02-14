@@ -4,7 +4,7 @@ import Layout from "../components/Loyout"
 const IndexPage = () => {
   return (
     <Layout>
-      <section class="section is-medium has-text-centered">
+      <section className="section is-medium has-text-centered">
         <p>
           JUST SOME NERD
         </p>

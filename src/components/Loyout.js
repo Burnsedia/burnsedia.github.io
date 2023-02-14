@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import Footer from "./Footer"
 import Header from "./Header"
 const Layout = ({pageTitle, childern}) => {
-  
   return (
     <div>
       <Header/>
@@ -14,5 +13,6 @@ const Layout = ({pageTitle, childern}) => {
     <Footer/>
     </div>
   )
-
 }
+
+export default Layout;

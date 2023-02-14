@@ -1,30 +1,28 @@
 import React from "react";
 import { Link } from "gatsby";
 
-
-
 const NavBar = () => {
   return (
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
+      <nav className="navbar" role="navigation" ariaLabel="main navigation">
+        <div className="navbar-brand">
           
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <a role="button" className="navbar-burger" ariaLabel="menu" ariaExpanded="false">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
         </div>
       
-        <div id="navbarBasicExample" class="navbar-menu centered">
-          <div class="navbar-start">
-            <Link to="/"class="navbar-item">
+        <div id="navbarBasicExample" className="navbar-menu centered">
+          <div className="navbar-start">
+            <Link to="/"className="navbar-item">
               Home
             </Link>
       
-            <Link to="/projects" class="navbar-item">
+            <Link to="/projects" className="navbar-item">
               Projects 
             </Link>
-            <Link to="/blog" class="navbar-item">
+            <Link to="/blog" className="navbar-item">
               Blog 
             </Link>
             </div>
@@ -33,3 +31,4 @@ const NavBar = () => {
   )
 }
 
+export default NavBar;
