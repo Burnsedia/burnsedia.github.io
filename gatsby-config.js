@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `baileyburnsed.dev`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.baileyburnsed.dev`
   },
   plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
