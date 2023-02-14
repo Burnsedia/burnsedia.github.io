@@ -1,6 +1,12 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import NavBar from "./Navbar"
+import NavBar from "./Navbar";
 
 
-const Header 
+const Header = () => {
+  return (
+    <header>
+      <NavBar/>
+    </header>
+  )
+}
