@@ -11,7 +11,7 @@ const Layout = ({pageTitle, childern}) => {
         <h1>{pageTitle}</h1>
         {childern}
       </main>
-      <Footer/>
+    <Footer/>
     </div>
   )
 
