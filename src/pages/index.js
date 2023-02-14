@@ -6,7 +6,7 @@ const IndexPage = () => {
     <Layout>
       <section class="section is-medium has-text-centered">
         <p>
-
+          JUST SOME NERD
         </p>
       </section>
     </Layout>
