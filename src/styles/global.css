@@ -9,11 +9,13 @@ body {
 	padding: 20px;
 	max-width: 65ch;
 	text-align: left;
-	background-color: #1d1f23;
+	background-image: linear-gradient(#1d1f23, #222);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	line-height: 1.5;
 	color: #fff;
+  min-height: 100%;
+
 }
 h1,
 h2,
@@ -65,3 +67,8 @@ blockquote {
 	margin: 0px;
 	font-style: italic;
 }
+.logo{
+  width: 400px;
+  clip-path: circle();
+}
+
