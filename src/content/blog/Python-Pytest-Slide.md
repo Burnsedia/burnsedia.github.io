@@ -1,6 +1,14 @@
+<!-- --- -->
+<!-- title: "Pytest and Selenium" -->
+<!-- description: "Lorem ipsum dolor sit amet" -->
+<!-- --- -->
 ---
-title: Pytest and Selenium
+title: "First post"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 08 2022"
+heroImage: "/placeholder-hero.jpg"
 ---
+
 
 
 

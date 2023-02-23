@@ -1,8 +1,11 @@
 ---
-title = "Why I love FOSS"
-pubDate: 'Jul 02 2022'
-heroImage: '/placeholder-hero.jpg'
+title: "Why I love FOSS"
+description: "Just a nerds opinion"
+pubDate: "Jul 08 2022"
+heroImage: "/placeholder-hero.jpg"
 ---
+
+
 
 I love FOSS, "Free and Open Source Software" because of the 
 freedoms it gives me. I love to make art and program games and other kinks of creative works. For most software in the Creative industry, 

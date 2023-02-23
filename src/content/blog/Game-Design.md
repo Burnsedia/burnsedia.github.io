@@ -1,10 +1,9 @@
 ---
-title: DevLog, Space Game
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 02 2022'
-heroImage: '/placeholder-hero.jpg'
+title: "Sector Defense Dev Log"
+description: "Ship Crafting Design "
+pubDate: "Jul 08 2022"
+heroImage: "/placeholder-hero.jpg"
 ---
-
 
 
 # Tech Tree - Ship Mudals

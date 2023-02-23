@@ -1,9 +1,17 @@
+<!-- --- -->
+<!-- title = 'Going Pro' -->
+<!-- description: 'My Life's Work' -->
+<!-- pubDate: 'May 28 2021' -->
+<!-- heroImage: '/placeholder-hero.jpg' -->
+<!-- --- -->
 ---
-title = 'Going Pro'
-description: 'My Life's Work'
-pubDate: 'May 28 2021'
-heroImage: '/placeholder-hero.jpg'
+title: "First post"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 08 2022"
+heroImage: "/placeholder-hero.jpg"
 ---
+
+
 # Going Pro
 
 I have Gone Full time as a freelance developer and cyber security consultant. I have been dreaming about 

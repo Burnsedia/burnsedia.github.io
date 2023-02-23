@@ -1,9 +1,16 @@
+<!-- --- -->
+<!-- title: 'Pytest' -->
+<!-- description: 'Lorem ipsum dolor sit amet' -->
+<!-- pubDate: 'Jul 02 2022' -->
+<!-- heroImage: '/placeholder-hero.jpg' -->
+<!-- --- -->
 ---
-title = "Pytest"
-description: "Pytest Tutorial"
-pubDate: 'Feb 04 2023'
-heroImage: '/placeholder-hero.jpg'
+title: "Pytest"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 08 2022"
+heroImage: "/placeholder-hero.jpg"
 ---
+
 
 
 Bailey Burns
