@@ -1,9 +1,3 @@
-<!-- --- -->
-<!-- title = 'Going Pro' -->
-<!-- description: 'My Life's Work' -->
-<!-- pubDate: 'May 28 2021' -->
-<!-- heroImage: '/placeholder-hero.jpg' -->
-<!-- --- -->
 ---
 title: "First post"
 description: "Lorem ipsum dolor sit amet"

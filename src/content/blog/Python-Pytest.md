@@ -1,9 +1,3 @@
-<!-- --- -->
-<!-- title: 'Pytest' -->
-<!-- description: 'Lorem ipsum dolor sit amet' -->
-<!-- pubDate: 'Jul 02 2022' -->
-<!-- heroImage: '/placeholder-hero.jpg' -->
-<!-- --- -->
 ---
 title: "Pytest"
 description: "Lorem ipsum dolor sit amet"

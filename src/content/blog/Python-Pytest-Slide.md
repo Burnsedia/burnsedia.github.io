@@ -1,7 +1,3 @@
-<!-- --- -->
-<!-- title: "Pytest and Selenium" -->
-<!-- description: "Lorem ipsum dolor sit amet" -->
-<!-- --- -->
 ---
 title: "First post"
 description: "Lorem ipsum dolor sit amet"
