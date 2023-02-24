@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: baileyburnsed.dev
-Token: adb582ae374e1c0e5f7d983fce63723329ff01fb886655eba2a37fbb6ebab3e8

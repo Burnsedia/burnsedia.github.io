@@ -1,0 +1,46 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+    <img src="Logo.png" class="logo">
+		<Header title={SITE_TITLE} />
+		<main>
+			<h1>{SITE_DESCRIPTION}</h1>
+			<p>
+			  Nothing to see here, just working on awesome stuff. 	
+			</p>
+      <h4>Bio</h4>
+    	<ul>
+				<li>1995 - was born</li>
+				<li>2002 - made my first video game mod</li>
+				<li>2016 - started to learn Django</li>
+        <li>2017 - Started Freelancing after 6 months</li>
+				<li>2021 - Got my first corprate job</li>
+				<li>2022 to present - Indie Software Engineer building awsome commercial FOSS apps</li>
+			</ul>
+			<p>
+			  I love developing free and open source software and turning them into commercial products. 
+        I learning new things, art and the Sciences.</p>
+			<p>Here are a few of my Hobbies and Prjects</p>
+			<ul>
+				<li>Digital Art with Blender</li>
+				<li>Building games in Godot Engine</li>
+				<li>CTF challeges like Hack the Box</li>
+				<li>Building things with Rust</li>
+			</ul>
+			<p>
+				Looking for a developer for your next project? I can develop a awsome app to solve your companies needs. 
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
