@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
+import Logo from '../../components/Logo.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
@@ -34,7 +35,7 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-    <img src="Logo.png" class="logo">
+    <Logo />
 		<Header />
 		<main>
 			<section>

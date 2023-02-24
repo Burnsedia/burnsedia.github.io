@@ -69,10 +69,7 @@ blockquote {
 	font-style: italic;
 }
 .logo{
-  width: 400px;
+  width: auto;
   clip-path: circle();
-  /* display: block; */
-  /* margin-left: auto; */
-  /* margin-right: auto; */
 }
 
