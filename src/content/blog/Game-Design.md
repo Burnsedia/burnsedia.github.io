@@ -4,17 +4,17 @@ description: "Ship Crafting Design "
 pubDate: "Jul 08 2022"
 heroImage: "/placeholder-hero.jpg"
 ---
-# Tech Tree - Ship Mudals
+# Tech Tree - Ship Modals
 
 Do you like Ships? Do you like the meta game of crafting you ships and weapons?
-Well I got a Suprise for you! The Hive: Interstellar Despot Sim is getting a ship crafting and 
-costumization system. This new crafting systgem will allow you to play the way you wnat.
+Well I got a Surprise for you! The Hive: Interstellar Despot Sim is getting a ship crafting and 
+customization system. This new crafting system will allow you to play the way you want.
 
-Moduals will have interals slots, mountpoints and hardpoints. Interal slots are for subsystems like
-Reactors, Fual Tanks and hargo and hanger bays. Exteral hardpoints are for Sensors/Communitcatins,
-Weapons and Engines. Mountpoints are for adding for ship moduals.
+Modals will have internal slots, mount points and hard points. Internal slots are for subsystems like
+Reactors, Fuel Tanks and hanger bays. External hard points are for Sensors/Communicating,
+Weapons and Engines. Mount points are for adding for ship modules.
 
-## Core Mudals
+## Core Modules
 
 - Ship Core
 - Ship Forward
@@ -30,13 +30,13 @@ Ship cores contain 3 to 5 internal slots and 2 mount point and 3-4 hard-points t
 ## Advance Modules.
 
 - Hangers
-- Command structors
-- Minning Systems
-- Station Constution Systems
+- Command structure
+- Mining Systems
+- Station Contusion Systems
 
-## Subsyteswms
+## Subsystems
 
-- Heat Syncs and Raddatores
+- Heat Syncs and Radiators
 - Power Generators
 - Power Storages
 - Cargo Storage
