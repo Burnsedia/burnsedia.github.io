@@ -5,7 +5,8 @@
  */
 body {
 	font-family: Verdana, sans-serif;
-	margin: auto;
+  margin-right: auto;
+  margin-left: auto;
 	padding: 20px;
 	max-width: 65ch;
 	text-align: left;
@@ -70,5 +71,8 @@ blockquote {
 .logo{
   width: 400px;
   clip-path: circle();
+  /* display: block; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
 }
 
