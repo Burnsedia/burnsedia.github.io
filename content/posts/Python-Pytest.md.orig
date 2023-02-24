@@ -1,10 +1,14 @@
 ---
-title: "Pytest Selenium"
-description: "Lorem ipsum dolor sit amet"
-pubDate: "Jul 08 2022"
-heroImage: "/placeholder-hero.jpg"
+title = "Pytest"
+date = "2023-02-04"
+author = "Bailey Burnsed"
+authorTwitter = "Burnsedia3dArt" 
+cover = ""
+tags = ["Python", "Pytest", "TDD"]
+keywords = ["Python", "Pytest","Selenium"]
+description = "Pytest Tutorial"
+showFullContent = false
 ---
-
 # Pytest and Selenium
 ## How to Develop a UI test Sweet
 

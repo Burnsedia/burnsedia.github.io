@@ -4,8 +4,6 @@ description: "Ship Crafting Design "
 pubDate: "Jul 08 2022"
 heroImage: "/placeholder-hero.jpg"
 ---
-
-
 # Tech Tree - Ship Mudals
 
 Do you like Ships? Do you like the meta game of crafting you ships and weapons?
