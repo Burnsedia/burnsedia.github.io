@@ -1,6 +1,7 @@
 ---
+import { Image } from '@astrojs/image/components';
+import logoImage from "../assets/Logo.png"
 import BaseHead from '../components/BaseHead.astro';
-import Logo from '../components/Logo.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -12,7 +13,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-    <Logo /> 
+    <Image src={logoImage} width={400} alt="My Logo"/>
 		<Header title={SITE_TITLE} />
 		<main>
 			<h1>{SITE_DESCRIPTION}</h1>

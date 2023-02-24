@@ -10,10 +10,11 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@astrojs/image": "^0.15.1",
 		"@astrojs/mdx": "^0.17.0",
 		"@astrojs/rss": "^2.1.1",
 		"@astrojs/sitemap": "^1.0.1",
-		"astro": "^2.0.14",
+		"astro": "^2.0.15",
 		"netlify": "^13.1.2"
 	}
 }

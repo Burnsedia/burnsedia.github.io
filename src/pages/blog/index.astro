@@ -1,14 +1,14 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Logo from '../../components/Logo.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-
+import { Image } from '@astrojs/image/components';
+import logoImage from "../../assets/Logo.png"
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -35,7 +35,7 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-    <Logo />
+    <Image src={logoImage} />
 		<Header />
 		<main>
 			<section>

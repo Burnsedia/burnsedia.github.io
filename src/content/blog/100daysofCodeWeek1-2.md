@@ -6,5 +6,4 @@ heroImage: "/placeholder-hero.jpg"
 ---
 
 
-Test test
-
+# What is 100 Days of Code 
