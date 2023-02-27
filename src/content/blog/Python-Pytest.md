@@ -1,11 +1,10 @@
 ---
-title: "Pytest Selenium"
+title: "Pytest and Selenium"
 description: "Lorem ipsum dolor sit amet"
-pubDate: "Jul 08 2022"
+pubDate: "Feb 09 2023"
 heroImage: "/placeholder-hero.jpg"
 ---
 
-# Pytest and Selenium
 ## How to Develop a UI test Sweet
 
 ### What is Pytest
