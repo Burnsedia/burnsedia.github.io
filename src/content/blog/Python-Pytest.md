@@ -87,6 +87,9 @@ Here is the Full Code
 
 
 ```python
+import pytest
+import selenium
+
 def test_setup():
     global driver 
     driver_path = "/path/to/chromedriver"
