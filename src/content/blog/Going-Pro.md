@@ -4,7 +4,7 @@ description: ""
 pubDate: "Jul 08 2022"
 heroImage: "/placeholder-hero.jpg"
 ---
-# Going Pro
+## Setting out on my Life's work
 
 I have Gone Full time as a freelance developer and cyber security consultant. I have been dreaming about 
 becoming a full time developer, developing my own SaaS, Apps and Games. Well enough dreaming, time to get to work. I am throwing myself at this, I have decided to make this my life's purpose. I love to program, I love to learn and to build things. 

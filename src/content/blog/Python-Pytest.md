@@ -70,7 +70,6 @@ We can also test other thinks like the website's title
 
 ```python
 def title_test():
-    t = driver.title
     x = driver.title
     assert x == "iniPro - initPro"
 ```
@@ -101,7 +100,6 @@ def email_form_test():
     driver.find_element_by_id("message")
 
 def title_test():
-    t = driver.title
     x = driver.title
     assert x == "iniPro - initPro"
 
