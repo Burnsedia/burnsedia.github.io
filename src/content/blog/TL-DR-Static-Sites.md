@@ -31,3 +31,5 @@ Static sites are more scalable than dynamic sites because they don't require ser
 
 Static sites are simpler than dynamic sites because their content is pre-built as static HTML, CSS, and JavaScript files that can be hosted on a CDN. This makes the development process faster and less complex, as developers can focus on creating content and designing the site without worrying about servers or database management. This makes static sites an ideal choice for simple websites or projects with a small development team or budget. Overall, the simplicity of static sites makes them a faster, easier, and more cost-effective choice than dynamic sites for many web projects.
 
+
+If you like my content, please consider joining my Patreon. Members get early excess and get vote on what I make next. Members also get access to my Private Projects, Beta builds of my apps and games, One on One consulting and support on my open source projects, plus Members only Content Like Badges, Discord Roles and Skins in my games.
