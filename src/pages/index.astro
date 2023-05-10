@@ -17,10 +17,14 @@ import ContactForm from '../components/ContactForm.astro';
     <Image src={logoImage} width={400} alt="My Logo"/>
 		<Header title={SITE_TITLE} />
 		<main>
+      <section id="intro">
 			<h1>{SITE_DESCRIPTION}</h1>
 			<p>
 			  Nothing to see here, just working on awesome stuff. 	
 			</p>
+      </section>
+
+      <section id="bio">
       <h4>Bio</h4>
     	<ul>
 				<li>1995 - was born</li>
@@ -30,6 +34,8 @@ import ContactForm from '../components/ContactForm.astro';
 				<li>2021 - Got my first corprate job</li>
 				<li>2022 to present - Indie Software Engineer building awsome commercial FOSS apps</li>
 			</ul>
+      </section>
+      <section id="hobies">
 			<p>
 			  I love developing free and open source software and turning them into commercial products. 
         I love learning new things, art and the Sciences.</p>
@@ -40,9 +46,7 @@ import ContactForm from '../components/ContactForm.astro';
 				<li>CTF challeges like Hack the Box</li>
 				<li>Building things with Rust</li>
 			</ul>
-	     <br>
-      <ContactForm />
-      <br>
+      </section>
 		</main>
 		<Footer />
 	</body>

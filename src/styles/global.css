@@ -73,4 +73,17 @@ blockquote {
   width: auto;
   clip-path: circle();
 }
+.custom-shape-divider-top-1683674046 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: -1;
+}
 
+.polygons {
+  background-image: url('low-poly-grid.svg');
+  width: 100%;
+}
