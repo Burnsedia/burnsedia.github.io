@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
+import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.astro';
+import { any } from 'astro/zod';
 
 
 const { title, description } = Astro.props;
@@ -27,8 +28,8 @@ const { title, description } = Astro.props;
 	</head>
 
 	<body>
-		<Header />
 		<main>
+      <Header />
       <slot />
 		</main>
 		<Footer />

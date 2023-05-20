@@ -3,7 +3,8 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header>
+<header class="header">
+  <div class="container">
 	<h2>
 		{SITE_TITLE}
 	</h2>
@@ -13,26 +14,38 @@ import { SITE_TITLE } from '../consts';
 		<HeaderLink id="about" href="/about">About</HeaderLink>
 		<HeaderLink id="github" href="https://github.com/Burnsedia" target="_blank">GitHub</HeaderLink>
 	</nav>
+  </div>
 </header>
 <style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
+  .header {
+  height: 70px;
+  /* background: #013220; */
+}
 
-  #home{
-    text-align: left;
-  }
-  #blog{
-    text-align: right;
-  }
-  #about{
-    text-align: right;
-  }
-  #github{
-    text-align: right;
-  }
+.header .container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.header img {
+  height: 35px;
+  vertical-align: middle;
+}
+
+.header nav ul {
+  display: flex;
+}
+
+.header nav ul li {
+  padding: 0 10px;
+}
+
+.header nav ul li a {
+  color: #fff;
+}
 </style>
 
