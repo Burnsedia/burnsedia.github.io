@@ -8,10 +8,10 @@ import { SITE_TITLE } from '../consts';
 		{SITE_TITLE}
 	</h2>
 	<nav>
-		<HeaderLink href="/">/Home</HeaderLink>
-		<HeaderLink href="/blog">/Blog</HeaderLink>
-		<HeaderLink href="/about">/About</HeaderLink>
-		<HeaderLink href="https://github.com/Burnsedia" target="_blank">/GitHub</HeaderLink>
+		<HeaderLink id="home" href="/">Home</HeaderLink>
+		<HeaderLink id="blog" href="/blog">Blog</HeaderLink>
+		<HeaderLink id="about" href="/about">About</HeaderLink>
+		<HeaderLink id="github" href="https://github.com/Burnsedia" target="_blank">GitHub</HeaderLink>
 	</nav>
 </header>
 <style>
@@ -21,4 +21,18 @@ import { SITE_TITLE } from '../consts';
 	h2 {
 		margin: 0.5em 0;
 	}
+
+  #home{
+    text-align: left;
+  }
+  #blog{
+    text-align: right;
+  }
+  #about{
+    text-align: right;
+  }
+  #github{
+    text-align: right;
+  }
 </style>
+
