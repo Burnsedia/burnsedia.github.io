@@ -9,5 +9,5 @@ import react from "@astrojs/react"
 // https://astro.build/config
 export default defineConfig({
   site: 'https://baileyburnsed.dev',
-  integrations: [mdx(), sitemap(), image(), react()]
+  integrations: [react(),mdx(), sitemap(), image()]
 });
