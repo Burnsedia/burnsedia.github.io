@@ -20,6 +20,7 @@
 		"@mui/icons-material": "^5.11.16",
 		"@mui/material": "^5.13.3",
 		"astro": "^2.0.15",
+		"astro-icon": "^0.8.0",
 		"netlify": "^13.1.2",
 		"package.json": "^2.0.1",
 		"react": "^18.2.0"
