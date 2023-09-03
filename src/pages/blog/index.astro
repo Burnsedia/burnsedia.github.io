@@ -46,7 +46,7 @@ const posts = (await getCollection('blog')).sort(
                 <br>
                 <br>
 								<FormattedDate date={post.data.pubDate} />
-								<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+								<a href={`/blog/${post.slug}/`} data-goatcounter-click="blog-post-clicked">{post.data.title}</a>
                 <br>
                 <br>
 							</li>
