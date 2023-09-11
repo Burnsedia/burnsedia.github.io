@@ -40,6 +40,42 @@ One of the significant advantages of choosing Godot is its thriving community. Y
 
 Godot enables you to deploy your games on a wide range of platforms, including Windows, macOS, Linux, Android, iOS, HTML5, and more. You can target multiple platforms without rewriting your code, thanks to its cross-platform capabilities.
 
+## Syntax Differences to Python
+
+1. In Python, you can declare variables without explicitly specifying their types or Key words. 
+GDScript, on the other hand, requires you to declare variables with the 'var' keyword and optionally declare the type of a variable using a colon (:).
+
+2. In Python you declare functions with the 'def' keyword.
+
+```python
+def foo(bar):
+    pass
+```
+were as in Gdscript you declare functions in with the "func" keyword
+
+```gdscript
+
+func foo(bar):
+    pass
+```
+
+both Python and Gdscript have optional static typing and you use them in the same way in functions
+
+```python
+def foo(bar) -> None:
+    pass
+```
+```gdscript
+func foo(bar) -> void:
+    pass
+```
+
+
+
+
+
+
+
 ## Conclusion
 
 Godot is a game engine that offers a smooth transition for Python developers into the world of game development. With its Python-like scripting language, versatile game development features, active community, and cross-platform deployment options, it's a powerful tool that empowers you to bring your game ideas to life.
