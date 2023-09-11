@@ -10,7 +10,6 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/image": "^0.15.1",
 		"@astrojs/mdx": "1.0.3",
 		"@astrojs/react": "3.0.2",
 		"@astrojs/sitemap": "^1.0.1",
