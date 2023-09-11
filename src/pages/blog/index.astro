@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import logoImage from "../../assets/Logo.png"
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -37,7 +37,7 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-      <Image class="logo" src={logoImage} />
+      <!-- <Image class="logo" src={logoImage} /> -->
 			<section>
 				<ul>
 					{
