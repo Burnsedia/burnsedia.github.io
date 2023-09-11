@@ -68,12 +68,20 @@ def foo(bar) -> None:
 func foo(bar) -> void:
     pass
 ```
+
 3. Constants: Godot actually has constance, you declare them with the "const" keyword.
+
 ```gdscript
 const maxHP = 1000
 ```
 
 4. Every file in gdscript is a class, that extends a base class in Godot
+
+5. Godot uses companion over inhiredance whitch saves time and simplifies your projects
+
+6. Godot uses a tree data structure
+
+
 ## Conclusion
 
 Godot is a game engine that offers a smooth transition for Python developers into the world of game development. With its Python-like scripting language, versatile game development features, active community, and cross-platform deployment options, it's a powerful tool that empowers you to bring your game ideas to life.
