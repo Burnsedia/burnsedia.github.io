@@ -2,7 +2,6 @@
 title: "Godot and Gdscript for Python Devs"
 description: "a tutorial for python developers"
 pubDate: "Sep. 07, 2023"
-heroImage: "/logo_vertical_monochrome_dark.png"
 ---
 
 # TL;DR 
