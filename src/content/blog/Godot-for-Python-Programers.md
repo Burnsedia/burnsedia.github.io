@@ -50,7 +50,7 @@ GDScript, on the other hand, requires you to declare variables with the 'var' ke
 def foo(bar):
     pass
 ```
-were as in Gdscript you declare functions in with the "func" keyword
+Were as in Gdscript you declare functions in with the "func" keyword.
 
 ```gdscript
 
@@ -58,7 +58,7 @@ func foo(bar):
     pass
 ```
 
-both Python and Gdscript have optional static typing and you use them in the same way in functions
+Both Python and Gdscript have optional static typing and you use them in the same way in functions.
 
 ```python
 def foo(bar) -> None:
@@ -68,13 +68,12 @@ def foo(bar) -> None:
 func foo(bar) -> void:
     pass
 ```
+3. Constants: Godot actually has constance, you declare them with the "const" keyword.
+```gdscript
+const maxHP = 1000
+```
 
-
-
-
-
-
-
+4. Every file in gdscript is a class, that extends a base class in Godot
 ## Conclusion
 
 Godot is a game engine that offers a smooth transition for Python developers into the world of game development. With its Python-like scripting language, versatile game development features, active community, and cross-platform deployment options, it's a powerful tool that empowers you to bring your game ideas to life.
