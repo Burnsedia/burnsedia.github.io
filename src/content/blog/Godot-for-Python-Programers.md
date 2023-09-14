@@ -16,8 +16,6 @@ Godot uses a custom scripting language called GDScript, which is quite similar t
 ## Benefits of Using Python with Godot:
 * Ease of Learning: Since GDScript is Pythonic in nature, Python developers will find it relatively simple to pick up and start coding in Godot.
 
-* Rapid Prototyping: Python is renowned for its rapid development capabilities, and Godot's Python support extends these advantages to game development. You can quickly prototype game mechanics and features.
-
 * Robust Libraries: Godot's Python API provides access to the engine's powerful features, allowing you to create complex and interactive games with ease.
 
 ## Versatile Game Development
