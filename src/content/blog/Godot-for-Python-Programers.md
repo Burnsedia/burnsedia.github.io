@@ -28,7 +28,6 @@ Key Features:
 
 3. Animation: Create stunning animations and cinematic sequences with Godot's intuitive animation editor.
 
-
 ## Active Community and Resources
 
 One of the significant advantages of choosing Godot is its thriving community. You'll find numerous tutorials, forums, and online courses dedicated to Godot game development. Whether you're stuck on a specific problem or looking to expand your knowledge, you'll have a wealth of resources at your fingertips.
