@@ -1,7 +1,7 @@
 ---
 title: "Redhat Nonsense"
 description: "RedHAT just broke the GPL"
-pubDate: "Feb 09 2023"
+pubDate: "Aug 09 2023"
 ---
 
 TR;DR They Did and not really; 
