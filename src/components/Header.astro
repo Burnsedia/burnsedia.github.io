@@ -1,29 +1,20 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-// import { SITE_TITLE } from '../consts';
 ---
 
-<header>
-  <!-- <h2>{SITE_TITLE}</h2> -->
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog" data-goatcounter-click="exit-blog" data-goatcounter-title="Exit to Blog">Blog</HeaderLink>
-		<HeaderLink href="/about" data-goatcounter-click="exit-about" data-goatcounter-title="Exit to about">About</HeaderLink>
-		<HeaderLink href="https://github.com/Burnsedia" data-goatcounter-click="exit-github" data-goatcounter-title="Exit to GitHub" target="_blank">GitHub</HeaderLink>
+<header class="w-full bg-background-color">
+	<nav class="flex flex-row justify-start gap-10 ">
+    <div class="items-start  text-white">
+      <HeaderLink href="/">Home</HeaderLink>
+    </div>
+    <div class="justify-end text-white">
+		  <HeaderLink class="gap-10 justify-between" href="/blog" data-goatcounter-click="exit-blog" data-goatcounter-title="Exit to Blog">Blog</HeaderLink>
+    </div>
+    <div class="justify-end text-white">
+      <HeaderLink class="gap-10 justify-end" href="/about" data-goatcounter-click="exit-about" data-goatcounter-title="Exit to about">About</HeaderLink>
+    </div>
+    <div class="items-center text-white">
+      <HeaderLink class="gap-10 justify-end" href="https://github.com/Burnsedia" data-goatcounter-click="exit-github" data-goatcounter-title="Exit to GitHub" target="_blank">GitHub</HeaderLink>
+    </div>
 	</nav>
 </header>
-<style>
-	header {
-		margin: 0em 0 2em;
-    display: flex;
-    flex-direction: row;
-	}
-	h2 {
-		margin: 0.5em 0;
-    flex-grow: 7;
-	}
-  nav {
-		margin: 0.5em 0;
-    flex-grow: 6;
-  }
-</style>
