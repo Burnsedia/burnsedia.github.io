@@ -30,10 +30,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         async src="//gc.zgo.at/count.js"></script>
 	</head>
 
-	<body>
+	<body class="h-screen font-Verdana sans-serif bg-background-color leading-6 text-white min-h-screen bg-gray-900">
 		<Header />
-		<main>
-			<article>
+		<main  class=" bg-background-color flex flex-col justify-center items-center ">
+			<article class="break-words max-w-prose">
 				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 				<h1 class="title">{title}</h1>
 				<FormattedDate date={pubDate} />
