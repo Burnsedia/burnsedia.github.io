@@ -3,20 +3,26 @@ import { Image } from 'astro:assets';
 import logoImage from "../assets/Logo.png"
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Typing } from "../components/typing.jsx"
+
 ---
 <BaseLayout
   title={SITE_TITLE}
 	description="my lifes story"
 >
+  <div class="flex flex-row gap-3">
   <Image src={logoImage} width={400} alt="My Logo"/>
   <section class="flex flex-col max-w-prose justify-center items-center"  id="intro">
     <div class="text-white">
 			<h1>{SITE_DESCRIPTION}</h1>
 			<p>
-			  Nothing to see here, just working on awesome stuff. 	
+			Nothing to see here, just working on awesome stuff. 	
 			</p>
+      <Typing />
     </div>
   </section>
+  <br>
+  </div>
   <br>
    <section class="text-white flex flex-col max-w-prose gap-10" id="bio">
       <h4 class="justify-start">Bio</h4>
