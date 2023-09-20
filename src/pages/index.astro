@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import logoImage from "../assets/Logo.png"
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Typing } from "../components/typing.jsx"
@@ -10,7 +8,6 @@ import { Typing } from "../components/typing.jsx"
 	description="my lifes story"
 >
   <div class="flex flex-row gap-3  lg:flex-row md:flex-row sm:flex-col">
-    <!-- <Image class="rounded-md max-w-full h-auto transform scale-25 sm:scale-50 md:scale-75 lg:scale-100" src={logoImage} width={400} alt="My Logo"/> -->
     <section class="flex flex-col max-w-prose justify-center items-center"  id="intro">
       <div class="text-white">
 			  <h1>{SITE_DESCRIPTION}</h1>
@@ -33,10 +30,10 @@ import { Typing } from "../components/typing.jsx"
 				<li>2021 - Got my first corprate job</li>
 				<li>2022 to present - Indie Software Engineer building awsome commercial FOSS apps</li>
 			</ul>
-      </section>
-      <br>
-      <section class="text-white items-center gap-10 " id="hobies">
-      <br>
+  </section>
+  <br>
+  <section class="text-white items-center gap-10 " id="hobies">
+  <br>
 			<p class="flex flex-col justify-center items-center text-left break-words max-w-prose">
 			  I love developing free and open source software and turning them into commercial products. 
         I love learning new things, art and the Sciences.</p>
