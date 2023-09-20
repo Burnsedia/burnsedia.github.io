@@ -2,6 +2,7 @@
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Typing } from "../components/typing.jsx"
+import Card from "../components/Card.astro"
 ---
 <BaseLayout
   title={SITE_TITLE}
@@ -12,7 +13,7 @@ import { Typing } from "../components/typing.jsx"
       <div class="text-white">
 			  <h1>{SITE_DESCRIPTION}</h1>
 			  <p>
-			    Nothing to see here, just working on awesome stuff. 	
+			    Nothing to see here, just working on awesome stuff like,
 			  </p>
         <Typing client:load/>
     </div>
@@ -20,9 +21,10 @@ import { Typing } from "../components/typing.jsx"
     <br>
   </div>
   <br>
-   <section class="text-white flex flex-col max-w-prose gap-10" id="bio">
-      <h4 class="justify-start">Bio</h4>
-    	<ul class="items-center justify-center list-disc">
+  <div class="flex flex-col ">
+   <section class="text-white justify-center flex flex-col max-w-prose gap-10" id="bio">
+      <h4 class="justify-center max-w-prose">Bio</h4>
+    	<ul class="items-center max-w-prose justify-center list-disc">
 				<li>1995 - was born</li>
 				<li>2002 - made my first video game mod</li>
 				<li>2016 - started to learn Django</li>
@@ -31,11 +33,11 @@ import { Typing } from "../components/typing.jsx"
 				<li>2022 to present - Indie Software Engineer building awsome commercial FOSS apps</li>
 			</ul>
   </section>
-  <br>
+  </div>
+  <br class="w-full h-10 bg-gradient-to-r from-blue bg-purple ..."> 
   <section class="text-white items-center gap-10 " id="hobies">
   <br>
-			<p class="flex flex-col justify-center items-center text-left break-words max-w-prose">
-			  I love developing free and open source software and turning them into commercial products. 
+			<p class="flex flex-col justify-center items-center text-left break-words max-w-prose"> I love developing free and open source software and turning them into commercial products. 
         I love learning new things, art and the Sciences.</p>
 			<p>Here are a few of my Hobbies and Prjects</p>
       <br>
@@ -45,5 +47,8 @@ import { Typing } from "../components/typing.jsx"
 				<li>CTF challeges like Hack the Box</li>
 				<li>Building things with Rust</li>
 			</ul>
+    <p>Here are some of my Projects</p>
+  <!--   <div class="grid grid-cols-2 grid-rows-3 gap-4 max-w-prose"> -->
+  <!--   </div> -->
   </section>
 </BaseLayout>
