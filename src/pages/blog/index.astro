@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -35,24 +36,10 @@ const posts = (await getCollection('blog')).sort(
 			}
 		</style>
 	</head>
-	<body class="h-screen font-Verdana sans-serif  leading-6 text-white min-h-screen bg-gray-900">
+	<body class="h-screen font-Verdana sans-seri text-white min-h-screen bg-gray-900">
 		<Header />
 		<main  class="h-full bg-background-color flex flex-col justify-center items-center">
-      <!-- <Image class="rounded-md" src={logoImage} alt="My Logo"/> -->
-      <div class="flex flex-row gap-3  lg:flex-row md:flex-row sm:flex-col">
-    <!-- <Image class="rounded-md max-w-full h-auto transform scale-25 sm:scale-50 md:scale-75 lg:scale-100" src={logoImage} width={400} alt="My Logo"/> -->
-    <section class="flex flex-col max-w-prose justify-center items-center"  id="intro">
-      <div class="text-white">
-			  <h1>{SITE_DESCRIPTION}</h1>
-			  <p>
-			    Nothing to see here, just working on awesome stuff. 	
-			  </p>
-        <Typing client:load/>
-    </div>
-    </section>
-    <br>
-  </div>
-
+      <Hero />
       <br>
 			<section>
 				<ul>
