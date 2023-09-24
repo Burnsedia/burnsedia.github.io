@@ -8,17 +8,8 @@
 @import 'tailwindcss/utilities';
 
 h1,
-h2{
-  font-size: 4em;
-  font-weight: 700;
-  color: #fff;
-}
-h3{
-  font-size: 3em;
-  font-weight: 700;
-  color: #fff;
-}
-
+h2,
+h3,
 h4,
 h5,
 h6,
