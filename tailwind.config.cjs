@@ -24,9 +24,13 @@ module.exports = {
         '8xl': '96rem',
         '9xl': '128rem',
       },
+      backgroundImage: {
+        'hero-image': "url(assets/layered-waves.svg)",
+        'bio-image': "url(assets/polygon-scatter.svg)",
+      },
       borderRadius: {
         '4xl': '2rem',
-      }
+      },
     }
   },
 }
