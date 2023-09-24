@@ -45,13 +45,9 @@ const posts = (await getCollection('blog')).sort(
 				<ul>
 					{
 						posts.map((post) => (
-							<li>
-                <br>
-                <br>
+							<li class="py-4">
 								<FormattedDate date={post.data.pubDate} />
 								<a href={`/blog/${post.slug}/`} data-goatcounter-click="blog-post-clicked">{post.data.title}</a>
-                <br>
-                <br>
 							</li>
 						))
 					}
