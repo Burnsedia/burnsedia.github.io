@@ -4,38 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { Typing } from "../components/typing.jsx"
 import Card from "../components/Card.astro"
 import Hero from "../components/Hero.astro"
+import Bio from "../components/Bio.astro"
+import Hobies from "../components/Hobies.astro"
 ---
 <BaseLayout
   title={SITE_TITLE}
 	description="my lifes story"
 >
-  <Hero />
-  <div class="flex flex-col py-3">
-   <section class="text-white justify-center flex flex-col max-w-prose gap-10" id="bio">
-      <h4 class="justify-center max-w-prose">Bio</h4>
-    	<ul class="items-center max-w-prose justify-center list-disc">
-				<li>1995 - was born</li>
-				<li>2002 - made my first video game mod</li>
-				<li>2016 - started to learn Django</li>
-        <li>2017 - Started Freelancing after 6 months</li>
-				<li>2021 - Got my first corprate job</li>
-				<li>2022 to present - Indie Software Engineer building awsome commercial FOSS apps</li>
-			</ul>
-  </section>
-  </div>
-  <section class="text-white items-center gap-10 " id="hobies">
-			<p class="flex flex-col justify-center items-center text-left break-words max-w-prose"> I love developing free and open source software and turning them into commercial products. 
-        I love learning new things, art and the Sciences.</p>
-			<p>Here are a few of my Hobbies and Prjects</p>
-      <br>
-			<ul class="flex flex-col text-left list-disc">
-				<li>Digital Art with Blender</li>
-				<li>Building games in Godot Engine</li>
-				<li>CTF challeges like Hack the Box</li>
-				<li>Building things with Rust</li>
-			</ul>
-    <!-- <p>Here are some of my Projects</p> -->
-    <!-- <div class="grid grid-cols-2 grid-rows-3 gap-4 max-w-prose"> -->
-    <!-- </div> -->
-  </section>
+ <Hero />
+ <Bio />
+ <Hobies />
 </BaseLayout>
