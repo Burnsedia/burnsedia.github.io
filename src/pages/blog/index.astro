@@ -36,11 +36,11 @@ const posts = (await getCollection('blog')).sort(
 			}
 		</style>
 	</head>
-	<body class="h-screen font-Verdana sans-seri text-white min-h-screen">
+	<body class="h-screen font-Verdana sans-serif bg-background-color text-white">
 		<Header />
-		<main  class="h-screen bg-background-color flex flex-col justify-center items-center">
+		<main  class=" bg-background-color flex flex-col justify-center items-center">
       <Hero />
-			<section>
+			<section class="py-28">
 				<ul>
 					{
 						posts.map((post) => (
