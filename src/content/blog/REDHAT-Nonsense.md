@@ -10,7 +10,7 @@ Let me explain.
 Redhat Enterprise Linux is a legend in the FOSS space for being 100% Open Source, but it is hard to paywall FOSS code, so they have found interesting workarounds.
 Their primary business model is selling support.
 
-That is great, but if you can get the code, you can repackage it, as is their “GNUgiven right.” If you are new to Linux and Open Source, all open source programs give you the core freedoms:
+That is great, but if you can get the code, you can repackage it, as is their “GNU given right.” If you are new to Linux and Open Source, all open source programs give you the core freedoms:
 
 * The freedom to run the program for any purpose.
 
