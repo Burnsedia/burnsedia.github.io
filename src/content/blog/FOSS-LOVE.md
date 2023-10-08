@@ -6,7 +6,7 @@ heroImage: "/placeholder-hero.jpg"
 ---
 
 I love FOSS, "Free and Open Source Software" because of the 
-freedoms it gives me. I love to make art and program games and other kinds of creative works. For most software in the Creative industry, 
+freedomes it gives me. I love to make art and program games and other kinds of creative works. For most software in the Creative industry, 
 the licensing is vague and I do not like many of the companies that make the software.
 
 Open Source software like Blender and Krita,
