@@ -1,4 +1,5 @@
 # Astro Starter Kit: Blog
+## With TailwindCSS
 
 ```
 npm create astro@latest -- --template blog
