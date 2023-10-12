@@ -14,7 +14,7 @@ Modals will have internal slots, mount points, and hard points. Internal slots a
 Reactors, Fuel Tanks, and hanger bays. External hardpoints are for Sensors/Communicating,
 Weapons and Engines. Mount points are for adding ship modules.
 
-## Core Modulesd
+## Core Modules
 
 - Ship Core
 - Ship Forward
@@ -40,3 +40,4 @@ Ship cores contain 3 to 5 internal slots, 2 mount points, and 3-4 hard points to
 - Power Generators
 - Power Storages
 - Cargo Storage
+
