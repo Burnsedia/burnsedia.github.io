@@ -4,6 +4,7 @@ description: "RedHAT just broke the GPL"
 pubDate: "Aug 09 2023"
 ---
 
+
 TR;DR They Did and not really; 
 Let me explain.
 
@@ -21,7 +22,7 @@ That is great, but if you can get the code, you can repackage it, as is their �
 * The freedom to distribute copies of modified versions to others.
 
 As you can imagine, this can make it hard for conventional business models. 
-And there were downstream Linux Distros such as CentOS, which was a “bug for bug” compatible Linux OS.
+There were downstream Linux Distros such as CentOS, which was a “bug for bug” compatible Linux OS.
 
 As a result, RedHat acquired and killed off CentOS, and has recently Paywalled the Source Code for the RedHat-specific patches to commonly used open-source software used in RedHat. Paywalling Source code is allowed in the GPL; I do it all the time for apps I make. The problem is that:
 
@@ -29,8 +30,9 @@ As a result, RedHat acquired and killed off CentOS, and has recently Paywalled t
 
 2. RedHat requires you to sign a license that conflicts with the GPL
 
-This has led the Free Software Conservatory to File a Lawsuit, which is meant to protect the rights of the contributors to the open-source projects which received the RedHat-specific patches and enforced GPL license compliance.
+This has led the Free Software Conservatory to File a Lawsuit, which is meant to protect the rights of the contributors to the open-source projects that received the RedHat-specific patches and enforced GPL license compliance.
 
 The restrictions added by RedHat are the problem; you can do that. The problem is that added restrictions on top of the GPL effectively make RedHat a closed-source operating system. This new practice has destroyed all the company's remaining good faith and has led to many companies and communities switching to other Linux distros for your server needs.
 
 RedHat insists they are following the GPL, but in truth, they are, but mulishly. RedHat has turned to mulish compliance in the past, but never to this extent. This time it may cost them. This has led to losing customers, hurting their support and subscription-based business model.
+
