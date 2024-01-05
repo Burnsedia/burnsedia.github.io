@@ -39,3 +39,26 @@ module.exports = {
      themes: ["dark", "synthwave"],
   }
 }
+
+// {
+//           mytheme: {
+//           
+//  "primary": "#00b1cd",
+//           
+//  "secondary": "#2dd4bf",
+//           
+//  "accent": "#0c4a6e",
+//           
+//  "neutral": "#6b7280",
+//           
+//  "base-100": "#1f2937",
+//           
+//  "info": "#0077dc",
+//           
+//  "success": "#14532d",
+//           
+//  "warning": "#c2410c",
+//           
+//  "error": "#881337",
+//           },
+//         },
