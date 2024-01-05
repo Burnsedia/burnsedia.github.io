@@ -87,3 +87,4 @@ If you're a Python developer with a passion for gaming or a desire to explore a 
 
 
 
+<iframe src="https://github.com/sponsors/Burnsedia/card" title="Sponsor Burnsedia" height="225" width="600" style="border: 0;"></iframe>

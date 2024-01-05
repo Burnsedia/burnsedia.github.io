@@ -36,3 +36,5 @@ The restrictions added by RedHat are the problem; you can do that. The problem i
 
 RedHat insists they are following the GPL, but in truth, they are, but mulishly. RedHat has turned to mulish compliance in the past, but never to this extent. This time it may cost them. This has led to losing customers, hurting their support and subscription-based business model.
 
+<iframe src="https://github.com/sponsors/Burnsedia/card" title="Sponsor Burnsedia" height="225" width="600" style="border: 0;"></iframe>
+

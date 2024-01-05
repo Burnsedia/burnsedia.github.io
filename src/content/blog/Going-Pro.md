@@ -28,3 +28,6 @@ which means Free and Open Source Software. The Free part of FOSS is Free as in L
 the software is either crowdfunded, premium(Pay for Downloads), or Ecosystem, your you pay for user-made plugins, and the developer of the main app
 takes a cut of the sales, or data monetization. Even FOSS apps do this, free as in speech not free as in free beer. 
 
+
+<iframe src="https://github.com/sponsors/Burnsedia/card" title="Sponsor Burnsedia" height="225" width="600" style="border: 0;"></iframe>
+

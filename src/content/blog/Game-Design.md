@@ -41,3 +41,6 @@ Ship cores contain 3 to 5 internal slots, 2 mount points, and 3-4 hard points to
 - Power Storages
 - Cargo Storage
 
+<iframe src="https://github.com/sponsors/Burnsedia/card" title="Sponsor Burnsedia" height="225" width="600" style="border: 0;"></iframe>
+
+
