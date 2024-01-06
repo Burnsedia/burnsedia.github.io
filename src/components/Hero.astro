@@ -1,8 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE_DESCRIPTION } from '../consts';
 import { Typing } from "../components/typing.jsx"
+import LOGO from "../assets/CyberPunkLogo2.jpg"
 ---
-  <div class="flex flex-row justify-center items-center w-full lg:flex-row md:flex-row sm:flex-col py-24 m-5 bg-gradient-to-br from-rose-900 via-teal-500 to-red-600">
+  <div class="flex flex-row justify-center items-center w-full lg:flex-row md:flex-row sm:flex-col py-48 m-5 bg-gradient-to-br from-rose-900 via-teal-500 to-red-600">
+    <div class="w-96 mask mask-hexagon ring ring-primary ring-offset-base-100 ring-offset-2">
+      <Image src={LOGO} alt="praise the Omnissiah" />
+    </div>
     <section class="flex flex-col justify-center items-center"  id="hero">
       <div class="text-whit">
 			  <h1>{SITE_DESCRIPTION}</h1>
