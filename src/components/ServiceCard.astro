@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import LOGO from "../assets/CyberPunkLogo1.jpg"
+interface Props {
+    title: string;
+    ImageAlt: string;
+    body: string;
+    link: string;
+}
+const { title, ImageAlt, body, link, mobile } = Astro.props;
+---
+<div class="card w-96 h-48 image-full">
+  <figure><Image src={LOGO} alt={ImageAlt} /></figure>
+  <div class="card-body">
+    <h2 class="card-title">{title}</h2>
+    <ul>
+      <li>Unlimited Tasks,{body} </li>
+      <li>Websites</li>
+      <li>WebApps</li>
+      <li>{mobile}</li>
+    </ul>
+    <div class="card-actions justify-end">
+      <a href={link} class="btn btn-primary">Subscribe Now</a>
+    </div>
+  </div>
+</div>
