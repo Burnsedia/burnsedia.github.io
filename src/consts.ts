@@ -2,4 +2,4 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'baileyburnsed.dev';
-export const SITE_DESCRIPTION = 'I build Apps';
+export const SITE_DESCRIPTION = 'I Build Sotware for $997/month';
