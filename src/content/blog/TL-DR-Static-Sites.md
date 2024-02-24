@@ -32,7 +32,6 @@ Static sites are simpler than dynamic sites because their content is pre-built a
 If you like my content, please consider joining my Patreon. Members get early excess and get a vote on what I make next. Members also get access to my Private Projects, Beta builds of my apps and games, One-on-one consulting and support on my open-source projects, plus Members-only Content Like Badges, Discord Roles, and Skins in my games.
 
 
-<iframe src="https://github.com/sponsors/Burnsedia/card" title="Sponsor Burnsedia" height="225" width="600" style="border: 0;"></iframe>
 
 
 

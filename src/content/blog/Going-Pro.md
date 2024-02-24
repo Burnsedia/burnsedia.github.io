@@ -29,5 +29,4 @@ the software is either crowdfunded, premium(Pay for Downloads), or Ecosystem, yo
 takes a cut of the sales, or data monetization. Even FOSS apps do this, free as in speech not free as in free beer. 
 
 
-<iframe src="https://github.com/sponsors/Burnsedia/card" title="Sponsor Burnsedia" height="225" width="600" style="border: 0;"></iframe>
 
