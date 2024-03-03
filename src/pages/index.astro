@@ -1,29 +1,20 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Typing } from "../components/typing.jsx"
-import Card from "../components/Card.astro"
 import Hero from "../components/Hero.astro"
-import Bio from "../components/Bio.astro"
-import Hobies from "../components/Hobies.astro"
-import Contact from "../components/ContactForm.astro"
-import FQA from "../components/FQA.astro"
-import Services from "../components/Services.astro"
-import MemberBenefits from "../components/MemberBenifates.astro"
 import Tech from "../components/Technolgy.astro"
-import ServieFeture from "../components/servieFeture.astro"
-import SalesHero from "../components/salesHero.astro"
+import SalesHero from "../components/SalesHero.astro"
+import WhyIUse from "../components/whyIUse.astro"
+import Projects from "../components/projects.astro"
+import ContactForm from "../components/ContactForm.astro"
 ---
 <BaseLayout
   title={SITE_TITLE}
 	description="I build Apps"
 >
  <Hero />
- <!-- <SalesHero /> -->
- <ServieFeture />
+ <SalesHero />
  <Tech />
- <MemberBenefits />
- <Services />
- <!-- <FQA /> -->
- <Contact />
+ <Projects />
+ <ContactForm />
 </BaseLayout>

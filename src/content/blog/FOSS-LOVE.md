@@ -19,4 +19,3 @@ I am more productive using open source because I can modify it to fit my needs.
 You can not do that with any closed-source software, and if you are a small business, 
 you can hire your nerd friend to fix it, tweak it, and fork it to make it work best for you.
 
-<iframe src="https://github.com/sponsors/Burnsedia/card" title="Sponsor Burnsedia" height="225" width="600" style="border: 0;"></iframe>
