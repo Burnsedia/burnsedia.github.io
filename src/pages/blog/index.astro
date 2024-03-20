@@ -3,15 +3,8 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro'
+import PostsList from "../../components/PostsList.astro"
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
-import { Image } from 'astro:assets';
-import logoImage from "../../assets/Logo.png"
-import {Typing} from "../../components/typing.jsx"
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
 ---
 
 <!DOCTYPE html>
@@ -36,22 +29,11 @@ const posts = (await getCollection('blog')).sort(
 			}
 		</style>
 	</head>
-	<body class="h-screen font-Verdana sans-serif bg-background-color text-white">
+	<body class="h-screen items-center font-Verdana sans-serif text-white">
 		<Header />
-		<main  class=" bg-background-color flex flex-col justify-center items-center">
+		<main class="flex flex-col justify-center items-center">
       <Hero />
-			<section class="py-28">
-				<ul>
-					{
-						posts.map((post) => (
-							<li class="py-4">
-								<FormattedDate date={post.data.pubDate} />
-								<a href={`/blog/${post.slug}/`} data-goatcounter-click="blog-post-clicked">{post.data.title}</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
+      <PostsList />
 		</main>
 		<Footer />
 	</body>
