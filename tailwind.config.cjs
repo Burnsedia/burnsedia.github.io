@@ -36,7 +36,7 @@ module.exports = {
   //   }
   // },
   daisyui: {
-     themes: ["dark", "synthwave"],
+     themes: ["synthwave"],
   }
 }
 
