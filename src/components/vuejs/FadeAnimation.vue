@@ -6,17 +6,17 @@
   </div>
 </template>
 
-<!-- <script> -->
-<!-- import { defineComponent } from 'vue'; -->
-<!-- import { useMotionFade } from '@vueuse/motion'; -->
+<script>
+import { defineComponent } from 'vue';
+import { useMotionFade } from '@vueuse/motion';
 
-<!-- export default defineComponent({ -->
-<!--   setup() { -->
-<!--     const { fade } = useMotionFade(); -->
+export default defineComponent({
+  setup() {
+    const { fade } = useMotionFade();
 
-<!--     return { -->
-<!--       fade, -->
-<!--     }; -->
-<!--   }, -->
-<!-- }); -->
-<!-- </script> -->
+    return {
+      fade,
+    };
+  },
+});
+</script>
