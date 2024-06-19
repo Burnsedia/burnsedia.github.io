@@ -37,6 +37,13 @@ module.exports = {
   // },
   daisyui: {
      themes: ["synthwave"],
+      extend:{
+        colors:{
+          synthwave:{
+            "bg": "slate-950"
+          }
+        }
+      }
   }
 }
 
