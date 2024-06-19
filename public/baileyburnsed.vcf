@@ -1,0 +1,21 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Burnsed;Bailey;;;
+FN:Bailey Burnsed
+ORG:baileyburnsed.dev
+ADR;TYPE=WORK:
+TITLE:FullStack End2End Developer
+TEL;TYPE=CELL:4042134870
+TEL;TYPE=WORK:
+TEL;TYPE=HOME:
+TEL;TYPE=MSG:
+EMAIL;TYPE=WORK:
+URL;TYPE=Digital Business Card:
+URL:baileyburnsed.dev
+URL;TYPE=Website:baileyburnsed.dev
+URL;TYPE=Calendar:https://calendly.com/baileyburnsed
+URL;TYPE=GitHub:https://github.com/Burnsedia
+KEY;TYPE=PGP;ENCODING=b:
+NOTE:Software Consulting Company
+UID:EnBizCard-100261822
+END:VCARD
