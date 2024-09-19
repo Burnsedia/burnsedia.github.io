@@ -2,7 +2,7 @@
 title: "Sector Defense Dev Log"
 description: "Ship Crafting Design "
 pubDate: "Jul 08 2022"
-heroImage: "/placeholder-hero.jpg"
+heroImage: "/CyberPunkLogo1.jpg"
 ---
 # Tech Tree - Ship Modals
 

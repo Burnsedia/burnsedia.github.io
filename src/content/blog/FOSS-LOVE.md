@@ -2,7 +2,7 @@
 title: "Why I love FOSS"
 description: "Just a nerds opinion"
 pubDate: "Jul 08 2022"
-heroImage: "/placeholder-hero.jpg"
+heroImage: "/CyberPunkLogo1.jpg"
 ---
 
 I love FOSS, "Free and Open Source Software," because of the 
