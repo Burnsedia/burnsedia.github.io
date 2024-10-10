@@ -1,6 +1,6 @@
 ---
-title: "Going Pro"
-description: ""
+title: "How to Increase Sales to Your Restaurant with Online Order Manager"
+description: "A practical guide"
 pubDate: "Jul 08 2022"
 heroImage: "/placeholder-hero.jpg"
 ---
@@ -18,8 +18,6 @@ An effective online order management system should include:
 4. Payment Integration: Seamless integration with multiple payment gateways.  
 5. Analytics and Reporting: Insights into order patterns, popular items, and customer feedback.  
 6. Customer Management: Manage customer data, order history, and preferences.  
- 
-
 
 ## Howan Online Order Manager Enhances Your Restaurant's Sales
 
