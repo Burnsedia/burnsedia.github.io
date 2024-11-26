@@ -13,7 +13,7 @@ export const Typing = () => {
         3000,
       ]}
       wrapper="span"
-      speed={50}
+      speed={10}
       style={{ fontSize: 'text-2xl', display: 'inline-block' }}
       repeat={Infinity}
     />
