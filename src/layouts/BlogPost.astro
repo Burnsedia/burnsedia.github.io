@@ -30,22 +30,31 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	<body class="h-screen font-Verdana sans-serif bg-background-color leading-6 text-white">
 		<Header />
-    <main  class="py-20 bg-slate-950 flex flex-col justify-center items-center ">
-			<article class="break-words max-w-prose">
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-				<h1 class="title py-4">{title}</h1>
-				<FormattedDate date={pubDate} />
-				{
-					updatedDate && (
-						<div class="last-updated-on">
+		<main class="py-20 bg-slate-950 flex flex-col justify-center items-center">
+			<article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
+				{heroImage && (
+					<img
+						class="w-full max-w-4xl rounded-md shadow-lg"
+						src={heroImage}
+						alt=""
+					/>
+				)}
+				<h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
+				<div class="text-center">
+					<FormattedDate date={pubDate} />
+					{updatedDate && (
+						<div class="last-updated-on text-sm md:text-base">
 							Last updated on <FormattedDate date={updatedDate} />
 						</div>
-					)
-				}
+					)}
+				</div>
 				<hr />
-				<slot />
+				<div class="prose lg:prose-lg text-base-content">
+					<slot />
+				</div>
 			</article>
 		</main>
 		<Footer />
 	</body>
 </html>
+
