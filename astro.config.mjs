@@ -3,7 +3,6 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from "@astrojs/react";
 import partytown from '@astrojs/partytown';
-
 // https://astro.build/config
 import tailwind from "@astrojs/tailwind";
 
