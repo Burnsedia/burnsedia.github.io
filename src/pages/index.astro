@@ -1,18 +1,17 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from "../components/Hero.astro"
-import Tech from "../components/Technolgy.astro"
-import SalesHero from "../components/SalesHero.astro"
-import WhyIUse from "../components/whyIUse.astro"
-import Projects from "../components/projects.astro"
-import ContactForm from "../components/ContactForm.astro"
+import Hero from "../components/Hero.astro";
+import Tech from "../components/Technolgy.astro";
+import SalesHero from "../components/SalesHero.astro";
+import Projects from "../components/projects.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 <BaseLayout
   title={SITE_TITLE}
 	description="I build Apps"
 >
- <Hero />
+ <Hero client:load/>
  <SalesHero />
  <Tech />
  <Projects />

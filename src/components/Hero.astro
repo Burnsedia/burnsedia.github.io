@@ -6,13 +6,16 @@ import LOGO from "../assets/CyberPunkLogo2.jpg"
 ---
 
 <div class="hero py-12 noise bg-slate-950">
-  <div class="hero-content flex-col lg:flex-row">
+  <div class="hero-content flex-col lg:flex-row w-full">
     <div class="w-2/3 mask mask-hexagon ring ring-primary shadow-info scale-75 ring-offset-base-100 ring-offset-2">
       <Image src={LOGO} alt="praise the Omnissiah" />
     </div>
     <div class="">
-      <h1 class="text-2xl sm:text-6xl font-bold px-3">{SITE_DESCRIPTION}</h1>
-      <div class="px-3 py-3">
+      <div class="items-center px-3 ">
+         <h1 class="text-2xl sm:text-6xl font-bold px-3">{SITE_DESCRIPTION}</h1>
+      <Typing client:load/>
+      </div>
+      <div class="px-3 py-6">
         <h3 class="text-2xl font-bold">Here's how it works:</h3>
         <ol class="list-decimal px-4">
           <li>Pay for 30 days of software development services</li>
@@ -21,7 +24,7 @@ import LOGO from "../assets/CyberPunkLogo2.jpg"
           <li>Sit back and relax </li>
         </ol>  
       </div>
-      <div class="px-6">
+      <div class="py-6">
         <a href="https://buy.stripe.com/5kAdRT5Rl5Cc3Vm005">
           <button class="btn btn-outline btn-primary">Buy Now</button>
         </a>
