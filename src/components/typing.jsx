@@ -9,7 +9,7 @@ export const Typing = () => {
         3000,
         'Web',
         3000,
-        '$997/m',
+        '$1997/m',
         3000,
       ]}
       wrapper="span"
