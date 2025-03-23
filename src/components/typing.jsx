@@ -9,8 +9,6 @@ export const Typing = () => {
         3000,
         'Web',
         3000,
-        '$1997/m',
-        3000,
       ]}
       wrapper="span"
       speed={10}
