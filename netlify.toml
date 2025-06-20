@@ -1,6 +1,6 @@
-[build]
-command = "astro build"
-publish = "dist"
-
 [build.environment]
 NODE_VERSION = "24.2.0"
+
+[build]
+command = "npm run build"
+publish = "dist"
