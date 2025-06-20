@@ -2,34 +2,61 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
 const { title, description } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-    <!-- <script data-goatcounter="https://burnsedia.goatcounter.com/count" -->
-    <!--     async src="//gc.zgo.at/count.js"></script> -->
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
 
-	<body class="h-screen font-Verdana sans-serif text-white">
+    <style>
+      .title {
+        font-size: 2em;
+        margin: 0.25em 0 0;
+      }
+      hr {
+        border-top: 1px solid #ddd;
+        margin: 1rem 0;
+      }
+      .last-updated-on {
+        font-style: italic;
+      }
+    </style>
+
+    <!-- ✅ Motion One v12.18.1 scroll progress bar -->
+    <script type="module">
+      import { scroll, spring } from 'https://cdn.jsdelivr.net/npm/motion@12.18.1/+esm';
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const el = document.querySelector('#scroll-progress');
+        if (!el) return;
+
+        scroll(
+          ({ y }) => {
+            spring(el, { scaleY: y.progress }, {
+              stiffness: 180,
+              damping: 24
+            });
+          },
+          {
+            target: document.scrollingElement,
+            axis: 'y'
+          }
+        );
+      });
+    </script>
+  </head>
+
+  <body class="min-h-screen font-Verdana text-white bg-black">
+    <!-- 🚀 Vertical Scroll Progress Bar (left side) -->
+    <div id="scroll-progress" class="fixed left-0 top-0 h-full w-1 bg-primary origin-top z-50 scale-y-0"></div>
+
     <Header />
-		<main class="flex flex-col justify-center items-center bg-black ">
+    <main class="flex flex-col items-center justify-center">
       <slot />
-		</main>
-		<Footer />
-	</body>
+    </main>
+    <Footer />
+  </body>
 </html>
+
