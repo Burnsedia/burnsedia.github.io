@@ -1,19 +1,19 @@
-import { TypeAnimation } from 'react-type-animation';
+import Typewriter from 'typewriter-effect';
 
 export const Typing = () => {
   return (
-    <TypeAnimation className='text-white text-6xl px-3'
-      sequence={[
-        // Same substring at the start will only be typed out once, initially
-        'Mobile',
-        3000,
-        'Web',
-        3000,
-      ]}
-      wrapper="span"
-      speed={10}
-      style={{ fontSize: 'text-2xl', display: 'inline-block' }}
-      repeat={Infinity}
-    />
+    <div className="text-white text-6xl px-3">
+      <Typewriter
+        options={{
+          strings: ['Mobile', 'Web'],
+          autoStart: true,
+          loop: true,
+          delay: 75, // typing speed in ms
+          deleteSpeed: 50,
+          pauseFor: 2000, // pause before deleting
+        }}
+      />
+    </div>
   );
 };
+
