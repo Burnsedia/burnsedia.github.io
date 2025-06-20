@@ -1,10 +1,14 @@
 <script setup>
-import { onMounted } from 'vue';
-import Typewriter from 'typewriter-effect/dist/core';
+import { onMounted, ref } from 'vue'
+import Typewriter from 'typewriterjs'
+
+const el = ref(null)
 
 onMounted(() => {
-  new Typewriter('#typewriter-vue', {
-    strings: ['Mobile', 'Web'],
+  if (!el.value) return; // ✅ safety check
+
+  new Typewriter(el.value, {
+    strings: ['Mobile', 'Web', 'AI', 'More'],
     autoStart: true,
     loop: true,
     delay: 75,
@@ -14,5 +18,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="typewriter-vue" class="text-white text-6xl px-3"></div>
+  <div ref="el" class="text-white text-6xl px-3"></div>
 </template>

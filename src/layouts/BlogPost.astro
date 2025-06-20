@@ -4,57 +4,60 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import "../styles/global.css";
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+<html lang="en" data-theme="dark-synthwave">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      .title {
+        font-size: 2em;
+        margin: 0.25em 0 0;
+      }
+      hr {
+        border-top: 1px solid #ddd;
+        margin: 1rem 0;
+      }
+      .last-updated-on {
+        font-style: italic;
+      }
+    </style>
+  </head>
 
-	<body class="h-screen font-Verdana sans-serif bg-black leading-6 text-white">
-		<Header />
-		<main class="py-20 bg-slate-950 flex flex-col justify-center items-center">
-			<article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
-				{heroImage && (
-					<img
-						class="w-full max-w-4xl rounded-md shadow-lg"
-						src={heroImage}
-						alt=""
-					/>
-				)}
-				<h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
-				<div class="text-center">
-					<FormattedDate date={pubDate} />
-					{updatedDate && (
-						<div class="last-updated-on text-sm md:text-base">
-							Last updated on <FormattedDate date={updatedDate} />
-						</div>
-					)}
-				</div>
-				<hr />
-				<div class="prose lg:prose-lg text-base-content">
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body class="min-h-screen font-sans bg-base-100 text-base-content leading-6">
+    <Header />
+    <main class="py-20 flex flex-col justify-center items-center">
+      <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
+        {heroImage && (
+          <img
+            class="w-full max-w-4xl rounded-md shadow-lg"
+            src={heroImage}
+            alt=""
+          />
+        )}
+        <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">
+          {title}
+        </h1>
+        <div class="text-center">
+          <FormattedDate date={pubDate} />
+          {updatedDate && (
+            <div class="last-updated-on text-sm md:text-base">
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
+          )}
+        </div>
+        <hr />
+        <div class="prose lg:prose-lg max-w-none text-base-content">
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
 

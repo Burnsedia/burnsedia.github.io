@@ -1,18 +1,16 @@
-import { defineConfig, passthroughImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import react from "@astrojs/react";
 import partytown from '@astrojs/partytown';
-// https://astro.build/config
-import tailwind from "@astrojs/tailwind";
+import vue from '@astrojs/vue';
+import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
+import react from '@astrojs/react';
+
 export default defineConfig({
-  image: {
-   service: passthroughImageService(),
- },
   site: 'https://baileyburnsed.dev',
-  integrations: [react(), mdx(), sitemap(), tailwind(), partytown(),
-]
+  integrations: [sitemap(), partytown(), mdx(), vue(), react()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
-

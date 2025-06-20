@@ -2,11 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-
+import '../styles/global.css';
 const { title, description } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-theme="darksynthwave">
   <head>
     <BaseHead title={title} description={description} />
 
@@ -24,7 +24,7 @@ const { title, description } = Astro.props;
       }
     </style>
 
-    <!-- ✅ Motion One v12.18.1 scroll progress bar -->
+    <!-- ✅ Motion One scroll progress bar -->
     <script type="module">
       import { scroll, spring } from 'https://cdn.jsdelivr.net/npm/motion@12.18.1/+esm';
 
@@ -48,10 +48,9 @@ const { title, description } = Astro.props;
     </script>
   </head>
 
-  <body class="min-h-screen font-Verdana text-white bg-black">
+  <body class="min-h-screen font-sans text-white bg-base-100">
     <!-- 🚀 Vertical Scroll Progress Bar (left side) -->
     <div id="scroll-progress" class="fixed left-0 top-0 h-full w-1 bg-primary origin-top z-50 scale-y-0"></div>
-    <div id="scroll-progress" class="fixed left-0 top-0 h-full w-1 bg-red-500 origin-top z-50 scale-y-0"></div>
 
     <Header />
     <main class="flex flex-col items-center justify-center">

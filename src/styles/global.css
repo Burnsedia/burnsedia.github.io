@@ -1,16 +1,22 @@
-/*
+/* 
   The CSS in this style tag is based off of Bear Blog's default CSS.
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
-/* src/css/tailwind.css */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+*/
 
+/* src/styles/global.css */
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@plugin "daisyui" {
+  themes: ["light", "dark"];
+}
 
 @plugin "daisyui/theme" {
-  name: "dark-synthwave";
-  default: false;
+  name: "darksynthwave";
+  default: true;
   prefersdark: false;
   color-scheme: "dark";
   --color-base-100: oklch(0% 0 0);
@@ -42,7 +48,6 @@
   --depth: 0;
   --noise: 0;
 }
-
 
 h1,
 h2,
@@ -95,10 +100,4 @@ ul {
   padding-left: 25px;
 }
 
-blockquote {
-	border: 1px solid #999;
-	color: #222;
-	padding: 2px 0px 2px 20px;
-	margin: 0px;
-	font-style: italic;
-}
+
