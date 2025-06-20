@@ -1,6 +1,6 @@
 ---
 title: "7 Powerful Ways to Use AI Agents to Make More Money"
-description: "Unlock the power of AI agents to automate tasks, generate leads, and scale your income. This guide breaks down 7 actionable strategies for freelancers, developers, and entrepreneurs to earn more with less effort using modern AI tools."
+description: "Unlock the power of AI agents with AI tools."
 pubDate: "Apr 17 2025"
 heroImage: "/CyberPunkLogo1.jpg"
 ---

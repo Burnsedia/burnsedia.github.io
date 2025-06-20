@@ -1,7 +1,7 @@
 ---
 title: "How to Increase Sales to Your Restaurant with Online Order Manager"
 description: "A practical guide"
-pubDate: "Jul 08 2022"
+pubDate: "Jul 08 2024"
 heroImage: "/placeholder-hero.jpg"
 ---
 # How to Increase Sales to Your Restaurant with Online Order Manager
