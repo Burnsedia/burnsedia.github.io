@@ -1,6 +1,5 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
+// Import global styles
 import '../styles/global.css';
 
 export interface Props {
@@ -9,16 +8,48 @@ export interface Props {
 	image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const { title, description, image = '/CyberPunkLogo2.jpg' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const author = "Bailey Burnsed";
+const keywords = [
+  "Bailey Burnsed",
+  "Burnsedia",
+  "AI consulting",
+  "Artificial Intelligence strategy",
+  "LLM integration",
+  "LangChain expert",
+  "GPT-4 developer",
+  "Software consulting",
+  "Custom software development",
+  "Full stack developer",
+  "Django developer",
+  "Vue.js expert",
+  "Flutter mobile developer",
+  "DevOps consultant",
+  "AWS certified developer",
+  "GCP deployments",
+  "Azure expert",
+  "Serverless architecture",
+  "CI/CD pipelines",
+  "Kubernetes & Docker",
+  "IT audit services",
+  "technology risk assessment",
+  "Cloud cost optimization",
+  "Freelance developer Atlanta",
+  "East Point software consultant",
+  "College Park AI developer"
+].join(", ");
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+<meta name="language" content="en" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content={author} />
+<meta name="keywords" content={keywords} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -28,25 +59,110 @@ const { title, description, image = '/CyberPunkLogo2.jpg' } = Astro.props;
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
-<!-- Open Graph / Facebook -->
+<!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(image, Astro.site)} />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
-<!-- Google tag (gtag.js) -->
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@baileyburnsed" />
+<meta name="twitter:creator" content="@baileyburnsed" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.site)} />
+
+<!-- Schema: Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bailey Burnsed",
+  "url": "https://baileyburnsed.dev",
+  "image": "https://baileyburnsed.dev{image}",
+  "sameAs": [
+    "https://github.com/Burnsedia",
+    "https://www.linkedin.com/in/bailey-burnsed-50051115a/",
+    "https://x.com/baileyburnsed"
+  ],
+  "jobTitle": "Founder & Lead Developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Burnsedia",
+    "url": "https://baileyburnsed.dev"
+  }
+}
+</script>
+
+<!-- Schema: Organization (Burnsedia) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Burnsedia",
+  "url": "https://baileyburnsed.dev",
+  "logo": "https://baileyburnsed.dev/favicon.svg",
+  "description": "Burnsedia is a full stack consulting agency offering AI integration, cloud architecture, and custom software development.",
+  "sameAs": [
+    "https://github.com/Burnsedia",
+    "https://linkedin.com/in/bailey-burnsed-50051115a/",
+    "https://x.com/baileyburnsed"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Bailey Burnsed"
+  }
+}
+</script>
+
+<!-- Schema: Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI, Cloud, and Full Stack Software Consulting",
+  "provider": {
+    "@type": "Organization",
+    "name": "Burnsedia",
+    "url": "https://baileyburnsed.dev"
+  },
+  "serviceType": [
+    "AI consulting",
+    "LLM and GPT integration",
+    "Full stack software development",
+    "Cloud architecture and migration",
+    "DevOps and CI/CD pipelines",
+    "AWS / GCP / Azure deployments",
+    "IT audit and tech risk assessment",
+    "Serverless and edge deployments",
+    "Custom SaaS platforms"
+  ],
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Atlanta, GA"
+    },
+    {
+      "@type": "Place",
+      "name": "East Point, GA"
+    },
+    {
+      "@type": "Place",
+      "name": "College Park, GA"
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
-
   gtag('config', 'G-LRMSZ4V1XG');
 </script>
+
