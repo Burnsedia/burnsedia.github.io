@@ -40,9 +40,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             alt=""
           />
         )}
-        <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">
-          {title}
-        </h1>
         <div class="text-center">
           <FormattedDate date={pubDate} />
           {updatedDate && (
