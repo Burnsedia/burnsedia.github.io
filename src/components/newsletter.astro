@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import LOGO from "../assets/CyberPunkLogo2.jpg"
+---
+
+<div class="hero py-12 noise">
+  <div class="hero-content flex-col lg:flex-row w-full">
+    <div class="w-2/3 mask mask-hexagon ring ring-info ring-offset-4 ring-offset-info p-2">
+      <Image src={LOGO} alt="praise the Omnissiah" />
+    </div>
+    <div class="">
+      <div class="items-center px-3 ">
+         <h1 class="text-4xl sm:text-6xl font-bold px-3">Join the Newsletter</h1>
+<form name="newsletter" method="POST" data-netlify="true" class="join">
+  <div>
+    <label class="input validator join-item">
+      <svg
+        class="h-[1em] opacity-50"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="2.5"
+          fill="none"
+          stroke="currentColor"
+        >
+          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </g>
+      </svg>
+      <input
+        type="email"
+        name="email"
+        placeholder="mail@site.com"
+        required
+      />
+    </label>
+    <div class="validator-hint hidden">Enter valid email address</div>
+  </div>
+  <button type="submit" class="btn btn-neutral join-item">Join</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
