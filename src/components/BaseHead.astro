@@ -1,7 +1,7 @@
 ---
 // Import global styles
 import '../styles/global.css';
-
+import { ClientRouter } from "astro:transitions";
 export interface Props {
 	title: string;
 	description: string;
@@ -40,7 +40,7 @@ const keywords = [
   "College Park AI developer"
 ].join(", ");
 ---
-
+<ClientRouter />
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
