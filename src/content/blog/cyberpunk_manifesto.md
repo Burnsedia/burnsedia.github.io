@@ -1,11 +1,11 @@
 ---
-title: "I am a Cyberpunk"
-description: "A rant on crypto-anarchism"
+title: "I am a Cyberpunk, I am a Cypherpunk"
+description: "A rant on crypto-anarchism and owr Cyberpunk dystopia"
 pubDate: "Sep 07 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 ---
 
-# 🏴 Cyberpunk  Cypherpunk Manifesto
+# 🏴 Cypherpunk Manifesto
 
 ## I. Identity
 
@@ -31,7 +31,7 @@ heroImage: "/CyberPunkLogo2.jpg"
 
 ## III. Scarcity & Abundance
 
--   Scarcity of land is real and raw resources. Scarcity of refined resources is artificial.
+-   Scarcity of land and raw resources real. Scarcity of refined and manufactured goods is artificial.
 -   Housing, food, and medicine exist in abundance but are hoarded,
     zoned, and paywalled.
 -   Information is post-scarcity --- but DRM and copyright laws enforce
@@ -41,17 +41,19 @@ heroImage: "/CyberPunkLogo2.jpg"
 
 ## IV. Open Source: Capitalism Perfected
 
--   Open source is capitalism without gatekeepers.
+-   Open source is a true free-market without gatekeepers.
 -   Value comes from what you create and share --- not what you hoard.
 -   Profit is honest: from service, hosting, customization, not
     artificial scarcity.
--   Linux, Python, PostgreSQL, Kubernetes, Godot: the backbone of real
+-   Linux, Python, PostgreSQL, Sqlite , Ollama, PGP: the backbone of real
     freedom.
 
 ## V. Optimism
 
 -   Privacy is no longer "weird" --- it's responsible.
 -   Linux is mainstreaming --- Steam Deck, Android, servers.
+-   Event PewDiePie switched to Arch Linux, this is proof that Linux, 
+    Open Source and Self Hosting is ready for the mainstream.
 -   Open source is winning, even when corporations fight it.
 -   Decentralization is alive in federated systems, even if small.
 -   The counterculture is growing.
