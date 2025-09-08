@@ -1,3 +1,10 @@
+---
+title: "I am a Cyberpunk"
+description: "A rant on crypto-anarchism"
+pubDate: "Sep 07 2025"
+heroImage: "/CyberPunkLogo2.jpg"
+---
+
 # 🏴 Cyberpunk  Cypherpunk Manifesto
 
 ## I. Identity
