@@ -1,6 +1,6 @@
 ---
 title: "I am a Cyberpunk, I am a Cypherpunk"
-description: "A rant on crypto-anarchism and owr Cyberpunk dystopia"
+description: "A rant on crypto-anarchism and our Cyberpunk dystopia"
 pubDate: "Sep 07 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 ---
