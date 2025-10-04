@@ -1,11 +1,8 @@
-[build.environment]
-NODE_VERSION = "24.2.0"
-
 [build]
-command = "npm run build"
-publish = "dist"
-
+  command = "npm run build"
+  publish = "dist"
 
 [build.environment]
+  NODE_VERSION = "24.2.0"
   PUBLIC_GA_ID = "G-LRMSZ4V1XG"
 
