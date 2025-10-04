@@ -2,45 +2,59 @@
 // Import global styles
 import '../styles/global.css';
 import { ClientRouter } from "astro:transitions";
+
 export interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string;
+  description: string;
+  image?: string;
 }
 
 const { title, description, image = '/CyberPunkLogo2.jpg' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteImage = new URL(image, Astro.site).toString();
 const author = "Bailey Burnsed";
+
+/** ✅ Expanded keywords: local SEO + small business + tutoring + game dev + SaaS */
 const keywords = [
-  "Bailey Burnsed",
-  "Burnsedia",
-  "AI consulting",
-  "Artificial Intelligence strategy",
-  "LLM integration",
-  "LangChain expert",
-  "GPT-4 developer",
-  "Software consulting",
-  "Custom software development",
-  "Full stack developer",
-  "Django developer",
-  "Vue.js expert",
-  "Flutter mobile developer",
-  "DevOps consultant",
-  "AWS certified developer",
-  "GCP deployments",
-  "Azure expert",
-  "Serverless architecture",
-  "CI/CD pipelines",
-  "Kubernetes & Docker",
-  "IT audit services",
-  "technology risk assessment",
-  "Cloud cost optimization",
-  "Freelance developer Atlanta",
-  "East Point software consultant",
-  "College Park AI developer"
+  // Brand & core
+  "Bailey Burnsed","Burnsedia","Software consulting","Custom software development","Full stack developer",
+  "AI consulting","Artificial Intelligence strategy","LLM integration","LangChain expert","GPT-4 developer",
+  "Django developer","Vue.js expert","Flutter mobile developer","DevOps consultant","Serverless architecture",
+  "CI/CD pipelines","Kubernetes & Docker","IT audit services","technology risk assessment","Cloud cost optimization",
+  "AWS certified developer","GCP deployments","Azure expert",
+  // Local SEO (Metro Atlanta focus)
+  "Atlanta software development","Metro Atlanta software consultant","Freelance developer Atlanta",
+  "East Point software consultant","College Park AI developer","Hapeville software developer",
+  "Atlanta custom websites","Metro Atlanta custom websites","East Point custom websites",
+  "College Park website developer","Hapeville website design","Atlanta small business technology",
+  // Small business & websites
+  "Custom website design and development","Small business IT services","Small business tech consulting",
+  "Affordable websites for small business Atlanta","CRM setup for small business","Ecommerce websites Atlanta",
+  "Booking and scheduling software","Payment processor integration","Local SEO consulting Atlanta",
+  // Tutoring / education
+  "Python tutoring Atlanta","Programming lessons East Point","DevOps tutoring","Linux tutoring",
+  "Neovim productivity training","Cloud computing classes","AI and ChatGPT tutoring",
+  "Game development tutoring Godot","Flutter app dev tutoring",
+  // Game dev / hobbies
+  "Indie game development Atlanta","Godot game engine developer","Game design consulting",
+  "Cross platform game builds","Steam and itch.io publishing support","Open source game dev tools",
+  // Your SaaS / productized services
+  "BulkPost social media automation","Virtue Tracker productivity and issue tracker",
+  "Client portal SaaS","Appointment booking SaaS","Lead generation SaaS for developers",
+  "AI agents for marketing and analytics","Bookkeeping SaaS for freelancers","DIY SaaS templates",
+  "White label SaaS deployment","API integrations for small business",
+  // Tech specialties stack
+  "Astro Vue Django developer","PostgreSQL optimization","Docker and Kubernetes consulting",
+  "Fly.io developer","Netlify developer","Linux server setup and optimization"
 ].join(", ");
+
+/** ✅ GA4 (prod-only). Set PUBLIC_GA_ID=G-XXXXXXX in your environment */
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
+const loadGA = import.meta.env.PROD && !!GA_ID;
 ---
+
 <ClientRouter />
+
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,6 +64,12 @@ const keywords = [
 <meta name="robots" content="index, follow" />
 <meta name="author" content={author} />
 <meta name="keywords" content={keywords} />
+
+<!-- Geo tags for local SEO -->
+<meta name="geo.region" content="US-GA" />
+<meta name="geo.placename" content="Atlanta Metro Area, Georgia" />
+<meta name="geo.position" content="33.7490;-84.3880" />
+<meta name="ICBM" content="33.7490, -84.3880" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -64,7 +84,7 @@ const keywords = [
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.site)} />
+<meta property="og:image" content={siteImage} />
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -73,96 +93,118 @@ const keywords = [
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={new URL(image, Astro.site)} />
+<meta name="twitter:image" content={siteImage} />
 
 <!-- Schema: Person -->
 <script type="application/ld+json">
-{
+{JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Bailey Burnsed",
-  "url": "https://baileyburnsed.dev",
-  "image": "https://baileyburnsed.dev{image}",
-  "sameAs": [
+  name: "Bailey Burnsed",
+  url: "https://baileyburnsed.dev",
+  image: siteImage,
+  sameAs: [
     "https://github.com/Burnsedia",
     "https://www.linkedin.com/in/bailey-burnsed-50051115a/",
     "https://x.com/baileyburnsed"
   ],
-  "jobTitle": "Founder & Lead Developer",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Burnsedia",
-    "url": "https://baileyburnsed.dev"
-  }
-}
+  jobTitle: "Founder & Lead Developer",
+  worksFor: { "@type": "Organization", name: "Burnsedia", url: "https://baileyburnsed.dev" }
+})}
 </script>
 
 <!-- Schema: Organization (Burnsedia) -->
 <script type="application/ld+json">
-{
+{JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Burnsedia",
-  "url": "https://baileyburnsed.dev",
-  "logo": "https://baileyburnsed.dev/favicon.svg",
-  "description": "Burnsedia is a full stack consulting agency offering AI integration, cloud architecture, and custom software development.",
-  "sameAs": [
+  name: "Burnsedia",
+  url: "https://baileyburnsed.dev",
+  logo: "https://baileyburnsed.dev/favicon.svg",
+  description: "Burnsedia builds custom websites, AI solutions, and full-stack software for small businesses across Metro Atlanta.",
+  sameAs: [
     "https://github.com/Burnsedia",
     "https://linkedin.com/in/bailey-burnsed-50051115a/",
     "https://x.com/baileyburnsed"
   ],
-  "founder": {
-    "@type": "Person",
-    "name": "Bailey Burnsed"
-  }
-}
+  founder: { "@type": "Person", name: "Bailey Burnsed" }
+})}
 </script>
 
-<!-- Schema: Service -->
+<!-- Schema: Service (expanded for small business, tutoring, game dev) -->
 <script type="application/ld+json">
-{
+{JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "AI, Cloud, and Full Stack Software Consulting",
-  "provider": {
-    "@type": "Organization",
-    "name": "Burnsedia",
-    "url": "https://baileyburnsed.dev"
-  },
-  "serviceType": [
-    "AI consulting",
-    "LLM and GPT integration",
+  name: "AI, Cloud, Web, and Full-Stack Software Consulting",
+  provider: { "@type": "Organization", name: "Burnsedia", url: "https://baileyburnsed.dev" },
+  serviceType: [
+    "Custom website design and development",
+    "Small business IT services",
+    "Small business technology consulting",
+    "AI consulting","LLM and GPT integration",
     "Full stack software development",
     "Cloud architecture and migration",
     "DevOps and CI/CD pipelines",
     "AWS / GCP / Azure deployments",
     "IT audit and tech risk assessment",
     "Serverless and edge deployments",
-    "Custom SaaS platforms"
+    "Custom SaaS platforms",
+    "Social media automation (BulkPost)",
+    "Productivity & issue tracking (Virtue Tracker)",
+    "Client portal SaaS",
+    "Appointment booking SaaS",
+    "Lead generation SaaS",
+    "AI agents for marketing and analytics",
+    "Bookkeeping SaaS for freelancers",
+    "Python tutoring","DevOps tutoring","Linux tutoring","Neovim productivity training",
+    "AI/ChatGPT tutoring","Godot game dev tutoring",
+    "Indie game development consulting"
   ],
-  "areaServed": [
-    {
-      "@type": "Place",
-      "name": "Atlanta, GA"
-    },
-    {
-      "@type": "Place",
-      "name": "East Point, GA"
-    },
-    {
-      "@type": "Place",
-      "name": "College Park, GA"
-    }
+  areaServed: [
+    { "@type": "Place", name: "Atlanta, GA" },
+    { "@type": "Place", name: "East Point, GA" },
+    { "@type": "Place", name: "College Park, GA" },
+    { "@type": "Place", name: "Hapeville, GA" },
+    { "@type": "Place", name: "Metro Atlanta Area, GA" }
   ]
-}
+})}
 </script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LRMSZ4V1XG');
+<!-- (Optional) LocalBusiness schema for stronger local signals -->
+<script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Burnsedia",
+  image: siteImage,
+  url: "https://baileyburnsed.dev",
+  address: { "@type": "PostalAddress", addressLocality: "Atlanta", addressRegion: "GA", addressCountry: "US" },
+  areaServed: ["Atlanta","East Point","College Park","Hapeville","Metro Atlanta"],
+  description: "Custom websites, AI solutions, and small business tech consulting across Metro Atlanta.",
+  sameAs: [
+    "https://github.com/Burnsedia",
+    "https://linkedin.com/in/bailey-burnsed-50051115a/",
+    "https://x.com/baileyburnsed"
+  ]
+})}
 </script>
+
+<!-- ✅ GA4 inline (prod-only, env-based, view-transition aware) -->
+{loadGA && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});`}></script>
+    <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date()); gtag('config','${GA_ID}',{send_page_view:true});`}></script>
+    <script is:inline>
+      const sendPV = () => { if (typeof gtag === 'function') {
+        gtag('event','page_view',{ page_location: location.href, page_path: location.pathname + location.search, page_title: document.title });
+      }};
+      addEventListener('astro:page-load', sendPV);
+      addEventListener('astro:page-swap', sendPV);
+    </script>
+  </>
+)}
+
