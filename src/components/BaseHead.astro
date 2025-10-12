@@ -182,18 +182,17 @@ const keywords = [
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
 
-  // Initial page load
-  gtag('config', 'G-LRMSZ4V1XG', {
-    page_path: location.pathname + location.search + location.hash
-  });
-
-  // --- Astro SPA navigation tracking ---
-  // Fires on initial load and after ClientRouter swaps pages
-  // Docs events: 'astro:page-load' (initial), 'astro:after-swap' (route change)
-  addEventListener('astro:after-swap', () => {
+  // Initial page view
+  const sendPV = () => {
     gtag('config', 'G-LRMSZ4V1XG', {
-      page_path: location.pathname + location.search + location.hash
+      page_path: location.pathname + location.search + location.hash,
+      page_title: document.title
     });
-  });
+  };
+  sendPV();
+
+  // Track Astro SPA route changes
+  addEventListener('astro:after-swap', sendPV);
+  addEventListener('astro:page-load', sendPV); // covers initial hydrate too
 </script>
 
