@@ -38,10 +38,6 @@ const keywords = [
   "Astro Vue Django developer","PostgreSQL optimization","Docker and Kubernetes consulting",
   "Fly.io developer","Netlify developer","Linux server setup and optimization"
 ].join(", ");
-
-/** ✅ GA4 (prod-only). Set PUBLIC_GA_ID in Netlify */
-const GA_ID = import.meta.env.PUBLIC_GA_ID;
-const loadGA = import.meta.env.PROD && !!GA_ID;
 ---
 
 <ClientRouter />
@@ -103,7 +99,6 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
   worksFor: { "@type": "Organization", name: "Burnsedia", url: "https://baileyburnsed.dev" }
 })}
 </script>
-
 <!-- Schema: Organization (Burnsedia) -->
 <script type="application/ld+json">
 {JSON.stringify({
@@ -121,7 +116,6 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
   founder: { "@type": "Person", name: "Bailey Burnsed" }
 })}
 </script>
-
 <!-- Schema: Service -->
 <script type="application/ld+json">
 {JSON.stringify({
@@ -161,7 +155,6 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
   ]
 })}
 </script>
-
 <!-- LocalBusiness schema -->
 <script type="application/ld+json">
 {JSON.stringify({
@@ -180,7 +173,6 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
   ]
 })}
 </script>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
 <script>
