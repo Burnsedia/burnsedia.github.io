@@ -174,11 +174,26 @@ const keywords = [
 })}
 </script>
 <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — hardcoded ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
 <script>
+  // GA bootstrap
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
 
-  gtag('config', 'G-LRMSZ4V1XG');
+  // Initial page load
+  gtag('config', 'G-LRMSZ4V1XG', {
+    page_path: location.pathname + location.search + location.hash
+  });
+
+  // --- Astro SPA navigation tracking ---
+  // Fires on initial load and after ClientRouter swaps pages
+  // Docs events: 'astro:page-load' (initial), 'astro:after-swap' (route change)
+  addEventListener('astro:after-swap', () => {
+    gtag('config', 'G-LRMSZ4V1XG', {
+      page_path: location.pathname + location.search + location.hash
+    });
+  });
 </script>
+
