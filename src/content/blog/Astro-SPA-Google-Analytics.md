@@ -1,13 +1,9 @@
-
 ---
-title: "Fixing Google Analytics When Using Client-Side Routing in Astro (and Brave Blocks It)"
-description: "Learn how to get Google Analytics 4 working again after switching to client-side routing in Astro, including handling Brave browser blocking and Netlify CSP issues."
-pubDate: 2025-10-12
-author: "Bailey Burnsed"
-tags: ["Astro", "Google Analytics", "SPA", "Netlify", "Debugging", "SEO"]
-image: "/CyberPunkLogo2.jpg"
+title: "Fixing Google Analytics in Astro After Enabling Client-Side Routing"
+description: "How to get Google Analytics working again after adding <ClientRouter /> to your Astro site — plus why Brave and ad blockers might hide your traffic."
+pubDate: "Oct 12 2025"
+heroImage: "/CyberPunkLogo2.jpg"
 ---
-
 # 🔧 Fixing Google Analytics When Using Client-Side Routing in Astro (and Brave Browser Blocks It)
 
 When you enable **client-side routing** in your Astro site using `<ClientRouter />`, your pages stop doing full reloads.  
