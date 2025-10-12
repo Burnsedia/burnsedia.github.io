@@ -138,4 +138,3 @@ Your business deserves stability — not permission slips. So stop renting your 
 
 Own your apps. Own your data. Own your business.
 
-- 
