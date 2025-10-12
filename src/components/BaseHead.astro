@@ -181,40 +181,12 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
 })}
 </script>
 
-{loadGA && (
-  <>
-    <!-- Load GA4 (external script). Do NOT use is:inline here -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <!-- Configure GA and handle SPA pageviews -->
-    <script is:inline>
-      // GA bootstrap
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      // Disable auto page view; we’ll send manually
-      gtag('config', '{GA_ID}', { send_page_view: false });
-
-      (function () {
-        function sendPageView() {
-          if (typeof gtag !== 'function') return;
-          gtag('event', 'page_view', {
-            page_location: location.href,
-            page_path: location.pathname + location.search,
-            page_title: document.title,
-          });
-        }
-        // initial load
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-          sendPageView();
-        } else {
-          window.addEventListener('DOMContentLoaded', sendPageView, { once: true });
-        }
-        // Astro client navigations (ClientRouter / view transitions)
-        window.addEventListener('astro:page-load', sendPageView);
-        window.addEventListener('astro:after-swap', sendPageView);
-      })();
-    </script>
-  </>
-)}
-
+  gtag('config', 'G-LRMSZ4V1XG');
+</script>
