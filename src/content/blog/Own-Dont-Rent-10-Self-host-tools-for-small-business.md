@@ -137,4 +137,3 @@ No subscriptions. No hidden fees. No shutdowns.
 Your business deserves stability — not permission slips. So stop renting your tools. Own them.
 
 Own your apps. Own your data. Own your business.
-
