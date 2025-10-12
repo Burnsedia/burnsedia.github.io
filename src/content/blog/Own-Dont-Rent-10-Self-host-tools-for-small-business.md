@@ -1,3 +1,9 @@
+---
+title: "Own, Don't Rent"
+description: "10 self hostable tools for your small business"
+pubDate: "Oct 12 2025"
+heroImage: "/CyberPunkLogo2.jpg"
+---
 # **Own Don’t Rent: 10 Self-Hosted Apps to Use in Your Small Business**
 
 Most small businesses today run on rented tools — SaaS platforms that charge monthly fees and lock you into their ecosystem. Your website, analytics, CRM, and even your email might all live on someone else’s server.
