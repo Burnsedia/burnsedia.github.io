@@ -189,22 +189,12 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
   ]
 })}
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<!-- ✅ GA4 inline (prod-only, env-based, view-transition aware) -->
-{loadGA && (
-  <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=$G-F24CHW8FP6`}></script>
-    <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});`}></script>
-    <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date()); gtag('config','${GA_ID}',{send_page_view:true});`}></script>
-    <script is:inline>
-      const sendPV = () => { if (typeof gtag === 'function') {
-        gtag('event','page_view',{ page_location: location.href, page_path: location.pathname + location.search, page_title: document.title });
-      }};
-      addEventListener('astro:page-load', sendPV);
-      addEventListener('astro:page-swap', sendPV);
-    </script>
-  </>
-)}
-
+  gtag('config', 'G-LRMSZ4V1XG');
+</script>
