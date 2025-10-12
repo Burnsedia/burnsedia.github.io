@@ -1,5 +1,4 @@
 ---
-// Import global styles
 import '../styles/global.css';
 import { ClientRouter } from "astro:transitions";
 
@@ -14,41 +13,33 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const siteImage = new URL(image, Astro.site).toString();
 const author = "Bailey Burnsed";
 
-/** ✅ Expanded keywords: local SEO + small business + tutoring + game dev + SaaS */
 const keywords = [
-  // Brand & core
   "Bailey Burnsed","Burnsedia","Software consulting","Custom software development","Full stack developer",
   "AI consulting","Artificial Intelligence strategy","LLM integration","LangChain expert","GPT-4 developer",
   "Django developer","Vue.js expert","Flutter mobile developer","DevOps consultant","Serverless architecture",
   "CI/CD pipelines","Kubernetes & Docker","IT audit services","technology risk assessment","Cloud cost optimization",
   "AWS certified developer","GCP deployments","Azure expert",
-  // Local SEO (Metro Atlanta focus)
   "Atlanta software development","Metro Atlanta software consultant","Freelance developer Atlanta",
   "East Point software consultant","College Park AI developer","Hapeville software developer",
   "Atlanta custom websites","Metro Atlanta custom websites","East Point custom websites",
   "College Park website developer","Hapeville website design","Atlanta small business technology",
-  // Small business & websites
   "Custom website design and development","Small business IT services","Small business tech consulting",
   "Affordable websites for small business Atlanta","CRM setup for small business","Ecommerce websites Atlanta",
   "Booking and scheduling software","Payment processor integration","Local SEO consulting Atlanta",
-  // Tutoring / education
   "Python tutoring Atlanta","Programming lessons East Point","DevOps tutoring","Linux tutoring",
   "Neovim productivity training","Cloud computing classes","AI and ChatGPT tutoring",
   "Game development tutoring Godot","Flutter app dev tutoring",
-  // Game dev / hobbies
   "Indie game development Atlanta","Godot game engine developer","Game design consulting",
   "Cross platform game builds","Steam and itch.io publishing support","Open source game dev tools",
-  // Your SaaS / productized services
   "BulkPost social media automation","Virtue Tracker productivity and issue tracker",
   "Client portal SaaS","Appointment booking SaaS","Lead generation SaaS for developers",
   "AI agents for marketing and analytics","Bookkeeping SaaS for freelancers","DIY SaaS templates",
   "White label SaaS deployment","API integrations for small business",
-  // Tech specialties stack
   "Astro Vue Django developer","PostgreSQL optimization","Docker and Kubernetes consulting",
   "Fly.io developer","Netlify developer","Linux server setup and optimization"
 ].join(", ");
 
-/** ✅ GA4 (prod-only). Set PUBLIC_GA_ID=G-XXXXXXX in your environment */
+/** ✅ GA4 (prod-only). Set PUBLIC_GA_ID in Netlify */
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
 const loadGA = import.meta.env.PROD && !!GA_ID;
 ---
@@ -131,7 +122,7 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
 })}
 </script>
 
-<!-- Schema: Service (expanded for small business, tutoring, game dev) -->
+<!-- Schema: Service -->
 <script type="application/ld+json">
 {JSON.stringify({
   "@context": "https://schema.org",
@@ -171,7 +162,7 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
 })}
 </script>
 
-<!-- (Optional) LocalBusiness schema for stronger local signals -->
+<!-- LocalBusiness schema -->
 <script type="application/ld+json">
 {JSON.stringify({
   "@context": "https://schema.org",
@@ -189,12 +180,41 @@ const loadGA = import.meta.env.PROD && !!GA_ID;
   ]
 })}
 </script>
-<!-- Google tag (gtag.js) -->
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-LRMSZ4V1XG');
-</script>
+{loadGA && (
+  <>
+    <!-- Load GA4 (external script). Do NOT use is:inline here -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+
+    <!-- Configure GA and handle SPA pageviews -->
+    <script is:inline>
+      // GA bootstrap
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      // Disable auto page view; we’ll send manually
+      gtag('config', '{GA_ID}', { send_page_view: false });
+
+      (function () {
+        function sendPageView() {
+          if (typeof gtag !== 'function') return;
+          gtag('event', 'page_view', {
+            page_location: location.href,
+            page_path: location.pathname + location.search,
+            page_title: document.title,
+          });
+        }
+        // initial load
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          sendPageView();
+        } else {
+          window.addEventListener('DOMContentLoaded', sendPageView, { once: true });
+        }
+        // Astro client navigations (ClientRouter / view transitions)
+        window.addEventListener('astro:page-load', sendPageView);
+        window.addEventListener('astro:after-swap', sendPageView);
+      })();
+    </script>
+  </>
+)}
+
