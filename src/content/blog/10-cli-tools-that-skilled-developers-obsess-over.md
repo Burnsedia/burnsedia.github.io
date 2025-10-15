@@ -25,8 +25,6 @@ Once you taste that power, you start chasing it.
 You stop downloading plugins for comfort and start learning commands for control.  
 And before you know it, you’ve joined a cult of high-efficiency weirdos who can out-code entire teams from a terminal window.
 
----
-
 ## 10 Tools Developers Obsess Over
 
 **1. Neovim** — The hacker’s editor. Lua plugins, LSP, no nonsense. Once you configure it, it feels like an extension of your hands.  
@@ -49,8 +47,6 @@ And before you know it, you’ve joined a cult of high-efficiency weirdos who ca
 
 **10. tmux** — Split terminals, persist sessions, automate environments. Real developers don’t close terminals; they detach them.
 
----
-
 ## How to Join the Cult (Without Burning Out)
 
 **Step 1 – Pick one.**  
@@ -65,7 +61,7 @@ If you usually open VS Code, open Neovim.
 If you `cd` into folders, use zoxide.  
 Muscle memory rewires faster through replacement, not addition.
 
-**Step 4 – Customize for you.**  
+**Step 4 – Customize everything.**  
 Add keybindings, themes, and aliases that match your rhythm.  
 Tools become powerful when they disappear into your flow.
 
@@ -73,12 +69,16 @@ Tools become powerful when they disappear into your flow.
 Record a demo, write a blog, or explain it to a friend.  
 If you can teach it clearly, you’ve mastered it completely.
 
----
 
-## Final Thought
+## Personal Take
 
+You can’t fake mastery.  
 
----
+The terminal is the great equalizer — it doesn’t care about your degree, or your job title.  
+You either know your tools or you don’t.  
+
+I’ve always believed that **becoming a power user** is the real rite of passage for developers.  
+The command line is the gateway drug to *becoming a god of machines.*  
 
 *Written by [Bailey Burnsed](https://baileyburnsed.dev) — developer, consultant, and Linux maximalist who believes the command line is still the most honest interface ever made.*
 
