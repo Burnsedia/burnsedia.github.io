@@ -5,7 +5,7 @@ pubDate: "Oct 15 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 ---
 
-## Story: When the Editor Became the Bottleneck
+## When the Editor Became the Bottleneck
 
 I type fast.  
 So fast that VS Code couldn’t keep up — freezes, crashes, lag.  
@@ -27,7 +27,7 @@ And before you know it, you’ve joined a cult of high-efficiency weirdos who ca
 
 ---
 
-## List: 10 Tools Developers Obsess Over
+## 10 Tools Developers Obsess Over
 
 **1. Neovim** — The hacker’s editor. Lua plugins, LSP, no nonsense. Once you configure it, it feels like an extension of your hands.  
 
@@ -51,10 +51,10 @@ And before you know it, you’ve joined a cult of high-efficiency weirdos who ca
 
 ---
 
-## Steps: How to Join the Cult (Without Burning Out)
+## How to Join the Cult (Without Burning Out)
 
 **Step 1 – Pick one.**  
-Don’t install all ten. Pick one tool and live in it for a week.
+Don’t install all the cool tools you find at once. Pick one tool and live in it for a week.
 
 **Step 2 – Read the docs.**  
 Not a YouTube tutorial — the *actual* documentation.  
