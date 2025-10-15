@@ -8,14 +8,14 @@ heroImage: "/CyberPunkLogo2.jpg"
 ## When the Editor Became the Bottleneck
 
 I type fast.  
-So fast that VS Code couldn’t keep up — freezes, crashes, lag.  
+So fast that VS Code couldn’t keep up. It kept freezing, crashing, lagging.  
 
 At first I thought it was my extensions. Then my laptop.  
 Turns out, it was me.  
 
 When you start moving faster than your tools, you’ve outgrown them.  
 
-That’s when I switched to **Neovim**.  
+That’s when I switched to **Vim**, then **Neovim**.  
 No UI lag, no crashes, just text and speed. It’s on every one of my servers.  
 
 The deeper I went into the command line, the more I realized:  
@@ -31,7 +31,7 @@ And before you know it, you’ve joined a cult of high-efficiency weirdos who ca
 
 **1. Neovim** — The hacker’s editor. Lua plugins, LSP, no nonsense. Once you configure it, it feels like an extension of your hands.  
 
-**2. Git** — Not just version control, but a way of thinking. Branches, rebases, bisects — it rewires your brain to track change like a machine.  
+**2. Git** — Not just version control, but a way of thinking. Branches, rebases, bisects - it rewires your brain to track change like a machine.  
 
 **3. Ollama** — Run LLMs locally, offline, privately. The open-source antidote to cloud-based AI.  
 
@@ -41,7 +41,7 @@ And before you know it, you’ve joined a cult of high-efficiency weirdos who ca
 
 **6. fzf** — Fuzzy-find anything. Files, history, branches. The closest thing to autocomplete for your brain.  
 
-**7. ripgrep (`rg`)** — The lightning-fast search engine for codebases. `grep` walked so `ripgrep` could sprint.  
+**7. ripgrep (`rg`)** — The lightning-fast search engine for codebases. `grep` walked so `ripgrep` could run.  
 
 **8. zoxide** — Type two letters and teleport anywhere you’ve been. Your terminal becomes omnipresent.  
 
@@ -77,13 +77,6 @@ If you can teach it clearly, you’ve mastered it completely.
 
 ## Final Thought
 
-Modern developers chase frameworks.  
-Skilled developers master tools.  
-
-Because frameworks come and go,  
-but the command line never dies.  
-
-If you want to feel unstoppable again — start here.
 
 ---
 
