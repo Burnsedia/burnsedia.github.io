@@ -31,20 +31,6 @@ Here’s what powers my setup, the same system behind **BulkPost 2.0**:
 I use **PydanticAI** to define agent schemas — typed prompts that return clean, validated data.  
 No more unpredictable “chatty” AI outputs.
 
-Example:
-```python
-from pydantic_ai import agent, Model, Schema
-
-class PostSchema(Schema):
-    text: str
-    category: str
-    hashtags: list[str]
-
-@agent(schema=PostSchema)
-def content_planner():
-    """Generate a tweet for indie developers building in public."""
-```
-
 Now every AI response is predictable and reusable across systems.
 
 ---
@@ -62,7 +48,7 @@ This turns Django into a **command center** for automation.
 
 ### 🧱 3. BulkPost: The Marketing Layer
 BulkPost started as a scheduling tool.  
-Now it’s an **AI-driven social engine**.  
+Now I am developing it into an **AI-driven social engine**.  
 
 It:
 - Plans daily content  
@@ -94,7 +80,7 @@ Twelve posts a day. Zero effort. Infinite reach.
 
 ---
 
-### 🤖 5. Ollama + OpenAI + LangChain Bridge
+### 🤖 5. Ollama + OpenAI + PydanticAI Bridge
 Locally, I use **Ollama** for private inference and **OpenAI** for production-grade quality.  
 PydanticAI gives me a unified interface, so switching models is seamless.
 
