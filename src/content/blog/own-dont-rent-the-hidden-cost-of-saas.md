@@ -22,7 +22,7 @@ That’s when I told them something I tell all my clients:
 So we migrated everything to open-source tools.  
 Their bill dropped to **$20/month** (for hosting), and they never lost access to their data again.
 
----
+
 
 ## 2️⃣ List: Why “Owning” Software Matters
 
@@ -54,7 +54,7 @@ With open-source systems like **Wagtail**, **Ghost**, or **Directus**, you own t
 For indie developers, small studios, and agencies, self-hosting creates a moat.  
 You can build repeatable systems for clients, host them yourself, and earn recurring revenue — instead of sending it all to third-party platforms.
 
----
+
 
 ## 3️⃣ Steps: How to Take Back Ownership of Your Tools
 
@@ -71,7 +71,7 @@ You’ll be shocked at how much overlap there is.
 Here are some proven alternatives I’ve deployed for clients:
 
 | SaaS | Self-Hosted Alternative |
-|------|--------------------------|
+|---|--------------------------|
 | Notion | **Outline** |
 | Airtable | **NocoDB** |
 | Trello | **Planka** |
@@ -95,7 +95,7 @@ Open-source doesn’t mean insecure — it just means you’re in charge of upda
 Once you switch to self-hosting, explain the reasoning to your team.  
 They’ll understand that it’s not about saving a few dollars — it’s about independence, privacy, and longevity.
 
----
+
 
 ## 4️⃣ The Big Idea: “Own, Don’t Rent”
 
@@ -106,7 +106,7 @@ When you own them, you build *yours.*
 For small businesses and indie founders, self-hosting isn’t just cheaper — it’s smarter.  
 It’s how you turn tech from a monthly expense into a long-term asset.
 
----
+
 
 ## 📞 Call to Action
 
@@ -116,5 +116,5 @@ I can help you migrate, deploy, and customize your own stack.
 👉 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)  
 👉 or [Start your 30-day development plan now](https://baileyburnsed.dev/)
 
----
+
 

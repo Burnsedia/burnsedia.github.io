@@ -1,10 +1,10 @@
----  
+--- 
 title: "Neovim Made Me Twice as Fast — My Developer Workflow"  
 description: "Why I switched from VS Code to Neovim, how I customized my setup, and why modal editing has made me twice as productive as a developer."  
 pubDate: "Oct 23 2025"  
 heroImage: "/CyberPunkLogo2.jpg"  
 tags: ["Neovim", "Linux", "developer tools", "productivity", "vim", "terminal workflow"]  
----  
+--- 
 
 # Neovim Made Me Twice as Fast — My Developer Workflow  
 
@@ -22,7 +22,7 @@ Two years later, I’m never going back.
 
 Neovim didn’t just change *how* I code — it changed *how I think* about coding.  
 
----  
+  
 
 ## 2️⃣ List: Why Neovim Made Me Twice as Fast  
 
@@ -74,7 +74,7 @@ My workflow lives entirely in the terminal:
 No mouse. No context switching.  
 Just raw focus.  
 
----  
+  
 
 ## 3️⃣ Steps: How to Build a Neovim Setup That Works  
 
@@ -115,7 +115,7 @@ This is where Neovim shines.
 Add custom keymaps, colorschemes, or autocommands.  
 For me, I use a synthwave palette with DaisyUI-inspired colors — my editor literally matches my website.  
 
----  
+  
 
 ## 4️⃣ The Big Idea: Tools That Disappear  
 
@@ -126,7 +126,7 @@ Once you master the motions, you stop thinking about tools and start thinking ab
 I don’t measure productivity by lines of code anymore.  
 I measure it by how long I can stay in flow.  
 
----  
+  
 
 ## 📞 Call to Action  
 

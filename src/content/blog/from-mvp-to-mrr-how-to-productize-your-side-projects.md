@@ -20,7 +20,7 @@ That’s when I realized something simple but powerful:
 **you don’t need a startup** to make money from your code.  
 You just need to **productize** your work — turn your projects into something others can use and pay for.
 
----
+
 
 ## 2️⃣ List: The 5 Pillars of Productizing Your Code
 
@@ -61,7 +61,7 @@ Once your system works for one client, clone it.
 Rename the repo, tweak the theme, and sell it to the next one.  
 That’s how you turn a $1,000 project into $10,000 in recurring revenue.
 
----
+
 
 ## 3️⃣ Steps: My Process for Turning MVPs Into MRR
 
@@ -91,7 +91,7 @@ Write blogs, threads, or YouTube videos showing how you built it.
 Teach what you know — and quietly market what you sell.  
 People trust teachers more than sellers.
 
----
+
 
 ## 4️⃣ Example: BulkPost → AI-Powered Social Media System
 
@@ -106,7 +106,7 @@ The transition:
 
 Now it’s a full product with AI-driven posting and self-hosted scalability.
 
----
+
 
 ## 5️⃣ The Lesson: Code Once, Profit Forever
 
@@ -122,7 +122,7 @@ That’s the difference between freelancing and running a business.
 You don’t need a team or investors.  
 You need process, packaging, and persistence.
 
----
+
 
 ## 📞 Call to Action
 

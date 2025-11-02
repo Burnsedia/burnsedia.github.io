@@ -14,8 +14,6 @@ This guide shows a clean, production-ready setup that plays nicely with the stac
 
 > We’ll use **`django-tenants`** (the maintained successor to older libs). PostgreSQL is required.
 
----
-
 ## 🧩 What You’ll Build
 
 - A **public** schema (marketing site, auth entry, global config)
@@ -23,8 +21,6 @@ This guide shows a clean, production-ready setup that plays nicely with the stac
 - Subdomain routing like `acme.yourapp.com` → Acme’s schema
 - Commands to create tenants, run migrations per schema
 - JWT auth that works per tenant domain
-
----
 
 ## 0) Install & Enable
 
@@ -86,8 +82,6 @@ MIDDLEWARE = [
 ]
 ```
 
----
-
 ## 1) Declare Your Tenant & Domain Models
 
 Create an app, e.g. `tenancy`:
@@ -126,8 +120,6 @@ Add the app:
 INSTALLED_APPS += ["tenancy"]
 ```
 
----
-
 ## 2) Split Shared vs Tenant Apps
 
 `django-tenants` needs to know which apps live in the **public** schema and which live per **tenant** schema:
@@ -164,8 +156,6 @@ TENANT_DOMAIN_MODEL = "tenancy.Domain"
 ```
 
 > **Rule of thumb:** stuff that’s truly global (admin, auth entry, landing pages, Djoser endpoints) stays in **SHARED_APPS**. Per-tenant data/models go in **TENANT_APPS**.
-
----
 
 ## 3) Run Initial Migrations
 
@@ -231,7 +221,7 @@ Migrate tenant apps to **all** schemas:
 python manage.py migrate_schemas --tenant
 ```
 
----
+
 
 ## 4) URL Routing & Subdomains
 
@@ -244,7 +234,7 @@ If you want a **public site** at `www.yourapp.com` and tenants on subdomains, cr
 
 > On Fly.io, map your apex and wildcard domains in DNS to your Fly app. TLS certs will cover `*.yourapp.com` if you enable a wildcard cert via your DNS/ACME setup.
 
----
+
 
 ## 5) Creating Tenant-Scoped Data
 
@@ -267,7 +257,7 @@ class Project(models.Model):
 
 A request to `acme.yourapp.com` will read/write **only** the `acme` schema’s `projects_project` table.
 
----
+
 
 ## 6) Admin & Superusers per Tenant
 
@@ -284,7 +274,7 @@ Global/public superusers run under `public` (default):
 python manage.py createsuperuser  # public schema
 ```
 
----
+
 
 ## 7) Auth with Djoser + SimpleJWT (Per Tenant)
 
@@ -318,7 +308,7 @@ urlpatterns = [
 
 Because schema switching happens **before** URL resolution, each subdomain authenticates against its own schema’s users. Your Vue SPA should call the same paths, **but on the tenant domain**.
 
----
+
 
 ## 8) Migrations & Releases
 
@@ -342,7 +332,7 @@ Common flows:
 
 Automate these in CI/CD after deploy.
 
----
+
 
 ## 9) Local Dev & Fixtures
 
@@ -354,7 +344,7 @@ python manage.py create_tenant --schema=demo --name="Demo Co" --domain=demo.loca
 python manage.py tenant_command loaddata demo_data.json --schema=demo
 ```
 
----
+
 
 ## 🔧 Production Notes (Fly.io / Postgres)
 
@@ -364,7 +354,7 @@ python manage.py tenant_command loaddata demo_data.json --schema=demo
 - Wildcard DNS: `*.yourapp.com` → Fly app.  
 - HTTPS: terminate TLS at Fly; enforce HTTPS in Django `SECURE_SSL_REDIRECT = True`.
 
----
+
 
 ## 🧠 When to Use Separate Databases
 
@@ -375,7 +365,7 @@ python manage.py tenant_command loaddata demo_data.json --schema=demo
 
 Start simple with schemas; graduate to DB-per-tenant only when you must.
 
----
+
 
 ## 🏁 Conclusion
 
@@ -388,7 +378,7 @@ Start simple with schemas; graduate to DB-per-tenant only when you must.
 
 Don’t reinvent tenancy. Ship features.
 
----
+
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 

@@ -13,16 +13,12 @@ A **CI/CD pipeline** (Continuous Integration and Continuous Deployment) ensures 
 
 This tutorial shows how to build a full pipeline for your Django app using **GitHub Actions** and **Fly.io**.
 
----
-
 ## 🚀 What You’ll Learn
 
 - Automate testing and migrations  
 - Build Docker images for Django  
 - Deploy automatically to Fly.io  
 - Use GitHub Secrets to store environment variables  
-
----
 
 ## 🧩 Prerequisites
 
@@ -31,8 +27,6 @@ Before we begin, make sure you have:
 - A **Django app** (preferably containerized with Docker)
 - A **Fly.io** account and working app (`fly.toml` already created)
 - GitHub repo connected to your project
-
----
 
 ## 🐳 Step 1: Dockerize Your Django App
 
@@ -69,8 +63,6 @@ docker build -t myapp .
 docker run -p 8000:8000 myapp
 ```
 
----
-
 ## ⚙️ Step 2: Configure Fly.io for Deploys
 
 Initialize your app if you haven’t yet:
@@ -92,8 +84,6 @@ app = "your-app-name"
   PORT = "8000"
 ```
 
----
-
 ## 🔑 Step 3: Add Secrets to Fly.io
 
 Store production secrets on Fly.io (so they’re not in your repo):
@@ -103,8 +93,6 @@ fly secrets set DJANGO_SECRET_KEY='supersecret'
 fly secrets set DEBUG='False'
 fly secrets set DATABASE_URL='postgresql://user:password@host:5432/dbname'
 ```
-
----
 
 ## 🧠 Step 4: Add GitHub Secrets
 
@@ -119,8 +107,6 @@ In your GitHub repo:
 | `DJANGO_SECRET_KEY` | Django’s secret key |
 | `DATABASE_URL` | Connection string to production DB |
 | `DEBUG` | Set to `False` |
-
----
 
 ## ⚡ Step 5: Create the GitHub Actions Workflow
 
@@ -177,8 +163,6 @@ jobs:
           flyctl deploy --remote-only
 ```
 
----
-
 ## 🧪 Step 6: Trigger the Workflow
 
 Push a commit to your `main` branch:
@@ -192,8 +176,6 @@ git push origin main
 Go to your GitHub repo → **Actions** tab → watch the deployment run.
 
 Once complete, Fly.io will automatically build and deploy your app. 🎉
-
----
 
 ## 🧰 Step 7: Add Automatic Database Migrations
 
@@ -221,8 +203,6 @@ Now, every deploy will:
 - Push to Fly.io
 - Run migrations automatically
 
----
-
 ## 🔁 Step 8: Optional — Staging Environment
 
 If you want a staging app:
@@ -242,8 +222,6 @@ on:
 
 You can even use separate secrets (`FLY_API_TOKEN_STAGING`, etc.).
 
----
-
 ## 🧭 Step 9: CI Enhancements
 
 Add more checks as your app grows:
@@ -261,8 +239,6 @@ pytest
 bandit -r .
 ```
 
----
-
 ## 🌍 Step 10: Monitor and Roll Back
 
 Fly.io keeps image versions automatically.  
@@ -279,8 +255,6 @@ You can also view logs in real time:
 fly logs
 ```
 
----
-
 ## 🏁 Conclusion
 
 You now have a **production-ready Django CI/CD pipeline**:
@@ -291,8 +265,6 @@ You now have a **production-ready Django CI/CD pipeline**:
 ✅ Optional staging + rollback  
 
 With this workflow, your Fly.io apps deploy themselves — every push ships production code.
-
----
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 

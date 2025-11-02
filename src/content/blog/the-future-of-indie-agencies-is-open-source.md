@@ -14,7 +14,7 @@ Now, they do — and they want *lean*, *fast*, and *transparent*.
 
 The future belongs to **indie developers** who can deliver agency-quality results using **open-source tools** and **automation**.
 
----
+
 
 ## 🧠 The Shift
 
@@ -31,7 +31,7 @@ That’s where the **Indie Agency Model** wins.
 
 It’s not about headcount — it’s about *effectiveness*.  
 
----
+
 
 ## ⚙️ The Open Source Advantage
 
@@ -48,12 +48,12 @@ They’re not just free — they’re *freeing*.
 
 You own your stack. You own your data. You own your brand.  
 
----
+
 
 ## 🧩 Indie vs Traditional Agency
 
 |                       | Traditional Agency | Indie Agency |
-|-----------------------|-------------------|--------------|
+|--------------------|-------------------|--------------|
 | Team Size             | 10–50 people      | 1–2 people   |
 | Tooling               | Proprietary       | Open Source  |
 | Pricing Model         | Hourly/Retainer   | Productized  |
@@ -62,7 +62,7 @@ You own your stack. You own your data. You own your brand.
 
 You’re not competing with the big firms — you’re out-evolving them.  
 
----
+
 
 ## 💡 Why Clients Love This Model
 
@@ -78,7 +78,7 @@ They get:
 When you show them that open source equals **freedom**,  
 you win trust — and long-term relationships.  
 
----
+
 
 ## 🧠 Lessons Learned from Running My Own Indie Agency
 
@@ -89,7 +89,7 @@ you win trust — and long-term relationships.
 
 The more open-source tools you master, the more leverage you gain.  
 
----
+
 
 ## 🏁 Conclusion
 
@@ -102,7 +102,7 @@ lightweight, fast, and powerful.
 If you can build, automate, and ship,  
 you don’t need a team — you need **systems**.
 
----
+
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 

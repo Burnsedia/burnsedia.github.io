@@ -1,10 +1,10 @@
----
+
 title: "The Art of Building in Public"
 description: "Sharing your process is the new marketing. Here’s how I use transparency and consistency to grow my audience, attract clients, and build trust online."
 pubDate: "Dec 14 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["build in public", "indie dev", "marketing", "open source", "developer brand"]
----
+
 
 # The Art of Building in Public
 
@@ -20,7 +20,7 @@ I realized that **transparency sells**.
 When you build in public, you turn your daily work into a story that others can follow, learn from, and support.  
 You stop *telling* people you can build — you *show* them.
 
----
+
 
 ## 2️⃣ List: Why Building in Public Works
 
@@ -46,7 +46,7 @@ And when you can explain your process, you understand it better.
 When people watch you build something real, they want to be part of it.  
 You become the default expert in your niche because you’re visible, consistent, and transparent.
 
----
+
 
 ## 3️⃣ Steps: How to Build in Public Without Burning Out
 
@@ -75,7 +75,7 @@ Perfection is boring — progress is relatable.
 Reply to comments, share feedback, and uplift others building in public.  
 You’re not broadcasting — you’re collaborating.
 
----
+
 
 ## 4️⃣ Platforms That Work
 
@@ -87,7 +87,7 @@ You’re not broadcasting — you’re collaborating.
 
 Each platform feeds the other — Twitter builds awareness, GitHub proves skill, and your blog closes the deal.
 
----
+
 
 ## 5️⃣ My Personal Workflow
 
@@ -103,7 +103,7 @@ Each post builds credibility.
 Each repo builds visibility.  
 Each article builds authority.
 
----
+
 
 ## 6️⃣ Lessons Learned
 
@@ -112,7 +112,7 @@ Each article builds authority.
 - Building in public forces you to stay accountable.  
 - Transparency turns your workflow into your marketing.
 
----
+
 
 ## 📞 Call to Action
 

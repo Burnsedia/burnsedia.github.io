@@ -21,8 +21,6 @@ Fully functional MVP: Django backend, Vue frontend, live on Fly.io with a $5/mon
 
 That’s the difference between working with a process and just writing code.
 
----
-
 ## 2️⃣ List: The Framework That Makes It Possible
 
 ### ⚙️ 1. Start With Proven Tools
@@ -67,7 +65,7 @@ That data drives the next iteration — not opinions.
 
 The faster I get real feedback, the sooner the product becomes something people want.
 
----
+
 
 ## 3️⃣ Steps: My 7-Day MVP Workflow
 
@@ -122,7 +120,7 @@ Goal: live demo link ready for investors.
 
 Goal: functional MVP that feels real.
 
----
+
 
 ## 4️⃣ The Big Idea: Ship Fast, Learn Faster
 
@@ -134,7 +132,7 @@ By combining a proven stack, automation, and focused goals, I can go from **idea
 
 That’s the real MVP advantage.
 
----
+
 
 ## 📞 Call to Action
 
@@ -142,6 +140,3 @@ If you’ve got an idea you want to test — not next quarter, but this month �
 
 👉 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)  
 👉 or [Start your 30-day development plan now](https://baileyburnsed.dev/)
-
----
-

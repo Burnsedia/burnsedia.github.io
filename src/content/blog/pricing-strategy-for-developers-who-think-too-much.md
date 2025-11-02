@@ -1,4 +1,3 @@
-
 ---
 title: "Pricing Strategy for Developers Who Think Too Much"
 description: "A practical guide to setting prices that reflect your value — not your anxiety."
@@ -14,7 +13,7 @@ But when it comes to saying *“This costs $4,000”*, our brains freeze.
 
 This post is for every developer who builds great software but second-guesses their own worth.
 
----
+
 
 ## 🧠 Why We Overthink Pricing
 
@@ -30,7 +29,7 @@ The truth?
 Clients don’t care how long it takes.  
 They care about the result, the timeline, and the certainty.
 
----
+
 
 ## 💡 The Mindset Shift
 
@@ -47,7 +46,7 @@ Just results and reliability.
 It removes the need for endless quotes and negotiations.  
 Clients know what they’re getting, and I know how to plan my month.
 
----
+
 
 ## 🧩 How to Create Your Pricing System
 
@@ -81,7 +80,7 @@ Define what’s *included*:
 
 Boundaries are pricing’s best friend.
 
----
+
 
 ## 💬 Real Conversations I’ve Had
 
@@ -96,7 +95,7 @@ Boundaries are pricing’s best friend.
 Clients respect clarity more than flexibility.  
 They hate uncertainty more than price.
 
----
+
 
 ## 📈 How Fixed Pricing Scales
 
@@ -109,7 +108,7 @@ It’s predictable, repeatable, and stress-free.
 
 You can spend your energy on **building**, not bargaining.
 
----
+
 
 ## 🧭 When to Raise Prices
 
@@ -121,7 +120,7 @@ Raise your prices when:
 If 80% of people accept your price immediately, it’s too low.  
 The right price feels slightly uncomfortable — that’s growth.
 
----
+
 
 ## 🏁 Conclusion
 
@@ -134,6 +133,6 @@ you’ve already earned the right to charge premium rates.
 The smartest developers don’t race to the bottom —  
 they build systems that pay them fairly for their expertise.
 
----
+
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*

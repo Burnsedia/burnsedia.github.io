@@ -18,7 +18,7 @@ Every system needed to interact: AI logic, player input, UI, resource management
 It forced me to think about *how* systems communicate — and what happens when they don’t.  
 That mindset completely transformed how I now design SaaS products.
 
----
+
 
 ## 2️⃣ List: What Game Design Taught Me About SaaS
 
@@ -49,7 +49,7 @@ Most games start as gray boxes.
 SaaS should too.  
 Launch early, get feedback, and iterate.
 
----
+
 
 ## 3️⃣ Steps: Apply Game Design to Product Design
 
@@ -79,14 +79,14 @@ In game dev, playtesting reveals everything.
 In SaaS, it’s user testing.  
 Ship early, observe behavior, iterate relentlessly.
 
----
+
 
 ## 4️⃣ The Big Idea: Build Software Like a Game
 
 Games reward behavior. SaaS should too.  
 When you design your product as an experience — not just a form — people actually enjoy using it.
 
----
+
 
 ## 📞 Call to Action
 

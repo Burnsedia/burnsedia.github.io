@@ -19,7 +19,7 @@ Clients said things like:
 
 Now I treat transparency as part of my business model.
 
----
+
 
 ## 2️⃣ List: Why Building in Public Works
 
@@ -42,7 +42,7 @@ You don’t need testimonials when you have a public track record.
 ### 🌱 5. You Build Community, Not Just Traffic
 Over time, followers turn into collaborators, and collaborators turn into clients.
 
----
+
 
 ## 3️⃣ Steps: How to Build in Public Without Oversharing
 
@@ -67,14 +67,14 @@ It multiplies reach without multiplying work.
 Respond to comments.  
 That’s how you turn followers into fans.
 
----
+
 
 ## 4️⃣ The Big Idea: Transparency Is a Marketing Strategy
 
 Working in public is the simplest way to market without marketing.  
 When you share your journey honestly, you attract people who value authenticity — the kind of clients who stay.
 
----
+
 
 ## 📞 Call to Action
 

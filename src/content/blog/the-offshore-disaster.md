@@ -23,7 +23,7 @@ They had bought a **PowerPoint demo that pretended to be software.**
 
 So I rebuilt it from scratch in a week.
 
----
+
 
 ## 2️⃣ List: What I Learned About Offshore Development
 
@@ -51,7 +51,7 @@ When you work directly with someone who shares your language, time zone, and con
 You can have real conversations, not translated tickets.  
 It’s not about nationality — it’s about *alignment of goals.*
 
----
+
 
 ## 3️⃣ Steps: How to Avoid the Offshore Trap
 
@@ -83,7 +83,7 @@ Your software is the backbone of your business.
 The cheapest option rarely stays cheap.  
 Invest in people who understand that your time and trust are worth more than a discount.
 
----
+
 
 ## 4️⃣ The Big Idea: The Real Cost of “Cheap”
 
@@ -95,7 +95,7 @@ You can learn it the smart way.
 
 If you want to build software the right way — clearly, transparently, and fast — skip the offshore roulette.
 
----
+
 
 ## 📞 Call to Action
 
@@ -103,6 +103,4 @@ If you’re ready to work directly with a full-stack onshore developer who ships
 
 👉 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)  
 👉 or [Start your 30-day development plan now](https://baileyburnsed.dev/)
-
----
 

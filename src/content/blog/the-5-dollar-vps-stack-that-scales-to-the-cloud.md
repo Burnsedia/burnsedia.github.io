@@ -1,10 +1,10 @@
----
+
 title: "The $5 VPS Stack That Scales to the Cloud"
 description: "Why I still start every project on a $5 VPS — and how I seamlessly scale the same stack to Fly.io using Docker, Django, and Vue.js."
 pubDate: "Dec 11 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["DevOps", "Fly.io", "VPS", "Docker", "Django", "Vue.js", "scaling"]
----
+
 
 # The $5 VPS Stack That Scales to the Cloud
 
@@ -22,7 +22,7 @@ Once a project takes off, I don’t rewrite anything.
 I just **push the same Docker containers to Fly.io** and scale horizontally.  
 It’s that simple.
 
----
+
 
 ## 2️⃣ List: My $5 VPS Stack
 
@@ -49,7 +49,7 @@ Pairs perfectly with Django REST.
 If you need async tasks or caching, spin up Redis in a small Docker container.  
 It barely uses memory at MVP scale.
 
----
+
 
 ## 3️⃣ Steps: From Local to VPS to Fly.io
 
@@ -94,7 +94,7 @@ You don’t have to choose.
 Use the VPS for prototypes, staging, or microservices.  
 Use Fly.io for scaling or global redundancy.
 
----
+
 
 ## 4️⃣ Lessons Learned
 
@@ -103,7 +103,7 @@ Use Fly.io for scaling or global redundancy.
 - **VPS ≠ old school.** It’s the foundation of cloud-native thinking.  
 - **Control = Confidence.** You know what’s running and where.  
 
----
+
 
 ## 5️⃣ Why This Matters
 
@@ -118,7 +118,7 @@ The VPS → Docker → Fly.io workflow lets me:
 
 It’s not about being cheap — it’s about being **efficient**.
 
----
+
 
 ## 📞 Call to Action
 

@@ -26,7 +26,7 @@ That’s when I realized:
 **Open source is the best marketing there is.**  
 It shows how you think, what you value, and what you can build.
 
----
+
 
 ## 2️⃣ List: How Open Source Builds Trust and Traffic
 
@@ -54,7 +54,7 @@ By the time someone contacts you from your GitHub, they already trust you.
 They’ve seen your work, your consistency, and your expertise.  
 That means less convincing, faster sales, and higher conversion rates.
 
----
+
 
 ## 3️⃣ Steps: How I Turn Code Into Marketing
 
@@ -89,7 +89,7 @@ Use AGPL or BSL for tools you plan to monetize later.
 Open core = free visibility, paid hosting/support.  
 That’s how you stay sustainable while staying open.
 
----
+
 
 ## 4️⃣ My Stack for Open Source Marketing
 
@@ -102,7 +102,7 @@ That’s how you stay sustainable while staying open.
 
 Each platform amplifies the others — GitHub drives SEO, Astro hosts your voice, and social media drives attention back to your code.
 
----
+
 
 ## 5️⃣ The Lesson: Teach, Don’t Tell
 
@@ -114,7 +114,7 @@ The best part?
 You’re not begging for attention.  
 You’re **earning** it — by helping others first.
 
----
+
 
 ## 📞 Call to Action
 

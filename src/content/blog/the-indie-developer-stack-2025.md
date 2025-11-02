@@ -21,7 +21,7 @@ After years of trial and error, I landed on this:
 
 This combination powers every product I build — from MVPs to production SaaS platforms — all while keeping overhead under control.
 
----
+
 
 ## 2️⃣ List: Why This Stack Works
 
@@ -49,7 +49,7 @@ And with Dart’s hot reload, I can prototype ideas in minutes.
 These tools are open-source, battle-tested, and cost nothing to run.  
 Together, they give me enterprise-level power on an indie budget.
 
----
+
 
 ## 3️⃣ Steps: How I Use This Stack in Client Projects
 
@@ -72,7 +72,7 @@ Both are cheap, global, and simple to automate with CI/CD pipelines.
 When the web version stabilizes, I re-use the API for Flutter mobile apps.  
 Users get the same features on every platform — no double maintenance.
 
----
+
 
 ## 4️⃣ The Big Idea: Indie Doesn’t Mean Inferior
 
@@ -80,7 +80,7 @@ This stack isn’t about cutting corners — it’s about cutting *waste.*
 You don’t need a team of ten to build production-grade apps.  
 You need focus, clarity, and the right tools.
 
----
+
 
 ## 📞 Call to Action
 

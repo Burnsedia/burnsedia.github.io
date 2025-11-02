@@ -12,7 +12,7 @@ You can deploy a production-ready Django app with Docker in minutes — and scal
 
 Let’s walk through how to get Django running on Fly.io from scratch.
 
----
+
 
 ## 🧩 What You’ll Need
 
@@ -34,7 +34,7 @@ Then log in:
 flyctl auth login
 ```
 
----
+
 
 ## ⚙️ Step 1: Create a Django Project
 
@@ -56,7 +56,7 @@ python manage.py runserver
 
 Once confirmed, stop it with `Ctrl + C`.
 
----
+
 
 ## 🐳 Step 2: Add a Dockerfile
 
@@ -83,7 +83,7 @@ Generate a `requirements.txt`:
 pip freeze > requirements.txt
 ```
 
----
+
 
 ## 🗂️ Step 3: Initialize Fly.io
 
@@ -109,7 +109,7 @@ Your folder will now have:
 └── requirements.txt
 ```
 
----
+
 
 ## 🗃️ Step 4: Connect to Fly Postgres
 
@@ -141,7 +141,7 @@ DATABASES = {
 
 Add this to your `.env` file locally for development.
 
----
+
 
 ## 🔒 Step 5: Configure Static Files
 
@@ -167,7 +167,7 @@ Collect your static files:
 python manage.py collectstatic
 ```
 
----
+
 
 ## 🚀 Step 6: Deploy
 
@@ -190,7 +190,7 @@ https://myapp.fly.dev
 
 Visit it — and your Django app is live.
 
----
+
 
 ## 🌍 Step 7: Scale and Secrets
 
@@ -208,7 +208,7 @@ flyctl scale vm shared-cpu-1x --memory 512
 flyctl scale count 2
 ```
 
----
+
 
 ## 🧠 Why Fly.io for Indie Devs?
 
@@ -222,7 +222,7 @@ Fly.io is built for the kind of developer who wants control, speed, and simplici
 
 It’s the perfect middle ground between self-hosting on a $5 VPS and managing AWS infrastructure.
 
----
+
 
 ## 🏁 Conclusion
 
@@ -238,7 +238,7 @@ You own the stack.
 You deploy it anywhere.  
 That’s the indie way.
 
----
+
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 

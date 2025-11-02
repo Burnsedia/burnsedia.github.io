@@ -20,8 +20,6 @@ It’s fast, secure, and scales globally with almost no overhead.
 Self-hosting isn’t old-school.  
 It’s **freedom packaged as a service**.
 
----
-
 ## 2️⃣ List: The Benefits of Self-Hosting SaaS
 
 ### 🔒 1. Client Ownership
@@ -55,8 +53,6 @@ Done — global SaaS without a DevOps team.
 This model matches my philosophy: **Own, don’t rent**.  
 Clients get open-source codebases they can host anywhere, forever.  
 My agency just makes that process painless.
-
----
 
 ## 3️⃣ Steps: My Deployment Workflow
 
@@ -102,8 +98,6 @@ No human bottlenecks.
 Fly’s built-in logs + health checks + snapshot backups handle reliability.  
 For analytics and error tracking, I add **Sentry** and **Uptime Kuma** containers.
 
----
-
 ## 4️⃣ Example: From Local MVP to Global SaaS
 
 One client started with a simple Django MVP on my VPS.  
@@ -124,8 +118,6 @@ Now they have:
 
 That’s **Self-Hosting as a Service** in action.
 
----
-
 ## 5️⃣ Lessons Learned
 
 - Start small on a VPS, then scale seamlessly to Fly.io.  
@@ -134,8 +126,6 @@ That’s **Self-Hosting as a Service** in action.
 - Simplicity beats fancy infrastructure 90% of the time.  
 
 The beauty of this system is that it scales with **clients’ ambition**, not with cloud bills.
-
----
 
 ## 📞 Call to Action
 

@@ -13,7 +13,7 @@ They get stuck managing people instead of shipping software.
 Here’s the truth: you don’t need a team of ten to run a six-figure software company.  
 You just need systems, automation, and focus.
 
----
+
 
 ## 🧩 The Concept  
 
@@ -27,7 +27,7 @@ This is the model behind **BaileyBurnsed.dev**:
 I build, deploy, and maintain software for multiple clients — alone —  
 without burnout or chaos.  
 
----
+
 
 ## 💼 The Structure  
 
@@ -45,7 +45,7 @@ without burnout or chaos.
 4. **Transparent Communication** –  
    Minimal meetings. Async updates through Trello or email.  
 
----
+
 
 ## ⚙️ The Tools  
 
@@ -58,7 +58,7 @@ without burnout or chaos.
 
 Each tool automates something that normally requires staff.
 
----
+
 
 ## 📈 Why It Works  
 
@@ -69,7 +69,7 @@ Each tool automates something that normally requires staff.
 
 The “One Developer Agency” model is about optimizing for output and autonomy — not growth for growth’s sake.  
 
----
+
 
 ## 🧠 Lessons Learned  
 
@@ -78,7 +78,7 @@ The “One Developer Agency” model is about optimizing for output and autonomy
 - Most meetings can be emails.  
 - You don’t need employees to deliver enterprise-level quality.  
 
----
+
 
 ## 🏁 Conclusion  
 
@@ -89,7 +89,7 @@ The One Developer Agency Model lets you build fast, deliver predictably, and sta
 
 If you want to build software that scales without building a team, this model is for you.  
 
----
+
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 

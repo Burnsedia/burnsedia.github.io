@@ -13,7 +13,7 @@ Then they start over. Again. And again.
 If you want to stop trading hours for projects, you need **systems**, not just skills.  
 That’s where **white-label SaaS** comes in.  
 
----
+
 
 ## 🧩 What Is White-Label SaaS?  
 
@@ -22,7 +22,7 @@ You own the software; clients rent the results.
 
 Think of it like WordPress themes — but for full-stack business apps.  
 
----
+
 
 ## 🏗️ My Stack  
 
@@ -36,7 +36,7 @@ Here’s what powers my white-label systems:
 
 This stack lets me clone, configure, and deploy a client’s app in under an hour.  
 
----
+
 
 ## ⚙️ Step-by-Step Workflow  
 
@@ -56,7 +56,7 @@ This stack lets me clone, configure, and deploy a client’s app in under an hou
 5. **Version and Maintain**  
    Push updates from the main repo to all client forks via GitHub Actions or `rsync`.  
 
----
+
 
 ## 💰 Why Clients Love It  
 
@@ -67,7 +67,7 @@ This stack lets me clone, configure, and deploy a client’s app in under an hou
 
 You’re not selling code — you’re selling *capability*.  
 
----
+
 
 ## 🚀 Example Projects  
 
@@ -77,7 +77,7 @@ You’re not selling code — you’re selling *capability*.
 
 All three came from the same foundation.  
 
----
+
 
 ## 🧠 Lessons Learned  
 
@@ -86,7 +86,7 @@ All three came from the same foundation.
 - Document every script — you’ll reuse it.  
 - CI/CD isn’t optional; it’s your invisible team.  
 
----
+
 
 ## 🏁 Conclusion  
 
@@ -97,7 +97,7 @@ Build once.
 Deploy infinitely.  
 Own your work.  
 
----
+
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 

@@ -22,8 +22,6 @@ And it wasn’t luck — it was the result of treating my GitHub like **a landin
 Your GitHub isn’t just a repo host.  
 It’s your **personal brand engine** — one that can generate traffic, authority, and real client work.
 
----
-
 ## 2️⃣ List: The 5 Ways to Make GitHub Work for You
 
 ### 🧠 1. Think Like a Marketer, Not Just a Developer
@@ -80,7 +78,7 @@ Create a feedback loop:
 
 The result: organic backlinks, better SEO, and higher conversion rates.
 
----
+
 
 ## 3️⃣ Steps: The GitHub Lead Magnet System
 
@@ -116,7 +114,7 @@ Share new repos like product launches:
 
 Each launch is a signal to your network that you’re building real products.
 
----
+
 
 ## 4️⃣ Lessons Learned
 
@@ -125,7 +123,7 @@ Each launch is a signal to your network that you’re building real products.
 - Marketing ≠ manipulation. It’s **showing your work in public**.  
 - The fastest way to build authority is to share useful, working code.
 
----
+
 
 ## 5️⃣ The GitHub Funnel in Action
 
@@ -139,7 +137,7 @@ Here’s how mine works:
 It’s a **self-feeding loop**.  
 And it’s 100% powered by open source.
 
----
+
 
 ## 📞 Call to Action
 

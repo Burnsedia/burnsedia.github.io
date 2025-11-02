@@ -18,7 +18,7 @@ I rebuilt the app in two weeks.
 
 That’s when I realized: most agencies are *meetings in disguise.*
 
----
+
 
 ## 2️⃣ List: Why Solo Developers Outperform
 
@@ -43,7 +43,7 @@ You don’t need another progress report.
 You need your app working.  
 That’s what solo devs deliver.
 
----
+
 
 ## 3️⃣ Steps: How to Hire Better Developers
 
@@ -63,14 +63,14 @@ Use Trello, weekly updates, and one clear channel.
 ### Step 5 — Reward Results, Not Time
 Pay for working software — not hours logged.
 
----
+
 
 ## 4️⃣ The Big Idea: Small Teams, Big Impact
 
 The future of software isn’t in bloated agencies — it’s in focused builders.  
 Hire people who *ship,* not people who schedule meetings.
 
----
+
 
 ## 📞 Call to Action
 
