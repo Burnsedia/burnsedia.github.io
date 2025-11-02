@@ -15,8 +15,6 @@ You’ll get:
 - A Vue SPA that stores tokens safely and calls protected endpoints
 - Dev & prod configurations that work locally, in Docker, and on Fly.io
 
----
-
 ## 🧩 Prerequisites
 
 - Completed the previous posts:
@@ -26,8 +24,6 @@ You’ll get:
 
 Backend assumed running at: `http://127.0.0.1:8000`  
 Frontend will run at: `http://127.0.0.1:5173`
-
----
 
 ## 1) Enable CORS on Django
 
@@ -68,8 +64,6 @@ CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:5173", "http://localhost:5173"]
 ```
 
 Restart Django.
-
----
 
 ## 2) Create the Vue 3 App (Vite)
 
@@ -114,8 +108,6 @@ app.use(router);
 app.mount("#app");
 ```
 
----
-
 ## 3) Router & Protected Routes
 
 `src/router/index.ts` (or `.js`):
@@ -147,8 +139,6 @@ router.beforeEach((to) => {
 
 export default router;
 ```
-
----
 
 ## 4) Pinia Auth Store (JWT + Refresh)
 
@@ -210,8 +200,6 @@ export const useAuthStore = defineStore("auth", {
 ```
 
 > Security note: For SPAs, storing JWTs in memory is safer than localStorage; however, many indie projects accept localStorage with short token lifetimes and refresh rotation. For maximum security, consider a backend-for-frontend (BFF) with HTTP-only cookies.
-
----
 
 ## 5) Axios Interceptor (Attach Token & Refresh)
 
@@ -280,7 +268,7 @@ Use `http` everywhere instead of raw `axios`.
 
 `src/pages/Login.vue`:
 
-```vue
+```typescript
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -326,7 +314,7 @@ async function submit() {
 
 `src/pages/Dashboard.vue` (fetch protected endpoint):
 
-```vue
+```typescript
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import http from "../lib/http";
@@ -360,7 +348,7 @@ onMounted(async () => {
 
 `src/pages/Home.vue`:
 
-```vue
+```typescript
 <script setup lang="ts"></script>
 <template>
   <div class="max-w-2xl mx-auto p-6">
@@ -372,7 +360,7 @@ onMounted(async () => {
 
 Add a simple nav in `App.vue`:
 
-```vue
+```typescript
 <script setup lang="ts">
 import { useAuthStore } from "./stores/auth";
 const auth = useAuthStore();
@@ -389,8 +377,6 @@ const auth = useAuthStore();
 </template>
 ```
 
----
-
 ## 7) Environment Variables (Vite)
 
 Create `.env` in `vue-client/`:
@@ -400,8 +386,6 @@ VITE_API_URL=http://127.0.0.1:8000
 ```
 
 Use `import.meta.env.VITE_API_URL` (already done in store and http).
-
----
 
 ## 8) Docker Compose (Optional Dev)
 
@@ -432,7 +416,6 @@ services:
 
 Django CORS must allow `http://web:5173` or just use `CORS_ALLOW_ALL_ORIGINS = True` for local Docker dev (not for prod).
 
----
 
 ## 9) Production Notes (Fly.io + Netlify)
 
@@ -442,7 +425,6 @@ Django CORS must allow `http://web:5173` or just use `CORS_ALLOW_ALL_ORIGINS = T
   - Build with `VITE_API_URL` pointing to your API (e.g., `https://api.yourdomain.com`).
 - **JWT Lifetimes** → Keep short access tokens (e.g., 15–60 min) and rotate refresh tokens.
 
----
 
 ## ✅ Quick Checklist
 
@@ -454,7 +436,6 @@ Django CORS must allow `http://web:5173` or just use `CORS_ALLOW_ALL_ORIGINS = T
 - [x] Environment variables for API URL  
 - [x] Optional Docker compose for local full-stack dev
 
----
 
 ## 🏁 Conclusion
 
@@ -467,7 +448,6 @@ This pattern is production-grade and reusable for SaaS, dashboards, and mobile b
 
 **Next up:** *django-ci-cd-pipeline-with-github-actions.md* — automate your build & deploys.
 
----
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 
