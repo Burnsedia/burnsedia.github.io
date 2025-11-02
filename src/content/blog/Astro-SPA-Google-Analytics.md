@@ -14,8 +14,6 @@ That’s why it may look like GA “works locally but not in production.”
 
 This guide walks you through **fixing Google Analytics** on an Astro SPA and confirming it works in all modern browsers.
 
----
-
 ## Step 1. Add a Custom Pageview Tracker
 
 Replace your existing GA snippet with this bulletproof version.  
@@ -31,7 +29,7 @@ It works for both **Astro’s SPA events** and browsers that don’t fully suppo
   gtag('js', new Date());
 
   // Disable default pageview to prevent duplicates
-  gtag('config', 'G-LRMSZ4V1XG', { send_page_view: false });
+  gtag('config', 'YOUR_GA_CODE', { send_page_view: false });
 
   // Function to send manual pageviews
   function sendPageView() {
@@ -69,8 +67,6 @@ Inside your main layout (e.g., `src/layouts/BaseLayout.astro`), right before `</
 
 **Why it works:**  
 It handles Astro’s router events *and* native browser history events—so page views are sent no matter what framework behavior changes later.
-
----
 
 ## Step 2. Confirm Content Security Policy (CSP)
 
@@ -166,8 +162,6 @@ If you want a simple developer-only warning to show in the console when GA is bl
 ✅ This won’t break your site.  
 It simply prints a warning if GA requests fail silently due to Shields, VPNs, or extensions.
 
----
-
 ##  Step 6. Long-Term Alternatives (Privacy-Friendly)
 
 Since more users are adopting browsers that block GA, you may want to consider **privacy-friendly analytics tools** that won’t get blocked as easily:
@@ -178,7 +172,6 @@ Since more users are adopting browsers that block GA, you may want to consider *
 
 These tools are privacy-safe, lightweight, and less likely to be blocked by default.
 
----
 
 ##  Summary
 
@@ -189,7 +182,6 @@ These tools are privacy-safe, lightweight, and less likely to be blocked by defa
 | GA blocked by Netlify | CSP too strict | Add GA domains to your CSP headers |
 | Still missing some users | Privacy browsers | Consider Plausible or Umami |
 
----
 
 ##  Final Thoughts
 
