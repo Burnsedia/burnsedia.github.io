@@ -17,7 +17,6 @@ So I went hunting for something simple, fast, and cheap.
 That’s when I found **Fly.io.**  
 Today, I deploy full Django + Vue apps for **$5/month.**
 
----
 
 ## 2️⃣ List: What Makes Fly.io Perfect for Indie Developers
 
@@ -41,7 +40,6 @@ No 50-step setup or IAM jungles — just deploy, scale, and go.
 The free tier gives you small VMs, and $5/month covers most indie apps.  
 You only pay for what you actually use.
 
----
 
 ## 3️⃣ Steps: My $5 Deployment Workflow
 
@@ -77,7 +75,6 @@ Build your Vue app, then serve it through Django static files or on a second Fly
 Fly gives you free metrics and auto-scaling.  
 You can run an entire SaaS on one small VM.
 
----
 
 ## 4️⃣ The Big Idea: Ship More, Spend Less
 
@@ -86,7 +83,6 @@ The cheaper your stack, the longer your runway — and the faster you can iterat
 
 Fly.io proves that great software doesn’t need great budgets.
 
----
 
 ## 📞 Call to Action
 
