@@ -24,7 +24,7 @@ They just *assume* an app is what makes them a startup.
 But an app is a **delivery mechanism**, not a **business model**.  
 If you’re still validating your idea, building a full mobile stack (API, database, auth, deployment, etc.) is like buying a food truck before you’ve sold your first taco.
 
----
+
 
 ## 2️⃣ List: What You Should Build Instead
 
@@ -50,7 +50,7 @@ Validate your business logic before writing your first model.
 Once your landing page converts, your automation stack breaks, and people keep asking for more — that’s when you build your API.  
 At that point, **you’re building for scale**, not speculation.
 
----
+
 
 ## 3️⃣ Steps: The MVP Path I Recommend
 
@@ -74,7 +74,7 @@ Fly lets you scale globally without rewriting your deployment setup.
 Integrate analytics, heatmaps, and your marketing stack (like BulkPost 2.0) to automate outreach and data collection.  
 Now your MVP feeds your marketing loop.
 
----
+
 
 ## 4️⃣ The Lesson: Build the System, Not the App
 
@@ -85,7 +85,7 @@ Every manual workflow you test teaches you something about your users.
 
 When you finally *do* build the app, you’ll build the **right one**.
 
----
+
 
 ## 📞 Call to Action
 
