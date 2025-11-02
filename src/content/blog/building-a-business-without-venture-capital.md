@@ -21,8 +21,6 @@ They were wrong.
 I built everything — my services, SaaS projects, and client base — **without a single dollar of VC money.**  
 And it wasn’t luck. It was design.
 
----
-
 ## 2️⃣ List: Why Bootstrapping Wins Long-Term
 
 ### 💰 1. You Keep Control
@@ -45,8 +43,6 @@ My entire process fits on a Trello board.
 Revenue is validation.  
 When customers pay, it means the idea works.  
 When VCs pay, it means the *pitch* worked.
-
----
 
 ## 3️⃣ Steps: How to Build Without Venture Capital
 
@@ -71,8 +67,6 @@ Automation is the indie developer’s venture capital.
 Instead of equity dilution, your profits fund your next tool, template, or app.  
 That’s how compounding works in the bootstrap world.
 
----
-
 ## 4️⃣ The Big Idea: Ownership Is Freedom
 
 VC money buys speed, but it costs ownership.  
@@ -80,8 +74,6 @@ Bootstrapping is slower — but it’s *yours.*
 Every line of code, every customer, every dollar belongs to you.
 
 When you own your work, you control your future.
-
----
 
 ## 📞 Call to Action
 
