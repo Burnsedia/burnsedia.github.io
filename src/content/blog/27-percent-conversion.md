@@ -19,7 +19,6 @@ And my conversion rate shot up to **27%.**
 
 I didn’t use a script. I just explained *how I work* and *why it’s different.*
 
----
 
 ## 2️⃣ List: Why In-Person Sales Work
 
@@ -48,7 +47,6 @@ No jargon. Just clarity.
 When I show past work, open-source repos, or even code snippets, clients *get it.*  
 They see results, not résumés.
 
----
 
 ## 3️⃣ Steps: How to Sell Like a Developer
 
@@ -73,14 +71,12 @@ Show how your work *solves problems.*
 Most deals close after the third interaction.  
 Don’t ghost — stay consistent.
 
----
 
 ## 4️⃣ The Big Idea: Selling Is Just Helping
 
 You’re not “selling” — you’re guiding people toward a solution.  
 When you believe in what you do, sales becomes service.
 
----
 
 ## 📞 Call to Action
 
