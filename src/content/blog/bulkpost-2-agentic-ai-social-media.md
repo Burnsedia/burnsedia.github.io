@@ -20,7 +20,6 @@ It could become **agentic** — a system that thinks, plans, and adapts on its o
 
 Now I’m rebuilding BulkPost as an open-source, AI-driven automation engine for creators and developers who want to grow without burning out.
 
----
 
 ## 2️⃣ What Makes BulkPost 2.0 Different
 
@@ -52,8 +51,6 @@ That means the system gets better the longer it runs.
 Twitter (X) comes first, but the new architecture is API-agnostic.  
 LinkedIn, Mastodon, and Instagram are next.  
 Everything stays open-source, so other developers can fork, self-host, and extend it.
-
----
 
 ## 3️⃣ Experiments: Testing Twitter Growth Strategies With an 81-Line Bot
 
@@ -102,7 +99,6 @@ bots/
 - 7-day moving averages per content type  
 - Win conditions (e.g., >1.5× baseline engagement) → elevate pattern
 
----
 
 ## 4️⃣ Steps: The Rebuild Plan
 
@@ -147,8 +143,6 @@ Use **Vue.js** or **Astro + Vue** for a clean dashboard:
 - **VPS:** Postgres + Redis + API (low-cost, full control).  
 - **Fly.io:** Scale API/Celery workers globally when traffic grows.
 
----
-
 ## 5️⃣ The Big Idea: AI That Works While You Work
 
 I’m not building another SaaS that traps you in subscriptions.  
@@ -156,8 +150,6 @@ I’m building a **self-hosted agentic system** — one that helps developers, f
 
 The goal isn’t to replace you.  
 It’s to amplify you.
-
----
 
 ## 📞 Call to Action
 
