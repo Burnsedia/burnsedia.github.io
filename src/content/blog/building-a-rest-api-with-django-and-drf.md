@@ -22,8 +22,6 @@ DRF gives you all the essentials:
 
 It’s perfect for indie devs who want professional-grade APIs without overengineering.
 
----
-
 ## ⚙️ Step 1: Install Django REST Framework
 
 Assuming you already have a Django project, install DRF:
@@ -45,8 +43,6 @@ INSTALLED_APPS = [
     "rest_framework",
 ]
 ```
-
----
 
 ## 🧱 Step 2: Create a Model
 
@@ -72,7 +68,6 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
----
 
 ## 🧩 Step 3: Create a Serializer
 
@@ -90,8 +85,6 @@ class QuoteSerializer(serializers.ModelSerializer):
         fields = "__all__"
 ```
 
----
-
 ## 🧩 Step 4: Create a ViewSet
 
 ViewSets make CRUD endpoints easy.
@@ -107,8 +100,6 @@ class QuoteViewSet(viewsets.ModelViewSet):
     queryset = Quote.objects.all().order_by("-created_at")
     serializer_class = QuoteSerializer
 ```
-
----
 
 ## 🧭 Step 5: Register the API Routes
 
@@ -138,8 +129,6 @@ urlpatterns = [
 ]
 ```
 
----
-
 ## 🧪 Step 6: Test the API
 
 Run your local server:
@@ -155,8 +144,6 @@ http://127.0.0.1:8000/api/quotes/
 ```
 
 You’ll see DRF’s interactive API view — you can add, edit, or delete quotes directly from the browser.
-
----
 
 ## 🔒 Step 7: Add Basic Permissions
 
@@ -174,8 +161,6 @@ REST_FRAMEWORK = {
 ```
 
 Later, you’ll switch to **JWT authentication** (we’ll cover that in the next tutorial).
-
----
 
 ## 🧠 Optional: Add Pagination and Filtering
 
@@ -212,8 +197,6 @@ Now you can search like this:
 /api/quotes/?search=wisdom
 ```
 
----
-
 ## 🚀 Step 8: Deploy the API to Fly.io
 
 If you followed the previous tutorial, your Fly.io setup already works.  
@@ -231,8 +214,6 @@ https://yourapp.fly.dev/api/quotes/
 
 Your REST API is now globally available.
 
----
-
 ## 🧭 What’s Next
 
 From here, you can:
@@ -242,8 +223,6 @@ From here, you can:
 
 This API pattern works for everything — SaaS apps, mobile backends, CRMs, and even personal dashboards.
 
----
-
 ## 🏁 Conclusion
 
 Building APIs with Django REST Framework is fast, clean, and scalable.  
@@ -251,7 +230,6 @@ You don’t need heavy frameworks or enterprise tools to serve data — just Dja
 
 When you own your stack, you own your business.
 
----
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 
