@@ -20,7 +20,7 @@ That question became my business model.
 Now I offer one thing: **30 days of full-stack software development for $4000**.  
 No contracts. No hourly rate. No hidden fees. One price, one developer, one goal.
 
----
+
 
 ## 2️⃣ Why the Flat-Rate Model Works
 
@@ -49,7 +49,7 @@ Transparency creates partnership.
 My clients know exactly what they’re getting.  
 That trust has helped me reach a **27% in-person close rate** — higher than most sales teams.
 
----
+
 
 ## 3️⃣ Steps: How to Use This Model Yourself
 
@@ -87,7 +87,7 @@ Mine says: *“You pay. I build. One feature at a time.”*
 Never oversell. Deliver what you promise.  
 Clients will come back month after month because the experience feels effortless.
 
----
+
 
 ## 4️⃣ The Big Idea: Freedom Through Focus
 
@@ -99,7 +99,7 @@ And you both get to focus on what actually matters — shipping great software.
 If you’re tired of chasing invoices and rewriting scopes, try it.  
 You might never go back.
 
----
+
 
 ## 📞 Call to Action
 
@@ -108,5 +108,5 @@ If this philosophy resonates with you — or you need a reliable full-stack deve
 👉 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)  
 👉 or [Start your 30-day development plan now](https://baileyburnsed.dev/)
 
----
+
 
