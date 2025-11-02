@@ -18,7 +18,6 @@ Then I found Fly.io — a cloud platform that runs **Docker containers globally*
 It didn’t replace VPS; it **complemented it**.  
 Now I use both: a VPS for long-term stable services and Fly.io for global app deployment.
 
----
 
 ## 2️⃣ List: Why Use Both Fly.io and a VPS
 
@@ -48,7 +47,6 @@ Together, that’s under $10/month for a complete SaaS stack.
 Keeping the database on a VPS while Fly handles public traffic adds isolation.  
 If Fly’s container gets compromised, the data layer stays protected.
 
----
 
 ## 3️⃣ Steps: My Hybrid Cloud Workflow
 
@@ -67,7 +65,6 @@ ufw allow 51820/udp   # for WireGuard
 ufw enable
 \`\`\`
 
----
 
 ### Step 2 — Create a WireGuard Network Between VPS and Fly.io
 Fly provides its own private WireGuard tunnel:
@@ -80,7 +77,6 @@ fly wireguard connect
 On your VPS, install WireGuard and configure the peer from Fly.  
 This lets your Fly apps talk to the VPS privately via internal IPs.
 
----
 
 ### Step 3 — Deploy App on Fly.io
 Dockerize your Django app and push it live:
@@ -95,7 +91,6 @@ Set your environment variables to point to the VPS database:
 fly secrets set DATABASE_URL="postgres://user:pass@10.0.0.1:5432/app"
 \`\`\`
 
----
 
 ### Step 4 — Serve Frontend with Fly.io or Netlify
 If using Vue or Astro, deploy via:
@@ -106,7 +101,6 @@ npm run build
 
 Then push to Netlify or Fly static hosting for near-zero latency delivery.
 
----
 
 ### Step 5 — Monitor Both Ends
 - **Fly.io** handles uptime, logs, metrics, and scaling.  
@@ -114,7 +108,6 @@ Then push to Netlify or Fly static hosting for near-zero latency delivery.
 
 Tools like **Uptime Kuma** or **Healthchecks.io** (also self-hostable) make monitoring easy.
 
----
 
 ## 4️⃣ The Big Idea: Best of Both Worlds
 
@@ -123,7 +116,6 @@ Fly.io = convenience.
 Together, they give indie developers full-stack power on an indie budget.  
 You can keep your data local, deploy globally, and still spend less than lunch money.
 
----
 
 ## 📞 Call to Action
 
