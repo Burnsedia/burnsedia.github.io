@@ -8,8 +8,6 @@ pubDate: "2025-10-24"
 
 > This is an updated version that **includes the required configuration you must add** (Djoser URLs + DRF/JWT settings), plus **advanced options**: email-as-username, custom user model, email verification, and proper logout using token blacklisting.
 
----
-
 ## ✅ What You’ll Build
 
 - Token-based auth (access + refresh) with **SimpleJWT**
@@ -18,7 +16,6 @@ pubDate: "2025-10-24"
 - Email **verification** (activation links) and **password resets**
 - **Token blacklisting** for secure logout
 
----
 
 ## 0) Install Dependencies
 
@@ -28,7 +25,6 @@ pip install djangorestframework djoser djangorestframework-simplejwt
 pip install django-allauth  # not required, but useful if you later integrate social auth
 ```
 
----
 
 ## 1) Required Settings (Must Add)
 
@@ -95,7 +91,6 @@ Now you have:
 - `GET  /api/auth/users/me/`
 - plus password reset / activation endpoints (configure email below)
 
----
 
 ## 2) (Recommended) Use Email as Username with a Custom User Model
 
@@ -139,7 +134,6 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
----
 
 ## 3) Configure Djoser for Email Login + Optional Features
 
@@ -178,7 +172,6 @@ DEFAULT_FROM_EMAIL = "noreply@example.com"
 
 In production, switch to SMTP or a provider (e.g., SES, Postmark, SendGrid).
 
----
 
 ## 4) Token Blacklist (Secure Logout)
 
@@ -226,7 +219,6 @@ urlpatterns = [
 Client flow:
 - On logout, send `POST /api/auth/jwt/logout/` with the **refresh** token to blacklist it.
 
----
 
 ## 5) End-to-End Flow (Examples)
 
@@ -288,7 +280,6 @@ POST /api/auth/jwt/logout/
 }
 ```
 
----
 
 ## 6) Make Views Public or Private
 
@@ -330,16 +321,12 @@ Then:
 flyctl deploy
 ```
 
----
-
 ## Troubleshooting
 
 - **401 Unauthorized**: Missing `Authorization: Bearer <token>` header or expired token.  
 - **Activation not working**: Check console email output, confirm `DJOSER` URLs and email backend.  
 - **Custom user errors**: Ensure `AUTH_USER_MODEL` is set **before** first migration on new projects.  
 - **Logout not invalidating**: Confirm `token_blacklist` app is installed and blacklist flags enabled in `SIMPLE_JWT`.
-
----
 
 ## Conclusion
 
@@ -353,7 +340,6 @@ You now have a **production-grade authentication layer**:
 
 It’s clean, repeatable, and works with any frontend (Vue, Flutter, React) — perfect for indie SaaS and client projects.
 
----
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
 
