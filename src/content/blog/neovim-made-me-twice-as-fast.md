@@ -22,8 +22,6 @@ Two years later, I’m never going back.
 
 Neovim didn’t just change *how* I code — it changed *how I think* about coding.  
 
-  
-
 ## 2️⃣ List: Why Neovim Made Me Twice as Fast  
 
 ### ⚙️ 1. Instant Startup, Zero Bloat  
