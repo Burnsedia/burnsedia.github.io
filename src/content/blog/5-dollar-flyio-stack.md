@@ -75,7 +75,6 @@ Build your Vue app, then serve it through Django static files or on a second Fly
 Fly gives you free metrics and auto-scaling.  
 You can run an entire SaaS on one small VM.
 
-
 ## The Big Idea: Ship More, Spend Less
 
 Infrastructure shouldn’t eat your profits.  
@@ -83,9 +82,7 @@ The cheaper your stack, the longer your runway — and the faster you can iterat
 
 Fly.io proves that great software doesn’t need great budgets.
 
-
 If you want help setting up your own $5/month deployment stack:
 
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)  
 or [Start your 30-day development plan now](https://baileyburnsed.dev/)
-
