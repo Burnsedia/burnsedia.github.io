@@ -1,126 +1,128 @@
 ---
+
 title: "The $5 Cloud + VPS Stack — Running Indie SaaS on Fly.io and Bare Metal"
-description: "How I mix traditional VPS hosting with Fly.io’s cloud network to build, deploy, and scale full-stack apps for under $10 a month."
+description: "How I start on a $5 VPS using Docker Compose and Watchtower, then scale globally with Fly.io’s edge network — full control, low cost, and zero manual updates."
 pubDate: "Nov 15 2025"
 heroImage: "/CyberPunkLogo2.jpg"
-tags: ["Fly.io", "VPS", "Django", "Vue.js", "DevOps", "indie dev", "hosting"]
+tags: ["Fly.io", "VPS", "Docker Compose", "Watchtower", "Django", "Vue.js", "DevOps", "indie dev", "hosting"]
 ---
-
 # The $5 Cloud + VPS Stack — Running Indie SaaS on Fly.io and Bare Metal
 
-## 1️⃣ Story: From VPS Days to Cloud Edge
+## From VPS Foundations to Global Edge
 
-Before Fly.io, I used plain VPS servers — DigitalOcean, Linode, Vultr.  
-They gave me total control but also total responsibility:  
-manual updates, nginx config, database tuning, firewalls, SSL renewals.  
+I start every project on a **$5 VPS** — usually Hetzner, Linode, or Vultr.
+It’s cheap, stable, and gives me full root control.
+Everything runs in **Docker Compose**, built once and pushed to **GitHub Container Registry (GHCR)**.
 
-Then I found Fly.io — a cloud platform that runs **Docker containers globally**.  
-It didn’t replace VPS; it **complemented it**.  
-Now I use both: a VPS for long-term stable services and Fly.io for global app deployment.
+Then I use **Watchtower** to keep the VPS containers updated automatically —
+no `git clone`, no `git pull`, no manual SSHing.
+I just push a new Docker image, and Watchtower redeploys it automatically.
 
+## Why I Still Love VPS Hosting
 
-## 2️⃣ List: Why Use Both Fly.io and a VPS
+### 1. Full Control
 
-### ⚙️ 1. VPS for Stability and Control
-VPS hosting gives root access, full logs, and predictable performance.  
-Perfect for running:
-- Databases (PostgreSQL, Redis)
-- File storage or backups
-- Private services (cron, Celery workers)
-You control everything — no limits on background tasks or daemons.
+VPS gives me root access, predictable performance, and zero vendor lock-in.
+Perfect for:
 
-### 🌍 2. Fly.io for Global Reach
-Fly.io handles edge deployment — your app runs near your users automatically.  
-It’s great for Django APIs, static frontends, or anything Dockerized.  
-With Fly, I skip all the networking setup a VPS usually requires.
+* PostgreSQL / Redis
+* Celery or background tasks
+* Cron jobs and backup scripts
+* Reverse proxies (Nginx / Caddy)
 
-### 🧩 3. Perfect Pair: Hybrid Architecture
-A small VPS hosts my core data, and Fly.io runs the app containers.  
-Fly connects to the VPS securely over WireGuard, which acts like a private network.
+### 2. Self-Updating Infrastructure
 
-### 🧱 4. Cost Efficiency
-Fly.io’s free and $5 VMs cover global delivery.  
-My Hetzner VPS runs for about $4–$6/month.  
-Together, that’s under $10/month for a complete SaaS stack.
+I use Watchtower to keep all containers fresh:
 
-### 🔐 5. Defense in Depth
-Keeping the database on a VPS while Fly handles public traffic adds isolation.  
-If Fly’s container gets compromised, the data layer stays protected.
+```bash
+docker run -d \
+  --name watchtower \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower \
+  --cleanup --interval 300
+```
 
+Now when I push a new Docker image to GHCR,
+the VPS auto-pulls the update within five minutes — no downtime.
 
-## 3️⃣ Steps: My Hybrid Cloud Workflow
+### 3. Simple Docker Compose Setup
 
-### Step 1 — Set Up a VPS Backend
-Spin up a VPS (Hetzner, Linode, DigitalOcean).  
-Install your stack:
+```bash
+docker compose up -d
+```
 
-\`\`\`bash
-sudo apt update && sudo apt install postgresql redis nginx ufw
-\`\`\`
-
-Secure the ports:
-\`\`\`bash
-ufw allow 22/tcp
-ufw allow 51820/udp   # for WireGuard
-ufw enable
-\`\`\`
+That’s it.
+No pipelines, no complex CI/CD.
+Just containers that maintain themselves.
 
 
-### Step 2 — Create a WireGuard Network Between VPS and Fly.io
-Fly provides its own private WireGuard tunnel:
+## When Fly.io Enters the Picture
 
-\`\`\`bash
-fly wireguard create
-fly wireguard connect
-\`\`\`
+I stay on the VPS as long as possible.
+It’s fast, predictable, and easy to manage with Watchtower keeping everything current.
 
-On your VPS, install WireGuard and configure the peer from Fly.  
-This lets your Fly apps talk to the VPS privately via internal IPs.
+But when I start pushing the limits — CPU maxed out, latency creeping up,
+or more users than a single VPS can comfortably handle —
+that’s when **Fly.io** becomes the next step.
 
+I don’t rebuild anything.
+I take the exact same Docker image that’s already running on the VPS
+and deploy it to **Fly.io** for horizontal scaling and global reach.
 
-### Step 3 — Deploy App on Fly.io
-Dockerize your Django app and push it live:
+### Deploying the Same Image
 
-\`\`\`bash
+```bash
 fly launch
-fly deploy
-\`\`\`
+fly deploy --image ghcr.io/username/app:latest
+```
 
-Set your environment variables to point to the VPS database:
-\`\`\`bash
-fly secrets set DATABASE_URL="postgres://user:pass@10.0.0.1:5432/app"
-\`\`\`
+Fly.io automatically handles SSL, load balancing, and global regions.
+It becomes my edge layer — scaling out copies of the same container closer to users.
 
+### Managing the Data Layer
 
-### Step 4 — Serve Frontend with Fly.io or Netlify
-If using Vue or Astro, deploy via:
+For small side projects, I’ll sometimes keep a local PostgreSQL container on the VPS —
+it’s simple, fast, and fits within that $5 budget.
 
-\`\`\`bash
-npm run build
-\`\`\`
+But once the app starts to grow, I migrate to a **Fly.io Managed Database**
+or use **Neon** for cloud-native Postgres.
+Both options are built for high availability and scale,
+so I don’t have to worry about data loss, backups, or uptime.
 
-Then push to Netlify or Fly static hosting for near-zero latency delivery.
+Example production setup:
 
+```bash
+fly secrets set DATABASE_URL="postgres://user:pass@<fly-db-host>:5432/app"
+```
 
-### Step 5 — Monitor Both Ends
-- **Fly.io** handles uptime, logs, metrics, and scaling.  
-- **VPS** handles persistent data, backups, and background tasks.  
+Fly.io or Neon handle the persistence and replication,
+while my app containers can scale freely across regions without touching the data layer.
 
-Tools like **Uptime Kuma** or **Healthchecks.io** (also self-hostable) make monitoring easy.
+It’s the same workflow — just a smarter backend once the project outgrows local storage.
 
+## Architecture and Cost
 
-## 4️⃣ The Big Idea: Best of Both Worlds
+| Layer  | Platform           | Role                                     | Cost       |
+| ------ | ------------------ | ---------------------------------------- | ---------- |
+| VPS    | Hetzner / Linode   | Databases, Redis, Workers, Reverse Proxy | $5–6/mo    |
+| Fly.io | Global Edge        | Scaling API + Frontend Containers        | Free–$5/mo |
+| GHCR   | Container Registry | Image Hosting                            | Free       |
 
-VPS = control.  
-Fly.io = convenience.  
-Together, they give indie developers full-stack power on an indie budget.  
-You can keep your data local, deploy globally, and still spend less than lunch money.
+**Total:** Under **$10/month**
+**Maintenance:** Zero manual updates
+**Upgrade Path:** VPS first → Fly.io when you outgrow it
 
+## The Indie Stack That Scales Itself
 
-## 📞 Call to Action
+* VPS = Control & Data Persistence
+* Watchtower = Zero-Touch Updates
+* Fly.io = Scale When You Need It
+* Cost = Under $10/month
 
-Want a hybrid setup that scales like the cloud but costs like a VPS?
+Build once. Push once.
+Let Watchtower keep your VPS fresh — and Fly.io handle the scale-up when the time comes.
 
-👉 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)  
-👉 or [Start your 30-day development plan now](https://baileyburnsed.dev/)
+Want this hybrid setup for your SaaS or internal project?
 
+[Book a 15-minute strategy call](https://calendly.com/baileyburnsed/15min)
+or [Start your hybrid deployment plan](https://baileyburnsed.dev)
