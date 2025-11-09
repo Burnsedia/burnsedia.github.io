@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = 'baileyburnsed.dev';
 export const SITE_DESCRIPTION = 'I Build Software for:';
+export const BLOG_DESCRIPTION = 'BLog';
