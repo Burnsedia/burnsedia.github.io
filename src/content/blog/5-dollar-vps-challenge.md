@@ -1,5 +1,4 @@
 ---
-
 title: "The $5 Cloud + VPS Stack — Running Indie SaaS on Fly.io and Bare Metal"
 description: "How I start on a $5 VPS using Docker Compose and Watchtower, then scale globally with Fly.io’s edge network — full control, low cost, and zero manual updates."
 pubDate: "Nov 15 2025"
