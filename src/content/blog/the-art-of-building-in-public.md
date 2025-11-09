@@ -1,10 +1,10 @@
-
+---
 title: "The Art of Building in Public"
 description: "Sharing your process is the new marketing. Here’s how I use transparency and consistency to grow my audience, attract clients, and build trust online."
 pubDate: "Dec 14 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["build in public", "indie dev", "marketing", "open source", "developer brand"]
-
+---
 
 # The Art of Building in Public
 

@@ -1,10 +1,10 @@
-
+---
 title: "The $5 VPS Stack That Scales to the Cloud"
 description: "Why I still start every project on a $5 VPS — and how I seamlessly scale the same stack to Fly.io using Docker, Django, and Vue.js."
 pubDate: "Dec 11 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["DevOps", "Fly.io", "VPS", "Docker", "Django", "Vue.js", "scaling"]
-
+---
 
 # The $5 VPS Stack That Scales to the Cloud
 
