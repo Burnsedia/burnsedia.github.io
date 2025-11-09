@@ -1,34 +1,60 @@
-<!-- Existing copy stays the same up to “References are available on request.” -->
+<section class="w-full flex flex-col items-center justify-center py-12">
+  <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-center dark:text-gray-50 mb-10">
+    What Clients Say
+  </h2>
 
-<h2 class="text-2xl font-bold mt-12 mb-6 text-center">What Clients Say</h2>
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-  <div class="card bg-base-100 shadow-lg p-6">
-    <p class="italic">“Bailey Burnsed created a landing page and facilitated process ideation for my app idea. He walked me through the steps and was relentless in his pursuit of the right technology. Flexible, wonderful to work with, and has a wicked sense of humor.”</p>
-    <p class="mt-4 font-semibold">— Sylvia Pace</p>
+  <div id="testimonial-carousel" class="relative w-full max-w-3xl overflow-hidden rounded-box">
+    <div class="flex transition-transform duration-700 ease-in-out" id="carousel-track">
+      <!-- Each card -->
+      <div class="flex-none w-full flex justify-center px-4">
+        <div class="noise border border-primary backdrop-blur shadow-pink card p-6 shadow-xl max-w-xl text-center">
+          <p class="italic">
+            “Bailey Burnsed created a landing page and facilitated process ideation for my app idea. Flexible, wonderful to work with, and has a wicked sense of humor.”
+          </p>
+          <p class="mt-4 font-semibold">— Sylvia Pace</p>
+        </div>
+      </div>
+
+      <div class="flex-none w-full flex justify-center px-4">
+        <div class="noise border border-primary  backdrop-blur shadow-pink card p-6 shadow-xl max-w-xl text-center">
+          <p class="italic">
+            “Bailey has given great advice in seeing what works in my next pursuit. He dissects problems quickly and gives proper solutions.”
+          </p>
+          <p class="mt-4 font-semibold">— ST</p>
+        </div>
+      </div>
+
+      <div class="flex-none w-full flex justify-center px-4">
+        <div class="noise border border-primary  backdrop-blur shadow-pink card p-6 shadow-xl max-w-xl text-center">
+          <p class="italic">
+            “It is with great pleasure that I officially hired an amazing full-stack developer, Bailey Burnsed. He has shown himself to be very knowledgeable and skilled, comprehending the needs of his clients and bringing their vision to reality.”
+          </p>
+          <p class="mt-4 font-semibold">— AJ, Limelite.live</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="card bg-base-100 shadow-lg p-6">
-    <p class="italic">“Bailey has given great advice in seeing what works in my next pursuit. He dissects problems quickly and gives proper solutions.”</p>
-    <p class="mt-4 font-semibold">— ST</p>
+  <div class="flex justify-center gap-2 mt-6">
+    <button class="btn btn-xs btn-primary" id="prev">‹</button>
+    <button class="btn btn-xs btn-primary" id="next">›</button>
   </div>
+</section>
 
-  <div class="card bg-base-100 shadow-lg p-6">
-    <p class="italic">“It is with great pleasure that I officially hired an amazing full-stack developer, Bailey Burnsed. He has shown himself to be very knowledgeable and skilled, comprehending the needs of his clients and bringing their vision to reality. I recommend his services to any aspiring tech entrepreneur.”</p>
-    <p class="mt-4 font-semibold">— AJ, Limelite.live</p>
-  </div>
+<script>
+  const track = document.getElementById("carousel-track");
+  const slides = track.children.length;
+  let index = 0;
 
-  <div class="card bg-base-100 shadow-lg p-6">
-    <p class="italic">“Outstanding experience!”</p>
-    <p class="mt-4 font-semibold">— Joey Fuller</p>
-  </div>
+  function showSlide(i) {
+    index = (i + slides) % slides;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
 
-  <div class="card bg-base-100 shadow-lg p-6">
-    <p class="italic">“Outstanding experience!”</p>
-    <p class="mt-4 font-semibold">— N. Slette</p>
-  </div>
+  document.getElementById("prev").onclick = () => showSlide(index - 1);
+  document.getElementById("next").onclick = () => showSlide(index + 1);
 
-  <div class="card bg-base-100 shadow-lg p-6">
-    <p class="italic">“Great collaboration and fast delivery.”</p>
-    <p class="mt-4 font-semibold">— Bill</p>
-  </div>
-</div>
+  // Auto-slide every 6 s
+  setInterval(() => showSlide(index + 1), 6000);
+</script>
+
