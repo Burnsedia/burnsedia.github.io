@@ -8,7 +8,7 @@ tags: ["open source", "marketing", "developer brand", "indie dev", "GitHub", "SE
 
 # Why Open Source Is My Marketing Strategy
 
-## 1️⃣ Story: From Side Projects to Social Proof
+## From Side Projects to Social Proof
 
 When I started freelancing, I had no marketing budget.  
 No ads. No cold calls. No fancy funnels.  
@@ -26,25 +26,23 @@ That’s when I realized:
 **Open source is the best marketing there is.**  
 It shows how you think, what you value, and what you can build.
 
+## How Open Source Builds Trust and Traffic
 
-
-## 2️⃣ List: How Open Source Builds Trust and Traffic
-
-### 🌍 1. It’s 24/7 Visibility
+### 1. It’s 24/7 Visibility
 Your GitHub profile is a living portfolio that never sleeps.  
 While you code, potential clients, collaborators, and even recruiters are finding you through commits, issues, and READMEs.
 
-### 📈 2. SEO Without SEO
+### 2. SEO Without SEO
 Every project you push adds keywords to your digital footprint — Django, Vue.js, Docker, Flutter, etc.  
 GitHub ranks high on Google, and every commit can boost your visibility.  
 When people search “Django SaaS template” or “Neovim DevOps setup,” your repo can rank before your website.
 
-### 🤝 3. It Shows Integrity and Process
+### 3. It Shows Integrity and Process
 Open source proves you’re not just selling vapor.  
 People can read your code, see your documentation, and understand how you work.  
 It’s transparent marketing for technical buyers.
 
-### 💬 4. It Builds Community, Not Just Audience
+### 4. It Builds Community, Not Just Audience
 Followers fade.  
 Contributors stick around.  
 When you open your tools, you attract like-minded developers — the same kind of people your clients want to hire.
@@ -56,7 +54,7 @@ That means less convincing, faster sales, and higher conversion rates.
 
 
 
-## 3️⃣ Steps: How I Turn Code Into Marketing
+## How I Turn Code Into Marketing
 
 ### Step 1 — Ship Tools You Already Use
 Don’t build “for the market.”  
@@ -89,20 +87,16 @@ Use AGPL or BSL for tools you plan to monetize later.
 Open core = free visibility, paid hosting/support.  
 That’s how you stay sustainable while staying open.
 
-
-
 ## 4️⃣ My Stack for Open Source Marketing
 
 - **GitHub** for version control and discovery  
 - **Astro + Markdown** for fast content publishing  
-- **Fly.io** for hosting demos  
+- **Fly.io or a VPS** for hosting demos  
 - **Django REST + Vue.js** for API-driven templates  
-- **Twitter/X + LinkedIn** for building in public  
-- **Netlify** for static deployments linked from repos  
+- **Twitter/X + LinkedIn + IndieHackers** for building in public  
+- **Netlify and GitHub Pages** for static deployments linked from repos  
 
 Each platform amplifies the others — GitHub drives SEO, Astro hosts your voice, and social media drives attention back to your code.
-
-
 
 ## 5️⃣ The Lesson: Teach, Don’t Tell
 
@@ -113,8 +107,6 @@ Every repo, commit, or template you release is a silent sales pitch that works f
 The best part?  
 You’re not begging for attention.  
 You’re **earning** it — by helping others first.
-
-
 
 ## 📞 Call to Action
 
