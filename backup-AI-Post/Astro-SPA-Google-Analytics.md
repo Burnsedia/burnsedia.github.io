@@ -21,7 +21,7 @@ It works for both **Astro’s SPA events** and browsers that don’t fully suppo
 
 ```html
 <!-- GA4 tracking -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YOURCODEHERE"></script>
 <script>
   // Bootstrap GA
   window.dataLayer = window.dataLayer || [];

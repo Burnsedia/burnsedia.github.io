@@ -54,7 +54,6 @@ That’s it.
 No pipelines, no complex CI/CD.
 Just containers that maintain themselves.
 
-
 ## When Fly.io Enters the Picture
 
 I stay on the VPS as long as possible.
@@ -122,6 +121,3 @@ Build once. Push once.
 Let Watchtower keep your VPS fresh — and Fly.io handle the scale-up when the time comes.
 
 Want this hybrid setup for your SaaS or internal project?
-
-[Book a 15-minute strategy call](https://calendly.com/baileyburnsed/15min)
-or [Start your hybrid deployment plan](https://baileyburnsed.dev)
