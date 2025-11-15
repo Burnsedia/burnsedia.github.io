@@ -4,7 +4,6 @@ description: "I switched from VS Code to Neovim because it kept crashing. Here�
 pubDate: "Oct 15 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 ---
-
 ## When the Editor Became the Bottleneck
 
 I type fast.  
@@ -69,7 +68,6 @@ Tools become powerful when they disappear into your flow.
 Record a demo, write a blog, or explain it to a friend.  
 If you can teach it clearly, you’ve mastered it completely.
 
-
 ## Personal Take
 
 You can’t fake mastery.  
@@ -79,6 +77,3 @@ You either know your tools or you don’t.
 
 I’ve always believed that **becoming a power user** is the real rite of passage for developers.  
 The command line is the gateway drug to *becoming a god of machines.*  
-
-*Written by [Bailey Burnsed](https://baileyburnsed.dev) — developer, consultant, and Linux maximalist who believes the command line is still the most honest interface ever made.*
-
