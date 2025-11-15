@@ -5,31 +5,30 @@ pubDate: "Dec 12 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["open source", "marketing", "developer brand", "indie dev", "GitHub", "SEO"]
 ---
-
 # Why Open Source Is My Marketing Strategy
 
 ## From Side Projects to Social Proof
 
-When I started freelancing, I had no marketing budget.  
-No ads. No cold calls. No fancy funnels.  
+When I started freelancing, I had no marketing budget.
+No ads. No cold calls. No fancy funnels.
 All I had was **code** — and a GitHub account.
 
-So I pushed my projects public.  
-At first, it was just tools I made for myself:  
-Neovim configs, Django templates, small Flutter widgets.  
-Then people started starring, forking, and following.  
+So I made my projects open source.
+At first, it was just tools I made for myself:
+Neovim configs, Django templates, small Flutter apps.
+Then people started starring, forking, and following.
 
-A few weeks later, I got my first client who said:  
+Some time later, I got my first client who said:
 > “I found you on GitHub. I liked how clean your code was.”
 
-That’s when I realized:  
-**Open source is the best marketing there is.**  
+That’s when I realized:
+**Open source is the best marketing there is.**
 It shows how you think, what you value, and what you can build.
 
 ## How Open Source Builds Trust and Traffic
 
 ### 1. It’s 24/7 Visibility
-Your GitHub profile is a living portfolio that never sleeps.  
+Your GitHub profile is a living portfolio.  
 While you code, potential clients, collaborators, and even recruiters are finding you through commits, issues, and READMEs.
 
 ### 2. SEO Without SEO
@@ -43,16 +42,14 @@ People can read your code, see your documentation, and understand how you work.
 It’s transparent marketing for technical buyers.
 
 ### 4. It Builds Community, Not Just Audience
-Followers fade.  
-Contributors stick around.  
+Followers fade.
+Contributors stick around.
 When you open your tools, you attract like-minded developers — the same kind of people your clients want to hire.
 
-### 💰 5. It Converts Organically
+### 5. It Converts Organically
 By the time someone contacts you from your GitHub, they already trust you.  
 They’ve seen your work, your consistency, and your expertise.  
 That means less convincing, faster sales, and higher conversion rates.
-
-
 
 ## How I Turn Code Into Marketing
 
@@ -87,7 +84,7 @@ Use AGPL or BSL for tools you plan to monetize later.
 Open core = free visibility, paid hosting/support.  
 That’s how you stay sustainable while staying open.
 
-## 4️⃣ My Stack for Open Source Marketing
+## My Stack for Open Source Marketing
 
 - **GitHub** for version control and discovery  
 - **Astro + Markdown** for fast content publishing  
@@ -98,7 +95,7 @@ That’s how you stay sustainable while staying open.
 
 Each platform amplifies the others — GitHub drives SEO, Astro hosts your voice, and social media drives attention back to your code.
 
-## 5️⃣ The Lesson: Teach, Don’t Tell
+## The Lesson: Teach, Don’t Tell
 
 Open source flips marketing on its head.  
 You don’t have to brag — your code speaks for you.  
@@ -108,11 +105,10 @@ The best part?
 You’re not begging for attention.  
 You’re **earning** it — by helping others first.
 
-## 📞 Call to Action
+## Call to Action
 
 Want help turning your codebase into a business or marketing funnel?  
 That’s what I do — I help developers and founders build systems that attract users *while* they sleep.
 
 👉 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)  
 👉 or [Start your 30-day development plan](https://baileyburnsed.dev/)
-
