@@ -8,7 +8,7 @@ tags: ["Neovim", "Linux", "developer tools", "productivity", "vim", "terminal wo
 
 # Neovim Made Me Twice as Fast — My Developer Workflow  
 
-## 1️⃣ Story: When VS Code Couldn’t Keep Up  
+## When VS Code Couldn’t Keep Up  
 
 There was a point where I was typing faster than my editor could handle.  
 
@@ -22,7 +22,7 @@ Two years later, I’m never going back.
 
 Neovim didn’t just change *how* I code — it changed *how I think* about coding.  
 
-## 2️⃣ List: Why Neovim Made Me Twice as Fast  
+## Why Neovim Made Me Twice as Fast  
 
 ### ⚙️ 1. Instant Startup, Zero Bloat  
 Neovim loads faster than my fingers can type `nvim .`  
@@ -32,7 +32,7 @@ Just code.
 It runs on everything — my Arch laptop, remote servers, Docker containers, and even a Raspberry Pi.  
 I open the same config everywhere, and it feels like home.  
 
-### 🧠 2. Modal Editing = Flow State  
+### 2. Modal Editing = Flow State  
 The first thing you learn in Vim is the difference between *Insert Mode* and *Normal Mode*.  
 The next thing you learn is that **your hands never have to leave the keyboard again.**  
 
@@ -41,7 +41,7 @@ Deleting a word, moving a block, wrapping text — all become one-second actions
 
 Neovim turns editing into rhythm.  
 
-### 🔌 3. Plugins That Actually Help  
+### 3. Plugins That Actually Help  
 Modern Neovim with **Lua config** means plugins feel integrated, not tacked on.  
 
 My essential stack:  
@@ -54,14 +54,14 @@ My essential stack:
 
 With these, I get IDE-level power inside the terminal.  
 
-### 💻 4. One Editor for Every Language  
+### 4. One Editor for Every Language  
 I build everything from Django backends to Flutter apps to Godot games.  
 Neovim handles them all.  
 LSP support means full autocompletion, type hints, and jump-to-definition — no different from VS Code.  
 
 The difference is: it’s all *faster*.  
 
-### 🚀 5. Terminal-First Workflow  
+### 5. Terminal-First Workflow  
 I don’t Alt-Tab anymore.  
 My workflow lives entirely in the terminal:  
 - Neovim for code  
@@ -74,7 +74,7 @@ Just raw focus.
 
   
 
-## 3️⃣ Steps: How to Build a Neovim Setup That Works  
+## How to Build a Neovim Setup That Works  
 
 ### Step 1 — Start with Defaults  
 Install Neovim from your package manager.  
@@ -123,10 +123,6 @@ Once you master the motions, you stop thinking about tools and start thinking ab
 
 I don’t measure productivity by lines of code anymore.  
 I measure it by how long I can stay in flow.  
-
-  
-
-## 📞 Call to Action  
 
 If you want to learn how to set up Neovim, automate your terminal workflow, or build apps with speed and focus — I teach this stuff.  
 
