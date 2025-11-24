@@ -29,7 +29,8 @@
     "tslib": "^2.8.1",
     "typescript": "^5.2.2",
     "typewriterjs": "^1.0.0",
-    "vue": "^3.5.17"
+    "vue": "^3.5.17",
+    "vue-typewriter-effect": "^1.0.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.10",
