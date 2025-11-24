@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { ClientRouter } from "astro:transitions";
+import LOGO from "../assets/CyberPunkLogo2.jpg"; // needed for preload-resolve
 
 export interface Props {
   title: string;
@@ -40,6 +41,41 @@ const keywords = [
 ].join(", ");
 ---
 
+<!-- ====================================================================== -->
+<!-- 🔥 Performance Fixes for Lighthouse 100                                 -->
+<!-- ====================================================================== -->
+
+<!-- Preconnects (reduces TTFB for external analytics) -->
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+<!-- Preload your LCP image -->
+<link
+  rel="preload"
+  as="image"
+  href={Astro.resolve(LOGO)}
+  fetchpriority="high"
+/>
+
+<!-- Google Analytics via PARTYTOWN (fixes TBT/long tasks) -->
+<script
+  type="text/partytown"
+  src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"
+></script>
+
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+
+  gtag('js', new Date());
+  gtag('config', 'G-LRMSZ4V1XG', {
+    send_page_view: true
+  });
+</script>
+
+<!-- ====================================================================== -->
+<!-- 🔥 Your Original Metadata (untouched, only cleaned & kept as-is)       -->
+<!-- ====================================================================== -->
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -98,7 +134,8 @@ const keywords = [
   worksFor: { "@type": "Organization", name: "Burnsedia", url: "https://baileyburnsed.dev" }
 })}
 </script>
-<!-- Schema: Organization (Burnsedia) -->
+
+<!-- Schema: Organization -->
 <script type="application/ld+json">
 {JSON.stringify({
   "@context": "https://schema.org",
@@ -115,6 +152,7 @@ const keywords = [
   founder: { "@type": "Person", name: "Bailey Burnsed" }
 })}
 </script>
+
 <!-- Schema: Service -->
 <script type="application/ld+json">
 {JSON.stringify({
@@ -154,6 +192,7 @@ const keywords = [
   ]
 })}
 </script>
+
 <!-- LocalBusiness schema -->
 <script type="application/ld+json">
 {JSON.stringify({
@@ -172,47 +211,5 @@ const keywords = [
   ]
 })}
 </script>
-<!-- Google tag (gtag.js) -->
-<!-- GA4 hardcoded -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"></script>
-<script>
-  // --- GA bootstrap ---
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
 
-  // IMPORTANT: disable auto page_view to avoid double-counts
-  gtag('config', 'G-LRMSZ4V1XG', { send_page_view: false });
-
-  // Unified page_view sender
-  function sendPageView() {
-    if (typeof gtag !== 'function') return;
-    gtag('event', 'page_view', {
-      page_title: document.title,
-      page_location: location.href,
-      page_path: location.pathname + location.search + location.hash
-    });
-    // Uncomment to see it in your console while debugging:
-    // console.debug('[GA4] page_view', location.href);
-  }
-
-  // Initial load
-  sendPageView();
-
-  // Astro SPA hooks (when available)
-  addEventListener('astro:page-load', sendPageView);
-  addEventListener('astro:after-swap', sendPageView);
-
-  // History API patch (catches most client routers)
-  ['pushState','replaceState'].forEach(fn => {
-    const orig = history[fn];
-    history[fn] = function() {
-      const ret = orig.apply(this, arguments);
-      queueMicrotask(sendPageView); // defer after URL changes
-      return ret;
-    };
-  });
-  // Back/forward
-  addEventListener('popstate', sendPageView);
-</script>
 
