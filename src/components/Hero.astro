@@ -11,15 +11,18 @@ import LOGO from "../assets/CyberPunkLogo2.jpg"
       <Image
         src={LOGO}
         alt="praise the Omnissiah"
-        width={475}
-        height={475}
+        widths={[237, 475]}
+        sizes="(max-width: 768px) 237px, 475px"
         format="webp"
-        quality={80}
+        quality={70}
         loading="eager"
         fetchpriority="high"
         preload
+        width={237}
+        height={237}
         class="object-cover"
       />
+
     </div>
     <div class="">
       <div class="items-center px-3 ">
