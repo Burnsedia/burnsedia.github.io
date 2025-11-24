@@ -8,7 +8,18 @@ import LOGO from "../assets/CyberPunkLogo2.jpg"
 <div class="hero py-12 noise">
   <div class="hero-content flex-col lg:flex-row w-full">
     <div class="w-2/3 mask mask-hexagon ring ring-info ring-offset-4 ring-offset-info p-2">
-      <Image src={LOGO} alt="praise the Omnissiah" />
+      <Image
+        src={LOGO}
+        alt="praise the Omnissiah"
+        width={475}
+        height={475}
+        format="webp"
+        quality={80}
+        loading="eager"
+        fetchpriority="high"
+        preload
+        class="object-cover"
+      />
     </div>
     <div class="">
       <div class="items-center px-3 ">
