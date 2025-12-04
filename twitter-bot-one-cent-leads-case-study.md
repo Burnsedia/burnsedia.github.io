@@ -35,8 +35,6 @@ This means my coding activity automatically becomes content with zero extra effo
 
 Essentially, I built an AI-powered marketing system that works 24/7.
 
----
-
 # **Result (without any optimization I got leads for a cent each)**
 
 Even *before* creating an optimized marketing strategy, I was able to get the cost to acquire a lead down to **1 penny** using brute force alone.
@@ -49,8 +47,6 @@ I got it for $0.01 by automating 12 tweets a day tweeting about:
 - general indie hacker and dev content  
 
 Optimization will only improve this and scale it further.
-
----
 
 # **10,000 ft Overview of the System**
 
@@ -91,8 +87,6 @@ Because of this setup, I get a predictable mix of:
 
 It is basically a fully-automated “building in public” machine that never burns out, never forgets to post, and never breaks consistency.
 
----
-
 # **Next Steps**
 
 - Connecting the bot to my analytics pipeline  
@@ -101,4 +95,3 @@ It is basically a fully-automated “building in public” machine that never bu
 - Using LLMs to personalize replies and DMs at scale  
 - Turning this into a SaaS with a limited waitlist  
 - Building a fully agentic marketing system that can generate value-based content, engage with people, and drive traffic automatically
-
