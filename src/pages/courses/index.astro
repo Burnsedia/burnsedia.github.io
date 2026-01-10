@@ -38,33 +38,11 @@ const allTags = Array.from(new Set(courses.flatMap(course => course.data.tags ||
 	</head>
 	<body class="min-h-screen font-sans text-white bg-base-100">
 		<Header />
-		<main class="flex flex-col items-center justify-center py-12">
-			<section class="py-12">
-				<div class="flex justify-center w-full">
-					<div class="w-full max-w-6xl px-4">
-						<h1 class="text-3xl font-bold mb-8 text-center">Courses</h1>
-						<div class="mb-8 flex flex-wrap gap-2 justify-center">
-							<button class="btn btn-outline btn-sm" data-filter="all">All</button>
-							{allTags.map(tag => <button class="btn btn-outline btn-sm" data-filter={tag}>{tag}</button>)}
-						</div>
-						<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 items-center" id="courses-list">
-							{courses.map((course) => (
-								<div class="py-4 px-4 course-item" data-tags={course.data.tags ? course.data.tags.join(',') : ''}>
-									<time datetime={course.data.pubDate.toISOString()} class="block text-sm text-gray-500 mb-2">
-										{course.data.pubDate.toLocaleDateString('en-us', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-										})}
-									</time>
-									<a href={`/courses/${course.slug}/`}>
-										<Card title={course.data.title} description={course.data.description} tags={course.data.tags} />
-									</a>
-								</div>
-							))}
-						</div>
-					</div>
-				</div>
+		<main class="flex flex-col items-center justify-center">
+			<Hero />
+			<section class="text-center mb-8 py-12">
+				<h1 class="text-4xl font-bold text-primary mb-4">Courses</h1>
+				<p class="text-lg text-base-content">Learn Django, SaaS, and more with our comprehensive courses.</p>
 			</section>
 		</main>
 		<Footer />

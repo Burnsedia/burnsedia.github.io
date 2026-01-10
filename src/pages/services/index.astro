@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
 import Card from '../../components/Card.astro';
 import { SITE_TITLE } from '../../consts';
 ---
@@ -13,8 +14,9 @@ import { SITE_TITLE } from '../../consts';
 	</head>
 	<body class="min-h-screen font-sans text-white bg-base-100">
 		<Header />
-		<main class="flex flex-col items-center justify-center py-12">
-			<section class="text-center mb-8">
+		<main class="flex flex-col items-center justify-center">
+			<Hero />
+			<section class="text-center mb-8 py-12">
 				<h1 class="text-4xl font-bold text-primary mb-4">My Services</h1>
 				<p class="text-lg text-base-content">Productized solutions for software development, learning, and security.</p>
 			</section>
