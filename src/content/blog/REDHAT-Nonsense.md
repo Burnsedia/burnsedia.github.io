@@ -3,6 +3,7 @@ title: "Redhat Nonsense"
 description: "RedHAT just broke the GPL"
 pubDate: "Aug 09 2023"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["opinion", "redhat", "linux", "open-source"]
 ---
 
 TR;DR They Did and not really;

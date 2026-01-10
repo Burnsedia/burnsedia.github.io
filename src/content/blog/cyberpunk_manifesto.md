@@ -3,6 +3,7 @@ title: "I am a Cyberpunk, I am a Cypherpunk"
 description: "A rant on crypto-anarchism and our Cyberpunk dystopia"
 pubDate: "Sep 07 2025"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["cyberpunk", "manifesto", "opinion", "tech"]
 ---
 
 # 🏴 Cypherpunk Manifesto

@@ -3,6 +3,7 @@ title: "How to become a Full Stack Developer"
 description: "A Comprehensive Guide"
 pubDate: "Sept 13, 2024"
 heroImage: "/CyberPunkLogo1.jpg"
+tags: ["full-stack", "guide", "tutorial", "development"]
 ---
 
 # How to Become a Full Stack Developer in Simple Steps: 

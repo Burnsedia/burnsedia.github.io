@@ -3,6 +3,7 @@ title: "Godot and Gdscript for Python Devs"
 description: "a tutorial for python developers"
 pubDate: "Sep. 07, 2023"
 heroImage: "/CyberPunkLogo1.jpg"
+tags: ["godot", "python", "game-development", "tutorial"]
 ---
 
 # TL;DR 

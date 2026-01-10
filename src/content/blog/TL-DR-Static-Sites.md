@@ -3,6 +3,7 @@ title: "TL;DR Why build static sites for your clients"
 description: "a short post on Static Sites"
 pubDate: "Mar 14 2023"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["static-sites", "guide", "web-development"]
 ---
 
 A static site generator is a tool that takes content, usually written in a markup language like Markdown, and generates static HTML, CSS, and JavaScript files, hosted on a web server or CDN.

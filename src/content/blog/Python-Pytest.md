@@ -3,6 +3,7 @@ title: "Pytest and Selenium"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "Feb 09 2023"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["python", "testing", "selenium", "tutorial"]
 ---
 
 ## How to Develop a UI Test Sweet
