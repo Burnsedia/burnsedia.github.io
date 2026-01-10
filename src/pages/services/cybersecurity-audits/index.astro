@@ -1,0 +1,48 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Hero from '../../../components/Hero.astro';
+import { SITE_TITLE } from '../../../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="darksynthwave">
+	<head>
+		<BaseHead title={`${SITE_TITLE} - Cybersecurity Audits`} description="Code audits for security and privacy – penetration testing and compliance checks." />
+	</head>
+	<body class="min-h-screen font-sans text-white bg-base-100">
+		<Header />
+		<main class="flex flex-col items-center justify-center py-12">
+			<Hero />
+			<section class="text-center mb-8 py-12">
+				<h1 class="text-4xl font-bold text-primary mb-4">Cybersecurity Audits</h1>
+				<p class="text-lg text-base-content">Code audits for security and privacy – penetration testing and compliance checks.</p>
+			</section>
+			<section class="container mx-auto px-4 py-8 max-w-4xl">
+				<div class="prose prose-lg max-w-none">
+					<h2>What You Get</h2>
+					<ul>
+						<li>Comprehensive code security audits</li>
+						<li>Privacy compliance checks</li>
+						<li>Penetration testing recommendations</li>
+						<li>Secure app design guidance</li>
+					</ul>
+					<h2>Process</h2>
+					<p>Submit your code or app for review. Receive a detailed report with vulnerabilities and fixes.</p>
+					<div class="flex gap-4 mt-8">
+						<a href="sms:+14042134870?body=REQUEST%20AUDIT" class="btn btn-info">Request Audit</a>
+					</div>
+				</div>
+			</section>
+			<section class="py-12 bg-base-200 w-full">
+				<div class="container mx-auto px-4 text-center">
+					<h2 class="text-3xl font-bold mb-4">Stay in the Loop</h2>
+					<p class="text-lg mb-6">Subscribe to my newsletter for development tips, project updates, and exclusive offers.</p>
+					<a href="/newsletter" class="btn btn-primary">Subscribe Now</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
