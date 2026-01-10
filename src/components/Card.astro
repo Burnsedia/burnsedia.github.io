@@ -1,10 +1,10 @@
 ---
 const { title, description, tags = [] } = Astro.props
 ---
-<div class=" noise border border-primary bg-gradient-to-br-gray-900 backdrop-blur shadow-pink card min-h-32 shadow-xl">
-  <div class="py-8 px-6 font-semibold mb-2">
-    <h2 class="text-lg">{title}</h2>
-    <h3 class="text-white text-sm">{description}</h3>
+<div class="card bg-base-100 border border-primary shadow-xl min-h-32 hover:shadow-2xl transition-shadow duration-300">
+  <div class="card-body">
+    <h2 class="card-title text-lg">{title}</h2>
+    <p class="text-sm text-base-content">{description}</p>
     {tags && tags.length > 0 && (
       <div class="mt-2">
         {tags.map(tag => <span class="badge badge-outline badge-sm mr-1">{tag}</span>)}

@@ -29,11 +29,14 @@ import { SITE_TITLE, SITE_DESCRIPTION, BLOG_DESCRIPTION } from '../../consts';
 			}
 		</style>
 	</head>
-	<body class="h-screen items-center font-Verdana sans-serif text-white">
+	<body class="min-h-screen font-sans text-white bg-base-100">
 		<Header />
-    <Hero />
-		<main class="bg-black flex flex-col justify-center items-center">
-      <PostsList />
+		<main class="flex flex-col items-center justify-center py-12">
+			<section class="text-center mb-8">
+				<h1 class="text-4xl font-bold text-primary mb-4">Blog</h1>
+				<p class="text-lg text-base-content">Thoughts on indie development, SaaS, and tech.</p>
+			</section>
+			<PostsList />
 		</main>
 		<Footer />
 	</body>
