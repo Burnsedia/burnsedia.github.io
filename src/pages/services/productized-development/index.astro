@@ -1,56 +1,31 @@
 ---
-import BaseHead from '../../../components/BaseHead.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import Hero from '../../../components/Hero.astro';
-import { SITE_TITLE } from '../../../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Hero from "../../../components/Hero.astro";
+import SalesHero from "../../../components/SalesHero.astro";
+import Tech from "../../../components/Technolgy.astro";
+import Projects from "../../../components/projects.astro";
+import ContactForm from "../../../components/ContactForm.astro";
+import Bio from "../../../components/Bio.astro";
+import Testimonials from "../../../components/testimonials.astro"
 ---
 
-<!DOCTYPE html>
-<html lang="en" data-theme="darksynthwave">
-	<head>
-		<BaseHead title={`${SITE_TITLE} - Productized Development`} description="30 days of expert software development – from MVPs to full SaaS solutions." />
-	</head>
-	<body class="min-h-screen font-sans text-white bg-base-100">
-		<Header />
-		<main class="flex flex-col items-center justify-center py-12">
-			<Hero />
-			<section class="text-center mb-8 py-12">
-				<h1 class="text-4xl font-bold text-primary mb-4">Productized Development</h1>
-				<p class="text-lg text-base-content">30 days of expert software development – from MVPs to full SaaS solutions.</p>
-			</section>
-			<section class="container mx-auto px-4 py-8 max-w-4xl">
-				<div class="prose prose-lg max-w-none">
-					<h2>What You Get</h2>
-					<ul>
-						<li>Custom software development for your ideas</li>
-						<li>MVP prototyping and full SaaS builds</li>
-						<li>Integration with modern tools (Django, Vue, Fly.io)</li>
-						<li>Ongoing support and revisions</li>
-					</ul>
-					<h2>Process</h2>
-					<ol>
-						<li>Pay for 30 days of development</li>
-						<li>Schedule a Zoom call to discuss requirements</li>
-						<li>Assign tasks via Trello board</li>
-						<li>Receive regular updates and final deliverables</li>
-					</ol>
-					<h2>Pricing</h2>
-					<p>Contact for custom quotes based on project scope.</p>
-					<div class="flex gap-4 mt-8">
-						<a href="https://buy.stripe.com/9B67sM2DH0LhfOq4aeaEE06" class="btn btn-primary">Buy Now</a>
-						<a href="sms:+14042134870?body=BOOK%20NOW" class="btn btn-accent">Book Call</a>
-					</div>
-				</div>
-			</section>
-			<section class="py-12 bg-base-200 w-full">
-				<div class="container mx-auto px-4 text-center">
-					<h2 class="text-3xl font-bold mb-4">Stay in the Loop</h2>
-					<p class="text-lg mb-6">Subscribe to my newsletter for development tips, project updates, and exclusive offers.</p>
-					<a href="/newsletter" class="btn btn-primary">Subscribe Now</a>
-				</div>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout
+  title={`${SITE_TITLE} - Productized Development`}
+	description="30 days of expert software development – from MVPs to full SaaS solutions."
+>
+  <Hero />
+  <SalesHero />
+  <Tech />
+  <Projects />
+  <Testimonials />
+  <Bio />
+  <section class="py-12 bg-base-200">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+      <p class="text-lg mb-6">Get the latest on my projects, tips, and offers – subscribe!</p>
+      <a href="/newsletter" class="btn btn-primary">Subscribe Now</a>
+    </div>
+  </section>
+  <ContactForm />
+</BaseLayout>
