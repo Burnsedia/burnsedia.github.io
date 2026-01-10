@@ -3,6 +3,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
+import Card from '../../components/Card.astro';
 import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 
@@ -39,34 +40,32 @@ const allTags = Array.from(new Set(courses.flatMap(course => course.data.tags ||
 		<Header />
     <Hero />
 		<main class="bg-black flex flex-col justify-center items-center">
-			<section class="container mx-auto px-4 py-8">
-				<h1 class="text-3xl font-bold mb-8">Courses</h1>
-				<div class="mb-8 flex flex-wrap gap-2 justify-center">
-					<button class="btn btn-outline btn-sm" data-filter="all">All</button>
-					{allTags.map(tag => <button class="btn btn-outline btn-sm" data-filter={tag}>{tag}</button>)}
+			<section class="py-12">
+				<div class="flex justify-center w-full">
+					<div class="w-full max-w-6xl px-4">
+						<h1 class="text-3xl font-bold mb-8 text-center">Courses</h1>
+						<div class="mb-8 flex flex-wrap gap-2 justify-center">
+							<button class="btn btn-outline btn-sm" data-filter="all">All</button>
+							{allTags.map(tag => <button class="btn btn-outline btn-sm" data-filter={tag}>{tag}</button>)}
+						</div>
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 items-center" id="courses-list">
+							{courses.map((course) => (
+								<div class="py-4 px-4 course-item" data-tags={course.data.tags ? course.data.tags.join(',') : ''}>
+									<time datetime={course.data.pubDate.toISOString()} class="block text-sm text-gray-500 mb-2">
+										{course.data.pubDate.toLocaleDateString('en-us', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</time>
+									<a href={`/courses/${course.slug}/`}>
+										<Card title={course.data.title} description={course.data.description} tags={course.data.tags} />
+									</a>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
-				<ul id="courses-list">
-					{courses.map((course) => (
-						<li class="course-item" data-tags={course.data.tags ? course.data.tags.join(',') : ''}>
-							<a href={`/courses/${course.slug}/`}>
-								<h2 class="text-xl font-semibold">{course.data.title}</h2>
-								<p class="text-gray-300">{course.data.description}</p>
-								{course.data.tags && course.data.tags.length > 0 && (
-									<div class="mt-1">
-										{course.data.tags.map(tag => <span class="badge badge-outline badge-xs mr-1">{tag}</span>)}
-									</div>
-								)}
-							</a>
-							<time datetime={course.data.pubDate.toISOString()}>
-								{course.data.pubDate.toLocaleDateString('en-us', {
-									year: 'numeric',
-									month: 'short',
-									day: 'numeric',
-								})}
-							</time>
-						</li>
-					))}
-				</ul>
 			</section>
 		</main>
 		<Footer />
