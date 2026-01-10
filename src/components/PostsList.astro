@@ -13,7 +13,7 @@ const posts = (await getCollection('blog')).sort(
 				posts.map((post) => (
 					<div class="py-4 px-4">
 						<FormattedDate date={post.data.pubDate} />
-						<a href={`/blog/${post.slug}/`}><Card title={post.data.title} description={post.data.description} /></a>
+						<a href={`/blog/${post.slug}/`}><Card title={post.data.title} description={post.data.description} tags={post.data.tags} /></a>
 					</div>
 				))
 			}  

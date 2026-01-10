@@ -3,6 +3,7 @@ title: "Dracula"
 description: "Blood Sugar Tracker with a privacy focused design"
 pubDate: "2024-01-01"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["mobile app", "health", "privacy"]
 ---
 
 # Dracula

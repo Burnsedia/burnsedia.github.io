@@ -33,6 +33,11 @@ const projects = await getCollection('projects');
 							<div class="card-body">
 								<h2 class="card-title">{project.data.title}</h2>
 								<p>{project.data.description}</p>
+								{project.data.tags && project.data.tags.length > 0 && (
+									<div class="mt-2">
+										{project.data.tags.map(tag => <span class="badge badge-outline badge-sm mr-1">{tag}</span>)}
+									</div>
+								)}
 								<div class="card-actions justify-end">
 									<a href={`/projects/${project.slug}/`} class="btn btn-primary">View Project</a>
 								</div>

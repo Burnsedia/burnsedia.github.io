@@ -3,6 +3,7 @@ title: "Going Pro"
 description: ""
 pubDate: "Jul 08 2022"
 heroImage: "/CyberPunkLogo1.jpg"
+tags: ["freelance", "indie dev", "career"]
 ---
 
 ## Setting out on my Life's work

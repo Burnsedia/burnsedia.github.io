@@ -44,6 +44,11 @@ courses.sort((a, b) => (a.data.lesson || 999) - (b.data.lesson || 999));
 							<a href={`/courses/${course.slug}/`}>
 								<h2 class="text-xl font-semibold">{course.data.title}</h2>
 								<p class="text-gray-300">{course.data.description}</p>
+								{course.data.tags && course.data.tags.length > 0 && (
+									<div class="mt-1">
+										{course.data.tags.map(tag => <span class="badge badge-outline badge-xs mr-1">{tag}</span>)}
+									</div>
+								)}
 							</a>
 							<time datetime={course.data.pubDate.toISOString()}>
 								{course.data.pubDate.toLocaleDateString('en-us', {
