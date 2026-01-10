@@ -46,8 +46,8 @@ const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).
 								<h2 class="card-title">{repo.name}</h2>
 								<p>{repo.description || 'No description available.'}</p>
 								<div class="mt-2">
-									{repo.language && <span class="badge badge-primary mr-2">{repo.language}</span>}
-									<span class="badge badge-secondary">⭐ {repo.stargazers_count}</span>
+									{repo.language && <span class="badge badge-outline badge-primary mr-2">{repo.language}</span>}
+									<span class="badge badge-outline badge-secondary">⭐ {repo.stargazers_count}</span>
 								</div>
 								<div class="card-actions justify-end">
 									<a href={repo.html_url} target="_blank" class="btn btn-primary">View on GitHub</a>
@@ -64,8 +64,8 @@ const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).
 								<h2 class="card-title">{repo.name}</h2>
 								<p>{repo.description || 'No description available.'}</p>
 								<div class="mt-2">
-									{repo.language && <span class="badge badge-primary mr-2">{repo.language}</span>}
-									<span class="badge badge-secondary">⭐ {repo.stargazers_count}</span>
+									{repo.language && <span class="badge badge-outline badge-primary mr-2">{repo.language}</span>}
+									<span class="badge badge-outline badge-secondary">⭐ {repo.stargazers_count}</span>
 								</div>
 								<div class="card-actions justify-end">
 									<a href={repo.html_url} target="_blank" class="btn btn-primary">View on GitHub</a>
