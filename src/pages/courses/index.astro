@@ -8,6 +8,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 
 const courses = await getCollection('courses');
 courses.sort((a, b) => (a.data.lesson || 999) - (b.data.lesson || 999));
+
+// Collect unique tags
+const allTags = Array.from(new Set(courses.flatMap(course => course.data.tags || [])));
 ---
 
 <!DOCTYPE html>
@@ -38,9 +41,13 @@ courses.sort((a, b) => (a.data.lesson || 999) - (b.data.lesson || 999));
 		<main class="bg-black flex flex-col justify-center items-center">
 			<section class="container mx-auto px-4 py-8">
 				<h1 class="text-3xl font-bold mb-8">Courses</h1>
-				<ul>
+				<div class="mb-8 flex flex-wrap gap-2 justify-center">
+					<button class="btn btn-outline btn-sm" data-filter="all">All</button>
+					{allTags.map(tag => <button class="btn btn-outline btn-sm" data-filter={tag}>{tag}</button>)}
+				</div>
+				<ul id="courses-list">
 					{courses.map((course) => (
-						<li>
+						<li class="course-item" data-tags={course.data.tags ? course.data.tags.join(',') : ''}>
 							<a href={`/courses/${course.slug}/`}>
 								<h2 class="text-xl font-semibold">{course.data.title}</h2>
 								<p class="text-gray-300">{course.data.description}</p>
@@ -63,5 +70,28 @@ courses.sort((a, b) => (a.data.lesson || 999) - (b.data.lesson || 999));
 			</section>
 		</main>
 		<Footer />
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const filterButtons = document.querySelectorAll('[data-filter]');
+				const courseItems = document.querySelectorAll('.course-item');
+
+				filterButtons.forEach(button => {
+					button.addEventListener('click', () => {
+						const filter = button.getAttribute('data-filter') || '';
+						courseItems.forEach(item => {
+							const tags = (item as HTMLElement).getAttribute('data-tags')?.split(',') || [];
+							if (filter === 'all' || tags.includes(filter)) {
+								(item as HTMLElement).style.display = 'block';
+							} else {
+								(item as HTMLElement).style.display = 'none';
+							}
+						});
+						// Update active button
+						filterButtons.forEach(btn => (btn as HTMLElement).classList.remove('btn-active'));
+						(button as HTMLElement).classList.add('btn-active');
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
