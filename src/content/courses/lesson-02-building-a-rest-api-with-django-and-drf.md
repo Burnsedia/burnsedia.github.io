@@ -1,7 +1,8 @@
 ---
-title: "Building a REST API with Django and DRF"
+title: "Lesson 2: Building a REST API with Django and DRF"
 description: "A practical guide for indie developers to build, serialize, and expose data with Django REST Framework."
 pubDate: "2025-10-24"
+lesson: 2
 ---
 
 # Building a REST API with Django and DRF

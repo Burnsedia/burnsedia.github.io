@@ -1,7 +1,8 @@
 ---
-title: "Getting Started with Django on Fly.io"
+title: "Lesson 1: Getting Started with Django on Fly.io"
 description: "A step-by-step guide to deploying your Django app with Docker on Fly.io — the indie developer’s cloud platform."
 pubDate: "2025-10-24"
+lesson: 1
 ---
 
 # Getting Started with Django on Fly.io

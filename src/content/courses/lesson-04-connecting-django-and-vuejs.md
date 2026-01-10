@@ -1,8 +1,9 @@
 ---
-title: "Connecting Django and Vue.js"
+title: "Lesson 4: Connecting Django and Vue.js"
 description: "End-to-end guide to wiring a Vue 3 SPA to a Django REST API with Djoser + SimpleJWT, CORS, Axios, and secure auth flows."
 pubDate: "2025-10-24"
 tags: ["Django", "DRF", "Vue 3", "Vite", "Djoser", "JWT", "CORS", "Axios"]
+lesson: 4
 ---
 
 # Connecting Django and Vue.js

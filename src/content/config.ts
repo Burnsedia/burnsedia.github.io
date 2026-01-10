@@ -31,6 +31,7 @@ const courses = defineCollection({
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
     heroImage: z.string().optional(),
+    lesson: z.number().optional(),
   }),
 });
 
