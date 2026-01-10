@@ -1,0 +1,21 @@
+{
+  "name": "Bailey Burns - Projects",
+  "short_name": "Projects PWA",
+  "description": "A PWA showcasing my latest projects and GitHub repos",
+  "start_url": "/projects/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff00ff",
+  "icons": [
+    {
+      "src": "/CyberPunkLogo2.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/CyberPunkLogo2.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
