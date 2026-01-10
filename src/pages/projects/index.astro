@@ -3,15 +3,21 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
-import { getCollection } from 'astro:content';
+
 import { SITE_TITLE } from '../../consts';
 
-const projects = await getCollection('projects');
+
 
 // Fetch GitHub repos
-const githubRepos = await fetch('https://api.github.com/users/Burnsedia/repos?type=public&sort=updated')
+const githubRepos = await fetch('https://api.github.com/users/Burnsedia/repos?type=public&sort=updated&per_page=20')
   .then(res => res.json())
   .then(data => data.filter((repo: any) => !repo.fork && !repo.archived && repo.name !== 'Burnsedia')); // Filter out forks, archived, and own profile repo
+
+// Assume pinned are top starred repos
+const pinnedRepos = githubRepos.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count).slice(0, 4);
+
+// Recent are latest updated
+const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).slice(0, 6);
 ---
 
 <!DOCTYPE html>
@@ -32,32 +38,27 @@ const githubRepos = await fetch('https://api.github.com/users/Burnsedia/repos?ty
 		<main class="bg-black flex flex-col justify-center items-center">
 			<section class="container mx-auto px-4 py-8">
 				<h1 class="text-3xl font-bold mb-8">Projects</h1>
-				{projects.length > 0 && (
-					<>
-						<h2 class="text-2xl font-semibold mb-4">Featured Projects</h2>
-						<div class="grid mb-8">
-							{projects.map((project) => (
-								<div class="card bg-base-100 shadow-xl">
-									<div class="card-body">
-										<h2 class="card-title">{project.data.title}</h2>
-										<p>{project.data.description}</p>
-										{project.data.tags && project.data.tags.length > 0 && (
-											<div class="mt-2">
-												{project.data.tags.map((tag: string) => <span class="badge badge-outline badge-sm mr-1">{tag}</span>)}
-											</div>
-										)}
-										<div class="card-actions justify-end">
-											<a href={`/projects/${project.slug}/`} class="btn btn-primary">View Project</a>
-										</div>
-									</div>
+				<h2 class="text-2xl font-semibold mb-4">Pinned Projects</h2>
+				<div class="grid mb-8">
+					{pinnedRepos.map((repo: any) => (
+						<div class="card bg-base-100 shadow-xl">
+							<div class="card-body">
+								<h2 class="card-title">{repo.name}</h2>
+								<p>{repo.description || 'No description available.'}</p>
+								<div class="mt-2">
+									{repo.language && <span class="badge badge-primary mr-2">{repo.language}</span>}
+									<span class="badge badge-secondary">⭐ {repo.stargazers_count}</span>
 								</div>
-							))}
+								<div class="card-actions justify-end">
+									<a href={repo.html_url} target="_blank" class="btn btn-primary">View on GitHub</a>
+								</div>
+							</div>
 						</div>
-					</>
-				)}
-				<h2 class="text-2xl font-semibold mb-4">Open Source Projects</h2>
+					))}
+				</div>
+				<h2 class="text-2xl font-semibold mb-4">Recent Projects</h2>
 				<div class="grid">
-					{githubRepos.slice(0, 6).map((repo: any) => (
+					{recentRepos.map((repo: any) => (
 						<div class="card bg-base-100 shadow-xl">
 							<div class="card-body">
 								<h2 class="card-title">{repo.name}</h2>
