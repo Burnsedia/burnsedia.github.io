@@ -8,7 +8,7 @@ onMounted(() => {
   if (!el.value) return; // ✅ safety check
 
   new Typewriter(el.value, {
-    strings: ['Mobile', 'Web', 'AI', 'More'],
+    strings: ['Building My Own Products', 'Running a Productized Business', 'Focusing on SaaS Tools', 'Creating AI-Assisted Automation', 'Owning My Stack', 'Software That Compounds'],
     autoStart: true,
     loop: true,
     delay: 75,
