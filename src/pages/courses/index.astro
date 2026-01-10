@@ -1,0 +1,61 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
+const courses = await getCollection('courses');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${SITE_TITLE} - Courses`} description="Learn Django, SaaS, and more with our comprehensive courses." />
+		<style>
+			ul {
+				list-style-type: none;
+				padding: unset;
+			}
+			ul li {
+				display: flex;
+			}
+			ul li :global(time) {
+				flex: 0 0 130px;
+				font-style: italic;
+				color: #595959;
+			}
+			ul li a:visited {
+				color: #8e32dc;
+			}
+		</style>
+	</head>
+	<body class="h-screen items-center font-Verdana sans-serif text-white">
+		<Header />
+    <Hero />
+		<main class="bg-black flex flex-col justify-center items-center">
+			<section class="container mx-auto px-4 py-8">
+				<h1 class="text-3xl font-bold mb-8">Courses</h1>
+				<ul>
+					{courses.map((course) => (
+						<li>
+							<a href={`/courses/${course.slug}/`}>
+								<h2 class="text-xl font-semibold">{course.data.title}</h2>
+								<p class="text-gray-300">{course.data.description}</p>
+							</a>
+							<time datetime={course.data.pubDate.toISOString()}>
+								{course.data.pubDate.toLocaleDateString('en-us', {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								})}
+							</time>
+						</li>
+					))}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
