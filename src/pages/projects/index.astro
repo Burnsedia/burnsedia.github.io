@@ -41,7 +41,7 @@ const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).
 				<h2 class="text-2xl font-semibold mb-4">Pinned Projects</h2>
 				<div class="grid mb-8">
 					{pinnedRepos.map((repo: any) => (
-						<div class="card bg-base-100 shadow-xl">
+						<div class="card bg-base-100 shadow-xl border border-primary">
 							<div class="card-body">
 								<h2 class="card-title">{repo.name}</h2>
 								<p>{repo.description || 'No description available.'}</p>
@@ -59,7 +59,7 @@ const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).
 				<h2 class="text-2xl font-semibold mb-4">Recent Projects</h2>
 				<div class="grid">
 					{recentRepos.map((repo: any) => (
-						<div class="card bg-base-100 shadow-xl">
+						<div class="card bg-base-100 shadow-xl border border-primary">
 							<div class="card-body">
 								<h2 class="card-title">{repo.name}</h2>
 								<p>{repo.description || 'No description available.'}</p>
