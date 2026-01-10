@@ -1,5 +1,6 @@
 ---
 title: "Lesson 3: Adding Authentication with Djoser and SimpleJWT"
+tags: ["authentication", "jwt", "django", "security", "tutorial"]
 description: "Complete setup for Django REST auth using Djoser + SimpleJWT — includes the required URLs/settings, email-as-username, custom User model, email verification, and token blacklist logout."
 pubDate: "Oct 12 2025"
 lesson: 3

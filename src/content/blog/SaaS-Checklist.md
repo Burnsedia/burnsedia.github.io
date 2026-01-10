@@ -3,6 +3,7 @@ title: "SaaS Checklist for Non-Technical Entrepreneurs"
 description: "A Comprehensive Guide"
 pubDate: "Jan. 02, 2025"
 heroImage: "/CyberPunkLogo1.jpg"
+tags: ["saas", "checklist", "business", "entrepreneurs", "guide"]
 ---
 
 # SaaS Checklist for Non-Technical Entrepreneurs

@@ -3,6 +3,7 @@ title: "Sector Defense Dev Log"
 description: "Ship Crafting Design"
 pubDate: "Jul 08 2022"
 heroImage: "/CyberPunkLogo1.jpg"
+tags: ["game-design", "godot", "python", "tutorial"]
 ---
 
 # Tech Tree - Ship Modules

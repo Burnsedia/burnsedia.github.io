@@ -3,6 +3,7 @@ title: "NerdTime"
 description: "AI powered Issue Tracker for nerds and Software Engineers"
 pubDate: "2024-01-01"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["issue-tracker", "ai", "software-engineers", "productivity"]
 ---
 
 # NerdTime

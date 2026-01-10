@@ -3,6 +3,7 @@ title: "FullerITConsulting.dev"
 description: "IT consulting company's website and internal tools"
 pubDate: "2024-01-01"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["consulting", "website", "it", "business"]
 ---
 
 # FullerITConsulting.dev

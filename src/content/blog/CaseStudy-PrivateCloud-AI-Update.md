@@ -3,6 +3,7 @@ title: "Case Study: Saving Over 99% by Migrating from Public Cloud to Private Cl
 description: "Why the Private Cloud is perfect for small business"
 pubDate: "Sep 05 2025"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["case-study", "cloud", "cost-saving", "saas", "business"]
 ---
 
 ## Background

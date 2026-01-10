@@ -3,6 +3,7 @@ title: "Edudate"
 description: "Dating app for educators, in development"
 pubDate: "2024-01-01"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["dating-app", "educators", "social", "mobile"]
 ---
 
 # Edudate

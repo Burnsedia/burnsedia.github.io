@@ -3,6 +3,7 @@ title: "How to Build White-Label SaaS for Clients"
 description: "Turn your codebase into a repeatable system that delivers custom software fast."
 pubDate: "2025-10-23"
 heroImage: "/CyberPunkLogo2.jpg"
+tags: ["saas", "white-label", "business", "freelance", "tutorial"]
 ---
 
 # How to Build White-Label SaaS for Clients  

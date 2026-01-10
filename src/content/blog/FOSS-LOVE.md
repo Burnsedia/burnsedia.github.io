@@ -3,6 +3,7 @@ title: "Why I Love FOSS"
 description: "Just a nerd's opinion"
 pubDate: "Jul 08 2022"
 heroImage: "/CyberPunkLogo1.jpg"
+tags: ["open-source", "opinion", "freedom", "software"]
 ---
 
 I love FOSS—**Free and Open Source Software**—because of the freedom it gives me. I love making art, programming games, and creating other forms of media. In most of the creative industry, software licensing is vague, and I don't like many of the companies behind the tools.
