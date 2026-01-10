@@ -49,12 +49,14 @@ This phase taught me a lot about Flutter's animation system and notification sch
 The latest evolution added comprehensive meal tracking, turning Dracula from a blood sugar logger into a full nutrition-blood sugar correlation tool:
 
 ### Meal Tracking System
+
 - **Macro Nutrients**: Carbs, protein, fat, and calories
 - **Micro Nutrients**: Fiber, sugar, sodium, vitamins, and minerals
 - **Premade Meals**: Quick-select common foods for convenience
 - **Custom Entries**: Full nutrition data input for detailed logging
 
 ### Blood Sugar-Meal Correlation
+
 The killer feature: When logging blood sugar "before meal," users can select the meal they're about to eat. This creates powerful correlations for better health insights.
 
 ```dart
@@ -70,6 +72,7 @@ if (oldVersion < 5) {
 ## Technical Deep Dive: Challenges & Solutions
 
 ### Database Evolution
+
 Managing schema changes across app versions was tricky. I implemented proper migration logic:
 
 ```dart
@@ -83,6 +86,7 @@ Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
 ```
 
 ### Testing Strategy
+
 Following TDD principles, I built comprehensive tests:
 
 - **Unit Tests**: Model serialization, business logic
@@ -92,7 +96,9 @@ Following TDD principles, I built comprehensive tests:
 The meal-blood sugar correlation required careful testing of the linked data relationships.
 
 ### Cross-Platform Headaches
+
 Supporting Android and iOS meant handling platform-specific quirks:
+
 - File picker implementations vary by platform
 - Notification permissions differ
 - Biometric authentication APIs have different capabilities
@@ -112,6 +118,7 @@ Supporting Android and iOS meant handling platform-specific quirks:
 ## What's Next?
 
 Dracula is feature-complete for core use cases, but the roadmap includes:
+
 - Health data sync with wearables
 - Advanced AI-powered insights
 - Multi-language support expansion
@@ -130,3 +137,4 @@ Have you built any health-related apps? What challenges did you face? Drop a com
 *Disclaimer: Dracula is a personal project and not medical advice. Consult healthcare professionals for diabetes management.*
 
 *#Flutter #MobileDevelopment #HealthTech #PrivacyFirst #OpenSource*
+
