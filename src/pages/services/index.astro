@@ -1,0 +1,63 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Card from '../../components/Card.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="darksynthwave">
+	<head>
+		<BaseHead title={`${SITE_TITLE} - Services`} description="Productized software development, Python tutoring, and cybersecurity audits – expert services for your projects." />
+	</head>
+	<body class="min-h-screen font-sans text-white bg-base-100">
+		<Header />
+		<main class="flex flex-col items-center justify-center py-12">
+			<section class="text-center mb-8">
+				<h1 class="text-4xl font-bold text-primary mb-4">My Services</h1>
+				<p class="text-lg text-base-content">Productized solutions for software development, learning, and security.</p>
+			</section>
+			<section class="container mx-auto px-4 py-8">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div class="card bg-base-100 border border-primary shadow-xl min-h-64">
+						<div class="card-body">
+							<h2 class="card-title text-xl">Productized Development</h2>
+							<p>30 days of expert software development – from MVPs to full SaaS. Pay, schedule a Zoom call, assign tasks on Trello, and get results.</p>
+							<div class="card-actions justify-end mt-4">
+								<a href="https://buy.stripe.com/9B67sM2DH0LhfOq4aeaEE06" class="btn btn-primary">Buy Now</a>
+								<a href="sms:+14042134870?body=BOOK%20NOW" class="btn btn-accent ml-2">Book Call</a>
+							</div>
+						</div>
+					</div>
+					<div class="card bg-base-100 border border-primary shadow-xl min-h-64">
+						<div class="card-body">
+							<h2 class="card-title text-xl">Python Tutoring</h2>
+							<p>1-on-1 sessions on Python, Django, game dev with Godot, and more. Custom lessons, code reviews, and flexible scheduling.</p>
+							<div class="card-actions justify-end mt-4">
+								<a href="sms:+14042134870?body=BOOK%20TUTORING" class="btn btn-secondary">Book Session</a>
+							</div>
+						</div>
+					</div>
+					<div class="card bg-base-100 border border-primary shadow-xl min-h-64">
+						<div class="card-body">
+							<h2 class="card-title text-xl">Cybersecurity Audits</h2>
+							<p>Code audits for security and privacy. Penetration testing, compliance checks, and secure app design recommendations.</p>
+							<div class="card-actions justify-end mt-4">
+								<a href="sms:+14042134870?body=REQUEST%20AUDIT" class="btn btn-info">Request Audit</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="py-12 bg-base-200 w-full">
+				<div class="container mx-auto px-4 text-center">
+					<h2 class="text-3xl font-bold mb-4">Stay in the Loop</h2>
+					<p class="text-lg mb-6">Subscribe to my newsletter for development tips, project updates, and exclusive offers.</p>
+					<a href="/newsletter" class="btn btn-primary">Subscribe Now</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
