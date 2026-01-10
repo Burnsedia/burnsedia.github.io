@@ -1,6 +1,6 @@
 ---
-title: "TL;DR Why build static sites for your clients"
-description: "a short post on Static Sites"
+title: "TL;DR: Why Build Static Sites for Your Clients"
+description: "A short guide on the benefits of static sites for client projects"
 pubDate: "Mar 14 2023"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["static-sites", "guide", "web-development"]

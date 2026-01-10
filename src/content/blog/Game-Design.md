@@ -1,5 +1,5 @@
 ---
-title: "Sector Defense Dev Log"
+title: "The Hive Game Design: Ship Crafting and Modules"
 description: "Ship Crafting Design"
 pubDate: "Jul 08 2022"
 heroImage: "/CyberPunkLogo1.jpg"

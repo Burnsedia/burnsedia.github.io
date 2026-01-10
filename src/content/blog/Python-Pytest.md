@@ -1,6 +1,6 @@
 ---
 title: "Pytest and Selenium"
-description: "Lorem ipsum dolor sit amet"
+description: "A beginner-friendly guide to testing web apps with Pytest and Selenium"
 pubDate: "Feb 09 2023"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["python", "testing", "selenium", "tutorial"]

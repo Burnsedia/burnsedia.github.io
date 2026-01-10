@@ -1,6 +1,6 @@
 ---
-title: "Going Pro"
-description: ""
+title: "Going Pro: From Freelance to Full-Time Indie Developer"
+description: "Transitioning from hobbyist to full-time freelance developer and indie maker"
 pubDate: "Jul 08 2022"
 heroImage: "/CyberPunkLogo1.jpg"
 tags: ["freelance", "indie dev", "career"]

@@ -1,5 +1,5 @@
 ---
-title: "Redhat Nonsense"
+title: "Red Hat Nonsense"
 description: "RedHAT just broke the GPL"
 pubDate: "Aug 09 2023"
 heroImage: "/CyberPunkLogo2.jpg"

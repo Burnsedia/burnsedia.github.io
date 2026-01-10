@@ -1,5 +1,5 @@
 ---
-title: "Why I Love FOSS"
+title: "Why I Love FOSS: Freedom in Open-Source Software"
 description: "Just a nerd's opinion"
 pubDate: "Jul 08 2022"
 heroImage: "/CyberPunkLogo1.jpg"
