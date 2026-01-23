@@ -11,8 +11,10 @@ tags: ["consulting", "website", "it", "business"]
 Website and internal tools for an IT consulting company. Built with modern web technologies for efficient operations.
 
 ## Features
+
 - Company website
 - Internal tool suite
 - Client management
 
-[View Website](https://fulleritconsulting.dev)
+[View Website](https://fulleritconsulting.com)
+
