@@ -38,7 +38,7 @@ sudo yay -S chromedriver
 
 I recommend the Nix package manager if you are on MacOS or Any other Linux Distro. Nix is a lovely package manager with almost everything.
 
-```
+```bash
 nix-shell -p chromedriver
 ```
 
