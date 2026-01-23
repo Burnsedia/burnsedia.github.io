@@ -32,7 +32,7 @@ pip install selenium
 
 Then, we need to download the Selenium driver on Windows, go to the site, and put the binary in the same directory as the project. On Linux and MacOS, you can use a package manager. I am running a base Distro, So I will run.
 
-```
+```bash
 sudo yay -S chromedriver
 ```
 
