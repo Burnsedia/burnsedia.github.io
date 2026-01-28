@@ -1,44 +1,13 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro'
 import PostsList from "../../components/PostsList.astro"
-import { SITE_TITLE, SITE_DESCRIPTION, BLOG_DESCRIPTION } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={BLOG_DESCRIPTION} />
-		<style>
-			ul {
-				list-style-type: none;
-				padding: unset;
-			}
-			ul li {
-				display: flex;
-			}
-			ul li :global(time) {
-				flex: 0 0 130px;
-				font-style: italic;
-				color: #595959;
-			}
-			ul li a:visited {
-				color: #8e32dc;
-			}
-		</style>
-	</head>
-	<body class="min-h-screen font-sans text-white bg-base-100">
-		<Header />
-    <Hero />
-		<main class="flex flex-col items-center justify-center py-12">
-			<section class="text-center mb-8">
-				<h1 class="text-4xl font-bold text-primary mb-4">Blog</h1>
-				<p class="text-lg text-base-content">Thoughts on indie development, SaaS, and tech.</p>
-			</section>
-			<PostsList />
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout>
+  <Hero />
+  <section class="text-center mb-8">
+	  <h1 class="text-4xl font-bold text-primary mb-4">Blog</h1>
+	  <p class="text-lg text-base-content">Thoughts on indie development, SaaS, and tech.</p>
+  </section>
+  <PostsList />
+</BaseLayout>

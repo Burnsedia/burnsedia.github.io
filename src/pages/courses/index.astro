@@ -1,95 +1,64 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
 import Card from '../../components/Card.astro';
 import { getCollection } from 'astro:content';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-
+import BaseLayout from '../../layouts/BaseLayout.astro';
 const courses = await getCollection('courses');
 courses.sort((a, b) => (a.data.lesson || 999) - (b.data.lesson || 999));
 
 // Collect unique tags
 const allTags = Array.from(new Set(courses.flatMap(course => course.data.tags || [])));
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={`${SITE_TITLE} - Courses`} description="Learn Django, SaaS, and more with our comprehensive courses." />
-		<style>
-			ul {
-				list-style-type: none;
-				padding: unset;
-			}
-			ul li {
-				display: flex;
-			}
-			ul li :global(time) {
-				flex: 0 0 130px;
-				font-style: italic;
-				color: #595959;
-			}
-			ul li a:visited {
-				color: #8e32dc;
-			}
-		</style>
-	</head>
-	<body class="min-h-screen font-sans text-white bg-base-100">
-		<Header />
-		<main class="flex flex-col items-center justify-center py-12">
-			<section class="py-12">
-				<div class="flex justify-center w-full">
-					<div class="w-full max-w-6xl px-4">
-						<h1 class="text-3xl font-bold mb-8 text-center">Courses</h1>
-						<div class="mb-8 flex flex-wrap gap-2 justify-center">
-							<button class="btn btn-outline btn-sm" data-filter="all">All</button>
-							{allTags.map(tag => <button class="btn btn-outline btn-sm" data-filter={tag}>{tag}</button>)}
+<BaseLayout>
+  <Hero />
+  <section class="py-12">
+		<div class="flex justify-center w-full">
+			<div class="w-full max-w-6xl px-4">
+			<h1 class="text-3xl font-bold mb-8 text-center">Courses</h1>
+			<div class="mb-8 flex flex-wrap gap-2 justify-center">
+			  <button class="btn btn-outline btn-sm" data-filter="all">All</button>
+				{allTags.map(tag => <button class="btn btn-outline btn-sm" data-filter={tag}>{tag}</button>)}
+			</div>
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 items-center" id="courses-list">
+					{courses.map((course) => (
+					  <div class="py-4 px-4 course-item" data-tags={course.data.tags ? course.data.tags.join(',') : ''}>
+						    <time datetime={course.data.pubDate.toISOString()} class="block text-sm text-gray-500 mb-2">
+								  {course.data.pubDate.toLocaleDateString('en-us', {
+									  year: 'numeric',
+									  month: 'short',
+									  day: 'numeric',
+								  })}
+								</time>
+						  <a href={`/courses/${course.slug}/`}>
+							  <Card title={course.data.title} description={course.data.description} tags={course.data.tags} />
+						  </a>
 						</div>
-						<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 items-center" id="courses-list">
-							{courses.map((course) => (
-								<div class="py-4 px-4 course-item" data-tags={course.data.tags ? course.data.tags.join(',') : ''}>
-									<time datetime={course.data.pubDate.toISOString()} class="block text-sm text-gray-500 mb-2">
-										{course.data.pubDate.toLocaleDateString('en-us', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-										})}
-									</time>
-									<a href={`/courses/${course.slug}/`}>
-										<Card title={course.data.title} description={course.data.description} tags={course.data.tags} />
-									</a>
-								</div>
-							))}
-						</div>
-					</div>
+					))}
 				</div>
-			</section>
-		</main>
-		<Footer />
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				const filterButtons = document.querySelectorAll('[data-filter]');
-				const courseItems = document.querySelectorAll('.course-item');
+			</div>
+		</div>
+	</section>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const courseItems = document.querySelectorAll('.course-item');
 
-				filterButtons.forEach(button => {
-					button.addEventListener('click', () => {
-						const filter = button.getAttribute('data-filter') || '';
-						courseItems.forEach(item => {
-							const tags = (item as HTMLElement).getAttribute('data-tags')?.split(',') || [];
-							if (filter === 'all' || tags.includes(filter)) {
-								(item as HTMLElement).style.display = 'block';
-							} else {
-								(item as HTMLElement).style.display = 'none';
-							}
-						});
-						// Update active button
-						filterButtons.forEach(btn => (btn as HTMLElement).classList.remove('btn-active'));
-						(button as HTMLElement).classList.add('btn-active');
-					});
-				});
-			});
-		</script>
-	</body>
-</html>
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter') || '';
+      courseItems.forEach(item => {
+        const tags = (item as HTMLElement).getAttribute('data-tags')?.split(',') || [];
+        if (filter === 'all' || tags.includes(filter)) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+      // Update active button
+      filterButtons.forEach(btn => (btn as HTMLElement).classList.remove('btn-active'));
+      (button as HTMLElement).classList.add('btn-active');
+    });
+  });
+});
+</script>
+</BaseLayout>
