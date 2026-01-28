@@ -9,7 +9,6 @@ import {SITE_TITLE, SITE_DESCRIPTION} from "../consts.ts"
 <html lang="en" data-theme="darksynthwave">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-
     <style>
       .title {
         font-size: 2em;
@@ -24,34 +23,8 @@ import {SITE_TITLE, SITE_DESCRIPTION} from "../consts.ts"
       }
     </style>
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <!-- ✅ Motion One scroll progress bar -->
-    <script type="module">
-      import { scroll, spring } from 'https://cdn.jsdelivr.net/npm/motion@12.18.1/+esm';
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const el = document.querySelector('#scroll-progress');
-        if (!el) return;
-
-        scroll(
-          ({ y }) => {
-            spring(el, { scaleY: y.progress }, {
-              stiffness: 180,
-              damping: 24
-            });
-          },
-          {
-            target: document.scrollingElement,
-            axis: 'y'
-          }
-        );
-      });
-    </script>
   </head>
-
   <body class="min-h-screen font-sans text-white bg-base-100">
-    <!-- 🚀 Vertical Scroll Progress Bar (left side) -->
-    <div id="scroll-progress" class="fixed left-0 top-0 h-full w-1 bg-primary origin-top z-50 scale-y-0"></div>
-
     <Header />
     <main class="flex flex-col items-center justify-center">
       <slot />
