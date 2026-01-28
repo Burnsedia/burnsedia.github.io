@@ -138,3 +138,4 @@ Have you built any health-related apps? What challenges did you face? Drop a com
 
 *#Flutter #MobileDevelopment #HealthTech #PrivacyFirst #OpenSource*
 
+## Refectored all pages to use the Same layout
