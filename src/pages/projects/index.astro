@@ -1,13 +1,6 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
-
-import { SITE_TITLE } from '../../consts';
-
-
-
+import BaseLayout from '../../layouts/BaseLayout.astro';
 // Fetch GitHub repos
 let githubRepos = [];
 try {
@@ -26,25 +19,10 @@ const pinnedRepos = githubRepos.sort((a: any, b: any) => b.stargazers_count - a.
 // Recent are latest updated
 const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).slice(0, 6);
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={`${SITE_TITLE} - Projects`} description="Explore my latest projects and open-source contributions." />
-		<link rel="manifest" href="/manifest.json">
-		<meta name="theme-color" content="#ff00ff">
-		<style>
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 2rem;
-			}
-		</style>
-	</head>
-	<body class="min-h-screen font-sans text-white bg-base-100">
-		<Header />
-		<main class="flex flex-col items-center justify-center py-12">
-			<section class="text-center mb-8">
+<!--TODO: Refactor use use Vuejs for a SPA and Use  -->
+<BaseLayout>
+<Hero />
+<section class="text-center mb-8">
 				<h1 class="text-4xl font-bold text-primary mb-4">Projects</h1>
 				<p class="text-lg text-base-content">Explore my latest projects and open-source contributions.</p>
 			</section>
@@ -87,9 +65,7 @@ const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).
 					))}
 				</div>
 			</section>
-		</main>
-		<Footer />
-		<script>
+<script>
 			if ('serviceWorker' in navigator) {
 				navigator.serviceWorker.register('/sw.js')
 					.then((registration) => {
@@ -100,5 +76,4 @@ const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).
 					});
 			}
 		</script>
-	</body>
-</html>
+</BaseLayout>
