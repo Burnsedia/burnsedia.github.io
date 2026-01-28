@@ -77,6 +77,7 @@ At a high level, my entire Twitter automation system works like this:
    - without me manually doing anything  
 
 Because of this setup, I get a predictable mix of:
+
 - motivational startup hustle content  
 - sarcastic startup/VC shitposts  
 - spicy hot takes  
