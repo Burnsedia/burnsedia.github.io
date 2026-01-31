@@ -1,5 +1,5 @@
 --- 
-title: "Neovim Made Me Twice as Fast — My Developer Workflow"  
+title: "Neovim Made Me Twice as Fast - My Developer Workflow"  
 description: "Why I switched from VS Code to Neovim, how I customized my setup, and why modal editing has made me twice as productive as a developer."  
 pubDate: "Oct 23 2025"  
 heroImage: "/CyberPunkLogo2.jpg"  
@@ -7,6 +7,26 @@ tags: ["Neovim", "Linux", "developer tools", "productivity", "vim", "terminal wo
 --- 
 
 # Neovim Made Me Twice as Fast - My Developer Workflow  
+
+## When the Editor Became the Bottleneck
+
+I type fast.  
+So fast that VS Code couldn’t keep up. It kept freezing, crashing, lagging.  
+
+At first I thought it was my extensions. Then my laptop.  
+Turns out, it was me.  
+
+When you start moving faster than your tools, you’ve outgrown them.  
+
+That’s when I switched to **Vim**, then **Neovim**.  
+No UI lag, no crashes, just text and speed. It’s on every one of my servers.  
+
+The deeper I went into the command line, the more I realized:  
+> The best tools aren’t the easiest ones - they’re the ones that reward skill.
+
+Once you taste that power, you start chasing it.  
+You stop downloading plugins for comfort and start learning commands for control.  
+And before you know it, you’ve joined a cult of high-efficiency weirdos who can out-code entire teams from a terminal window.
 
 ## When VS Code Couldn’t Keep Up  
 
