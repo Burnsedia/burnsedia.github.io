@@ -6,7 +6,7 @@ heroImage: "/CyberPunkLogo2.jpg"
 tags: ["Neovim", "Linux", "developer tools", "productivity", "vim", "terminal workflow"]  
 --- 
 
-# Neovim Made Me Twice as Fast — My Developer Workflow  
+# Neovim Made Me Twice as Fast - My Developer Workflow  
 
 ## When VS Code Couldn’t Keep Up  
 
@@ -24,13 +24,13 @@ Neovim didn’t just change *how* I code — it changed *how I think* about codi
 
 ## Why Neovim Made Me Twice as Fast  
 
-### ⚙️ 1. Instant Startup, Zero Bloat  
+### 1. Instant Startup, Zero Bloat  
 
 Neovim loads faster than my fingers can type `nvim .`  
 No Electron. No overhead.  
 Just code.  
 
-It runs on everything — my Arch laptop, remote servers, Docker containers, and even a Raspberry Pi.  
+It runs on everything - my Arch laptop, remote servers, Docker containers, and even a Raspberry Pi.  
 I open the same config everywhere, and it feels like home.  
 
 ### 2. Modal Editing = Flow State  
@@ -62,7 +62,7 @@ With these, I get IDE-level power inside the terminal.
 
 I build everything from Django backends to Flutter apps to Godot games.  
 Neovim handles them all.  
-LSP support means full autocompletion, type hints, and jump-to-definition — no different from VS Code.  
+LSP support means full autocompletion, type hints, and jump-to-definition - no different from VS Code.  
 
 The difference is: it’s all *faster*.  
 
@@ -81,7 +81,7 @@ Just raw focus.
 
 ## How to Build a Neovim Setup That Works  
 
-### Step 1 — Start with Defaults  
+### Step 1 - Start with Defaults  
 
 Install Neovim from your package manager.  
 Use it for a few days with no config.  
@@ -93,13 +93,20 @@ Learn the basics:
 
 Master the fundamentals before adding plugins.  
 
-### Step 2 — Add a Plugin Manager  
+I recommend taking the VimTutor Course to learn the basics in a structured way.
+
+### Step 2 - Add a Plugin Manager  
+
+I recommend using Lazy.
+Lazy is a simple and easy to use plugin manager with many Neovim Distros build on it.
+
+#### Try a Distro
 
 I recommend **LazyVim** or **LunarVim**.  
 They turn Neovim into a complete IDE out of the box.  
 If you prefer manual setup, use **lazy.nvim** and a `~/.config/nvim/init.lua` file.  
 
-### Step 3 — Configure Your Language Servers  
+### Step 3 - Configure Your Language Servers  
 
 For Python, JavaScript, and Dart, I install:  
 \`\`\`bash  
@@ -112,19 +119,19 @@ Then I add formatting with:
 
 Your LSP config will auto-load with your editor.  
 
-### Step 4 — Integrate Git  
+### Step 4 - Integrate Git  
 
 Install **LazyGit** and run it inside tmux.  
 It gives you a GUI-style Git dashboard without leaving your terminal.  
 Switch branches, stage commits, and push in seconds.  
 
-### Step 5 — Make It Yours  
+### Step 5 - Make It Yours  
 
 This is where Neovim shines.  
 Add custom keymaps, colorschemes, or autocommands.  
-For me, I use a synthwave palette with DaisyUI-inspired colors — my editor literally matches my website.  
+For me, I use a tokyonight, LazyVim and Lualine
 
-## 4️⃣ The Big Idea: Tools That Disappear  
+##
 
 Neovim isn’t “cool” because it’s hard.  
 It’s powerful because it disappears.  
@@ -133,7 +140,4 @@ Once you master the motions, you stop thinking about tools and start thinking ab
 I don’t measure productivity by lines of code anymore.  
 I measure it by how long I can stay in flow.  
 
-If you want to learn how to set up Neovim, automate your terminal workflow, or build apps with speed and focus — I teach this stuff.  
-
-👉 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)  
-👉 or [Start your 30-day development plan now](https://baileyburnsed.dev/)  
+If you want to learn how to set up Neovim, automate your terminal workflow, or build apps with speed and focus - I teach this stuff.  
