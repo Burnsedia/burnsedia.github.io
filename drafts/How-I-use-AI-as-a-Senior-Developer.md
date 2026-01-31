@@ -39,5 +39,3 @@ AI can and does still messup in these small, very simple task, I often overcome 
 To get the most out of AI, you need to break the problem down into as small of steps as possbile, this is already best practise for humans. You Design the Contex the AI works in. You manualy write tests to verify the logic, you manualy write the models, to verify data scheam, You only delagate the boilerplate heavy tasks to the AI.
 
 My Flow tends to be AI First Development for the CRUD part of the App, then I transition to AI Augmented Development for the rest of the app.
-
-# Result
