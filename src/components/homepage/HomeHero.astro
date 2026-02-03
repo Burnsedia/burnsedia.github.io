@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import { SITE_DESCRIPTION } from '../../consts';
+import LOGO from "../../assets/CyberPunkLogo2.jpg"
+import { Typing } from '../typing';
+---
+
+<div class="hero  py-12">
+  <div class="hero-content flex-col lg:flex-row w-full">
+    <div class="w-2/3 mask mask-hexagon border border-primary p-2">
+      <Image src={LOGO} alt="praise the Omnissiah" />
+    </div>
+    <div class="">
+      <div class="items-center px-3 ">
+         <h1 class="text-2xl sm:text-6xl font-bold px-3">{SITE_DESCRIPTION}</h1>
+          <Typing client:load />
+      </div>
+      <div class="px-3 py-6">
+      </div>
+      <div class="py-6">
+        <a href="/newsletter">
+          <button class="btn btn-outline btn-primary mx-6">Join the Newsletter</button>
+        </a>
+        <a href="/service">
+          <button class="btn btn-outline btn-accent mx-auto">Work with Me</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
