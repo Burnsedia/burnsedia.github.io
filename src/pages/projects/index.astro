@@ -12,30 +12,27 @@ try {
 } catch (error) {
   console.error('Failed to fetch GitHub repos:', error);
 }
-
 // Assume pinned are top starred repos
 const pinnedRepos = githubRepos.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count).slice(0, 4);
-
 // Recent are latest updated
 const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).slice(0, 6);
 ---
 <!--TODO: Refactor use use Vuejs for a SPA and Use  -->
 <BaseLayout>
-<Hero />
-<section class="text-center mb-8">
-				<h1 class="text-4xl font-bold text-primary mb-4">Projects</h1>
-				<p class="text-lg text-base-content">Explore my latest projects and open-source contributions.</p>
-			</section>
-			<section class="container mx-auto px-4 py-8">
-				<h2 class="text-3xl font-bold mb-8">Pinned Projects</h2>
-				<h2 class="text-2xl font-semibold mb-4">Pinned Projects</h2>
-				<div class="grid mb-8">
-					{pinnedRepos.map((repo: any) => (
-						<div class="card bg-base-100 shadow-xl border border-primary">
-							<div class="card-body">
-								<h2 class="card-title">{repo.name}</h2>
-								<p>{repo.description || 'No description available.'}</p>
-								<div class="mt-2">
+  <Hero />
+  <section class="text-center mb-8">
+		<h1 class="text-4xl font-bold text-primary mb-4">Projects</h1>
+		<p class="text-lg text-base-content">Explore my latest projects and open-source contributions.</p>
+	</section>
+	<section class="container mx-auto px-4 py-8">
+		<h2 class="text-2xl font-semibold mb-4">Pinned Projects</h2>
+			<div class="grid mb-8">
+				{pinnedRepos.map((repo: any) => (
+				<div class="card bg-base-100 shadow-xl border border-primary">
+					<div class="card-body">
+						<h2 class="card-title">{repo.name}</h2>
+							<p>{repo.description || 'No description available.'}</p>
+							<div class="mt-2">
 									{repo.language && <span class="badge badge-outline badge-primary mr-2">{repo.language}</span>}
 									<span class="badge badge-outline badge-secondary">⭐ {repo.stargazers_count}</span>
 								</div>
@@ -65,15 +62,15 @@ const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).
 					))}
 				</div>
 			</section>
-<script>
-			if ('serviceWorker' in navigator) {
-				navigator.serviceWorker.register('/sw.js')
-					.then((registration) => {
-						console.log('Service Worker registered:', registration);
-					})
-					.catch((error) => {
-						console.log('Service Worker registration failed:', error);
-					});
-			}
-		</script>
+  <script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/sw.js')
+				.then((registration) => {
+					console.log('Service Worker registered:', registration);
+				})
+				.catch((error) => {
+				console.log('Service Worker registration failed:', error);
+			});
+		}
+	</script>
 </BaseLayout>
