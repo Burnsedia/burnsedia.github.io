@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from "../components/homepage/HomeHero.astro";
 import Projects from "../components/homepage/ProjectsSection.astro";
 import BlogPreview from "../components/homepage/HomeBlogPreview.astro";
+import HomeStats from "../components/homepage/HomeStats.astro"
 ---
 <BaseLayout
   title={SITE_TITLE}
@@ -12,4 +13,5 @@ import BlogPreview from "../components/homepage/HomeBlogPreview.astro";
  <Hero client:load/>
  <Projects />
  <BlogPreview client:load />
+ <HomeStats />
 </BaseLayout>
