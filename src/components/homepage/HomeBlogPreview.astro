@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+<section class="py-20 noise">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+      Writing
+    </h2>
+    <p class="text-lg text-base-content/70 mb-12 max-w-2xl">
+      Thoughts on software, systems, and building things in public.
+    </p>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-12">
+      {posts.map(post => (
+        <a
+          href={`/blog/${post.slug}`}
+          class="p-5 border border-base-content/10 bg-base-100/5 hover:border-primary transition"
+        >
+          <h3 class="text-lg font-bold mb-2">
+            {post.data.title}
+          </h3>
+          <span class="text-sm text-base-content/60">
+            {post.data.date.toLocaleDateString()}
+          </span>
+        </a>
+      ))}
+    </div>
+    <div class="flex justify-end">
+      <a href="/blog">
+        <button class="btn btn-outline btn-primary">
+          Read more writing
+        </button>
+      </a>
+    </div>
+
+  </div>
+</section>

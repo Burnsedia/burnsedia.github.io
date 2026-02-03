@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from "../components/homepage/HomeHero.astro";
 import Tech from "../components/Technolgy.astro";
 import SalesHero from "../components/SalesHero.astro";
-import Projects from "../components/projects.astro";
+import Projects from "../components/homepage/ProjectsSection.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Bio from "../components/Bio.astro";
 import Testimonials from "../components/testimonials.astro"
@@ -14,10 +14,7 @@ import Testimonials from "../components/testimonials.astro"
 	description="I build Apps"
 >
  <Hero client:load/>
- <SalesHero />
- <Tech />
  <Projects />
- <Testimonials />
  <Bio />
  <ContactForm />
 </BaseLayout>

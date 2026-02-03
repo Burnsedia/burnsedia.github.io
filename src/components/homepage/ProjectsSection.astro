@@ -1,0 +1,130 @@
+---
+const projects = {
+  apps: [
+    {
+      name: "NerdTime",
+      description:
+        "A productivity suite for nerds — combining issue tracking, planning, and AI-assisted workflows.",
+      status: "Active",
+    },
+    {
+      name: "Dracula",
+      description:
+        "Privacy-first blood sugar tracking app with a local-first design.",
+      status: "Active",
+    },
+    {
+      name: "Virtue Tracker",
+      description:
+        "An Eisenhower-matrix based project manager for focused work.",
+      status: "Active",
+    },
+    {
+      name: "AsyncSkills",
+      description:
+        "A skills-first job board for remote and async work, focused on portfolios and demonstrable ability over interviews.",
+      status: "Active",
+    },
+  ],
+  games: [
+    {
+      name: "Sector Defense",
+      description:
+        "A  space combat and tower defense game focused on tight mechanics and replayable systems.",
+      status: "In development",
+    },
+  ],
+  oss: [
+    {
+      name: "LunarVim",
+      description:
+        "IDE layer for Neovim, used by thousands of developers.",
+      status: "Open source",
+    },
+    {
+      name: "Godot ecosystem contributions",
+      description:
+        "Tools, fixes, and experiments for the Godot community.",
+      status: "Ongoing",
+    },
+    {
+      name: "PyATL",
+      description: "Co-Organizer of PyATL an Atlanta Python Meetup",
+      status: "Ongoing",
+    },
+  ],
+};
+---
+<section class="py-20 noise">
+  <div class="max-w-5xl mx-auto px-6">
+      What I’m building
+    </h2>
+    <p class="text-lg text-base-content/70 mb-12 max-w-2xl">
+      A small selection of apps, games, and open-source projects —
+      built in public and shipped to real users.
+    </p>
+    <!-- Apps & Tools -->
+    <div class="mb-12">
+      <h3 class="text-xl font-semibold mb-6">Apps & Tools</h3>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {projects.apps.map(project => (
+          <div class="p-5 border border-base-content/10 bg-base-100/5">
+            <h4 class="text-lg font-bold mb-2">{project.name}</h4>
+            <p class="text-base-content/70 mb-3">
+              {project.description}
+            </p>
+            <span class="text-sm text-primary">
+              Status: {project.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <!-- Games -->
+    <div class="mb-12">
+      <h3 class="text-xl font-semibold mb-6">Games</h3>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {projects.games.map(project => (
+          <div class="p-5 border border-base-content/10 bg-base-100/5">
+            <h4 class="text-lg font-bold mb-2">{project.name}</h4>
+            <p class="text-base-content/70 mb-3">
+              {project.description}
+            </p>
+            <span class="text-sm text-primary">
+              Status: {project.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <!-- Open Source -->
+    <div class="mb-16">
+      <h3 class="text-xl font-semibold mb-6">Open source</h3>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {projects.oss.map(project => (
+          <div class="p-5 border border-base-content/10 bg-base-100/5">
+            <h4 class="text-lg font-bold mb-2">{project.name}</h4>
+            <p class="text-base-content/70 mb-3">
+              {project.description}
+            </p>
+            <span class="text-sm text-primary">
+              Status: {project.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <!-- Funnel -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-base-content/10 pt-8">
+      <p class="text-base-content/60 max-w-xl">
+        Most of my work is open source or built in public.
+        This is just a snapshot.
+      </p>
+      <!-- <a href="/projects"> -->
+      <!--   <button class="btn btn-outline btn-primary"> -->
+      <!--     View all projects -->
+      <!--   </button> -->
+      <!-- </a> -->
+    </div>
+  </div>
+</section>
