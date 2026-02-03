@@ -86,7 +86,7 @@ const projects = {
       <h3 class="text-xl font-semibold mb-6">Games</h3>
       <div class="grid gap-6 sm:grid-cols-2">
         {projects.games.map(project => (
-          <div class="p-5 border border-base-content/10 bg-base-100/5">
+          <div class="p-5 border border-base-content/10 bg-base-100/5 hover:border-primary transition">
             <h4 class="text-lg font-bold mb-2">{project.name}</h4>
             <p class="text-base-content/70 mb-3">
               {project.description}
@@ -103,7 +103,7 @@ const projects = {
       <h3 class="text-xl font-semibold mb-6">Open source</h3>
       <div class="grid gap-6 sm:grid-cols-2">
         {projects.oss.map(project => (
-          <div class="p-5 border border-base-content/10 bg-base-100/5">
+          <div class="p-5 border border-base-content/10 bg-base-100/5 hover:border-primary transition">
             <h4 class="text-lg font-bold mb-2">{project.name}</h4>
             <p class="text-base-content/70 mb-3">
               {project.description}
