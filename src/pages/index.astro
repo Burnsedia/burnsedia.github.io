@@ -2,12 +2,8 @@
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from "../components/homepage/HomeHero.astro";
-import Tech from "../components/Technolgy.astro";
-import SalesHero from "../components/SalesHero.astro";
 import Projects from "../components/homepage/ProjectsSection.astro";
-import ContactForm from "../components/ContactForm.astro";
-import Bio from "../components/Bio.astro";
-import Testimonials from "../components/testimonials.astro"
+import BlogPreview from "../components/homepage/HomeBlogPreview.astro";
 ---
 <BaseLayout
   title={SITE_TITLE}
@@ -15,6 +11,5 @@ import Testimonials from "../components/testimonials.astro"
 >
  <Hero client:load/>
  <Projects />
- <Bio />
- <ContactForm />
+ <BlogPreview client:load />
 </BaseLayout>
