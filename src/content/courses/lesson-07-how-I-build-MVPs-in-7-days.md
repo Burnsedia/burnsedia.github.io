@@ -4,7 +4,6 @@ description: "How I helped a startup go from idea to working prototype in just a
 pubDate: "Oct 23 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["MVP development", "Django", "Fly.io", "Vue.js", "rapid prototyping", "startup advice"]
-heroImage: "/CyberPunkLogo2.jpg"
 ---
 
 # How I Built an MVP in 7 Days — My Rapid-Dev Process
