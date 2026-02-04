@@ -9,7 +9,7 @@ const { title, description, pubDate, updatedDate, heroImage } = post.data;
 ---
 <BaseLayout>
   <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
-    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg" src={heroImage} alt="" />}
+    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon" src={heroImage} alt="" />}
     <!-- Control the heading -->
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
     <div class="text-center">
