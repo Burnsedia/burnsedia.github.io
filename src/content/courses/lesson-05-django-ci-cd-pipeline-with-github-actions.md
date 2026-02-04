@@ -3,6 +3,7 @@ title: "Django CI/CD Pipeline with GitHub Actions"
 description: "Automate your Django app deployment to Fly.io using Docker and GitHub Actions — test, build, and ship with zero manual steps."
 pubDate: "2025-10-24"
 tags: ["Django", "Fly.io", "CI/CD", "GitHub Actions", "Docker", "DevOps"]
+heroImage: "/CyberPunkLogo2.jpg"
 ---
 
 # Django CI/CD Pipeline with GitHub Actions
@@ -198,6 +199,7 @@ Add this job after deployment in `deploy.yml`:
 ```
 
 Now, every deploy will:
+
 - Test your code
 - Build your Docker image
 - Push to Fly.io
@@ -267,4 +269,3 @@ You now have a **production-ready Django CI/CD pipeline**:
 With this workflow, your Fly.io apps deploy themselves — every push ships production code.
 
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
-

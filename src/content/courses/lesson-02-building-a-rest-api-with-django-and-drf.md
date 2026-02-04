@@ -3,6 +3,7 @@ title: "Lesson 2: Building a REST API with Django and DRF"
 description: "A practical guide for indie developers to build, serialize, and expose data with Django REST Framework."
 pubDate: "2025-10-24"
 lesson: 2
+heroImage: "/CyberPunkLogo2.jpg"
 ---
 
 # Building a REST API with Django and DRF
@@ -16,6 +17,7 @@ This tutorial will show you how to build a **fully functional REST API** using D
 ## 🧩 Why Django REST Framework?
 
 DRF gives you all the essentials:
+
 - Serialization (convert models to JSON)
 - Authentication and permissions
 - Pagination, filtering, and ordering
@@ -68,7 +70,6 @@ Apply migrations:
 python manage.py makemigrations
 python manage.py migrate
 ```
-
 
 ## 🧩 Step 3: Create a Serializer
 
@@ -218,6 +219,7 @@ Your REST API is now globally available.
 ## 🧭 What’s Next
 
 From here, you can:
+
 - Add authentication with **Djoser + SimpleJWT**  
 - Connect your API to a **Vue.js** or **Flutter** frontend  
 - Add background tasks with **Celery and Redis**
@@ -231,6 +233,4 @@ You don’t need heavy frameworks or enterprise tools to serve data — just Dja
 
 When you own your stack, you own your business.
 
-
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
-
