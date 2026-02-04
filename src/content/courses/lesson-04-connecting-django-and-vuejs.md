@@ -4,6 +4,7 @@ description: "End-to-end guide to wiring a Vue 3 SPA to a Django REST API with D
 pubDate: "2025-10-24"
 tags: ["Django", "DRF", "Vue 3", "Vite", "Djoser", "JWT", "CORS", "Axios"]
 lesson: 4
+heroImage: "/CyberPunkLogo2.jpg"
 ---
 
 # Connecting Django and Vue.js
@@ -11,6 +12,7 @@ lesson: 4
 This tutorial shows how to connect a **Vue 3 (Vite)** frontend to a **Django REST Framework** backend that uses **Djoser + SimpleJWT** for auth.
 
 You’ll get:
+
 - A Django API with CORS enabled
 - JWT auth (login, refresh)
 - A Vue SPA that stores tokens safely and calls protected endpoints
@@ -76,16 +78,19 @@ npm install axios pinia vue-router
 ```
 
 Optional UI libs:
+
 ```bash
 npm install @tailwindcss/forms tailwindcss postcss autoprefixer
 ```
 
 Initialize Tailwind (optional):
+
 ```bash
 npx tailwindcss init -p
 ```
 
 `tailwind.config.cjs` (if using Tailwind):
+
 ```js
 export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts}"],
@@ -417,7 +422,6 @@ services:
 
 Django CORS must allow `http://web:5173` or just use `CORS_ALLOW_ALL_ORIGINS = True` for local Docker dev (not for prod).
 
-
 ## 9) Production Notes (Fly.io + Netlify)
 
 - **Django API** → Fly.io (Docker).  
@@ -425,7 +429,6 @@ Django CORS must allow `http://web:5173` or just use `CORS_ALLOW_ALL_ORIGINS = T
 - **Vue SPA** → Netlify, Vercel, or Fly Machines.  
   - Build with `VITE_API_URL` pointing to your API (e.g., `https://api.yourdomain.com`).
 - **JWT Lifetimes** → Keep short access tokens (e.g., 15–60 min) and rotate refresh tokens.
-
 
 ## ✅ Quick Checklist
 
@@ -437,10 +440,10 @@ Django CORS must allow `http://web:5173` or just use `CORS_ALLOW_ALL_ORIGINS = T
 - [x] Environment variables for API URL  
 - [x] Optional Docker compose for local full-stack dev
 
-
 ## 🏁 Conclusion
 
 You now have a **clean, modern** full-stack setup:
+
 - Django REST API with JWT auth  
 - Vue 3 SPA with protected routes and automatic token refresh  
 - Configs that scale from local dev → Docker → Fly.io/Netlify
@@ -449,6 +452,4 @@ This pattern is production-grade and reusable for SaaS, dashboards, and mobile b
 
 **Next up:** *django-ci-cd-pipeline-with-github-actions.md* — automate your build & deploys.
 
-
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
-

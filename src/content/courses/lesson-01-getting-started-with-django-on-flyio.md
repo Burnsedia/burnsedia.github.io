@@ -4,6 +4,7 @@ description: "A step-by-step guide to deploying your Django app with Docker on F
 pubDate: "2025-10-24"
 lesson: 1
 tags: ["Django", "Fly.io", "deployment", "Docker"]
+heroImage: "/CyberPunkLogo2.jpg"
 ---
 
 # Getting Started with Django on Fly.io
@@ -13,8 +14,6 @@ Fly.io is one of the best platforms for indie developers who want the power of c
 You can deploy a production-ready Django app with Docker in minutes — and scale it globally when you're ready.
 
 Let’s walk through how to get Django running on Fly.io from scratch.
-
-
 
 ## 🧩 What You’ll Need
 
@@ -36,8 +35,6 @@ Then log in:
 flyctl auth login
 ```
 
-
-
 ## ⚙️ Step 1: Create a Django Project
 
 If you don’t already have a Django app:
@@ -57,8 +54,6 @@ python manage.py runserver
 ```
 
 Once confirmed, stop it with `Ctrl + C`.
-
-
 
 ## 🐳 Step 2: Add a Dockerfile
 
@@ -85,8 +80,6 @@ Generate a `requirements.txt`:
 pip freeze > requirements.txt
 ```
 
-
-
 ## 🗂️ Step 3: Initialize Fly.io
 
 Create your app on Fly.io:
@@ -96,6 +89,7 @@ flyctl launch
 ```
 
 The CLI will:
+
 - Create a `fly.toml` config file  
 - Ask for an app name  
 - Ask if you want a Postgres database (say “Yes”)  
@@ -110,8 +104,6 @@ Your folder will now have:
 ├── core/
 └── requirements.txt
 ```
-
-
 
 ## 🗃️ Step 4: Connect to Fly Postgres
 
@@ -143,8 +135,6 @@ DATABASES = {
 
 Add this to your `.env` file locally for development.
 
-
-
 ## 🔒 Step 5: Configure Static Files
 
 Install `whitenoise`:
@@ -169,8 +159,6 @@ Collect your static files:
 python manage.py collectstatic
 ```
 
-
-
 ## 🚀 Step 6: Deploy
 
 Run:
@@ -180,6 +168,7 @@ flyctl deploy
 ```
 
 This command:
+
 - Builds your Docker image
 - Pushes it to Fly.io
 - Launches it in the closest region
@@ -191,8 +180,6 @@ https://myapp.fly.dev
 ```
 
 Visit it — and your Django app is live.
-
-
 
 ## 🌍 Step 7: Scale and Secrets
 
@@ -210,8 +197,6 @@ flyctl scale vm shared-cpu-1x --memory 512
 flyctl scale count 2
 ```
 
-
-
 ## 🧠 Why Fly.io for Indie Devs?
 
 Fly.io is built for the kind of developer who wants control, speed, and simplicity.
@@ -224,13 +209,12 @@ Fly.io is built for the kind of developer who wants control, speed, and simplici
 
 It’s the perfect middle ground between self-hosting on a $5 VPS and managing AWS infrastructure.
 
-
-
 ## 🏁 Conclusion
 
 You now have a fully working Django app on Fly.io — scalable, secure, and affordable.
 
 From here, you can:
+
 - Add a REST API (see next tutorial)
 - Enable authentication with Djoser
 - Set up CI/CD with GitHub Actions
@@ -240,7 +224,4 @@ You own the stack.
 You deploy it anywhere.  
 That’s the indie way.
 
-
-
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
-

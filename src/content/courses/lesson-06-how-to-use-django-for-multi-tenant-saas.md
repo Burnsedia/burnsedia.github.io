@@ -3,6 +3,7 @@ title: "Multi-Tenant SaaS with django-tenants (Don’t Reinvent the Wheel)"
 description: "A production-ready guide to building a multi-tenant Django app using the battle-tested django-tenants library: schemas, domains, middleware, and deploy notes."
 pubDate: "2025-10-24"
 tags: ["Django", "SaaS", "Multi-tenant", "django-tenants", "PostgreSQL", "Fly.io"]
+heroImage: "/CyberPunkLogo2.jpg"
 ---
 
 # Multi-Tenant SaaS with `django-tenants` (Don’t Reinvent the Wheel)
@@ -221,8 +222,6 @@ Migrate tenant apps to **all** schemas:
 python manage.py migrate_schemas --tenant
 ```
 
-
-
 ## 4) URL Routing & Subdomains
 
 Requests are routed by **host header**.  
@@ -233,8 +232,6 @@ Your normal `urls.py` can stay as is. `TenantMainMiddleware` switches DB schema 
 If you want a **public site** at `www.yourapp.com` and tenants on subdomains, create a `Domain` for `www` that points to the **public** tenant (schema `public` is implicit).
 
 > On Fly.io, map your apex and wildcard domains in DNS to your Fly app. TLS certs will cover `*.yourapp.com` if you enable a wildcard cert via your DNS/ACME setup.
-
-
 
 ## 5) Creating Tenant-Scoped Data
 
@@ -257,8 +254,6 @@ class Project(models.Model):
 
 A request to `acme.yourapp.com` will read/write **only** the `acme` schema’s `projects_project` table.
 
-
-
 ## 6) Admin & Superusers per Tenant
 
 Create superusers for a specific tenant schema:
@@ -273,8 +268,6 @@ Global/public superusers run under `public` (default):
 ```bash
 python manage.py createsuperuser  # public schema
 ```
-
-
 
 ## 7) Auth with Djoser + SimpleJWT (Per Tenant)
 
@@ -308,22 +301,25 @@ urlpatterns = [
 
 Because schema switching happens **before** URL resolution, each subdomain authenticates against its own schema’s users. Your Vue SPA should call the same paths, **but on the tenant domain**.
 
-
-
 ## 8) Migrations & Releases
 
 Common flows:
 
 - Add a new app to `TENANT_APPS` → run:
+
   ```bash
   python manage.py makemigrations
   python manage.py migrate_schemas --tenant
   ```
+
 - Change shared models → run:
+
   ```bash
   python manage.py migrate_schemas --shared
   ```
+
 - Run arbitrary management commands across tenants:
+
   ```bash
   python manage.py tenant_command <cmd>
   # e.g.
@@ -331,8 +327,6 @@ Common flows:
   ```
 
 Automate these in CI/CD after deploy.
-
-
 
 ## 9) Local Dev & Fixtures
 
@@ -344,8 +338,6 @@ python manage.py create_tenant --schema=demo --name="Demo Co" --domain=demo.loca
 python manage.py tenant_command loaddata demo_data.json --schema=demo
 ```
 
-
-
 ## 🔧 Production Notes (Fly.io / Postgres)
 
 - Use **one managed Postgres** with multiple schemas (Fly Postgres, Aiven, RDS, etc.).  
@@ -354,18 +346,15 @@ python manage.py tenant_command loaddata demo_data.json --schema=demo
 - Wildcard DNS: `*.yourapp.com` → Fly app.  
 - HTTPS: terminate TLS at Fly; enforce HTTPS in Django `SECURE_SSL_REDIRECT = True`.
 
-
-
 ## 🧠 When to Use Separate Databases
 
 `django-tenants` makes **separate schemas** easy. If you need **separate databases per tenant** (compliance, noisy neighbors), you can:
+
 - Run **multiple Fly apps** (one per big tenant), or  
 - Write a custom DB router (advanced), or  
 - Split “premium tenants” to dedicated databases and keep small tenants in the shared DB.
 
 Start simple with schemas; graduate to DB-per-tenant only when you must.
-
-
 
 ## 🏁 Conclusion
 
@@ -378,7 +367,4 @@ Start simple with schemas; graduate to DB-per-tenant only when you must.
 
 Don’t reinvent tenancy. Ship features.
 
-
-
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
-

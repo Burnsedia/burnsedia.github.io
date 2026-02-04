@@ -4,6 +4,7 @@ tags: ["authentication", "jwt", "django", "security", "tutorial"]
 description: "Complete setup for Django REST auth using Djoser + SimpleJWT — includes the required URLs/settings, email-as-username, custom User model, email verification, and token blacklist logout."
 pubDate: "Oct 12 2025"
 lesson: 3
+heroImage: "/CyberPunkLogo2.jpg"
 ---
 
 # Adding Authentication with Djoser and SimpleJWT (Updated)
@@ -18,7 +19,6 @@ lesson: 3
 - Email **verification** (activation links) and **password resets**
 - **Token blacklisting** for secure logout
 
-
 ## 0) Install Dependencies
 
 ```bash
@@ -26,7 +26,6 @@ pip install djangorestframework djoser djangorestframework-simplejwt
 # For email previews in dev (optional):
 pip install django-allauth  # not required, but useful if you later integrate social auth
 ```
-
 
 ## 1) Required Settings (Must Add)
 
@@ -93,7 +92,6 @@ Now you have:
 - `GET  /api/auth/users/me/`
 - plus password reset / activation endpoints (configure email below)
 
-
 ## 2) (Recommended) Use Email as Username with a Custom User Model
 
 Create an app for users:
@@ -136,7 +134,6 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-
 ## 3) Configure Djoser for Email Login + Optional Features
 
 `settings.py`:
@@ -173,7 +170,6 @@ DEFAULT_FROM_EMAIL = "noreply@example.com"
 ```
 
 In production, switch to SMTP or a provider (e.g., SES, Postmark, SendGrid).
-
 
 ## 4) Token Blacklist (Secure Logout)
 
@@ -219,8 +215,8 @@ urlpatterns = [
 ```
 
 Client flow:
-- On logout, send `POST /api/auth/jwt/logout/` with the **refresh** token to blacklist it.
 
+- On logout, send `POST /api/auth/jwt/logout/` with the **refresh** token to blacklist it.
 
 ## 5) End-to-End Flow (Examples)
 
@@ -236,9 +232,11 @@ POST /api/auth/users/
 ```
 
 If `SEND_ACTIVATION_EMAIL=True`, user must activate via emailed link:
+
 ```
 GET /api/auth/users/activation/?uid=...&token=...
 ```
+
 (or your frontend consumes `ACTIVATION_URL` and calls the confirm endpoint)
 
 ### Login
@@ -252,6 +250,7 @@ POST /api/auth/jwt/create/
 ```
 
 Response:
+
 ```json
 {
   "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -260,6 +259,7 @@ Response:
 ```
 
 Include on requests:
+
 ```
 Authorization: Bearer <access_token>
 ```
@@ -281,7 +281,6 @@ POST /api/auth/jwt/logout/
   "refresh": "<refresh_token>"
 }
 ```
-
 
 ## 6) Make Views Public or Private
 
@@ -342,6 +341,4 @@ You now have a **production-grade authentication layer**:
 
 It’s clean, repeatable, and works with any frontend (Vue, Flutter, React) — perfect for indie SaaS and client projects.
 
-
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
-
