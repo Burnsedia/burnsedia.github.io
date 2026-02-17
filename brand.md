@@ -7,23 +7,24 @@
 - Burnsedia (creator/dev identity)
 
 ### Brand Thesis
-Build apps, games, and open tools in public with high technical standards, no anti-patterns, and real-world tradeoffs.
+I build high-quality apps, indie games, and open tools that don't suck, with transparent engineering standards and practical execution.
 
 ### Mission
-Builders and ship software that does not suck, while growing an audience-funded creator business through transparent, practical work.
+Build software people actually enjoy using: fast, useful, ethical apps and games with no anti-pattern bloat, while growing an audience-funded creator ecosystem around real build-in-public work.
 
 ### Vision
-Build a Fully Open Source software company and become a trusted indie engineering/media brand where developers, founders, and makers come for implementation truth, not hype.
+Build a fully open-source software company and a trusted indie engineering/media brand where developers, artists, enthusiasts, and founders come for implementation truth over hype.
 
 ### Core Promise
-Real builds. Real constraints. Real outcomes. No Spie ware, vapor ware and bloatware
+Real builds. Real constraints. Real outcomes.
+No spyware. No vaporware. No bloatware.
 
 ---
 
 ## 2) Positioning
 
 ### Category
-Indie software engineer + game/app builder + open-source creator.
+Indie software engineer + indie game builder + open-source creator + premium B2B systems builder.
 
 ### Market Position
 Audience-first creator brand with premium technical depth, blending:
@@ -33,34 +34,30 @@ Audience-first creator brand with premium technical depth, blending:
 - open-source tooling progress
 
 ### Differentiator
-Most creators share outcomes; this brand shares decisions, constraints, and mistakes with practical implementation detail.
+Most creators only show finished outcomes. This brand shows decisions, tradeoffs, constraints, failures, and implementation details that help people build better software.
 
 ### Anti-Positioning
 - No generic productivity fluff
-- No fake startup/corporate persona
-- No shallow trend-chasing tech news recap content
-- No Trust ME Bro
-- No Anti-Consumer 
-- No anti-patterns
+- No fake corporate/startup persona
+- No shallow trend-chasing tech news
+- No anti-consumer product choices
+- No anti-pattern engineering defaults
 
 ---
 
 ## 3) Audience
 
-<!-- TODO: I want the primary audance to be poeple that want to support indie devs for open-source,  -->
 ### Primary Audience
-<!---->
-<!-- TODO: I want my b2c products to be these and my b2c to be people tiied of shitty apps-->
-Indie devs and builders (apps, games, OSS tools)
+Indie builders and enthusiast users: indie game developers, open-source enthusiasts, indie artists, and retro-future sci-fi fans who actively want high-quality apps and games and enjoy supporting tools they use.
 
 ### Secondary Audience
-Startup founders and small business owners seeking senior technical execution.
+Founders and operators who need high-ticket B2B SaaS execution and fully automated done-for-you services.
 
 ### Audience Need
-Credible, practical engineering guidance and build-in-public transparency.
+Reliable, no-bloat software and practical technical guidance from a creator who ships in public and documents real engineering decisions.
 
 ### Audience Outcome
-They learn, follow, support, and eventually buy (patronage, sponsorship, or high-ticket service).
+They discover the work, follow the journey, support through Patreon/GitHub Sponsors, use the products, and a qualified subset buys premium B2B services.
 
 ---
 
@@ -162,13 +159,19 @@ Retro synthwave with disciplined UX. Neon atmosphere, production-grade readabili
 ## 8) Content Strategy Alignment
 
 ### Primary Engine
-Hybrid devlogs (apps, games, OSS, art process).
+Hybrid devlogs (apps, games, OSS, and art process) with practical implementation notes.
 
 ### Secondary Engine
-Deep technical teardowns that position senior capability.
+Deep technical teardowns that position senior capability for both builders and B2B buyers.
 
 ### Optional Layer
-Curated tech commentary with explicit builder takeaways.
+Curated tech commentary only when it includes clear builder takeaways and execution implications.
+
+### Publishing Cadence (Current)
+- One major post per month (devlog or tutorial), published as written + video.
+- Public summary on-site with full deep-dive available to supporters when relevant.
+- Weekly Friday public live build + patron-only aftershow.
+- Monthly patron-only livestream (mixed AMA, roadmap, and teardown).
 
 ### Channel Rule
 - X/YouTube/Twitch/TikTok: ongoing build narrative
@@ -184,13 +187,19 @@ Support my work (Patreon first, GitHub Sponsors second).
 ### Conversion Ladder
 1. Follow
 2. Watch public devlog
-3. Support (Patreon/Sponsors)
+3. Support (Patreon/GitHub Sponsors)
 4. Join supporter community
-5. Optional high-ticket work (separate offer)
+5. Buy products (apps, games, assets)
+6. Optional high-ticket B2B work (separate offer)
 
 ### Offer Separation Rule
 - Community value: Patreon + GitHub Sponsors
-- High-ticket services: separate Stripe Work With Me flow
+- Productized and high-ticket services: separate Stripe Work With Me flow
+
+### Conversion Hubs
+- `/support`: memberships and sponsorships
+- `/socials`: follow and livestream discovery
+- Product and gallery pages: itch.io and product CTA flow
 
 ---
 
@@ -207,6 +216,10 @@ Support my work (Patreon first, GitHub Sponsors second).
 - Patron-only aftershow
 - Monthly patron-only livestream/chat
 - Replay archive + clips workflow
+
+### Platform Model
+- Community memberships on Patreon and GitHub Sponsors with aligned tier language and benefits.
+- Monthly-first access model now; yearly and lifetime options can be introduced later.
 
 ---
 
