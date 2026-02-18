@@ -1,6 +1,6 @@
 ---
 import { getEntryBySlug } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
+import FormattedDate from '../components/legacy/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 const { slug } = Astro.params;
 const post = await getEntryBySlug('projects', slug);
