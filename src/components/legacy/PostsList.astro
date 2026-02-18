@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import FormattedDate from "./FormattedDate.astro"
-import Card from "./Card.astro"
+import Card from '../shared/Card.astro'
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
@@ -53,4 +53,3 @@ const allTags = Array.from(new Set(posts.flatMap(post => (post.data as any).tags
     });
   });
 </script>
-
