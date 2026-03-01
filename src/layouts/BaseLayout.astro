@@ -30,5 +30,51 @@ import {SITE_TITLE, SITE_DESCRIPTION} from "../consts.ts"
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      (() => {
+        let supportViewSentForPath = '';
+
+        const track = (name, label) => {
+          if (typeof window.gtag !== 'function') return;
+          window.gtag('event', name, {
+            event_category: 'engagement',
+            event_label: label
+          });
+        };
+
+        document.addEventListener('click', (event) => {
+          const target = event.target instanceof Element ? event.target.closest('[data-ga-event]') : null;
+          if (!target) return;
+
+          const eventName = target.getAttribute('data-ga-event');
+          if (!eventName) return;
+
+          const eventLabel = target.getAttribute('data-ga-label') || target.getAttribute('href') || 'cta';
+          track(eventName, eventLabel);
+        });
+
+        const emitSupportPageView = () => {
+          if (window.location.pathname !== '/support') return;
+          if (typeof window.gtag !== 'function') return;
+
+          const pageKey = `${window.location.pathname}${window.location.search}`;
+          if (supportViewSentForPath === pageKey) return;
+          supportViewSentForPath = pageKey;
+
+          window.gtag('event', 'support_page_view', {
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+            page_title: document.title
+          });
+        };
+
+        addEventListener('astro:page-load', emitSupportPageView);
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', emitSupportPageView, { once: true });
+        } else {
+          emitSupportPageView();
+        }
+      })();
+    </script>
   </body>
 </html>
