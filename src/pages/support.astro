@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="w-full max-w-6xl px-6 pt-28 pb-12">
+    <div class="hero rounded-2xl border border-primary/30 bg-base-200/40">
+      <div class="hero-content w-full flex-col gap-10 py-12 lg:flex-row lg:items-start lg:justify-between">
+        <div class="max-w-2xl">
+          <p class="badge badge-primary mb-4">Support The Build</p>
+          <h1 class="text-4xl font-black leading-tight sm:text-5xl">Help fund open tools, guides, and experiments.</h1>
+          <p class="mt-4 text-base-content/75">
+            I share practical software lessons, open-source projects, and build-in-public updates every week.
+            Your support keeps this work shipping.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="https://www.patreon.com/Burnsedia"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              data-ga-event="patreon_click"
+              data-ga-label="support_primary_patreon"
+            >
+              Support on Patreon
+            </a>
+            <a
+              href="https://github.com/sponsors/Burnsedia"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+              data-ga-event="github_sponsor_click"
+              data-ga-label="support_secondary_github_sponsors"
+            >
+              Sponsor on GitHub
+            </a>
+            <a href="/service" class="btn btn-ghost" data-ga-event="work_with_me_click" data-ga-label="support_tertiary_service">
+              Work With Me
+            </a>
+          </div>
+        </div>
+        <div class="w-full max-w-md rounded-xl border border-base-content/10 bg-base-100/60 p-6">
+          <h2 class="text-2xl font-bold">What supporters make possible</h2>
+          <ul class="mt-4 space-y-3 text-base-content/80">
+            <li>New open-source releases and maintenance.</li>
+            <li>Deep technical writeups and tutorials.</li>
+            <li>More live build sessions and source walkthroughs.</li>
+            <li>Faster turnaround on requested fixes and tools.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full max-w-6xl px-6 pb-20">
+    <h2 class="mb-6 text-3xl font-bold">Proof of work</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="card border border-base-content/10 bg-base-200/30">
+        <div class="card-body">
+          <h3 class="card-title">Open source</h3>
+          <p>90+ repos, active commits, and practical tooling for builders.</p>
+          <a
+            href="https://github.com/Burnsedia"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link link-primary"
+            data-ga-event="social_follow_click"
+            data-ga-label="support_proof_github_profile"
+          >
+            View GitHub profile
+          </a>
+        </div>
+      </article>
+      <article class="card border border-base-content/10 bg-base-200/30">
+        <div class="card-body">
+          <h3 class="card-title">Published writing</h3>
+          <p>Build logs, growth lessons, and implementation guides from real projects.</p>
+          <a href="/blog" class="link link-primary">Read the blog</a>
+        </div>
+      </article>
+      <article class="card border border-base-content/10 bg-base-200/30">
+        <div class="card-body">
+          <h3 class="card-title">Community support</h3>
+          <p>Helping teams and solo builders ship faster with practical systems.</p>
+          <a href="/socials" class="link link-primary">Follow along</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

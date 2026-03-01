@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const socials = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/Burnsedia',
+    note: 'Open-source projects, experiments, and source drops.'
+  },
+  {
+    label: 'X',
+    href: 'https://x.com/baileyburnsed',
+    note: 'Build-in-public updates and short tactical threads.'
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/bailey-burnsed-50051115a/',
+    note: 'Longer strategy posts and founder-level breakdowns.'
+  },
+  {
+    label: 'YouTube',
+    href: 'https://www.youtube.com/@Burnsedia',
+    note: 'Video walkthroughs, demos, and build sessions.'
+  }
+];
+---
+
+<BaseLayout>
+  <section class="w-full max-w-5xl px-6 pt-28 pb-12">
+    <h1 class="text-4xl font-black sm:text-5xl">Follow the build</h1>
+    <p class="mt-4 max-w-2xl text-base-content/75">
+      Pick your platform and follow for practical software updates, open-source releases, and behind-the-scenes shipping notes.
+    </p>
+  </section>
+
+  <section class="w-full max-w-5xl px-6 pb-20">
+    <div class="grid gap-4 sm:grid-cols-2">
+      {socials.map((social) => (
+        <a
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card border border-base-content/10 bg-base-200/30 transition hover:border-primary/60"
+          data-ga-event="social_follow_click"
+          data-ga-label={`socials_${social.label.toLowerCase()}`}
+        >
+          <div class="card-body">
+            <h2 class="card-title">{social.label}</h2>
+            <p>{social.note}</p>
+            <span class="link link-primary">Open {social.label}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
