@@ -33,15 +33,26 @@ const stats = [
         If it helps you, supporting it helps me keep building.
       </p>
       <div class="flex gap-4">
-        <a href="https://github.com/sponsors/Burnsedia">
-          <button class="btn btn-outline">
-            GitHub Sponsors
-          </button>
+        <a
+          href="https://www.patreon.com/Burnsedia"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-ga-event="patreon_click"
+          data-ga-label="home_stats_patreon"
+        >
+          <button class="btn btn-primary">Patreon</button>
         </a>
-        <a href="/service">
-          <button class="btn btn-outline btn-primary">
-           Work With Me 
-          </button>
+        <a
+          href="https://github.com/sponsors/Burnsedia"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-ga-event="github_sponsor_click"
+          data-ga-label="home_stats_github_sponsors"
+        >
+          <button class="btn btn-outline">GitHub Sponsors</button>
+        </a>
+        <a href="/service" data-ga-event="work_with_me_click" data-ga-label="home_stats_work_with_me">
+          <button class="btn btn-outline btn-primary">Work With Me</button>
         </a>
       </div>
     </div>
