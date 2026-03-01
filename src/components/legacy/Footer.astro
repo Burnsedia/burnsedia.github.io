@@ -1,9 +1,34 @@
 ---
 const today = new Date();
 ---
-<footer class="footer footer-centert bg-black">
+<footer class="footer footer-center bg-black px-6 py-10 text-base-content">
+  <nav class="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center sm:gap-4">
+    <a href="/support" class="link link-hover">Support</a>
+    <a href="/socials" class="link link-hover">Socials</a>
+    <a href="/store" class="link link-hover" data-ga-event="store_click" data-ga-label="footer_store">Store</a>
+    <a href="/service" class="link link-hover" data-ga-event="work_with_me_click" data-ga-label="footer_service">Service</a>
+    <a
+      href="https://www.patreon.com/Burnsedia"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link link-hover"
+      data-ga-event="patreon_click"
+      data-ga-label="footer_patreon"
+    >
+      Patreon
+    </a>
+    <a
+      href="https://github.com/sponsors/Burnsedia"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link link-hover"
+      data-ga-event="github_sponsor_click"
+      data-ga-label="footer_github_sponsors"
+    >
+      GitHub Sponsors
+    </a>
+  </nav>
   <aside>
     <p>&copy; {today.getFullYear()} Bailey Burnsed. All rights reserved.</p>
   </aside>
 </footer>
-
