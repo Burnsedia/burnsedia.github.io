@@ -16,7 +16,9 @@ export default defineConfig({
     prefetchAll: true,
   },
   integrations: [
-    sitemap(),
+    sitemap({
+      filter: (page) => !/\/store\/?$/.test(page),
+    }),
     // Sends Google Tag Manager and analytics to a web worker → fixes TBT
     partytown({
       config: {

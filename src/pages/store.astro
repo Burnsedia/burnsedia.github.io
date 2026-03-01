@@ -3,6 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+  </Fragment>
+
   <section class="w-full max-w-5xl px-6 pt-28 pb-12">
     <h1 class="text-4xl font-black sm:text-5xl">Store</h1>
     <p class="mt-4 max-w-2xl text-base-content/75">

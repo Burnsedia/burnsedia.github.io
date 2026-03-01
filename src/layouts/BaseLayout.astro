@@ -9,6 +9,7 @@ import {SITE_TITLE, SITE_DESCRIPTION} from "../consts.ts"
 <html lang="en" data-theme="darksynthwave">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <slot name="head" />
     <style>
       .title {
         font-size: 2em;
