@@ -1,6 +1,6 @@
 ---
-import Hero from '../../components/marketing/Hero.astro';
 import PostsList from '../../components/legacy/PostsList.astro';
+import PageHeader from '../../components/shared/PageHeader.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { BLOG_DESCRIPTION, SITE_TITLE } from '../../consts';
 ---
@@ -9,10 +9,17 @@ import { BLOG_DESCRIPTION, SITE_TITLE } from '../../consts';
   description={BLOG_DESCRIPTION}
   canonical="/blog/"
 >
-  <Hero />
-  <section class="text-center mb-8">
-	  <h1 class="text-4xl font-bold text-primary mb-4">Blog</h1>
-	  <p class="text-lg text-base-content">Thoughts on indie development, SaaS, and tech.</p>
-  </section>
+  <PageHeader
+    eyebrow="Burnsedia Journal"
+    title="Practical software strategy for founders and operators"
+    description="Field notes on shipping AI systems, running lean SaaS operations, and making better product decisions with constrained teams."
+  >
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-cta="book-call-blog-top">
+        Book a 15-minute call
+      </a>
+      <a class="btn btn-outline" href="/tags/">Browse by tag</a>
+    </div>
+  </PageHeader>
   <PostsList />
 </BaseLayout>

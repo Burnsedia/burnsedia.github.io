@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/legacy/FormattedDate.astro';
 import { SITE_TITLE } from '../consts';
+import { getNormalizedTags, getTagLabel } from '../utils/tags';
 import BaseLayout from './BaseLayout.astro';
 
 type RelatedPost = CollectionEntry<'blog'>;
@@ -27,6 +28,8 @@ const {
   tags = [],
   relatedPosts = [],
 } = Astro.props;
+
+const normalizedTags = getNormalizedTags(tags);
 ---
 
 <BaseLayout
@@ -46,6 +49,15 @@ const {
       <FormattedDate date={pubDate} />
       {updatedDate && <div class="last-updated-on">Last updated on <FormattedDate date={updatedDate} /></div>}
     </div>
+    {normalizedTags.length > 0 && (
+      <div class="mt-4 mb-2 flex flex-wrap justify-center gap-2">
+        {normalizedTags.map((tag) => (
+          <a class="badge badge-outline badge-sm hover:badge-primary" href={`/tags/${tag}/`}>
+            {getTagLabel(tag)}
+          </a>
+        ))}
+      </div>
+    )}
     <hr />
     <div class="prose lg:prose-lg max-w-none text-base-content">
       <slot />

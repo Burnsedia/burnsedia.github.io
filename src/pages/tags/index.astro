@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import PageHeader from '../../components/shared/PageHeader.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../../consts';
+import { getNormalizedTags, getTagLabel } from '../../utils/tags';
+
+const posts = await getCollection('blog');
+const tagCounts = new Map<string, number>();
+
+posts.forEach((post) => {
+  getNormalizedTags(post.data.tags).forEach((tag) => {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  });
+});
+
+const tags = Array.from(tagCounts.entries())
+  .map(([slug, count]) => ({
+    slug,
+    label: getTagLabel(slug),
+    count,
+  }))
+  .sort((a, b) => {
+    if (b.count !== a.count) {
+      return b.count - a.count;
+    }
+
+    return a.label.localeCompare(b.label);
+  });
+---
+
+<BaseLayout
+  title={`Tags | ${SITE_TITLE}`}
+  description="Browse blog topics by tag to find articles on AI agents, SaaS growth, developer tools, and practical software strategy."
+  canonical="/tags/"
+>
+  <PageHeader
+    eyebrow="Topic Index"
+    title="Find the exact topic you need"
+    description={`Explore ${tags.length} topics across ${posts.length} articles covering AI systems, SaaS operations, delivery workflows, and technical execution.`}
+  >
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a class="btn btn-outline btn-sm" href="/blog/">Back to blog index</a>
+    </div>
+  </PageHeader>
+
+  <section class="mx-auto w-full max-w-5xl px-4 pb-12">
+    <div class="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <a class="badge badge-outline badge-sm hover:badge-primary" href={`/tags/${tag.slug}/`}>
+          {tag.label}
+          <span class="badge badge-neutral badge-xs">{tag.count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

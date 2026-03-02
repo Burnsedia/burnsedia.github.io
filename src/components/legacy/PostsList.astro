@@ -1,55 +1,82 @@
 ---
 import { getCollection } from 'astro:content';
-import FormattedDate from "./FormattedDate.astro"
-import Card from '../shared/Card.astro'
+import FormattedDate from './FormattedDate.astro';
+import { getNormalizedTags, getTagLabel } from '../../utils/tags';
+
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-// Collect unique tags
-const allTags = Array.from(new Set(posts.flatMap(post => (post.data as any).tags || [])));
+const [featuredPost, ...remainingPosts] = posts;
 ---
-<section class="py-12">
-  <div class="flex justify-center w-full">
-    <div class="w-full max-w-6xl px-4">
-      <div class="mb-8 flex flex-wrap gap-2 justify-center">
-        <button class="btn btn-outline btn-sm" data-filter="all">All</button>
-        {allTags.map(tag => <button class="btn btn-outline btn-sm" data-filter={tag}>{tag}</button>)}
+
+<section class="w-full max-w-5xl px-4 pb-12">
+  {featuredPost && (
+    <article class="mb-10 rounded-2xl border border-primary/40 bg-base-200/30 p-6">
+      <p class="mb-2 text-xs uppercase tracking-wide text-primary">Featured Post</p>
+      <a href={`/blog/${featuredPost.slug}/`} class="block">
+        <h2 class="text-3xl font-bold leading-tight hover:text-primary transition-colors">{featuredPost.data.title}</h2>
+      </a>
+      <p class="mt-3 text-base text-base-content/85">{featuredPost.data.description}</p>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-base-content/70">
+        <FormattedDate date={featuredPost.data.pubDate} />
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 items-center" id="posts-grid">
-        {
-          posts.map((post) => (
-            <div class="py-4 px-4 post-item" data-tags={post.data.tags ? post.data.tags.join(',') : ''}>
-              <FormattedDate date={post.data.pubDate} />
-              <a href={`/blog/${post.slug}/`}><Card title={post.data.title} description={post.data.description} tags={post.data.tags} /></a>
+      {getNormalizedTags(featuredPost.data.tags).length > 0 && (
+        <div class="mt-4 flex flex-wrap gap-2">
+          {getNormalizedTags(featuredPost.data.tags).map((tag) => (
+            <a class="badge badge-outline badge-sm hover:badge-primary" href={`/tags/${tag}/`}>
+              {getTagLabel(tag)}
+            </a>
+          ))}
+        </div>
+      )}
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="btn btn-primary btn-sm" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-cta="book-call-featured">
+          Book a 15-minute call
+        </a>
+        <a class="btn btn-outline btn-sm" href={`/blog/${featuredPost.slug}/`}>Read article</a>
+      </div>
+    </article>
+  )}
+
+  <div class="space-y-0">
+    {remainingPosts.map((post) => {
+      const normalizedTags = getNormalizedTags(post.data.tags);
+
+      return (
+        <article class="border-t border-primary/40 py-6">
+          <div class="mb-2 text-sm text-base-content/70">
+            <FormattedDate date={post.data.pubDate} />
+          </div>
+          <a href={`/blog/${post.slug}/`} class="block">
+            <h3 class="text-2xl font-semibold leading-snug hover:text-primary transition-colors">{post.data.title}</h3>
+          </a>
+          <p class="mt-2 text-base text-base-content/80">{post.data.description}</p>
+          {normalizedTags.length > 0 && (
+            <div class="mt-3 flex flex-wrap gap-2">
+              {normalizedTags.map((tag) => (
+                <a class="badge badge-outline badge-sm hover:badge-primary" href={`/tags/${tag}/`}>
+                  {getTagLabel(tag)}
+                </a>
+              ))}
             </div>
-          ))
-        }
-      </div>
-    </div>
+          )}
+        </article>
+      );
+    })}
   </div>
+
+  <section class="mt-10 rounded-2xl border border-base-300 bg-base-200/30 p-6 text-center">
+    <h3 class="text-2xl font-bold">Need help building this in your product?</h3>
+    <p class="mt-2 text-base-content/80">I help founders and teams ship practical AI and software systems without unnecessary complexity.</p>
+    <a
+      class="btn btn-primary mt-4"
+      href="https://calendly.com/baileyburnsed/15min"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cta="book-call-bottom"
+    >
+      Book a 15-minute call
+    </a>
+  </section>
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const postItems = document.querySelectorAll('.post-item');
-
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter') || '';
-        postItems.forEach(item => {
-          const tags = (item as HTMLElement).getAttribute('data-tags')?.split(',') || [];
-          if (filter === 'all' || tags.includes(filter)) {
-            (item as HTMLElement).style.display = 'block';
-          } else {
-            (item as HTMLElement).style.display = 'none';
-          }
-        });
-        // Update active button
-        filterButtons.forEach(btn => (btn as HTMLElement).classList.remove('btn-active'));
-        (button as HTMLElement).classList.add('btn-active');
-      });
-    });
-  });
-</script>
