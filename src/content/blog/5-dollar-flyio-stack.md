@@ -12,7 +12,7 @@ tags: ["Fly.io", "Django", "Vue.js", "Docker", "indie dev", "hosting"]
 
 When I started freelancing full-time, I didn’t have corporate cloud budgets.
 AWS bills were unpredictable, and Heroku’s free tier was dying.
-So I went hunting for something simple, fast, and cheap.
+So I went hunting for something simple, fast, and low-cost.
 
 That’s when I found **Fly.io.**
 Today, I deploy full Django + Vue apps for **$5/month.**

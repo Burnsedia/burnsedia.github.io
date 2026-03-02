@@ -44,7 +44,7 @@ It’s transparent marketing for technical buyers.
 ### It Builds Community, Not Just Audience
 Followers fade.
 Contributors stick around.
-When you open your tools, you attract like-minded developers — the same kind of people your clients want to hire.
+When you open your tools, you attract like-minded developers — the same partly people your clients want to hire.
 
 ### It Converts Organically
 By the time someone contacts you from your GitHub, they already trust you.

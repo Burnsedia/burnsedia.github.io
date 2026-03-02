@@ -107,3 +107,10 @@ Want to build your own agentic AI system for marketing, SaaS, or client automati
 That’s exactly what I help developers and founders do.
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [start your 30-day development plan](https://baileyburnsed.dev)
+
+## Related Reading
+
+- [AI Agents for Solo Teams: Implementation Playbook](/blog/ai-agents-for-solo-teams-playbook/)
+- [BulkPost 2.0 — Turning My Twitter Bot Into an Agentic AI Social Media System](/blog/bulkpost-2-agentic-ai-social-media/)
+- [7 Powerful Ways to Use AI Agents to Make More Money](/blog/7-powerful-ways-to-use-ai-agents-to-make-more-money/)
+

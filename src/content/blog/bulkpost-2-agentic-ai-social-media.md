@@ -36,7 +36,7 @@ Each agent runs asynchronously, scheduled by Celery, and interacts through Djang
 Using **PydanticAI**, every agent has a typed prompt schema — structured reasoning without prompt chaos.
 
 ### Self-Host or Scale to the Cloud
-I still start every project on a **VPS** — cheap, predictable, and fully under my control.
+I still start every project on a **VPS** — low-cost, predictable, and fully under my control.
 When I need to scale, I push the same Docker containers to **Fly.io**, which handles load balancing and edge deployment automatically.
 Start small, scale global.
 
@@ -66,9 +66,9 @@ a **single-file, ~81-line Python Twitter bot** triggered by **cron**.
 ### Minimal file layout
 ```
 bots/
-  twitter81.py        # ~81 lines; posts, optionally replies, logs metrics
-  prompts/
-    seeds.txt         # topic seeds (one per line)
+ twitter81.py # ~81 lines; posts, optionally replies, logs metrics
+ prompts/
+ seeds.txt # topic seeds (one per line)
 ```
 
 ### Cron setup (runs every hour)
@@ -118,14 +118,14 @@ Start with:
 Agent registry sketch:
 ```python
 class AgentRegistry:
-    def __init__(self):
-        self.agents = {}
+ def __init__(self):
+ self.agents = {}
 
-    def register(self, name, agent):
-        self.agents[name] = agent
+ def register(self, name, agent):
+ self.agents[name] = agent
 
-    def run(self, name, *args, **kwargs):
-        return self.agents[name].execute(*args, **kwargs)
+ def run(self, name, *args, **kwargs):
+ return self.agents[name].execute(*args, **kwargs)
 ```
 
 ### Step 4 — Build the Frontend Dashboard
@@ -144,3 +144,10 @@ Follow the rebuild.
 BulkPost 2.0 will be open-source and fully self-hostable — an AI social media engine you own.
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
+
+## Related Reading
+
+- [AI Agents for Solo Teams: Implementation Playbook](/blog/ai-agents-for-solo-teams-playbook/)
+- [The AI Agent Stack for Solo Developers](/blog/the-ai-agent-stack-for-solo-developers/)
+- [Indie SaaS Growth Playbook for Technical Founders](/blog/indie-saas-growth-playbook/)
+

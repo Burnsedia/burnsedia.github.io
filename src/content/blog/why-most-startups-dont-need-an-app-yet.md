@@ -57,9 +57,9 @@ Once you have traction, build a simple Django backend for user accounts, dashboa
 
 ### Step 3 — Prototype in Flutter
 Once users ask for mobile access, turn your validated web flows into Flutter components.
-You already have your API — now you just change the front-end.
+You already have your API — now you change the front-end.
 
-### Step 4 — Host Cheap, Scale Smart
+### Step 4 — Host low-cost, Scale Smart
 Start with a **$5/month VPS** for testing.
 When traffic picks up, **scale to Fly.io** using the same Docker images.
 Fly lets you scale globally without rewriting your deployment setup.

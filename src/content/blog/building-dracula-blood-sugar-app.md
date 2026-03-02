@@ -30,11 +30,11 @@ The tech stack was straightforward: Flutter with Provider for state management (
 
 ```dart
 class BloodSugarLog {
-  final int? id;
-  final double bloodSugar;
-  final bool isBeforeMeal;
-  final DateTime createdAt;
-  // ... more fields
+ final int? id;
+ final double bloodSugar;
+ final bool isBeforeMeal;
+ final DateTime createdAt;
+ // ... more fields
 }
 ```
 
@@ -66,10 +66,10 @@ The killer feature: When logging blood sugar "before meal," users can select the
 ```dart
 // Database schema evolution
 if (oldVersion < 4) {
-  // Create meals table with all nutrient fields
+ // Create meals table with all nutrient fields
 }
 if (oldVersion < 5) {
-  // Add mealId to blood sugar logs
+ // Add mealId to blood sugar logs
 }
 ```
 
@@ -80,11 +80,11 @@ Managing schema changes across app versions was tricky. I implemented proper mig
 
 ```dart
 Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
-  if (oldVersion < 2) {
-    await db.execute('DROP TABLE IF EXISTS blood_sugar_logs');
-    await _createDB(db, newVersion);
-  }
-  // ... more migrations
+ if (oldVersion < 2) {
+ await db.execute('DROP TABLE IF EXISTS blood_sugar_logs');
+ await _createDB(db, newVersion);
+ }
+ // ... more migrations
 }
 ```
 
@@ -92,7 +92,7 @@ Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
 Following TDD principles, I built comprehensive tests:
 
 - **Unit Tests**: Model serialization, business logic
-- **Widget Tests**: UI interactions, form validation  
+- **Widget Tests**: UI interactions, form validation 
 - **Integration Tests**: End-to-end workflows
 
 The meal-blood sugar correlation required careful testing of the linked data relationships.

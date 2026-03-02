@@ -10,7 +10,7 @@ tags: ["Fly.io", "VPS", "Docker Compose", "Watchtower", "Django", "Vue.js", "Dev
 ## From VPS Foundations to Global Edge
 
 I start every project on a **$5 VPS** — usually Hetzner, Linode, or Vultr.
-It’s cheap, stable, and gives me full root control.
+It’s low-cost, stable, and gives me full root control.
 Everything runs in **Docker Compose**, built once and pushed to **GitHub Container Registry (GHCR)**.
 
 Then I use **Watchtower** to keep the VPS containers updated automatically —
@@ -35,10 +35,10 @@ I use Watchtower to keep all containers fresh:
 
 ```bash
 docker run -d \
-  --name watchtower \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  containrrr/watchtower \
-  --cleanup --interval 300
+ --name watchtower \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ containrrr/watchtower \
+ --cleanup --interval 300
 ```
 
 Now when I push a new Docker image to GHCR,
@@ -100,11 +100,11 @@ It’s the same workflow — just a smarter backend once the project outgrows lo
 
 ## Architecture and Cost
 
-| Layer  | Platform           | Role                                     | Cost       |
+| Layer | Platform | Role | Cost |
 | ------ | ------------------ | ---------------------------------------- | ---------- |
-| VPS    | Hetzner / Linode   | Databases, Redis, Workers, Reverse Proxy | $5–6/mo    |
-| Fly.io | Global Edge        | Scaling API + Frontend Containers        | Free–$5/mo |
-| GHCR   | Container Registry | Image Hosting                            | Free       |
+| VPS | Hetzner / Linode | Databases, Redis, Workers, Reverse Proxy | $5–6/mo |
+| Fly.io | Global Edge | Scaling API + Frontend Containers | Free–$5/mo |
+| GHCR | Container Registry | Image Hosting | Free |
 
 **Total:** Under **$10/month**
 **Maintenance:** Zero manual updates

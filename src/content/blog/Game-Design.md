@@ -2,7 +2,7 @@
 title: "The Hive Game Design: Ship Crafting and Modules"
 description: "A practical breakdown of ship crafting design decisions, balancing systems, and implementation lessons for indie game developers."
 pubDate: "Jul 08 2022"
-heroImage: "/CyberPunkLogo1.jpg"
+heroImage: "/CyberPunkLogo2.jpg"
 tags: ["game-design", "godot", "python", "tutorial"]
 ---
 

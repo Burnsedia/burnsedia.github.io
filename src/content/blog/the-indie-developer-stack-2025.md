@@ -14,7 +14,7 @@ When I left traditional software jobs and started freelancing full-time, I neede
 - Build APIs fast
 - Create modern, reactive frontends
 - Handle mobile apps with one codebase
-- Deploy cheap and scale when needed
+- Deploy low-cost and scale when needed
 After years of trial and error, I landed on this:
 **Django + Vue + Astro + Flutter.**
 
@@ -59,7 +59,7 @@ Fast feedback, real interactivity.
 
 ### Step 4 — Deploy Everything on Fly.io
 I use Fly.io or Netlify for small projects.
-Both are cheap, global, and simple to automate with CI/CD pipelines.
+Both are low-cost, global, and simple to automate with CI/CD pipelines.
 
 ### Step 5 — Extend to Mobile with Flutter
 When the web version stabilizes, I re-use the API for Flutter mobile apps.
@@ -69,3 +69,9 @@ Want to build your SaaS or app with the same stack I use?
 
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
+
+## Related Reading
+
+- [Indie SaaS Growth Playbook for Technical Founders](/blog/indie-saas-growth-playbook/)
+- [From MVP to MRR: How to Productize Your Side Projects](/blog/from-mvp-to-mrr-how-to-productize-your-side-projects/)
+

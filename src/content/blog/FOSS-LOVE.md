@@ -2,7 +2,7 @@
 title: "Why I Love FOSS: Freedom in Open-Source Software"
 description: "Why open source software still matters for developers, creators, and businesses building sustainable products on transparent foundations."
 pubDate: "Jul 08 2022"
-heroImage: "/CyberPunkLogo1.jpg"
+heroImage: "/CyberPunkLogo2.jpg"
 tags: ["open-source", "opinion", "freedom", "software"]
 ---
 

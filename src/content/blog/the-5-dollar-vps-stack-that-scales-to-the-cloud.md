@@ -15,7 +15,7 @@ But here’s the thing: starting small is the smartest way to move fast.
 
 You don’t need Kubernetes to validate your app.
 You don’t need AWS just to host an MVP.
-You need something cheap, simple, and fully under your control — a **VPS**.
+You need something low-cost, simple, and fully under your control — a **VPS**.
 
 For me, that means **Hostinger**, **Linode**, or **Fly.io’s** basic machines.
 Once a project takes off, I don’t rewrite anything.
@@ -103,9 +103,9 @@ The VPS: Docker: Fly.io workflow lets me:
 - Scale globally when needed
 - Stay fully self-reliant
 
-It’s not about being cheap — it’s about being **efficient**.
+It’s not about being low-cost — it’s about being **efficient**.
 ## Work With Me
-Want to launch your MVP the smart way — fast, cheap, and scalable from day one?
+Want to launch your MVP the smart way — fast, low-cost, and scalable from day one?
 That’s what I do.
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [start your 30-day development plan](https://baileyburnsed.dev/)

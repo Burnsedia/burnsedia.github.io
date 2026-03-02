@@ -90,3 +90,10 @@ Want to transition your business away from SaaS dependence?
 I can help you migrate, deploy, and customize your own stack.
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
+
+## Related Reading
+
+- [Self-Hosting Playbook for Small SaaS Teams](/blog/self-hosting-playbook-for-small-saas/)
+- [Own, Don't Rent](/blog/own-dont-rent-10-self-host-tools-for-small-business/)
+- [Self-Hosting as a Service: How I Run Client SaaS on Fly.io](/blog/self-hosting-as-a-service-how-i-run-client-saas-on-fly/)
+
