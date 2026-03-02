@@ -4,19 +4,19 @@ description: "How to get Google Analytics working again after adding <ClientRout
 pubDate: "Oct 15 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 ---
-# 🔧 Fixing Google Analytics When Using Client-Side Routing in Astro (and Brave Browser Blocks It)
+#  Fixing Google Analytics When Using Client-Side Routing in Astro (and Brave Browser Blocks It)
 
-When you enable **client-side routing** in your Astro site using `<ClientRouter />`, your pages stop doing full reloads.  
+When you enable **client-side routing** in your Astro site using `<ClientRouter />`, your pages stop doing full reloads.
 This improves UX — but it also breaks Google Analytics tracking, because GA only tracks **page loads**, not internal route changes.
 
-To make things trickier, privacy-focused browsers like **Brave** block Google Analytics entirely by default.  
+To make things trickier, privacy-focused browsers like **Brave** block Google Analytics entirely by default.
 That’s why it may look like GA “works locally but not in production.”
 
 This guide walks you through **fixing Google Analytics** on an Astro SPA and confirming it works in all modern browsers.
 
 ## Step 1. Add a Custom Pageview Tracker
 
-Replace your existing GA snippet with this bulletproof version.  
+Replace your existing GA snippet with this bulletproof version.
 It works for both **Astro’s SPA events** and browsers that don’t fully support them.
 
 ```html
@@ -62,10 +62,10 @@ It works for both **Astro’s SPA events** and browsers that don’t fully suppo
 </script>
 
 ```
-**Where to put it:**  
+**Where to put it:**
 Inside your main layout (e.g., `src/layouts/BaseLayout.astro`), right before `</head>`.
 
-**Why it works:**  
+**Why it works:**
 It handles Astro’s router events *and* native browser history events—so page views are sent no matter what framework behavior changes later.
 
 ## Step 2. Confirm Content Security Policy (CSP)
@@ -116,9 +116,9 @@ If not, add this to your `netlify.toml` or `public/_headers` file.
 
 ## Step 3. Verify Tracking Works
 
-1. Open **DevTools → Network → Filter: `collect` or `g/collect`**
+1. Open **DevTools: Network: Filter: `collect` or `g/collect`**
 2. Navigate between routes — each click should trigger a new request.
-3. In **Google Analytics → Realtime → Events**, you should see `page_view` hits.
+3. In **Google Analytics: Realtime: Events**, you should see `page_view` hits.
 4. If you want extra confirmation, add this for testing:
 
 ```html
@@ -128,19 +128,19 @@ If not, add this to your `netlify.toml` or `public/_headers` file.
 </script>
 ```
 
-You should see `test_ping` appear in Realtime → DebugView in GA4.
+You should see `test_ping` appear in Realtime: DebugView in GA4.
 
 ---
 
-## 🦁 Step 4. Brave Browser Gotcha
+##  Step 4. Brave Browser Gotcha
 
-Brave’s **Shields** feature blocks Google Analytics by default.  
+Brave’s **Shields** feature blocks Google Analytics by default.
 This is why it looks like GA “doesn’t work” in production even though your setup is fine.
 
 ### How to test properly:
 
-1. Click the 🦁 icon in the Brave toolbar.  
-2. Toggle **Shields down** for your domain (e.g., `baileyburnsed.dev`).  
+1. Click the  icon in the Brave toolbar.
+2. Toggle **Shields down** for your domain (e.g., `baileyburnsed.dev`).
 3. Refresh and check **Realtime Analytics** — you should now see hits.
 
 If you want to test with analytics always enabled, use Chrome Incognito or a browser without built-in tracker blocking.
@@ -159,20 +159,17 @@ If you want a simple developer-only warning to show in the console when GA is bl
 </script>
 ```
 
-✅ This won’t break your site.  
+ This won’t break your site.
 It simply prints a warning if GA requests fail silently due to Shields, VPNs, or extensions.
 
 ##  Step 6. Long-Term Alternatives (Privacy-Friendly)
 
 Since more users are adopting browsers that block GA, you may want to consider **privacy-friendly analytics tools** that won’t get blocked as easily:
 
-- [**Plausible Analytics**](https://plausible.io/) – Lightweight, GDPR-friendly, no cookies  
-- [**Umami**](https://umami.is/) – Self-hosted or cloud, open-source  
-- [**Netlify Analytics**](https://www.netlify.com/products/analytics/) – Server-side, no client JS needed  
-
+- [**Plausible Analytics**](https://plausible.io/) – Lightweight, GDPR-friendly, no cookies
+- [**Umami**](https://umami.is/) – Self-hosted or cloud, open-source
+- [**Netlify Analytics**](https://www.netlify.com/products/analytics/) – Server-side, no client JS needed
 These tools are privacy-safe, lightweight, and less likely to be blocked by default.
-
-
 ##  Summary
 
 | Issue | Cause | Fix |
@@ -181,8 +178,6 @@ These tools are privacy-safe, lightweight, and less likely to be blocked by defa
 | GA silent in production | Brave Shields or adblockers | Test with Shields down or in Chrome Incognito |
 | GA blocked by Netlify | CSP too strict | Add GA domains to your CSP headers |
 | Still missing some users | Privacy browsers | Consider Plausible or Umami |
-
-
 ##  Final Thoughts
 
 If you build Astro SPAs and care about analytics accuracy, this setup is the most robust way to keep Google Analytics working—no matter how your router or deployment platform behaves.

@@ -19,7 +19,7 @@ I just push a new Docker image, and Watchtower redeploys it automatically.
 
 ## Why I Still Love VPS Hosting
 
-### 1. Full Control
+### Full Control
 
 VPS gives me root access, predictable performance, and zero vendor lock-in.
 Perfect for:
@@ -29,7 +29,7 @@ Perfect for:
 * Cron jobs and backup scripts
 * Reverse proxies (Nginx / Caddy)
 
-### 2. Self-Updating Infrastructure
+### Self-Updating Infrastructure
 
 I use Watchtower to keep all containers fresh:
 
@@ -44,7 +44,7 @@ docker run -d \
 Now when I push a new Docker image to GHCR,
 the VPS auto-pulls the update within five minutes — no downtime.
 
-### 3. Simple Docker Compose Setup
+### Simple Docker Compose Setup
 
 ```bash
 docker compose up -d
@@ -108,7 +108,7 @@ It’s the same workflow — just a smarter backend once the project outgrows lo
 
 **Total:** Under **$10/month**
 **Maintenance:** Zero manual updates
-**Upgrade Path:** VPS first → Fly.io when you outgrow it
+**Upgrade Path:** VPS first: Fly.io when you outgrow it
 
 ## The Indie Stack That Scales Itself
 

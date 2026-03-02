@@ -10,33 +10,33 @@ tags: ["Fly.io", "Django", "Vue.js", "Docker", "indie dev", "hosting"]
 
 ## Hosting on a Budget
 
-When I started freelancing full-time, I didn’t have corporate cloud budgets.  
-AWS bills were unpredictable, and Heroku’s free tier was dying.  
+When I started freelancing full-time, I didn’t have corporate cloud budgets.
+AWS bills were unpredictable, and Heroku’s free tier was dying.
 So I went hunting for something simple, fast, and cheap.
 
-That’s when I found **Fly.io.**  
+That’s when I found **Fly.io.**
 Today, I deploy full Django + Vue apps for **$5/month.**
 
 ## What Makes Fly.io Perfect for Indie Developers
 
-### 1. Simple Global Deployments
-Fly.io lets you deploy anywhere in the world with one command.  
+### Simple Global Deployments
+Fly.io lets you deploy anywhere in the world with one command.
 Your app lives *close to your users* automatically.
 
-### 2. Docker-First by Design
-If it runs in Docker, it runs on Fly.io.  
+### Docker-First by Design
+If it runs in Docker, it runs on Fly.io.
 That means less configuration, fewer headaches, and reproducible builds.
 
-### 3. Built-in PostgreSQL
-Fly has managed Postgres baked right in.  
+### Built-in PostgreSQL
+Fly has managed Postgres baked right in.
 You can scale it up or down without touching AWS-style networking nightmares.
 
-### 4. Built for Small Teams
-Fly’s CLI and dashboard are simple.  
+### Built for Small Teams
+Fly’s CLI and dashboard are simple.
 No 50-step setup or IAM jungles — just deploy, scale, and go.
 
-### 5. Predictable Pricing
-The free tier gives you small VMs, and $5/month covers most indie apps.  
+### Predictable Pricing
+The free tier gives you small VMs, and $5/month covers most indie apps.
 You only pay for what you actually use.
 
 ## My $5 Deployment Workflow
@@ -70,12 +70,12 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 Build your Vue app, then serve it through Django static files or on a second Fly app.
 
 ### Step 5 — Monitor and Scale
-Fly gives you free metrics and auto-scaling.  
+Fly gives you free metrics and auto-scaling.
 You can run an entire SaaS on one small VM.
 
 ## The Big Idea: Ship More, Spend Less
 
-Infrastructure shouldn’t eat your profits.  
+Infrastructure shouldn’t eat your profits.
 The cheaper your stack, the longer your runway — and the faster you can iterate.
 
 Fly.io proves that great software doesn’t need great budgets.
