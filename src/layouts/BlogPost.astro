@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/legacy/FormattedDate.astro';
 import { SITE_TITLE } from '../consts';
+import DEFAULT_HERO_IMAGE from '../assets/CyberPunkLogo2.jpg';
 import { getNormalizedTags, getTagLabel } from '../utils/tags';
 import BaseLayout from './BaseLayout.astro';
 
@@ -32,6 +34,7 @@ const {
 const normalizedTags = getNormalizedTags(tags);
 const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
 const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+const usesDefaultHero = heroImage === '/CyberPunkLogo2.jpg';
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -71,7 +74,31 @@ const breadcrumbSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
-    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt={title} />}
+    {heroImage && !usesDefaultHero && (
+      <img
+        class="w-full max-w-4xl aspect-[1200/630] object-cover rounded-md shadow-lg mask mask-hexagon mt-25"
+        src={heroImage}
+        alt={title}
+        width="1200"
+        height="630"
+        decoding="async"
+        loading="eager"
+        fetchpriority="high"
+      />
+    )}
+    {heroImage && usesDefaultHero && (
+      <Image
+        class="w-full max-w-4xl aspect-[1200/630] object-cover rounded-md shadow-lg mask mask-hexagon mt-25"
+        src={DEFAULT_HERO_IMAGE}
+        alt={title}
+        width={1200}
+        height={630}
+        quality={70}
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    )}
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
     <div class="text-center">
       <FormattedDate date={pubDate} />

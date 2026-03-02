@@ -57,10 +57,7 @@ h5,
 h6,
 strong
 b {
-	color: #fff;
-}
-a {
-	color: #fff;
+	color: var(--color-base-content);
 }
 p{
   padding: 10px;

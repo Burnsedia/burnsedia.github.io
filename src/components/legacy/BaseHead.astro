@@ -31,6 +31,12 @@ const canonicalURL = canonical
   : new URL(Astro.url.pathname, Astro.site).toString();
 const siteImage = new URL(image, Astro.site).toString();
 const author = "Bailey Burnsed";
+const pathname = Astro.url.pathname;
+const isHomePage = pathname === '/';
+const isServicePage = pathname.startsWith('/service');
+const includeBusinessSchema = isHomePage || isServicePage;
+const isProd = import.meta.env.PROD;
+const enableAnalytics = isProd;
 
 const keywords = [
   "Bailey Burnsed","Burnsedia","Software consulting","Custom software development","Full stack developer",
@@ -63,25 +69,29 @@ const keywords = [
 <!-- 🔥 Performance Fixes for Lighthouse 100                                 -->
 <!-- ====================================================================== -->
 
-<!-- Preconnects (reduces TTFB for external analytics) -->
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+{enableAnalytics && (
+  <>
+    <script
+      set:html={`
+        if (window.location.hostname === 'baileyburnsed.dev') {
+          const gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG';
+          document.head.appendChild(gaScript);
 
-<!-- Google Analytics via PARTYTOWN (fixes TBT/long tasks) -->
-<script
-  type="text/partytown"
-  src="https://www.googletagmanager.com/gtag/js?id=G-LRMSZ4V1XG"
-></script>
-
-<script type="text/partytown">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-
-  gtag('js', new Date());
-  gtag('config', 'G-LRMSZ4V1XG', {
-    send_page_view: true
-  });
-</script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ window.dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-LRMSZ4V1XG', {
+            send_page_view: true,
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false
+          });
+        }
+      `}
+    />
+  </>
+)}
 
 <!-- ====================================================================== -->
 <!-- 🔥 Your Original Metadata (untouched, only cleaned & kept as-is)       -->
@@ -164,97 +174,101 @@ const keywords = [
   </script>
 )}
 
-<!-- Schema: Person -->
-<script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Bailey Burnsed",
-  url: "https://baileyburnsed.dev",
-  image: siteImage,
-  sameAs: [
-    "https://github.com/Burnsedia",
-    "https://www.linkedin.com/in/bailey-burnsed-50051115a/",
-    "https://x.com/baileyburnsed"
-  ],
-  jobTitle: "Founder & Lead Developer",
-  worksFor: { "@type": "Organization", name: "Burnsedia", url: "https://baileyburnsed.dev" }
-})}
-</script>
+{includeBusinessSchema && (
+  <>
+    <!-- Schema: Person -->
+    <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Bailey Burnsed",
+      url: "https://baileyburnsed.dev",
+      image: siteImage,
+      sameAs: [
+        "https://github.com/Burnsedia",
+        "https://www.linkedin.com/in/bailey-burnsed-50051115a/",
+        "https://x.com/baileyburnsed"
+      ],
+      jobTitle: "Founder & Lead Developer",
+      worksFor: { "@type": "Organization", name: "Burnsedia", url: "https://baileyburnsed.dev" }
+    })}
+    </script>
 
-<!-- Schema: Organization -->
-<script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Burnsedia",
-  url: "https://baileyburnsed.dev",
-  logo: "https://baileyburnsed.dev/favicon.svg",
-  description: "Burnsedia builds custom websites, AI solutions, and full-stack software for small businesses across Metro Atlanta.",
-  sameAs: [
-    "https://github.com/Burnsedia",
-    "https://linkedin.com/in/bailey-burnsed-50051115a/",
-    "https://x.com/baileyburnsed"
-  ],
-  founder: { "@type": "Person", name: "Bailey Burnsed" }
-})}
-</script>
+    <!-- Schema: Organization -->
+    <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Burnsedia",
+      url: "https://baileyburnsed.dev",
+      logo: "https://baileyburnsed.dev/favicon.svg",
+      description: "Burnsedia builds custom websites, AI solutions, and full-stack software for small businesses across Metro Atlanta.",
+      sameAs: [
+        "https://github.com/Burnsedia",
+        "https://linkedin.com/in/bailey-burnsed-50051115a/",
+        "https://x.com/baileyburnsed"
+      ],
+      founder: { "@type": "Person", name: "Bailey Burnsed" }
+    })}
+    </script>
 
-<!-- Schema: Service -->
-<script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "AI, Cloud, Web, and Full-Stack Software Consulting",
-  provider: { "@type": "Organization", name: "Burnsedia", url: "https://baileyburnsed.dev" },
-  serviceType: [
-    "Custom website design and development",
-    "Small business IT services",
-    "Small business technology consulting",
-    "AI consulting","LLM and GPT integration",
-    "Full stack software development",
-    "Cloud architecture and migration",
-    "DevOps and CI/CD pipelines",
-    "AWS / GCP / Azure deployments",
-    "IT audit and tech risk assessment",
-    "Serverless and edge deployments",
-    "Custom SaaS platforms",
-    "Social media automation (BulkPost)",
-    "Productivity & issue tracking (Virtue Tracker)",
-    "Client portal SaaS",
-    "Appointment booking SaaS",
-    "Lead generation SaaS",
-    "AI agents for marketing and analytics",
-    "Bookkeeping SaaS for freelancers",
-    "Python tutoring","DevOps tutoring","Linux tutoring","Neovim productivity training",
-    "AI/ChatGPT tutoring","Godot game dev tutoring",
-    "Indie game development consulting"
-  ],
-  areaServed: [
-    { "@type": "Place", name: "Atlanta, GA" },
-    { "@type": "Place", name: "East Point, GA" },
-    { "@type": "Place", name: "College Park, GA" },
-    { "@type": "Place", name: "Hapeville, GA" },
-    { "@type": "Place", name: "Metro Atlanta Area, GA" }
-  ]
-})}
-</script>
+    <!-- Schema: Service -->
+    <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "AI, Cloud, Web, and Full-Stack Software Consulting",
+      provider: { "@type": "Organization", name: "Burnsedia", url: "https://baileyburnsed.dev" },
+      serviceType: [
+        "Custom website design and development",
+        "Small business IT services",
+        "Small business technology consulting",
+        "AI consulting","LLM and GPT integration",
+        "Full stack software development",
+        "Cloud architecture and migration",
+        "DevOps and CI/CD pipelines",
+        "AWS / GCP / Azure deployments",
+        "IT audit and tech risk assessment",
+        "Serverless and edge deployments",
+        "Custom SaaS platforms",
+        "Social media automation (BulkPost)",
+        "Productivity & issue tracking (Virtue Tracker)",
+        "Client portal SaaS",
+        "Appointment booking SaaS",
+        "Lead generation SaaS",
+        "AI agents for marketing and analytics",
+        "Bookkeeping SaaS for freelancers",
+        "Python tutoring","DevOps tutoring","Linux tutoring","Neovim productivity training",
+        "AI/ChatGPT tutoring","Godot game dev tutoring",
+        "Indie game development consulting"
+      ],
+      areaServed: [
+        { "@type": "Place", name: "Atlanta, GA" },
+        { "@type": "Place", name: "East Point, GA" },
+        { "@type": "Place", name: "College Park, GA" },
+        { "@type": "Place", name: "Hapeville, GA" },
+        { "@type": "Place", name: "Metro Atlanta Area, GA" }
+      ]
+    })}
+    </script>
 
-<!-- LocalBusiness schema -->
-<script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Burnsedia",
-  image: siteImage,
-  url: "https://baileyburnsed.dev",
-  address: { "@type": "PostalAddress", addressLocality: "Atlanta", addressRegion: "GA", addressCountry: "US" },
-  areaServed: ["Atlanta","East Point","College Park","Hapeville","Metro Atlanta"],
-  description: "Custom websites, AI solutions, and small business tech consulting across Metro Atlanta.",
-  sameAs: [
-    "https://github.com/Burnsedia",
-    "https://linkedin.com/in/bailey-burnsed-50051115a/",
-    "https://x.com/baileyburnsed"
-  ]
-})}
-</script>
+    <!-- LocalBusiness schema -->
+    <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Burnsedia",
+      image: siteImage,
+      url: "https://baileyburnsed.dev",
+      address: { "@type": "PostalAddress", addressLocality: "Atlanta", addressRegion: "GA", addressCountry: "US" },
+      areaServed: ["Atlanta","East Point","College Park","Hapeville","Metro Atlanta"],
+      description: "Custom websites, AI solutions, and small business tech consulting across Metro Atlanta.",
+      sameAs: [
+        "https://github.com/Burnsedia",
+        "https://linkedin.com/in/bailey-burnsed-50051115a/",
+        "https://x.com/baileyburnsed"
+      ]
+    })}
+    </script>
+  </>
+)}
