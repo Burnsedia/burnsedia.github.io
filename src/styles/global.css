@@ -57,10 +57,7 @@ h5,
 h6,
 strong
 b {
-	color: #fff;
-}
-a {
-	color: #fff;
+	color: var(--color-base-content);
 }
 p{
   padding: 10px;
@@ -99,5 +96,3 @@ ul {
   list-style-type: disc; /* Use 'disc' for default bullet points */
   padding-left: 25px;
 }
-
-

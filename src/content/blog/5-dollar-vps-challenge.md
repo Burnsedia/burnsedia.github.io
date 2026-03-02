@@ -10,7 +10,7 @@ tags: ["Fly.io", "VPS", "Docker Compose", "Watchtower", "Django", "Vue.js", "Dev
 ## From VPS Foundations to Global Edge
 
 I start every project on a **$5 VPS** — usually Hetzner, Linode, or Vultr.
-It’s cheap, stable, and gives me full root control.
+It’s low-cost, stable, and gives me full root control.
 Everything runs in **Docker Compose**, built once and pushed to **GitHub Container Registry (GHCR)**.
 
 Then I use **Watchtower** to keep the VPS containers updated automatically —
@@ -19,7 +19,7 @@ I just push a new Docker image, and Watchtower redeploys it automatically.
 
 ## Why I Still Love VPS Hosting
 
-### 1. Full Control
+### Full Control
 
 VPS gives me root access, predictable performance, and zero vendor lock-in.
 Perfect for:
@@ -29,22 +29,22 @@ Perfect for:
 * Cron jobs and backup scripts
 * Reverse proxies (Nginx / Caddy)
 
-### 2. Self-Updating Infrastructure
+### Self-Updating Infrastructure
 
 I use Watchtower to keep all containers fresh:
 
 ```bash
 docker run -d \
-  --name watchtower \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  containrrr/watchtower \
-  --cleanup --interval 300
+ --name watchtower \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ containrrr/watchtower \
+ --cleanup --interval 300
 ```
 
 Now when I push a new Docker image to GHCR,
 the VPS auto-pulls the update within five minutes — no downtime.
 
-### 3. Simple Docker Compose Setup
+### Simple Docker Compose Setup
 
 ```bash
 docker compose up -d
@@ -100,15 +100,15 @@ It’s the same workflow — just a smarter backend once the project outgrows lo
 
 ## Architecture and Cost
 
-| Layer  | Platform           | Role                                     | Cost       |
+| Layer | Platform | Role | Cost |
 | ------ | ------------------ | ---------------------------------------- | ---------- |
-| VPS    | Hetzner / Linode   | Databases, Redis, Workers, Reverse Proxy | $5–6/mo    |
-| Fly.io | Global Edge        | Scaling API + Frontend Containers        | Free–$5/mo |
-| GHCR   | Container Registry | Image Hosting                            | Free       |
+| VPS | Hetzner / Linode | Databases, Redis, Workers, Reverse Proxy | $5–6/mo |
+| Fly.io | Global Edge | Scaling API + Frontend Containers | Free–$5/mo |
+| GHCR | Container Registry | Image Hosting | Free |
 
 **Total:** Under **$10/month**
 **Maintenance:** Zero manual updates
-**Upgrade Path:** VPS first → Fly.io when you outgrow it
+**Upgrade Path:** VPS first: Fly.io when you outgrow it
 
 ## The Indie Stack That Scales Itself
 

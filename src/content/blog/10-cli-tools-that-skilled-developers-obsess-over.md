@@ -6,74 +6,57 @@ heroImage: "/CyberPunkLogo2.jpg"
 ---
 ## When the Editor Became the Bottleneck
 
-I type fast.  
-So fast that VS Code couldn’t keep up. It kept freezing, crashing, lagging.  
+I switched from GUI-heavy workflows because they became the bottleneck.
+At first I blamed plugins, then hardware, then fate. Standard developer grief cycle.
+The real issue was simpler: I had outgrown my toolchain.
 
-At first I thought it was my extensions. Then my laptop.  
-Turns out, it was me.  
+Once I moved to terminal-first workflows, I got fewer crashes, faster context switches, and cleaner execution under pressure.
+The core lesson is straightforward:
 
-When you start moving faster than your tools, you’ve outgrown them.  
-
-That’s when I switched to **Vim**, then **Neovim**.  
-No UI lag, no crashes, just text and speed. It’s on every one of my servers.  
-
-The deeper I went into the command line, the more I realized:  
-> The best tools aren’t the easiest ones — they’re the ones that reward skill.
-
-Once you taste that power, you start chasing it.  
-You stop downloading plugins for comfort and start learning commands for control.  
-And before you know it, you’ve joined a cult of high-efficiency weirdos who can out-code entire teams from a terminal window.
+> The best tools are not the easiest ones. They are the ones that scale with your skill.
 
 ## 10 Tools Developers Obsess Over
 
-**1. Neovim** — The hacker’s editor. Lua plugins, LSP, no nonsense. Once you configure it, it feels like an extension of your hands.  
+1. **Neovim** - fast editor with mature LSP ecosystem and low overhead.
+2. **Git** - still the core system for controlled change and rollback discipline.
+3. **Ollama** - local LLM workflows for private experiments and lower iteration cost.
+4. **LazyGit** - faster branch, diff, and staging workflows without context switching.
+5. **LazyDocker** - useful Docker visibility when you need speed over raw CLI verbosity.
+6. **fzf** - cuts navigation time across files, commits, and command history.
+7. **ripgrep (`rg`)** - fast codebase search with sane defaults.
+8. **zoxide** - directory jumping that actually survives real-world repo churn.
+9. **bat** - readable file output with syntax awareness.
+10. **tmux** - persistent terminal sessions for serious multi-project work.
 
-**2. Git** — Not just version control, but a way of thinking. Branches, rebases, bisects - it rewires your brain to track change like a machine.  
+## How to Adopt These Tools Without Burning Out
 
-**3. Ollama** — Run LLMs locally, offline, privately. The open-source antidote to cloud-based AI.  
+### Step 1 - Pick one tool
+Do not install everything in one night and call it "optimization."
+Pick one tool and use it for a full week.
 
-**4. LazyGit** — A TUI for Git that makes merges fun again. Everything you need, nothing you don’t.  
+### Step 2 - Read official docs
+YouTube is useful, but the maintainers' docs contain the real edge cases and shortcuts.
 
-**5. LazyDocker** — Manage containers visually from the terminal. Because not every dev wants to memorize `docker ps` flags.  
+### Step 3 - Replace one habit
+Swap one repeated action with the new tool.
+Replacement builds muscle memory faster than occasional usage.
 
-**6. fzf** — Fuzzy-find anything. Files, history, branches. The closest thing to autocomplete for your brain.  
+### Step 4 - Configure for your workflow
+Add keymaps and aliases around your actual workload, not someone else's dotfiles.
 
-**7. ripgrep (`rg`)** — The lightning-fast search engine for codebases. `grep` walked so `ripgrep` could run.  
-
-**8. zoxide** — Type two letters and teleport anywhere you’ve been. Your terminal becomes omnipresent.  
-
-**9. bat** — A modern `cat` with syntax highlighting and line numbers. Beautiful, functional, addictive.  
-
-**10. tmux** — Split terminals, persist sessions, automate environments. Real developers don’t close terminals; they detach them.
-
-## How to Join the Cult (Without Burning Out)
-
-**Step 1 – Pick one.**  
-Don’t install all the cool tools you find at once. Pick one tool and live in it for a week.
-
-**Step 2 – Read the docs.**  
-Not a YouTube tutorial — the *actual* documentation.  
-Every secret shortcut lives there.
-
-**Step 3 – Replace your old habit.**  
-If you usually open VS Code, open Neovim.  
-If you `cd` into folders, use zoxide.  
-Muscle memory rewires faster through replacement, not addition.
-
-**Step 4 – Customize everything.**  
-Add keybindings, themes, and aliases that match your rhythm.  
-Tools become powerful when they disappear into your flow.
-
-**Step 5 – Teach it.**  
-Record a demo, write a blog, or explain it to a friend.  
-If you can teach it clearly, you’ve mastered it completely.
+### Step 5 - Teach what you learned
+Write a short internal note or public post.
+If you can explain it clearly, you probably understand it well enough to keep it.
 
 ## Personal Take
 
-You can’t fake mastery.  
+The terminal does not care about your job title, your IDE theme, or your productivity thread.
+It only cares whether you can execute reliably.
 
-The terminal is the great equalizer — it doesn’t care about your degree, or your job title.  
-You either know your tools or you don’t.  
+CLI tools reward deliberate practice.
+If you invest in the stack, it compounds into real speed and calmer delivery.
 
-I’ve always believed that **becoming a power user** is the real rite of passage for developers.  
-The command line is the gateway drug to *becoming a god of machines.*  
+## Related Reading
+
+- [Neovim Made Me Twice as Fast - My Developer Workflow](/blog/neovim-made-me-twice-as-fast/)
+- [The Indie Developer Stack 2025 — Django, Vue, Astro, Flutter](/blog/the-indie-developer-stack-2025/)

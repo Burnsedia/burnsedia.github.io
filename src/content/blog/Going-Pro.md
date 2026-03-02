@@ -2,7 +2,7 @@
 title: "Going Pro: From Freelance to Full-Time Indie Developer"
 description: "How to move from hobby projects to professional freelance software work with better positioning, offers, and execution habits."
 pubDate: "Jul 08 2022"
-heroImage: "/CyberPunkLogo1.jpg"
+heroImage: "/CyberPunkLogo2.jpg"
 tags: ["freelance", "indie dev", "career"]
 ---
 

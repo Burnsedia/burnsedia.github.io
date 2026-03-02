@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getNormalizedTags } from '../../utils/tags';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -16,12 +17,12 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await post.render();
 const allPosts = await getCollection('blog');
-const currentTags = (post.data.tags ?? []).map((tag) => tag.toLowerCase());
+const currentTags = getNormalizedTags(post.data.tags);
 
 const relatedPosts = allPosts
   .filter((candidate) => candidate.slug !== post.slug)
   .map((candidate) => {
-    const candidateTags = (candidate.data.tags ?? []).map((tag) => tag.toLowerCase());
+    const candidateTags = getNormalizedTags(candidate.data.tags);
     const sharedTagCount = candidateTags.filter((tag) => currentTags.includes(tag)).length;
 
     return {

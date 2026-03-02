@@ -8,6 +8,10 @@ tags: ["Neovim", "Linux", "developer tools", "productivity", "vim", "terminal wo
 
 # Neovim Made Me Twice as Fast - My Developer Workflow  
 
+## TL;DR
+
+Neovim improved my speed because it removed editor lag, reduced context switching, and made keyboard-first workflows practical across every machine I use.
+
 ## When the Editor Became the Bottleneck
 
 I type fast.  
@@ -129,13 +133,13 @@ If you prefer manual setup, use **lazy.nvim** and a `~/.config/nvim/init.lua` fi
 ### Step 3 - Configure Your Language Servers  
 
 For Python, JavaScript, and Dart, I install:  
-\`\`\`bash  
+```bash
 :MasonInstall pyright tsserver dartls  
-\`\`\`  
+```
 Then I add formatting with:  
-\`\`\`bash  
+```bash
 :MasonInstall black prettier  
-\`\`\`  
+```
 
 Your LSP config will auto-load with your editor.  
 
@@ -151,7 +155,7 @@ This is where Neovim shines.
 Add custom keymaps, colorschemes, or autocommands.  
 For me, I use a tokyonight, LazyVim and Lualine
 
-##
+## Final Thoughts
 
 Neovim isn’t “cool” because it’s hard.  
 It’s powerful because it disappears.  
@@ -161,3 +165,8 @@ I don’t measure productivity by lines of code anymore.
 I measure it by how long I can stay in flow.  
 
 If you want to learn how to set up Neovim, automate your terminal workflow, or build apps with speed and focus - I teach this stuff.  
+
+## Related Reading
+
+- [10 CLI Tools That Skilled Developers Obsess Over](/blog/10-cli-tools-that-skilled-developers-obsess-over/)
+- [The Indie Developer Stack 2025 — Django, Vue, Astro, Flutter](/blog/the-indie-developer-stack-2025/)

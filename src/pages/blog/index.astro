@@ -1,18 +1,69 @@
 ---
-import Hero from '../../components/marketing/Hero.astro';
 import PostsList from '../../components/legacy/PostsList.astro';
+import PageHeader from '../../components/shared/PageHeader.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { BLOG_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const blogBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: toAbsoluteUrl('/blog/'),
+    },
+  ],
+};
+
+const blogItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Burnsedia Blog Articles',
+  itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  numberOfItems: allPosts.length,
+  itemListElement: allPosts.slice(0, 30).map((post, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: toAbsoluteUrl(`/blog/${post.slug}/`),
+    name: post.data.title,
+    description: post.data.description,
+  })),
+};
 ---
 <BaseLayout
   title={`Blog | ${SITE_TITLE}`}
   description={BLOG_DESCRIPTION}
   canonical="/blog/"
 >
-  <Hero />
-  <section class="text-center mb-8">
-	  <h1 class="text-4xl font-bold text-primary mb-4">Blog</h1>
-	  <p class="text-lg text-base-content">Thoughts on indie development, SaaS, and tech.</p>
-  </section>
+  <script type="application/ld+json" set:html={JSON.stringify(blogBreadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(blogItemListSchema)} />
+  <PageHeader
+    eyebrow="Burnsedia Journal"
+    title="Practical software strategy for founders and operators"
+    description="Field notes on shipping AI systems, running lean SaaS operations, and making better product decisions with constrained teams."
+  >
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-cta="book-call-blog-top">
+        Book a 15-minute call
+      </a>
+      <a class="btn btn-outline" href="/tags/">Browse by tag</a>
+    </div>
+  </PageHeader>
   <PostsList />
 </BaseLayout>

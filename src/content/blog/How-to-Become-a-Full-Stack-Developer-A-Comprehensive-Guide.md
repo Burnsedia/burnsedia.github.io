@@ -2,7 +2,7 @@
 title: "How to Become a Full Stack Developer"
 description: "A step-by-step guide to becoming a full-stack developer with Python, JavaScript, and Linux"
 pubDate: "Sep 13, 2024"
-heroImage: "/CyberPunkLogo1.jpg"
+heroImage: "/CyberPunkLogo2.jpg"
 tags: ["full-stack", "guide", "tutorial", "development"]
 ---
 
