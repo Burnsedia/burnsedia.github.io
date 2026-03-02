@@ -6,15 +6,14 @@ import Projects from "../components/homepage/ProjectsSection.astro";
 import BlogPreview from "../components/homepage/HomeBlogPreview.astro";
 import HomeStats from "../components/homepage/HomeStats.astro"
 import HomeCTA from "../components/homepage/HomeCTA.astro"
-import Bio from "../components/homepage/HomeBio.astro";
 ---
 <BaseLayout
   title={SITE_TITLE}
 	description="I build Apps"
 >
- <Hero client:load/>
+ <Hero />
  <Projects />
- <BlogPreview client:load />
+ <BlogPreview />
  <HomeStats />
  <HomeCTA />
 </BaseLayout>
