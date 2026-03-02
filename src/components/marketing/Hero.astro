@@ -8,7 +8,16 @@ import { Typing } from '../typing';
 <div class="hero py-12 noise">
   <div class="hero-content flex-col lg:flex-row w-full">
     <div class="w-2/3 sm:w-full md:w-2/3 mask mask-hexagon p-2 mt-5">
-      <Image src={LOGO} alt="praise the Omnissiah" />
+      <Image
+        src={LOGO}
+        alt="praise the Omnissiah"
+        width={900}
+        height={900}
+        quality={70}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
     </div>
     <div class="">
       <div class="items-center px-3 ">
@@ -25,12 +34,8 @@ import { Typing } from '../typing';
         </ol>  
       </div>
       <div class="py-6">
-        <a href="https://buy.stripe.com/9B67sM2DH0LhfOq4aeaEE06">
-          <button class="btn btn-outline btn-primary mx-6">Buy Now</button>
-        </a>
-        <a href="sms:+14042134870?body=BOOK%20NOW">
-          <button class="btn btn-outline btn-accent mx-auto">Book Now</button>
-        </a>
+        <a href="https://buy.stripe.com/9B67sM2DH0LhfOq4aeaEE06" class="btn btn-outline btn-primary mx-6">Buy Now</a>
+        <a href="sms:+14042134870?body=BOOK%20NOW" class="btn btn-outline btn-accent mx-auto">Book Now</a>
       </div>
     </div>
   </div>
