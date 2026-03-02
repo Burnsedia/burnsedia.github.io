@@ -3,4 +3,5 @@
 
 export const SITE_TITLE = 'baileyburnsed.dev';
 export const SITE_DESCRIPTION = 'I Build Software for:  ';
-export const BLOG_DESCRIPTION = 'BLog';
+export const SITE_META_DESCRIPTION = 'Burnsedia builds practical AI systems, SaaS products, and full-stack software for founders, creators, and small businesses.';
+export const BLOG_DESCRIPTION = 'Actionable articles on AI agents, indie SaaS growth, developer tools, and shipping profitable software products.';

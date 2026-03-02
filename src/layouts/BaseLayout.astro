@@ -3,12 +3,46 @@ import BaseHead from '../components/legacy/BaseHead.astro';
 import Header from '../components/shared/Header.astro';
 import Footer from '../components/legacy/Footer.astro';
 import '../styles/global.css';
-import {SITE_TITLE, SITE_DESCRIPTION} from "../consts.ts"
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  canonical?: string;
+  robots?: string;
+  publishedTime?: string;
+  updatedTime?: string;
+  tags?: string[];
+}
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  image,
+  type = 'website',
+  canonical,
+  robots,
+  publishedTime,
+  updatedTime,
+  tags,
+} = Astro.props;
 ---
 
 <html lang="en" data-theme="darksynthwave">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      canonical={canonical}
+      robots={robots}
+      publishedTime={publishedTime}
+      updatedTime={updatedTime}
+      tags={tags}
+    />
     <style>
       .title {
         font-size: 2em;

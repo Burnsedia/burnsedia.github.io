@@ -1,25 +1,70 @@
 ---
-import { getEntryBySlug } from 'astro:content';
-import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/legacy/FormattedDate.astro';
+import { SITE_TITLE } from '../consts';
 import BaseLayout from './BaseLayout.astro';
-const { slug } = Astro.params;
-const post = await getEntryBySlug('blog', slug);
-const { Content } = await post.render();
-const { title, description, pubDate, updatedDate, heroImage } = post.data;
+
+type RelatedPost = CollectionEntry<'blog'>;
+
+export interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  tags?: string[];
+  relatedPosts?: RelatedPost[];
+}
+
+const {
+  slug,
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  tags = [],
+  relatedPosts = [],
+} = Astro.props;
 ---
-<BaseLayout>
+
+<BaseLayout
+  title={`${title} | ${SITE_TITLE}`}
+  description={description}
+  image={heroImage}
+  type="article"
+  canonical={`/blog/${slug}/`}
+  publishedTime={pubDate.toISOString()}
+  updatedTime={updatedDate ? updatedDate.toISOString() : undefined}
+  tags={tags}
+>
   <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
-    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt="" />}
-    <!-- Control the heading -->
+    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt={title} />}
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
-      <div class="text-center">
-        <FormattedDate date={pubDate} />
-          {updatedDate && <div class="last-updated-on">Last updated on <FormattedDate date={updatedDate} /></div>}
-      </div>
+    <div class="text-center">
+      <FormattedDate date={pubDate} />
+      {updatedDate && <div class="last-updated-on">Last updated on <FormattedDate date={updatedDate} /></div>}
+    </div>
     <hr />
     <div class="prose lg:prose-lg max-w-none text-base-content">
-      <Content /> <!-- This strips frontmatter and renders markdown -->
+      <slot />
     </div>
+
+    {relatedPosts.length > 0 && (
+      <section class="mt-10 border-t border-base-300 pt-6">
+        <h2 class="text-2xl font-bold mb-4">Related reads</h2>
+        <ul class="space-y-3">
+          {relatedPosts.map((relatedPost) => (
+            <li>
+              <a class="link link-hover font-semibold" href={`/blog/${relatedPost.slug}/`}>
+                {relatedPost.data.title}
+              </a>
+              <p class="text-sm text-base-content/80">{relatedPost.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
   </article>
 </BaseLayout>

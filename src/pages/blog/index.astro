@@ -1,9 +1,14 @@
 ---
-import Hero from '../../components/marketing/Hero.astro'
-import PostsList from '../../components/legacy/PostsList.astro'
+import Hero from '../../components/marketing/Hero.astro';
+import PostsList from '../../components/legacy/PostsList.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BLOG_DESCRIPTION, SITE_TITLE } from '../../consts';
 ---
-<BaseLayout>
+<BaseLayout
+  title={`Blog | ${SITE_TITLE}`}
+  description={BLOG_DESCRIPTION}
+  canonical="/blog/"
+>
   <Hero />
   <section class="text-center mb-8">
 	  <h1 class="text-4xl font-bold text-primary mb-4">Blog</h1>

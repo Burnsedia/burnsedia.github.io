@@ -1,5 +1,6 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
@@ -14,9 +15,32 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await post.render();
+const allPosts = await getCollection('blog');
+const currentTags = (post.data.tags ?? []).map((tag) => tag.toLowerCase());
+
+const relatedPosts = allPosts
+  .filter((candidate) => candidate.slug !== post.slug)
+  .map((candidate) => {
+    const candidateTags = (candidate.data.tags ?? []).map((tag) => tag.toLowerCase());
+    const sharedTagCount = candidateTags.filter((tag) => currentTags.includes(tag)).length;
+
+    return {
+      post: candidate,
+      sharedTagCount,
+    };
+  })
+  .filter((item) => item.sharedTagCount > 0)
+  .sort((a, b) => {
+    if (b.sharedTagCount !== a.sharedTagCount) {
+      return b.sharedTagCount - a.sharedTagCount;
+    }
+
+    return b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf();
+  })
+  .slice(0, 3)
+  .map((item) => item.post);
 ---
 
-<BlogPost {...post.data}>
-	<h1>{post.data.title}</h1>
+<BlogPost slug={post.slug} relatedPosts={relatedPosts} {...post.data}>
 	<Content />
 </BlogPost>
