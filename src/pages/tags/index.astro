@@ -27,6 +27,41 @@ const tags = Array.from(tagCounts.entries())
 
     return a.label.localeCompare(b.label);
   });
+
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const tagsBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Tags',
+      item: toAbsoluteUrl('/tags/'),
+    },
+  ],
+};
+
+const tagsItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Burnsedia Topic Index',
+  numberOfItems: tags.length,
+  itemListElement: tags.map((tag, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: tag.label,
+    url: toAbsoluteUrl(`/tags/${tag.slug}/`),
+  })),
+};
 ---
 
 <BaseLayout
@@ -34,6 +69,8 @@ const tags = Array.from(tagCounts.entries())
   description="Browse blog topics by tag to find articles on AI agents, SaaS growth, developer tools, and practical software strategy."
   canonical="/tags/"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(tagsBreadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(tagsItemListSchema)} />
   <PageHeader
     eyebrow="Topic Index"
     title="Find the exact topic you need"

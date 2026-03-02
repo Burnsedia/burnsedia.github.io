@@ -30,6 +30,33 @@ const {
 } = Astro.props;
 
 const normalizedTags = getNormalizedTags(tags);
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: toAbsoluteUrl('/blog/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: title,
+      item: toAbsoluteUrl(`/blog/${slug}/`),
+    },
+  ],
+};
 ---
 
 <BaseLayout
@@ -42,6 +69,7 @@ const normalizedTags = getNormalizedTags(tags);
   updatedTime={updatedDate ? updatedDate.toISOString() : undefined}
   tags={tags}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
     {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt={title} />}
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>

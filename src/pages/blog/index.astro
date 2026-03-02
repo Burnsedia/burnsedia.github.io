@@ -3,12 +3,56 @@ import PostsList from '../../components/legacy/PostsList.astro';
 import PageHeader from '../../components/shared/PageHeader.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { BLOG_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const blogBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: toAbsoluteUrl('/blog/'),
+    },
+  ],
+};
+
+const blogItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Burnsedia Blog Articles',
+  itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  numberOfItems: allPosts.length,
+  itemListElement: allPosts.slice(0, 30).map((post, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: toAbsoluteUrl(`/blog/${post.slug}/`),
+    name: post.data.title,
+    description: post.data.description,
+  })),
+};
 ---
 <BaseLayout
   title={`Blog | ${SITE_TITLE}`}
   description={BLOG_DESCRIPTION}
   canonical="/blog/"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(blogBreadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(blogItemListSchema)} />
   <PageHeader
     eyebrow="Burnsedia Journal"
     title="Practical software strategy for founders and operators"

@@ -47,6 +47,46 @@ const relatedTags = Array.from(featuredTags.entries())
   }));
 
 const tagLabel = getTagLabel(tagSlug);
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const tagBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Tags',
+      item: toAbsoluteUrl('/tags/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: tagLabel,
+      item: toAbsoluteUrl(`/tags/${tagSlug}/`),
+    },
+  ],
+};
+
+const tagItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `${tagLabel} Articles`,
+  numberOfItems: posts.length,
+  itemListElement: posts.map((post, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: post.data.title,
+    url: toAbsoluteUrl(`/blog/${post.slug}/`),
+  })),
+};
 ---
 
 <BaseLayout
@@ -54,6 +94,8 @@ const tagLabel = getTagLabel(tagSlug);
   description={`Read ${tagLabel} articles from Burnsedia with practical guides, case studies, and implementation insights.`}
   canonical={`/tags/${tagSlug}/`}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(tagBreadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(tagItemListSchema)} />
   <PageHeader
     eyebrow="Topic"
     title={tagLabel}
