@@ -1,6 +1,6 @@
 ---
 title: "I am a Cyberpunk, I am a Cypherpunk"
-description: "A rant on crypto-anarchism and our Cyberpunk dystopia"
+description: "A cyberpunk manifesto on digital freedom, surveillance capitalism, and why builders should create tools that protect user sovereignty."
 pubDate: "Sep 07 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["cyberpunk", "manifesto", "opinion", "tech"]

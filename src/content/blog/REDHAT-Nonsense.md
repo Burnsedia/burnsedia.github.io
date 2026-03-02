@@ -1,6 +1,6 @@
 ---
 title: "Red Hat Nonsense"
-description: "RedHAT just broke the GPL"
+description: "An opinionated breakdown of the Red Hat GPL controversy, what changed, and what it means for open-source developers and businesses."
 pubDate: "Aug 09 2023"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["opinion", "redhat", "linux", "open-source"]

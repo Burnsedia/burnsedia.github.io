@@ -1,6 +1,6 @@
 ---
 title: "Pytest and Selenium"
-description: "A beginner-friendly guide to testing web apps with Pytest and Selenium"
+description: "A beginner-friendly tutorial on using Pytest and Selenium to test web apps with repeatable, maintainable, and confidence-building workflows."
 pubDate: "Feb 09 2023"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["python", "testing", "selenium", "tutorial"]

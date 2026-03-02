@@ -1,6 +1,6 @@
 ---
 title: "Godot and GDScript for Python Devs"
-description: "A beginner's guide to Godot game development for Python programmers"
+description: "A beginner-friendly guide for Python developers transitioning to Godot, covering core concepts, workflows, and game scripting patterns."
 pubDate: "Sep 07, 2023"
 heroImage: "/CyberPunkLogo1.jpg"
 tags: ["godot", "python", "game-development", "tutorial"]

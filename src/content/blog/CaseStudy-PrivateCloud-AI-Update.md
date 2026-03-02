@@ -1,6 +1,6 @@
 ---
 title: "Case Study: Saving Over 99% by Migrating from Public Cloud to Private Cloud"
-description: "Why the Private Cloud is perfect for small business"
+description: "A real SaaS migration case study showing how moving from public cloud to private cloud cut hosting costs by over 99% while maintaining scalability."
 pubDate: "Sep 05 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["case-study", "cloud", "cost-saving", "saas", "business"]

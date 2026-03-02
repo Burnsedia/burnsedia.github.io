@@ -1,6 +1,6 @@
 ---
 title: "How to Increase Sales to Your Restaurant with Online Order Manager"
-description: "A practical guide"
+description: "A practical guide to increasing restaurant sales with an online order manager, smoother ordering flows, and stronger customer retention."
 pubDate: "Jul 08 2024"
 heroImage: "/CyberPunkLogo1.jpg"
 tags: ["restaurant", "sales", "online-order", "business", "guide"]
