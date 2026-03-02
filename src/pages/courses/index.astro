@@ -3,13 +3,18 @@ import Hero from '../../components/marketing/Hero.astro';
 import Card from '../../components/shared/Card.astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../../consts';
 const courses = await getCollection('courses');
 courses.sort((a, b) => (a.data.lesson || 999) - (b.data.lesson || 999));
 
 // Collect unique tags
 const allTags = Array.from(new Set(courses.flatMap(course => course.data.tags || [])));
 ---
-<BaseLayout>
+<BaseLayout
+  title={`Courses | ${SITE_TITLE}`}
+  description="Practical software courses on Django, APIs, SaaS architecture, and shipping production-ready products as an indie developer."
+  canonical="/courses/"
+>
   <Hero />
   <section class="py-12">
 		<div class="flex justify-center w-full">

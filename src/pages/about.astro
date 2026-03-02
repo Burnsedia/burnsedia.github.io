@@ -1,12 +1,14 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
-import Hero from '../components/marketing/Hero.astro'
-import Hobies from '../components/legacy/Hobies.astro'
-import Bio from '../components/legacy/Bio.astro'
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/marketing/Hero.astro';
+import Hobies from '../components/legacy/Hobies.astro';
+import Bio from '../components/legacy/Bio.astro';
+import { SITE_TITLE } from '../consts';
 ---
 <BaseLayout
-  title="Legal"
-	description="I build Apps"
+  title={`About | ${SITE_TITLE}`}
+  description="Learn about Bailey Burnsed, the founder of Burnsedia, and how he helps founders and small businesses build practical AI and software products."
+  canonical="/about/"
 >
   <Hero />
   <Bio /> 

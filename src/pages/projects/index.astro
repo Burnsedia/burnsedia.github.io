@@ -1,6 +1,7 @@
 ---
 import Hero from '../../components/marketing/Hero.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../../consts';
 // Fetch GitHub repos
 let githubRepos = [];
 try {
@@ -18,7 +19,11 @@ const pinnedRepos = githubRepos.sort((a: any, b: any) => b.stargazers_count - a.
 const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).slice(0, 6);
 ---
 <!--TODO: Refactor use use Vuejs for a SPA and Use  -->
-<BaseLayout>
+<BaseLayout
+  title={`Projects | ${SITE_TITLE}`}
+  description="Explore Burnsedia projects, open-source software, and product experiments focused on AI, automation, and practical business tooling."
+  canonical="/projects/"
+>
   <Hero />
   <section class="text-center mb-8">
 		<h1 class="text-4xl font-bold text-primary mb-4">Projects</h1>

@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from "../components/marketing/Hero.astro";
 import Tech from "../components/legacy/Technolgy.astro";
@@ -10,8 +10,9 @@ import Bio from "../components/legacy/Bio.astro";
 import Testimonials from "../components/legacy/testimonials.astro"
 ---
 <BaseLayout
-  title={SITE_TITLE}
-	description="I build Apps"
+  title={`Services | ${SITE_TITLE}`}
+	description="Custom software, AI automation, and product development services for founders and small businesses."
+  canonical="/service/"
 >
  <Hero client:load/>
  <SalesHero />

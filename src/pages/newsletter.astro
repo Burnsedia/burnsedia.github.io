@@ -1,10 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
-import Hero from '../components/shared/newsletter.astro'
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/shared/newsletter.astro';
+import { SITE_TITLE } from '../consts';
 ---
 <BaseLayout
-  title="thank you"
-	description="I build Apps"
+  title={`Newsletter | ${SITE_TITLE}`}
+  description="Subscribe to get actionable insights on AI agents, SaaS growth, and developer workflows from Burnsedia."
+  canonical="/newsletter/"
 >
   <Hero />
 </BaseLayout>
