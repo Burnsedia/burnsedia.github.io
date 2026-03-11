@@ -82,8 +82,3 @@ Control improves resilience.
 Resilience protects margin.
 
 If the site is core to revenue, owning your stack is usually the better long-term decision.
-
-## Related Reading
-
-- [Self-Hosting Playbook for Small SaaS Teams](/blog/self-hosting-playbook-for-small-saas/)
-- [Own, Don’t Rent — Why Self-Hosting Beats SaaS for Small Businesses](/blog/own-dont-rent-the-hidden-cost-of-saas/)

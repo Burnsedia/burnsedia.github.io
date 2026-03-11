@@ -108,9 +108,3 @@ If you solve hard problems, deliver fast, and communicate clearly, you’ve alre
 The smartest developers don’t race to the bottom —
 they build systems that pay them fairly for their expertise.
 *Written by Bailey Burnsed — Senior Software Engineer, Founder of BaileyBurnsed.dev*
-
-## Related Reading
-
-- [Indie SaaS Growth Playbook for Technical Founders](/blog/indie-saas-growth-playbook/)
-- [The One Developer Agency Model](/blog/the-one-developer-agency-model/)
-- [Why I Charge $4000 a Month — The Flat-Rate Developer Model](/blog/why-i-charge-4000-a-month/)

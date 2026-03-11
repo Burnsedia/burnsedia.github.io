@@ -69,9 +69,3 @@ Want to build your SaaS or app with the same stack I use?
 
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
-
-## Related Reading
-
-- [Indie SaaS Growth Playbook for Technical Founders](/blog/indie-saas-growth-playbook/)
-- [From MVP to MRR: How to Productize Your Side Projects](/blog/from-mvp-to-mrr-how-to-productize-your-side-projects/)
-

@@ -79,9 +79,3 @@ Week 2: add queueing + retries + observability.
 Week 3: integrate into one customer-facing workflow with approval gate.
 
 Week 4: review metrics, remove low-value automations, expand only proven flows.
-
-## Related Reading
-
-- [The AI Agent Stack for Solo Developers](/blog/the-ai-agent-stack-for-solo-developers/)
-- [BulkPost 2.0 — Turning My Twitter Bot Into an Agentic AI Social Media System](/blog/bulkpost-2-agentic-ai-social-media/)
-- [7 Powerful Ways to Use AI Agents to Make More Money](/blog/7-powerful-ways-to-use-ai-agents-to-make-more-money/)

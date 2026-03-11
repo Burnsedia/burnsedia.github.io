@@ -68,10 +68,3 @@ Before calling a self-hosted setup "production ready," confirm:
 - secrets and access controls reviewed
 
 Teams skip these because the app "seems stable" until first real incident.
-
-## Related Reading
-
-- [Own, Don’t Rent — Why Self-Hosting Beats SaaS for Small Businesses](/blog/own-dont-rent-the-hidden-cost-of-saas/)
-- [Own, Don't Rent](/blog/own-dont-rent-10-self-host-tools-for-small-business/)
-- [Self-Hosting as a Service: How I Run Client SaaS on Fly.io](/blog/self-hosting-as-a-service-how-i-run-client-saas-on-fly/)
-- [The $5 VPS Stack That Scales to the Cloud](/blog/the-5-dollar-vps-stack-that-scales-to-the-cloud/)

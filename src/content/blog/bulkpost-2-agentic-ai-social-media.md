@@ -144,10 +144,3 @@ Follow the rebuild.
 BulkPost 2.0 will be open-source and fully self-hostable — an AI social media engine you own.
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
-
-## Related Reading
-
-- [AI Agents for Solo Teams: Implementation Playbook](/blog/ai-agents-for-solo-teams-playbook/)
-- [The AI Agent Stack for Solo Developers](/blog/the-ai-agent-stack-for-solo-developers/)
-- [Indie SaaS Growth Playbook for Technical Founders](/blog/indie-saas-growth-playbook/)
-

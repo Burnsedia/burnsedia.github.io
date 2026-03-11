@@ -55,8 +55,3 @@ It only cares whether you can execute reliably.
 
 CLI tools reward deliberate practice.
 If you invest in the stack, it compounds into real speed and calmer delivery.
-
-## Related Reading
-
-- [Neovim Made Me Twice as Fast - My Developer Workflow](/blog/neovim-made-me-twice-as-fast/)
-- [The Indie Developer Stack 2025 — Django, Vue, Astro, Flutter](/blog/the-indie-developer-stack-2025/)

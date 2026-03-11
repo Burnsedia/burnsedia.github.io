@@ -61,9 +61,3 @@ Autistic people are often unemployed or underemployed, this is often due to havi
 With Productized Services you can have full control of your schedule, weaponize your autism to make scalable and very profitable business
 
 this will allow us to make a living off of our special interests more easily or do work that pays the bills so we can focus on our special interests if it is not practical to monetize them
-
-## Related Reading
-
-- [Why I Charge $4000 a Month — The Flat-Rate Developer Model](/blog/why-i-charge-4000-a-month/)
-- [Pricing Strategy for Developers Who Think Too Much](/blog/pricing-strategy-for-developers-who-think-too-much/)
-- [The One Developer Agency Model](/blog/the-one-developer-agency-model/)

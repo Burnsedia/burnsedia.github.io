@@ -75,8 +75,3 @@ If control matters to you, design for revenue early and keep operations lean.
 If you are building without VC and want a delivery system that can hold up under real client pressure, I can help.
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
-
-## Related Reading
-
-- [Indie SaaS Growth Playbook for Technical Founders](/blog/indie-saas-growth-playbook/)
-- [Why I Charge $4000 a Month — The Flat-Rate Developer Model](/blog/why-i-charge-4000-a-month/)

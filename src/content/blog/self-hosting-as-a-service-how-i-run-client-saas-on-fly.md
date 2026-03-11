@@ -125,10 +125,3 @@ Want your own white-label SaaS with open-source infrastructure and zero lock-in?
 That’s what I build — self-hosted, fast, and future-proof.
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [start your 30-day development plan](https://baileyburnsed.dev)
-
-## Related Reading
-
-- [Self-Hosting Playbook for Small SaaS Teams](/blog/self-hosting-playbook-for-small-saas/)
-- [Own, Don’t Rent — Why Self-Hosting Beats SaaS for Small Businesses](/blog/own-dont-rent-the-hidden-cost-of-saas/)
-- [The $5 VPS Stack That Scales to the Cloud](/blog/the-5-dollar-vps-stack-that-scales-to-the-cloud/)
-

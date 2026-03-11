@@ -120,9 +120,3 @@ And scale it.
 Curious:
 
 Have you experimented with **productized services** or **AI automation** yet?
-
-## Related Reading
-
-- [Why I Charge $4000 a Month — The Flat-Rate Developer Model](/blog/why-i-charge-4000-a-month/)
-- [Pricing Strategy for Developers Who Think Too Much](/blog/pricing-strategy-for-developers-who-think-too-much/)
-- [The One Developer Agency Model](/blog/the-one-developer-agency-model/)

@@ -73,8 +73,3 @@ If you want help setting up your public dev process or content plan:
 
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
-
-## Related Reading
-
-- [The Art of Building in Public](/blog/the-art-of-building-in-public/)
-- [Why Open Source Is My Marketing Strategy](/blog/why-open-source-is-my-marketing-strategy/)
