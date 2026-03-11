@@ -6,9 +6,7 @@ heroImage: "/CyberPunkLogo2.jpg"
 tags: ["freelancing", "productized services", "ai automation", "small business", "autistic entrepreneurs"]
 ---
 
-# From Hourly Freelancing to AI Automation
-
-For the past few years, I stopped working on my **art and games**.
+For the past few years I stopped working on my **art and games**.
 
 Instead, I freelanced.
 
@@ -16,94 +14,96 @@ Not because I wanted to.
 
 Because I **needed the money**.
 
-Like most freelancers, I started by charging hourly: **$32/hour**.
+Like most freelancers, I started by charging hourly.
 
-That was **way too low**.
+$32/hour.
 
-One thing I have noticed about many autistic developers is we tend to be **too honest** and **terrible at pricing ourselves**.
+Which was **way too low**.
+
+One thing I’ve noticed about many autistic developers is we tend to be **too honest** and **terrible at pricing ourselves**.
 
 Because of that, I attracted the **worst possible clients**.
 
 Bottom-of-the-barrel clients.
 
-The kind that ghosts you the second they think they can get something cheaper.
+The kind that ghost you the second they think they can get something cheaper.
 
 I got ghosted so many times I **stopped counting**.
 
-## The Shift to Productized Services
-
 So I started looking for a better model.
 
-That is when I discovered **productized services**.
+That’s when I discovered **productized services**.
 
 Instead of billing hourly, you sell a **fixed service for a fixed price**.
 
-Examples:
+Example:
 
-- Website setup
-- Development support
-- Automation workflows
-- Analytics systems
+• Website setup
+• Dev support
+• Automation workflows
+• Analytics systems
 
 I experimented with an **Unlimited Dev Service** model.
 
-And surprisingly, it worked.
+And surprisingly…
 
-From **Dec 2023 to Sep 2025**, I made more money than I ever had freelancing.
+It worked.
 
-For the first time, freelancing actually felt **stable**.
+From **Dec 2023 → Sep 2025** I made more money than I ever had freelancing.
 
-## The AI Disruption
+For the first time freelancing actually felt **stable**.
 
-Then something changed: **AI coding tools**.
+Then something happened.
 
-Clients started experimenting with tools like Claude Code and similar assistants.
+**AI coding tools.**
+
+Clients started experimenting with things like Claude Code and similar tools.
 
 Almost overnight, many of my clients disappeared.
 
 So I pivoted.
 
-Some of my neighbors are small business owners, and they started asking about **AI automation**.
+Some of my neighbors are small business owners and they started asking about **AI automation**.
 
 I introduced them to **OpenClaw**.
 
 I describe it like this:
 
-> "OpenClaw is basically the **WordPress of AI agents**."
+"OpenClaw is basically the **WordPress of AI agents**."
 
-It is not the most powerful solution.
+It’s not the most powerful solution.
 
-But it is the **20% of functionality that gives you 80% of the results**.
+But it’s the **20% of functionality that gives you 80% of the results**.
 
 That explanation clicked immediately.
 
-That same day, I got **two leads**.
+That same day I got **two leads**.
 
-Now I am setting up **AI automation systems for small businesses**.
+Now I’m setting up **AI automation systems for small businesses**.
 
-And once again, I am building it as a **productized service**.
+And once again…
 
-## Why This Model Works for Autistic Entrepreneurs
+I’m building it as a **productized service**.
 
-Here is something I have learned:
+Here’s something I’ve learned:
 
 Productized services work incredibly well for **autistic entrepreneurs**.
 
 Why?
 
-Because they are **system-driven**.
+Because they are **system driven**.
 
 You can templatize everything:
 
-- Onboarding
-- Workflows
-- Outreach
-- Contracts
-- Service delivery
+• onboarding
+• workflows
+• outreach
+• contracts
+• service delivery
 
-And if you can **templatize it**,
+And if you can **templatize it**…
 
-you can **automate it**.
+You can **automate it**.
 
 Many autistic people struggle in traditional workplaces.
 
@@ -111,13 +111,15 @@ But we often excel at **building systems**.
 
 Productized services turn that into a **business advantage**.
 
-Instead of trying to fit into broken systems,
+Instead of trying to fit into broken systems…
 
-you build your **own system**.
+You build your **own system**.
 
 And scale it.
 
-Curious: have you experimented with **productized services** or **AI automation** yet?
+Curious:
+
+Have you experimented with **productized services** or **AI automation** yet?
 
 ## Related Reading
 
