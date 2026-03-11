@@ -137,10 +137,3 @@ No subscriptions. No hidden fees. No shutdowns.
 Your business deserves stability — not permission slips. So stop renting your tools. Own them.
 
 Own your apps. Own your data. Own your business.
-
-## Related Reading
-
-- [Self-Hosting Playbook for Small SaaS Teams](/blog/self-hosting-playbook-for-small-saas/)
-- [Own, Don’t Rent — Why Self-Hosting Beats SaaS for Small Businesses](/blog/own-dont-rent-the-hidden-cost-of-saas/)
-- [The $5 VPS Stack That Scales to the Cloud](/blog/the-5-dollar-vps-stack-that-scales-to-the-cloud/)
-

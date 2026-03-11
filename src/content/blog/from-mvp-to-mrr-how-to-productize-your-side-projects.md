@@ -95,10 +95,3 @@ Want help turning your side project into a SaaS or productized service?
 That’s what I specialize in — helping developers and founders go from idea to income.
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [start your 30-day development plan](https://baileyburnsed.dev)
-
-## Related Reading
-
-- [Indie SaaS Growth Playbook for Technical Founders](/blog/indie-saas-growth-playbook/)
-- [Pricing Strategy for Developers Who Think Too Much](/blog/pricing-strategy-for-developers-who-think-too-much/)
-- [Why I Charge $4000 a Month — The Flat-Rate Developer Model](/blog/why-i-charge-4000-a-month/)
-

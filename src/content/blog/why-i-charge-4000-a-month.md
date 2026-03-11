@@ -92,8 +92,3 @@ If this philosophy resonates with you — or you need a reliable full-stack deve
 
 [Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
 Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
-
-## Related Reading
-
-- [Pricing Strategy for Developers Who Think Too Much](/blog/pricing-strategy-for-developers-who-think-too-much/)
-- [The One Developer Agency Model](/blog/the-one-developer-agency-model/)

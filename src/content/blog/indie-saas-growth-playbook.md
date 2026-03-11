@@ -76,10 +76,3 @@ If a metric does not drive a decision, remove it.
 - distribution that depends on "when I have time"
 
 The fix is almost always sharper constraints, not more tools.
-
-## Related Reading
-
-- [From MVP to MRR: How to Productize Your Side Projects](/blog/from-mvp-to-mrr-how-to-productize-your-side-projects/)
-- [The Indie Developer Stack 2025 — Django, Vue, Astro, Flutter](/blog/the-indie-developer-stack-2025/)
-- [Pricing Strategy for Developers Who Think Too Much](/blog/pricing-strategy-for-developers-who-think-too-much/)
-- [Why I Charge $4000 a Month — The Flat-Rate Developer Model](/blog/why-i-charge-4000-a-month/)

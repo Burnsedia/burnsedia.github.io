@@ -164,9 +164,4 @@ Once you master the motions, you stop thinking about tools and start thinking ab
 I don’t measure productivity by lines of code anymore.  
 I measure it by how long I can stay in flow.  
 
-If you want to learn how to set up Neovim, automate your terminal workflow, or build apps with speed and focus - I teach this stuff.  
-
-## Related Reading
-
-- [10 CLI Tools That Skilled Developers Obsess Over](/blog/10-cli-tools-that-skilled-developers-obsess-over/)
-- [The Indie Developer Stack 2025 — Django, Vue, Astro, Flutter](/blog/the-indie-developer-stack-2025/)
+If you want to learn how to set up Neovim, automate your terminal workflow, or build apps with speed and focus - I teach this stuff.

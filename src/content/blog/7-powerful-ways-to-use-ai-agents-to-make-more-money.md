@@ -74,9 +74,3 @@ If you do it right, you’ll never work the same way again.
 
 **Want help building your first AI agent?** 
 Drop me a line at [baileyburnsed.dev](https://baileyburnsed.dev) or follow [@baileyburnsed](https://twitter.com/baileyburnsed) for more tips.
-
-## Related Reading
-
-- [AI Agents for Solo Teams: Implementation Playbook](/blog/ai-agents-for-solo-teams-playbook/)
-- [The AI Agent Stack for Solo Developers](/blog/the-ai-agent-stack-for-solo-developers/)
-
