@@ -39,3 +39,10 @@ AI can and does still mess up in these small, very simple task, I often overcome
 To get the most out of AI, you need to break the problem down into as small of steps as possible, this is already best practise for humans. You Design the Context the AI works in. You manually write tests to verify the logic, you manually write the models, to verify data schema, You only delegate the boilerplate heavy tasks to the AI.
 
 My Flow tends to be AI First Development for the CRUD part of the App, then I transition to AI Augmented Development for the rest of the app.
+
+To this end I am building agents and subagents for each step of my workflow. This allows for fine tuned control of the AI and it intergrate into my OpenCode and Neovim workflows
+
+I use OpenCode agents and subagents that handle:
+
+- building the generic views with django generic viewsets
+- the cloud infra schofolding for my project
