@@ -36,7 +36,16 @@ To get the most out of AI, you need to break the problem down into as small of s
 
 My Flow tends to be AI First Development for the CRUD part of the App, then I transition to AI Augmented Development for the rest of the app.
 
+<<<<<<< HEAD
 I also make custom OpenCode agents that are optimized for specific parts of my workflow, like scaffolding my Django APIs and frontend views in Vuejs or flutter. 
 
 I am also creating templates for my projects that have all the local agents and subagents read and configured 
 
+=======
+To this end I am building agents and subagents for each step of my workflow. This allows for fine tuned control of the AI and it intergrate into my OpenCode and Neovim workflows
+
+I use OpenCode agents and subagents that handle:
+
+- building the generic views with django generic viewsets
+- the cloud infra schofolding for my project
+>>>>>>> 35c7e9530bb6c9cc2ef59d745992422c871699ab
