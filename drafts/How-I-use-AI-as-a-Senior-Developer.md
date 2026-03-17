@@ -6,13 +6,11 @@ heroImage: "/CyberPunkLogo2.jpg"
 tags: ["AI", "freelancing", "workflow", "AI workflow", "neovim"]
 ---
 
-# Intro
 
 As a developer I use AI on a daily basis, from generating boilerplate code to living documentation.
 
 AI is extremely useful but overhyped in my humble opinion. AI can be used to speed up developers or slow them down.
 
-# Problem
 
 Studies have shown that developers feel 20% faster but are actually 19% slower, other studies show AI only speeds senior devs up by 3.6% while having no material impact on joiner devs.
 
@@ -26,7 +24,7 @@ AI First Development is in my view a more professional VibeCoding, you are still
 
 An example of my AI First Development would be when I build a app in Django, I write out my or my clients business requirements in a document, using a markdown doc for ease of use, then I create all the models for the app, the user model, and all the other data models one would need for an app. After the models are down then I right tests, then after the tests are written I use OpenCode to build all the basic CRUD logic of the app.
 
-Most business apps are CRUD with extra steps, a large percentage of the backend therefor can be build using generic class views in django, allowing me to focus on the core business logic that is not just crud.
+Most business apps are CRUD with extra steps, a large percentage of the backend therefor can be build using generic class views in Django, allowing me to focus on the core business logic that is not just crud.
 
 This allows me to get something in front of my client and a working proof of concept done fast.
 
@@ -34,8 +32,11 @@ I often combine this with Template Repos, and AI Augmented Development. This is 
 
 AI can and does still mess up in these small, very simple task, I often overcome this by the simple metric of if the AI cannot one shoot it, then I do it by hand.
 
-# How do I get the Most out of AI
-
 To get the most out of AI, you need to break the problem down into as small of steps as possible, this is already best practise for humans. You Design the Context the AI works in. You manually write tests to verify the logic, you manually write the models, to verify data schema, You only delegate the boilerplate heavy tasks to the AI.
 
 My Flow tends to be AI First Development for the CRUD part of the App, then I transition to AI Augmented Development for the rest of the app.
+
+I also make custom OpenCode agents that are optimized for specific parts of my workflow, like scaffolding my Django APIs and frontend views in Vuejs or flutter. 
+
+I am also creating templates for my projects that have all the local agents and subagents read and configured 
+
