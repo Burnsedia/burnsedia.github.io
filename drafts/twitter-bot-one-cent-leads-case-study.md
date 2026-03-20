@@ -90,6 +90,8 @@ It is basically a fully-automated “building in public” machine that never bu
 
 # **Next Steps**
 
+<!-- This themes good -->
+<!-- TODO: tweak and publish -->
 - Connecting the bot to my analytics pipeline  
 - Turning the bot into a RAG app that learns from my content  
 - Expanding to LinkedIn and Instagram with platform-specific variations  
