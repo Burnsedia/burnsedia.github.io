@@ -1,0 +1,14 @@
+# ----------------------------------------
+# Traffic acquisition: Session primary channel group (Default Channel Group)
+# Account: Default Account for Firebase
+# Property: blog-94120
+# ----------------------------------------
+# 
+# All Users
+# Start date: 20260226
+# End date: 20260325
+Session primary channel group (Default Channel Group),Sessions,Engaged sessions,Engagement rate,Average engagement time per session,Events per session,Event count,Key events,Session key event rate,Total revenue
+Direct,224,15,0.06696428571428571,0.23660714285714285,3.1919642857142856,715,8,0.03571428571428571,0
+Unassigned,10,2,0.2,5.8,3.3,33,0,0,0
+Organic Social,7,4,0.5714285714285714,4.571428571428571,5.142857142857143,36,4,0.42857142857142855,0
+Referral,1,0,0,1,4,4,0,0,0
