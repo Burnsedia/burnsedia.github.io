@@ -1,26 +1,28 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getEntrySlug } from '../../utils/content';
 import { getNormalizedTags } from '../../utils/tags';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		params: { slug: post.slug },
+		params: { slug: getEntrySlug(post.id) },
 		props: post,
 	}));
 }
 
 type Props = CollectionEntry<'blog'>;
 
-const post = Astro.props;
-const { Content } = await post.render();
+const post = Astro.props as Props;
+const postSlug = getEntrySlug(post.id);
+const { Content } = await render(post);
 const allPosts = await getCollection('blog');
 const currentTags = getNormalizedTags(post.data.tags);
 
 const rankedRelatedPosts = allPosts
-  .filter((candidate) => candidate.slug !== post.slug)
+  .filter((candidate) => candidate.id !== post.id)
   .map((candidate) => {
     const candidateTags = getNormalizedTags(candidate.data.tags);
     const sharedTagCount = candidateTags.filter((tag) => currentTags.includes(tag)).length;
@@ -42,13 +44,13 @@ const rankedRelatedPosts = allPosts
   .map((item) => item.post);
 
 const fallbackRelatedPosts = allPosts
-  .filter((candidate) => candidate.slug !== post.slug)
+  .filter((candidate) => candidate.id !== post.id)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
 const relatedPosts = rankedRelatedPosts.length > 0 ? rankedRelatedPosts : fallbackRelatedPosts;
 ---
 
-<BlogPost slug={post.slug} relatedPosts={relatedPosts} {...post.data}>
+<BlogPost slug={postSlug} relatedPosts={relatedPosts} {...post.data}>
 	<Content />
 </BlogPost>

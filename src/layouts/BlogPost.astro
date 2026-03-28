@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/legacy/FormattedDate.astro';
 import { SITE_TITLE } from '../consts';
+import { getEntrySlug } from '../utils/content';
 import { getNormalizedTags, getTagLabel } from '../utils/tags';
 import BaseLayout from './BaseLayout.astro';
 
@@ -97,7 +98,7 @@ const breadcrumbSchema = {
         <ul class="space-y-3">
           {relatedPosts.map((relatedPost) => (
             <li>
-              <a class="link link-hover font-semibold" href={`/blog/${relatedPost.slug}/`}>
+              <a class="link link-hover font-semibold" href={`/blog/${getEntrySlug(relatedPost.id)}/`}>
                 {relatedPost.data.title}
               </a>
               <p class="text-sm text-base-content/80">{relatedPost.data.description}</p>

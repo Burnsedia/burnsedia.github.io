@@ -4,6 +4,7 @@ import Card from '../../components/shared/Card.astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
+import { getEntrySlug } from '../../utils/content';
 const courses = await getCollection('courses');
 courses.sort((a, b) => (a.data.lesson || 999) - (b.data.lesson || 999));
 
@@ -34,9 +35,9 @@ const allTags = Array.from(new Set(courses.flatMap(course => course.data.tags ||
 									  day: 'numeric',
 								  })}
 								</time>
-						  <a href={`/courses/${course.slug}/`}>
-							  <Card title={course.data.title} description={course.data.description} tags={course.data.tags} />
-						  </a>
+					  <a href={`/courses/${getEntrySlug(course.id)}/`}>
+						  <Card title={course.data.title} description={course.data.description} tags={course.data.tags} />
+					  </a>
 						</div>
 					))}
 				</div>

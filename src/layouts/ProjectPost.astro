@@ -1,16 +1,15 @@
 ---
-import { getEntryBySlug } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/legacy/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
-const { slug } = Astro.params;
-const post = await getEntryBySlug('projects', slug);
-const { Content } = await post.render();
-const { title, description, pubDate, updatedDate, heroImage } = post.data;
+
+const post = Astro.props as CollectionEntry<'projects'>;
+const { Content } = await render(post);
+const { title, pubDate, updatedDate, heroImage } = post.data;
 ---
 <BaseLayout>
   <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
     {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg" src={heroImage} alt="" />}
-    <!-- Control the heading -->
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
     <div class="text-center">
       <FormattedDate date={pubDate} />
@@ -18,7 +17,7 @@ const { title, description, pubDate, updatedDate, heroImage } = post.data;
     </div>
     <hr />
     <div class="prose lg:prose-lg max-w-none text-base-content">
-      <Content /> <!-- This strips frontmatter and renders markdown -->
+      <Content />
     </div>
   </article>
 </BaseLayout>

@@ -1,14 +1,15 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import CoursePost from '../../layouts/CoursePost.astro';
+import { getEntrySlug } from '../../utils/content';
 
 export async function getStaticPaths() {
 	const courses = await getCollection('courses');
 	return courses.map((course) => ({
-		params: { slug: course.slug },
+		params: { slug: getEntrySlug(course.id) },
 		props: course,
 	}));
 }
 ---
 
-<CoursePost />
+<CoursePost {...Astro.props} />

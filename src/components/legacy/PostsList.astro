@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
+import { getEntrySlug } from '../../utils/content';
 import { getNormalizedTags, getTagLabel } from '../../utils/tags';
 
 const posts = (await getCollection('blog')).sort(
@@ -8,13 +9,14 @@ const posts = (await getCollection('blog')).sort(
 );
 
 const [featuredPost, ...remainingPosts] = posts;
+const featuredPostSlug = featuredPost ? getEntrySlug(featuredPost.id) : null;
 ---
 
 <section class="w-full max-w-5xl px-4 pb-12">
   {featuredPost && (
     <article class="mb-10 rounded-2xl border border-primary/40 bg-base-200/30 p-6">
       <p class="mb-2 text-xs uppercase tracking-wide text-primary">Featured Post</p>
-      <a href={`/blog/${featuredPost.slug}/`} class="block">
+      <a href={`/blog/${featuredPostSlug}/`} class="block">
         <h2 class="text-3xl font-bold leading-tight hover:text-primary transition-colors">{featuredPost.data.title}</h2>
       </a>
       <p class="mt-3 text-base text-base-content/85">{featuredPost.data.description}</p>
@@ -34,7 +36,7 @@ const [featuredPost, ...remainingPosts] = posts;
         <a class="btn btn-primary btn-sm" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-cta="book-call-featured">
           Book a 15-minute call
         </a>
-        <a class="btn btn-outline btn-sm" href={`/blog/${featuredPost.slug}/`}>Read article</a>
+        <a class="btn btn-outline btn-sm" href={`/blog/${featuredPostSlug}/`}>Read article</a>
       </div>
     </article>
   )}
@@ -42,13 +44,14 @@ const [featuredPost, ...remainingPosts] = posts;
   <div class="space-y-0">
     {remainingPosts.map((post) => {
       const normalizedTags = getNormalizedTags(post.data.tags);
+      const postSlug = getEntrySlug(post.id);
 
       return (
         <article class="border-t border-primary/40 py-6">
           <div class="mb-2 text-sm text-base-content/70">
             <FormattedDate date={post.data.pubDate} />
           </div>
-          <a href={`/blog/${post.slug}/`} class="block">
+          <a href={`/blog/${postSlug}/`} class="block">
             <h3 class="text-2xl font-semibold leading-snug hover:text-primary transition-colors">{post.data.title}</h3>
           </a>
           <p class="mt-2 text-base text-base-content/80">{post.data.description}</p>

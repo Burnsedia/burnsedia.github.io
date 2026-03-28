@@ -3,6 +3,7 @@ import PostsList from '../../components/legacy/PostsList.astro';
 import PageHeader from '../../components/shared/PageHeader.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { BLOG_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { getEntrySlug } from '../../utils/content';
 import { getCollection } from 'astro:content';
 
 const allPosts = (await getCollection('blog')).sort(
@@ -40,7 +41,7 @@ const blogItemListSchema = {
   itemListElement: allPosts.slice(0, 30).map((post, index) => ({
     '@type': 'ListItem',
     position: index + 1,
-    url: toAbsoluteUrl(`/blog/${post.slug}/`),
+    url: toAbsoluteUrl(`/blog/${getEntrySlug(post.id)}/`),
     name: post.data.title,
     description: post.data.description,
   })),

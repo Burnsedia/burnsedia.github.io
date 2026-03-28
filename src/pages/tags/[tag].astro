@@ -5,6 +5,7 @@ import FormattedDate from '../../components/legacy/FormattedDate.astro';
 import PageHeader from '../../components/shared/PageHeader.astro';
 import { SITE_TITLE } from '../../consts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntrySlug } from '../../utils/content';
 import { getNormalizedTags, getTagLabel, hasTag, normalizeTag } from '../../utils/tags';
 
 type BlogPost = CollectionEntry<'blog'>;
@@ -84,7 +85,7 @@ const tagItemListSchema = {
     '@type': 'ListItem',
     position: index + 1,
     name: post.data.title,
-    url: toAbsoluteUrl(`/blog/${post.slug}/`),
+    url: toAbsoluteUrl(`/blog/${getEntrySlug(post.id)}/`),
   })),
 };
 ---
@@ -126,7 +127,7 @@ const tagItemListSchema = {
         return (
           <article class="border-t border-primary/40 py-6">
             <FormattedDate date={post.data.pubDate} />
-            <a href={`/blog/${post.slug}/`} class="block">
+            <a href={`/blog/${getEntrySlug(post.id)}/`} class="block">
               <h2 class="mt-2 text-2xl font-semibold leading-snug hover:text-primary transition-colors">{post.data.title}</h2>
             </a>
             <p class="mt-2 text-base text-base-content/80">{post.data.description}</p>
