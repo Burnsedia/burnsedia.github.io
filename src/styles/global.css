@@ -84,7 +84,7 @@ img {
 }
 code {
 	padding: 2px 5px;
-	background-color: #777;
+	background-color: var(--color-base-300);
 }
 pre {
 	padding: 1rem;
