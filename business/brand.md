@@ -1,310 +1,187 @@
-# Bailey Burnsed / Burnsedia Brand Identity v1
+# Bailey Burnsed / Burnsedia Brand Identity v2
 
 ## 1) Brand Core
 
-### Brand Name
+### Identity
 
-- Bailey Burnsed (personal authority)
-- Burnsedia (creator/dev identity)
-
-### Brand Thesis
-
-I build high-quality apps, indie games, and open tools that don't suck, with transparent engineering standards and practical execution.
-
-### Mission
-
-Build software people actually enjoy using: fast, useful, ethical apps and games with no anti-pattern bloat, while growing an audience-funded creator ecosystem around real build-in-public work.
-
-### Vision
-
-Build a fully open-source software company and a trusted indie engineering/media brand where developers, artists, enthusiasts, and founders come for implementation truth over hype.
+I am Bailey Burnsed (`Burnsedia`), a nerdy builder shipping apps, games, and open tools in public.
 
 ### Core Promise
 
-Real builds. Real constraints. Real outcomes.
-No spyware. No vaporware. No bloatware.
+I build shit that works.
+No hype. No lock-in. No vaporware.
+
+### Build Philosophy
+
+- Local-first by default
+- Cloud only when needed
+- Start lean on VPS, scale when justified
+- AI as a junior assistant for repetitive tasks, not a replacement for engineering judgment
+- Practical systems over overengineering
 
 ---
 
-## 2) Positioning
+## 2) Audience Model
 
-### Category
+### Service Audience
 
-Indie software engineer + indie game builder + open-source creator + premium B2B systems builder.
+- Small businesses
+- Indie hackers and founders who need real dev execution
 
-### Market Position
+### Product Audience
 
-Audience-first creator brand with premium technical depth, blending:
+- Nerds and open-source-minded users
+- Retro gamers
 
-- devlogs
-- deep technical teardowns
-- game/art build process
-- open-source tooling progress
+### Not For
 
-### Differentiator
+- Hype-chasing buyers
+- Lock-in-first vendors
+- People looking for magic shortcuts with no implementation discipline
 
-Most creators only show finished outcomes. This brand shows decisions, tradeoffs, constraints, failures, and implementation details that help people build better software.
+---
+
+## 3) Positioning
+
+### Market Contrast
+
+Most shops ship vibe-coded bloat, overengineer too early, and trap clients in lock-in.
+
+I ship practical systems with clear tradeoffs, ownership, and maintainability.
 
 ### Anti-Positioning
 
-- No generic productivity fluff
-- No fake corporate/startup persona
-- No shallow trend-chasing tech news
-- No anti-consumer product choices
-- No anti-pattern engineering defaults
+- No vendor lock-in traps
+- No anti-consumer product design
+- No ship theater without outcomes
+- No overbuilt architecture before demand
 
 ---
 
-## 3) Audience
+## 4) Proof And Receipts
 
-### Primary Audience
-
-Indie builders and enthusiast users: indie game developers, open-source enthusiasts, indie artists, and retro-future sci-fi fans who actively want high-quality apps and games and enjoy supporting tools they use.
-
-### Secondary Audience
-
-Founders and operators who need high-ticket B2B SaaS execution and fully automated done-for-you services.
-
-### Audience Need
-
-Reliable, no-bloat software and practical technical guidance from a creator who ships in public and documents real engineering decisions.
-
-### Audience Outcome
-
-They discover the work, follow the journey, support through Patreon/GitHub Sponsors, use the products, and a qualified subset buys premium B2B services.
+- Built `boomerbill` publicly on GitHub
+- `boomerbill` has a real hosted user
+- Co-organizer of PyATL in Atlanta
+- Reduced a client's infra cost significantly by moving from cloud to a VPS-first architecture (details anonymized)
 
 ---
 
-## 4) Brand Personality
+## 5) Offer Architecture
 
-### Archetype
+### Primary Offer (Current And Stays Primary)
 
-Cyber Artisan Engineer.
+- Unlimited Dev Service
 
-### Traits
+### Offer Ladder Strategy
 
-- Technical
-- Honest
-- Experimental
-- Disciplined
+1. Free: build logs, newsletter, public insights
+2. Entry: low-ticket diagnostics and micro-offers
+3. Mid: tutoring and consulting intensives (AI + implementation)
+4. Core: Unlimited Dev Service
+5. Downsell: smaller fixed-scope implementation if someone says no to unlimited
+
+### Business Goal
+
+Attract, retain, and monetize with clear pathways instead of one-shot project sales.
+
+---
+
+## 6) Voice System
+
+### Voice Traits
+
+- Direct
+- Nerdy
+- Practical
 - Anti-hype
-- Builder-first
+- Human
 
-### Tone
+### Tone Guardrail
 
-Direct, practical, opinionated, human.
+Be blunt about systems and bad practices, respectful toward people.
 
-### Voice Rules
+### Signature Lines
 
-- Write like a senior engineer explaining to peers.
-- Use specifics over abstractions.
-- Show tradeoffs, not perfection.
-- Keep swagger earned by receipts.
+- I build shit that works.
+- No hype. Just shipped.
+- Build. Ship. Repeat.
+- Local-first. Cloud when needed.
 
----
+### AI Stance
 
-## 5) Japanese-Inspired Brand Framework (Applied)
-
-### Ikigai (Strategic Center)
-
-- Love: building apps/games/tools
-- Skill: senior engineering execution
-- Need: quality software and practical guidance
-- Sustain: Patreon, GitHub Sponsors, selective high-ticket work
-
-### Ki-Sho-Ten-Ketsu (Narrative Model)
-
-Use this structure for devlogs/tutorials:
-
-1. Setup (problem/context)
-2. Development (approach)
-3. Twist (unexpected issue/pivot)
-4. Resolution (result + lesson)
-
-### Shu-Ha-Ri (Craft Standard)
-
-- Shu: apply proven patterns
-- Ha: adapt to context
-- Ri: publish your own frameworks/tooling patterns
-
-### Ma + Kanso (Design Discipline)
-
-- Ma: intentional whitespace and pacing
-- Kanso: clean hierarchy, no visual noise
+I use AI like a junior assistant: great for grunt work, never the architect.
 
 ---
 
-## 6) Visual Identity (Retro Synthwave)
+## 7) Homepage Message Stack (`/`)
 
-### Visual Direction
+### Hero
 
-Retro synthwave with disciplined UX. Neon atmosphere, production-grade readability.
+I build shit that works.
 
-### Color Behavior
+### Subhead
+
+Apps, games, and open tools. No hype. No lock-in.
+
+### CTA Hierarchy
+
+- Primary: Work With Me
+- Secondary: Follow My Builds
+
+### Role Of Homepage
+
+Brand hub and trust engine.
+`/service` remains the dedicated sales page.
+
+---
+
+## 8) Visual Theme System
+
+### Primary Theme
+
+Nerdy Brutalist Builder
+
+### Style Blend
+
+- Terminal Synth atmosphere
+- Minimal Dark Engineer discipline
+
+### Visual Behavior
 
 - Dark base surfaces
-- Neon accent highlights (used intentionally, not everywhere)
-- High-contrast text for long-form readability
-- One primary accent action per screen
+- Neon or synth accents only for actions and highlights
+- Clean panel and card layout
+- Strong spacing rhythm and low visual noise
+- High readability over decorative effects
 
-### Typography Behavior
+### Reference Direction
 
-- Clear hierarchy with generous heading contrast
-- Comfortable body text line length
-- Avoid overly decorative fonts for paragraphs
-
-### UI Style
-
-- Panel-based sections with subtle glow edges
-- Rounded cards with consistent depth system
-- Strong CTA contrast and spacing rhythm
-- Mobile-first touch targets and stacked CTA groups
-
-### Motion Style
-
-- Subtle reveal/stagger
-- Minimal hover/focus transitions
-- Motion supports hierarchy, never distracts
+Clean terminal-inspired UI language with restrained glow, clear type hierarchy, and intentional motion.
 
 ---
 
-## 7) Messaging Pillars
+## 9) Content And Conversion Rules
 
-1. **Build in Public**
-   - Weekly progress, transparent process, shipping momentum.
+### Funnel
 
-2. **Engineering Integrity**
-   - Architecture decisions, anti-pattern avoidance, practical tradeoffs.
+Follow -> Subscribe -> Support -> Buy
 
-3. **Open Source + Commercial Reality**
-   - Sustainable creator economics without compromising technical quality.
+### Content Rule
 
-4. **Creative Tech Fusion**
-   - Apps, games, tools, and art pipeline in one coherent maker identity.
+Every post and page section has one next action only.
 
----
+### Conversion Rule
 
-## 8) Content Strategy Alignment
-
-### Primary Engine
-
-Hybrid devlogs (apps, games, OSS, and art process) with practical implementation notes.
-
-### Secondary Engine
-
-Deep technical teardowns that position senior capability for both builders and B2B buyers.
-
-### Optional Layer
-
-Curated tech commentary only when it includes clear builder takeaways and execution implications.
-
-### Publishing Cadence (Current)
-
-- One major post per month (devlog or tutorial), published as written + video.
-- Public summary on-site with full deep-dive available to supporters when relevant.
-- Weekly Friday public live build + patron-only aftershow.
-- Monthly patron-only livestream (mixed AMA, roadmap, and teardown).
-
-### Channel Rule
-
-- X/YouTube/Twitch/TikTok: ongoing build narrative
-- LinkedIn: polished technical teardown only
+Keep CTA, form, pricing, and scope blocks clean and clear even when other copy is more edgy.
 
 ---
 
-## 9) Conversion Identity
-
-### Primary CTA (Current Phase)
-
-Support my work (Patreon first, GitHub Sponsors second).
-
-### Conversion Ladder
-
-1. Follow
-2. Watch public devlog
-3. Support (Patreon/GitHub Sponsors)
-4. Join supporter community
-5. Buy products (apps, games, assets)
-6. Optional high-ticket B2B work (separate offer)
-
-### Offer Separation Rule
-
-- Community value: Patreon + GitHub Sponsors
-- Productized and high-ticket services: separate Stripe Work With Me flow
-
-### Conversion Hubs
-
-- `/support`: memberships and sponsorships
-- `/socials`: follow and livestream discovery
-- Product and gallery pages: itch.io and product CTA flow
-
----
-
-## 10) Membership Brand System
-
-### Tier Naming (Cyberpunk-safe)
-
-- Neon Initiate
-- Circuit Cleric
-- Signal Runner
-- Machine Oracle
-
-### Premium Community Pattern
-
-- Weekly public Friday build stream
-- Patron-only aftershow
-- Monthly patron-only livestream/chat
-- Replay archive + clips workflow
-
-### Platform Model
-
-- Community memberships on Patreon and GitHub Sponsors with aligned tier language and benefits.
-- Monthly-first access model now; yearly and lifetime options can be introduced later.
-
----
-
-## 11) Brand Do / Don't
-
-### Do
-
-- Show your process and receipts.
-- Teach through actual work artifacts.
-- Keep visual consistency across sections/pages.
-- Be explicit about who you build for and why.
-
-### Don't
-
-- Rebrand tone for corporate approval.
-- Overload pages with equal-priority CTAs.
-- Publish generic news summaries without opinion.
-- Hide failures; they are trust assets.
-
----
-
-## 12) Signature Lines (Working)
-
-- Build in public. Ship software that doesn't suck.
-- Real builds, real tradeoffs, real outcomes.
-- Open tools. Commercial discipline. Indie execution.
-- Senior engineering, minus the anti-patterns.
-
----
-
-## 13) Implementation Priorities (Design + Brand)
-
-1. Standardize spacing, typography, and button hierarchy across key templates.
-2. Add consistent support CTA modules in header, home, blog, and footer.
-3. Launch `/support` and `/socials` as brand-conversion hubs.
-4. Add gallery flow with consistent visual system and itch integration.
-5. Instrument conversion events and refine based on data.
-
----
-
-## 14) Brand Governance
+## 10) Governance
 
 Review monthly:
 
-- Is content still practical and specific?
-- Is visual hierarchy consistent on mobile and desktop?
-- Are CTAs aligned to current business phase?
-- Is the tone still builder-honest and not drifting corporate?
+- Is tone still anti-hype and builder-first?
+- Is the visual system still consistent?
+- Is copy still clear about who we help and what outcome we deliver?
+- Are CTAs aligned with current business priorities?
