@@ -28,7 +28,7 @@ const allTags = Array.from(new Set(courses.flatMap(course => course.data.tags ||
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 items-center" id="courses-list">
 					{courses.map((course) => (
 					  <div class="py-4 px-4 course-item" data-tags={course.data.tags ? course.data.tags.join(',') : ''}>
-						    <time datetime={course.data.pubDate.toISOString()} class="block text-sm text-gray-500 mb-2">
+						    <time datetime={course.data.pubDate.toISOString()} class="block text-sm text-base-content/60 mb-2">
 								  {course.data.pubDate.toLocaleDateString('en-us', {
 									  year: 'numeric',
 									  month: 'short',
