@@ -13,10 +13,10 @@ const posts = (await getCollection('blog'))
 <section class="py-20 noise">
   <div class="max-w-5xl mx-auto px-6">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-      Writing
+      From the build log
     </h2>
     <p class="text-lg text-base-content/70 mb-12 max-w-2xl">
-      Thoughts on software, systems, and building things in public.
+      Notes on architecture, tradeoffs, and what actually shipped.
     </p>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-12">
       {posts.map(post => (
@@ -35,7 +35,7 @@ const posts = (await getCollection('blog'))
       ))}
     </div>
     <div class="flex justify-end">
-      <a href="/blog" class="btn btn-outline btn-primary">Read more writing</a>
+      <a href="/blog" class="btn btn-outline btn-primary">Read Build Log</a>
     </div>
   </div>
 </section>
