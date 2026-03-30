@@ -1,118 +1,60 @@
 ---
-const projects = {
-  apps: [
-    {
-      name: "BoomerBill",
-      description:
-        "Billing and labor tracking for nerds tired of being free tech support.",
-      status: "Active",
-    },
-    {
-      name: "Local-first tools",
-      description:
-        "Small utilities and automations built to run local-first and stay under your control.",
-      status: "Shipping",
-    }
-  ],
-  games: [
-    {
-      name: "32bit-Spacer",
-      description:
-        "Retro-futuristic space exploration roguelike currently in active development.",
-      status: "In development",
-    },
-  ],
-  oss: [
-    {
-      name: "LunarVim",
-      description:
-        "IDE layer for Neovim, used by thousands of developers.",
-      status: "Open source",
-    },
-    {
-      name: "Godot ecosystem contributions",
-      description:
-        "Tools, fixes, and experiments for the Godot community.",
-      status: "Ongoing",
-    },
-    {
-      name: "PyATL",
-      description: "Co-Organizer of PyATL an Atlanta Python Meetup",
-      status: "Ongoing",
-    },
-  ],
-};
+const projects = [
+  {
+    name: 'Unlimited Dev Service',
+    description: 'Ongoing development for teams that need shipping, not theater.',
+    status: 'Active client delivery',
+    detail: 'Built for maintainability, ownership, and clear scope.',
+    cta: 'See Service',
+    href: '/service',
+  },
+  {
+    name: 'boomerbill',
+    description: 'Billing and labor tracking for nerds tired of unpaid tech support.',
+    status: 'Live hosted user',
+    detail: 'Local-first mindset with practical workflows and no lock-in traps.',
+    cta: 'View Build',
+    href: 'https://github.com/Burnsedia/boomerbill',
+  },
+  {
+    name: '32bit-Spacer',
+    description: 'Retro-futurist space game built in public.',
+    status: 'Playable systems in active development',
+    detail: 'Lean architecture and iterative releases.',
+    cta: 'View Build',
+    href: 'https://github.com/Burnsedia/32bit-Spacer',
+  },
+];
 ---
-<section class="noise">
+
+<section class="noise py-20">
   <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-      What I’m building
-    </h2>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4">What I am building right now</h2>
     <p class="text-lg text-base-content/70 mb-12 max-w-2xl">
-      A focused snapshot of what I am shipping right now.
+      Three active lanes. Real status, no theater.
     </p>
-    <!-- Apps & Tools -->
-    <div class="mb-12">
-      <h3 class="text-xl font-semibold mb-6">Apps & Tools</h3>
-      <div class="grid gap-6 sm:grid-cols-2">
-        {projects.apps.map(project => (
-          <div class="p-5 border border-base-content/10 bg-base-100/5 hover:border-primary transition">
-            <h4 class="text-lg font-bold mb-2">{project.name}</h4>
-            <p class="text-base-content/70 mb-3">
-              {project.description}
-            </p>
-            <span class="text-sm text-primary">
-              Status: {project.status}
-            </span>
-          </div>
-        ))}
-      </div>
+
+    <div class="grid gap-6 md:grid-cols-3 mb-12">
+      {projects.map((project) => (
+        <article class="p-5 border border-base-content/10 bg-base-100/5 hover:border-primary transition flex flex-col gap-3">
+          <h3 class="text-lg font-bold">{project.name}</h3>
+          <p class="text-base-content/80">{project.description}</p>
+          <p class="text-sm text-primary">Status: {project.status}</p>
+          <p class="text-sm text-base-content/60">{project.detail}</p>
+          <a
+            href={project.href}
+            class="btn btn-outline btn-accent mt-auto"
+            target={project.href.startsWith('http') ? '_blank' : undefined}
+            rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+          >
+            {project.cta}
+          </a>
+        </article>
+      ))}
     </div>
-    <!-- Games -->
-    <div class="mb-12">
-      <h3 class="text-xl font-semibold mb-6">Games</h3>
-      <div class="grid gap-6 sm:grid-cols-2">
-        {projects.games.map(project => (
-          <div class="p-5 border border-base-content/10 bg-base-100/5 hover:border-primary transition">
-            <h4 class="text-lg font-bold mb-2">{project.name}</h4>
-            <p class="text-base-content/70 mb-3">
-              {project.description}
-            </p>
-            <span class="text-sm text-primary">
-              Status: {project.status}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-    <!-- Open Source -->
-    <div class="mb-16">
-      <h3 class="text-xl font-semibold mb-6">Open source</h3>
-      <div class="grid gap-6 sm:grid-cols-2">
-        {projects.oss.map(project => (
-          <div class="p-5 border border-base-content/10 bg-base-100/5 hover:border-primary transition">
-            <h4 class="text-lg font-bold mb-2">{project.name}</h4>
-            <p class="text-base-content/70 mb-3">
-              {project.description}
-            </p>
-            <span class="text-sm text-primary">
-              Status: {project.status}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-    <!-- Funnel -->
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-base-content/10 pt-8">
-      <p class="text-base-content/60 max-w-xl">
-        Most of my work is open source or built in public.
-        This is just a snapshot.
-      </p>
-      <!-- <a href="/projects"> -->
-      <!--   <button class="btn btn-outline btn-primary"> -->
-      <!--     View all projects -->
-      <!--   </button> -->
-      <!-- </a> -->
+
+    <div class="flex justify-end border-t border-base-content/10 pt-8">
+      <a href="/projects" class="btn btn-outline">See All Builds</a>
     </div>
   </div>
 </section>
