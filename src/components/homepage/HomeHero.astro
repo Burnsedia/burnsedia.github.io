@@ -1,8 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { SITE_DESCRIPTION } from '../../consts';
 import LOGO from "../../assets/CyberPunkLogo2.jpg"
-import { Typing } from '../typing';
 ---
 <div class="hero py-12">
   <div class="hero-content flex-col lg:flex-row w-full">
@@ -18,16 +16,16 @@ import { Typing } from '../typing';
         decoding="async"
       />
     </div>
-    <div class="">
-      <div class="items-center px-3 ">
-         <h1 class="text-2xl sm:text-6xl font-bold px-3">{SITE_DESCRIPTION}</h1>
-          <Typing client:load />
+    <div>
+      <div class="items-center px-3">
+         <h1 class="text-3xl sm:text-6xl font-bold px-3">I build shit that works.</h1>
+         <p class="text-lg sm:text-xl text-base-content/80 px-3 mt-4 max-w-2xl">
+           Apps, games, and open tools. No hype. No lock-in.
+         </p>
       </div>
-      <div class="px-3 py-6">
-      </div>
-      <div class="py-6">
-        <a href="/newsletter" class="btn btn-outline btn-primary ">Join the Newsletter</a>
-        <a href="/service" class="btn btn-outline btn-accent ">Work with Me</a>
+      <div class="py-6 px-3 flex flex-wrap gap-3">
+        <a href="/service" class="btn btn-primary">Work With Me</a>
+        <a href="/newsletter" class="btn btn-outline btn-accent">Follow My Builds</a>
       </div>
     </div>
   </div>
