@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import LOGO from '../../assets/CyberPunkLogo2.jpg';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props as Props;
+---
+
+<Image
+  src={LOGO}
+  alt="Burnsedia logo"
+  width={900}
+  height={900}
+  quality={70}
+  loading="eager"
+  fetchpriority="high"
+  decoding="async"
+  class={className}
+/>
