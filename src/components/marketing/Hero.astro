@@ -1,23 +1,13 @@
 ---
-import { Image } from 'astro:assets';
 import { SITE_DESCRIPTION } from '../../consts';
-import LOGO from '../../assets/CyberPunkLogo2.jpg'
 import { Typing } from '../typing';
+import HeroLogo from '../shared/HeroLogo.astro';
 ---
 
 <div class="hero py-12 noise">
   <div class="hero-content flex-col lg:flex-row w-full">
-    <div class="w-2/3 sm:w-full md:w-2/3 mask mask-hexagon p-2 mt-5">
-      <Image
-        src={LOGO}
-        alt="praise the Omnissiah"
-        width={900}
-        height={900}
-        quality={70}
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
+    <div class="w-2/3 sm:w-full md:w-2/3 mask mask-hexagon ring ring-info ring-offset-4 ring-offset-info p-2 mt-5">
+      <HeroLogo />
     </div>
     <div class="">
       <div class="items-center px-3 ">
@@ -25,7 +15,7 @@ import { Typing } from '../typing';
           <Typing client:load />
       </div>
       <div class="px-3 py-6">
-        <h2 class="text-2xl font-bold">Here's how it works:</h3>
+        <h2 class="text-2xl font-bold">Here's how it works:</h2>
         <ol class="list-decimal px-4">
           <li>Pay for 30 days of software development services</li>
           <li>Schedule a zoom meeting to get started</li>

@@ -1,23 +1,13 @@
 ---
-import { Image } from 'astro:assets';
-import LOGO from "../../assets/CyberPunkLogo2.jpg"
+import HeroLogo from '../shared/HeroLogo.astro';
 ---
 <div class="hero py-12">
   <div class="hero-content flex-col lg:flex-row w-full">
-    <div class="w-2/3 sm:w-full md:w-2/3 mask mask-hexagon  p-2 mt-5">
-      <Image
-        src={LOGO}
-        alt="Bailey Burnsed brand artwork"
-        width={900}
-        height={900}
-        quality={70}
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
+    <div class="w-2/3 sm:w-full md:w-2/3 mask mask-hexagon ring ring-info ring-offset-4 ring-offset-info p-2 mt-5">
+      <HeroLogo />
     </div>
-    <div>
-      <div class="items-center px-3">
+    <div class="">
+      <div class="items-center px-3 ">
          <h1 class="text-3xl sm:text-6xl font-bold px-3">I build shit that works.</h1>
          <p class="text-lg sm:text-xl text-base-content/80 px-3 mt-4 max-w-2xl">
            Apps, games, and open tools. No hype. No lock-in. No vaporware.

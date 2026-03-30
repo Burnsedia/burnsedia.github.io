@@ -1,4 +1,6 @@
 ---
+import HeroLogo from './HeroLogo.astro';
+
 interface Props {
   eyebrow?: string;
   title: string;
@@ -8,9 +10,16 @@ interface Props {
 const { eyebrow, title, description } = Astro.props as Props;
 ---
 
-<section class="w-full max-w-5xl px-4 pt-24 pb-10">
-  {eyebrow && <p class="text-sm uppercase tracking-wide text-primary">{eyebrow}</p>}
-  <h1 class="mt-2 text-4xl md:text-5xl font-bold leading-tight">{title}</h1>
-  <p class="mt-4 text-lg text-base-content/80 max-w-3xl">{description}</p>
-  <slot />
+<section class="hero py-12 noise">
+  <div class="hero-content flex-col lg:flex-row w-full max-w-5xl px-4">
+    <div class="w-2/3 sm:w-full md:w-2/3 mask mask-hexagon ring ring-info ring-offset-4 ring-offset-info p-2 mt-5">
+      <HeroLogo />
+    </div>
+    <div class="w-full">
+      {eyebrow && <p class="text-sm uppercase tracking-wide text-primary">{eyebrow}</p>}
+      <h1 class="mt-2 text-4xl md:text-5xl font-bold leading-tight">{title}</h1>
+      <p class="mt-4 text-lg text-base-content/80 max-w-3xl">{description}</p>
+      <slot />
+    </div>
+  </div>
 </section>
