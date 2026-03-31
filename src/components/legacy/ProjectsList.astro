@@ -1,0 +1,85 @@
+---
+interface Repo {
+  name: string;
+  description: string | null;
+  language: string | null;
+  stargazers_count: number;
+  updated_at: string;
+  html_url: string;
+}
+
+interface Props {
+  repos: Repo[];
+}
+
+const { repos } = Astro.props as Props;
+
+const featuredProject = [...repos].sort((a, b) => b.stargazers_count - a.stargazers_count)[0];
+const remainingProjects = repos
+  .filter((repo) => repo.name !== featuredProject?.name)
+  .slice(0, 12);
+
+const formatDate = (value: string) =>
+  new Date(value).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+---
+
+<section class="w-full max-w-5xl px-4 pb-12">
+  {featuredProject && (
+    <article class="mb-10 rounded-2xl border border-primary/40 bg-base-200/30 p-6">
+      <p class="mb-2 text-xs uppercase tracking-wide text-primary">Featured Project</p>
+      <a href={featuredProject.html_url} class="block" target="_blank" rel="noopener noreferrer">
+        <h2 class="text-3xl font-bold leading-tight hover:text-primary transition-colors">{featuredProject.name}</h2>
+      </a>
+      <p class="mt-3 text-base text-base-content/85">
+        {featuredProject.description || 'No description available.'}
+      </p>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-base-content/70">
+        <span>Updated {formatDate(featuredProject.updated_at)}</span>
+        {featuredProject.language && <span class="badge badge-outline badge-sm">{featuredProject.language}</span>}
+        <span class="badge badge-outline badge-sm">Stars {featuredProject.stargazers_count}</span>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="btn btn-primary btn-sm" href={featuredProject.html_url} target="_blank" rel="noopener noreferrer">
+          View on GitHub
+        </a>
+        <a class="btn btn-outline btn-sm" href="/service">Work with me</a>
+      </div>
+    </article>
+  )}
+
+  <div class="space-y-0">
+    {remainingProjects.map((project) => (
+      <article class="border-t border-primary/40 py-6">
+        <div class="mb-2 flex flex-wrap items-center gap-3 text-sm text-base-content/70">
+          <span>Updated {formatDate(project.updated_at)}</span>
+          {project.language && <span class="badge badge-outline badge-sm">{project.language}</span>}
+          <span class="badge badge-outline badge-sm">Stars {project.stargazers_count}</span>
+        </div>
+        <a href={project.html_url} class="block" target="_blank" rel="noopener noreferrer">
+          <h3 class="text-2xl font-semibold leading-snug hover:text-primary transition-colors">{project.name}</h3>
+        </a>
+        <p class="mt-2 text-base text-base-content/80">
+          {project.description || 'No description available.'}
+        </p>
+      </article>
+    ))}
+  </div>
+
+  <section class="mt-10 rounded-2xl border border-base-300 bg-base-200/30 p-6 text-center">
+    <h3 class="text-2xl font-bold">Need something like this built for your business?</h3>
+    <p class="mt-2 text-base-content/80">I help founders and teams ship practical software without unnecessary complexity.</p>
+    <a
+      class="btn btn-primary mt-4"
+      href="https://calendly.com/baileyburnsed/15min"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cta="book-call-projects-bottom"
+    >
+      Book a 15-minute call
+    </a>
+  </section>
+</section>

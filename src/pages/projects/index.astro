@@ -1,81 +1,91 @@
 ---
-import Hero from '../../components/marketing/Hero.astro';
+import PageHeader from '../../components/shared/PageHeader.astro';
+import ProjectsList from '../../components/legacy/ProjectsList.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
-// Fetch GitHub repos
-let githubRepos = [];
+
+interface Repo {
+  name: string;
+  description: string | null;
+  language: string | null;
+  stargazers_count: number;
+  updated_at: string;
+  html_url: string;
+  fork: boolean;
+  archived: boolean;
+}
+
+let repos: Repo[] = [];
+
 try {
-  const response = await fetch('https://api.github.com/users/Burnsedia/repos?type=public&sort=updated&per_page=20');
+  const response = await fetch('https://api.github.com/users/Burnsedia/repos?type=public&sort=updated&per_page=30');
+
   if (response.ok) {
-    githubRepos = await response.json();
-    githubRepos = githubRepos.filter((repo: any) => !repo.fork && !repo.archived && repo.name !== 'Burnsedia');
+    const data = (await response.json()) as Repo[];
+    repos = data
+      .filter((repo) => !repo.fork && !repo.archived && repo.name !== 'Burnsedia')
+      .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
   }
 } catch (error) {
   console.error('Failed to fetch GitHub repos:', error);
 }
-// Assume pinned are top starred repos
-const pinnedRepos = githubRepos.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count).slice(0, 4);
-// Recent are latest updated
-const recentRepos = githubRepos.sort((a: any, b: any) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).slice(0, 6);
+
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const projectsBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Projects',
+      item: toAbsoluteUrl('/projects/'),
+    },
+  ],
+};
+
+const projectsItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Burnsedia Projects',
+  itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  numberOfItems: repos.length,
+  itemListElement: repos.slice(0, 30).map((repo, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: repo.html_url,
+    name: repo.name,
+    description: repo.description || 'No description available.',
+  })),
+};
 ---
-<!--TODO: Refactor use use Vuejs for a SPA and Use  -->
+
 <BaseLayout
   title={`Projects | ${SITE_TITLE}`}
-  description="Explore Burnsedia projects, open-source software, and product experiments focused on AI, automation, and practical business tooling."
+  description="Open-source software and product experiments focused on practical tools, AI workflows, and developer systems."
   canonical="/projects/"
 >
-  <Hero />
-  <section class="text-center mb-8">
-		<h1 class="text-4xl font-bold text-primary mb-4">Projects</h1>
-		<p class="text-lg text-base-content">Explore my latest projects and open-source contributions.</p>
-	</section>
-	<section class="container mx-auto px-4 py-8">
-		<h2 class="text-2xl font-semibold mb-4">Pinned Projects</h2>
-			<div class="grid mb-8">
-				{pinnedRepos.map((repo: any) => (
-				<div class="card bg-base-100 shadow-xl border border-primary">
-					<div class="card-body">
-						<h2 class="card-title">{repo.name}</h2>
-							<p>{repo.description || 'No description available.'}</p>
-							<div class="mt-2">
-									{repo.language && <span class="badge badge-outline badge-primary mr-2">{repo.language}</span>}
-									<span class="badge badge-outline badge-secondary">⭐ {repo.stargazers_count}</span>
-								</div>
-								<div class="card-actions justify-end">
-									<a href={repo.html_url} target="_blank" class="btn btn-primary">View on GitHub</a>
-								</div>
-							</div>
-						</div>
-					))}
-				</div>
-				<h2 class="text-2xl font-semibold mb-4">Recent Projects</h2>
-				<div class="grid">
-					{recentRepos.map((repo: any) => (
-						<div class="card bg-base-100 shadow-xl border border-primary">
-							<div class="card-body">
-								<h2 class="card-title">{repo.name}</h2>
-								<p>{repo.description || 'No description available.'}</p>
-								<div class="mt-2">
-									{repo.language && <span class="badge badge-outline badge-primary mr-2">{repo.language}</span>}
-									<span class="badge badge-outline badge-secondary">⭐ {repo.stargazers_count}</span>
-								</div>
-								<div class="card-actions justify-end">
-									<a href={repo.html_url} target="_blank" class="btn btn-primary">View on GitHub</a>
-								</div>
-							</div>
-						</div>
-					))}
-				</div>
-			</section>
-  <script>
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/sw.js')
-				.then((registration) => {
-					console.log('Service Worker registered:', registration);
-				})
-				.catch((error) => {
-				console.log('Service Worker registration failed:', error);
-			});
-		}
-	</script>
+  <script type="application/ld+json" set:html={JSON.stringify(projectsBreadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(projectsItemListSchema)} />
+  <PageHeader
+    eyebrow="Burnsedia Projects"
+    title="Open-source tools and product experiments"
+    description="A live index of what I am shipping, testing, and maintaining in public."
+  >
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="https://github.com/Burnsedia" target="_blank" rel="noopener noreferrer">
+        View GitHub Profile
+      </a>
+      <a class="btn btn-outline" href="/service">Work with me</a>
+    </div>
+  </PageHeader>
+  <ProjectsList repos={repos} />
 </BaseLayout>
