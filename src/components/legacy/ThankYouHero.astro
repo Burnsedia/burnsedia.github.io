@@ -8,15 +8,20 @@ import HeroTyping from '../shared/HeroTyping.astro';
       <HeroLogo />
     </div>
     <div class="">
-      <div class="items-center px-3 ">
-         <h1 class="text-4xl sm:text-6xl font-bold px-3">Thank You</h1>
-         <h2 class="text-3xl sm:text-3xl px-3">See your shortly</h2>
-         <HeroTyping
-           class="text-base sm:text-lg text-base-content/70 px-3 mt-2"
-           phrases={['Subscription confirmed', 'Check your inbox', 'New issue drops weekly']}
-           loop={false}
-         />
-      </div>
+       <div class="items-center px-3 ">
+          <h1 class="text-4xl sm:text-6xl font-bold px-3">Thank You</h1>
+         <h2 class="text-3xl sm:text-3xl px-3">You are in. Check your inbox shortly.</h2>
+          <HeroTyping
+            class="text-base sm:text-lg text-base-content/70 px-3 mt-2"
+            phrases={['Subscription confirmed', 'Check your inbox', 'New issue drops weekly']}
+            loop={false}
+          />
+         <p class="px-3 mt-4 text-base-content/80 max-w-2xl">While you wait, pick your next step.</p>
+         <div class="px-3 mt-4 flex flex-wrap gap-3">
+           <a href="/blog" class="btn btn-primary" data-track-event="cta_click" data-track-source="thank_you_page" data-track-placement="thank_you_content_path" data-track-label="read-build-log">Read Build Log</a>
+           <a href="/service" class="btn btn-outline" data-track-event="work_with_me_click" data-track-source="thank_you_page" data-track-placement="thank_you_service_path" data-track-label="work-with-me">Work With Me</a>
+         </div>
+       </div>
     </div>
   </div>
 </div>

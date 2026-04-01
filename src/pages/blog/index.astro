@@ -1,6 +1,7 @@
 ---
 import PostsList from '../../components/legacy/PostsList.astro';
 import PageHeader from '../../components/shared/PageHeader.astro';
+import NewsletterCtaCard from '../../components/shared/NewsletterCtaCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { BLOG_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { getEntrySlug } from '../../utils/content';
@@ -62,10 +63,11 @@ const blogItemListSchema = {
     typingPhrases={['AI workflows', 'SaaS operations', 'Product strategy', 'Execution systems']}
   >
     <div class="mt-6 flex flex-wrap gap-3">
-      <a class="btn btn-primary" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-cta="book-call-blog-top">
-        Book a 15-minute call
+      <a class="btn btn-primary" href="/newsletter" data-track-event="cta_click" data-track-source="blog_index" data-track-placement="blog_index_top_newsletter" data-track-label="subscribe">
+        Subscribe for Weekly Builds
       </a>
-      <a class="btn btn-outline" href="/tags/">Browse by tag</a>
+      <a class="btn btn-outline" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-track-event="work_with_me_click" data-track-source="blog_index" data-track-placement="blog_index_top_work_with_me" data-track-label="book-call">Book a 15-minute call</a>
+      <a class="btn btn-ghost" href="/tags/">Browse by tag</a>
     </div>
   </PageHeader>
   <PostsList />

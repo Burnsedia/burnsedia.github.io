@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
+import NewsletterCtaCard from '../shared/NewsletterCtaCard.astro';
 import { getEntrySlug } from '../../utils/content';
 import { getNormalizedTags, getTagLabel } from '../../utils/tags';
 
@@ -33,7 +34,7 @@ const featuredPostSlug = featuredPost ? getEntrySlug(featuredPost.id) : null;
         </div>
       )}
       <div class="mt-6 flex flex-wrap gap-3">
-        <a class="btn btn-primary btn-sm" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-cta="book-call-featured">
+        <a class="btn btn-primary btn-sm" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-track-event="work_with_me_click" data-track-source="blog_index" data-track-placement="blog_featured_work_with_me" data-track-label="book-call-featured">
           Book a 15-minute call
         </a>
         <a class="btn btn-outline btn-sm" href={`/blog/${featuredPostSlug}/`}>Read article</a>
@@ -77,9 +78,16 @@ const featuredPostSlug = featuredPost ? getEntrySlug(featuredPost.id) : null;
       href="https://calendly.com/baileyburnsed/15min"
       target="_blank"
       rel="noopener noreferrer"
-      data-cta="book-call-bottom"
+      data-track-event="work_with_me_click"
+      data-track-source="blog_index"
+      data-track-placement="blog_index_bottom_work_with_me"
+      data-track-label="book-call-bottom"
     >
       Book a 15-minute call
     </a>
+  </section>
+
+  <section class="mt-6">
+    <NewsletterCtaCard placement="blog_index_bottom_newsletter" source="blog_index" />
   </section>
 </section>

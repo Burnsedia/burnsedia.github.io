@@ -24,9 +24,12 @@ Qualified Visits from organic search and social to priority pages.
 - Returning visitor ratio
 
 ### Conversion
-- Newsletter signups
-- Waitlist or lead submissions
-- Conversion rate from qualified visits
+- `newsletter_submit`
+- `github_sponsor_click`
+- `patreon_click`
+- `social_follow_click`
+- `work_with_me_click`
+- Conversion rate by `source` and `placement`
 
 ## Weekly Dashboard Fields
 - Week start and end
@@ -36,6 +39,8 @@ Qualified Visits from organic search and social to priority pages.
 - Social impressions/engagement/link clicks/follower net
 - GA4 sessions and engaged sessions
 - Conversions and conversion rate
+- Top converting placements
+- Top converting sources
 - Notes and confidence level
 
 ## Alert Rules

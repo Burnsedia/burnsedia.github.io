@@ -15,7 +15,8 @@ import HeroTyping from './HeroTyping.astro';
            prefix="Get"
            phrases={['Weekly build notes', 'Tactical AI workflows', 'No fluff, just execution', 'One useful email per week']}
          />
-        <form name="newsletter" method="POST" data-netlify="true" action="/thank-you" class="join">
+        <form name="newsletter" method="POST" data-netlify="true" action="/thank-you" class="join" data-track-source="newsletter_page" data-track-placement="newsletter_hero_form">
+  <input type="hidden" name="form-name" value="newsletter" />
   <div>
     <label class="input validator join-item">
       <svg
@@ -37,14 +38,21 @@ import HeroTyping from './HeroTyping.astro';
       <input
         type="email"
         name="email"
-        placeholder="mail@site.com"
+        autocomplete="email"
+        placeholder="you@company.com"
         required
       />
     </label>
     <div class="validator-hint hidden">Enter valid email address</div>
   </div>
-  <button type="submit" class="btn btn-neutral join-item">Join</button>
+  <button type="submit" class="btn btn-neutral join-item">Get Weekly Build Notes</button>
 </form>
+        <ul class="mt-4 px-4 text-sm text-base-content/75 space-y-1">
+          <li>Weekly software notes from real client and product work</li>
+          <li>Practical AI and developer workflow playbooks</li>
+          <li>Build-in-public lessons with real tradeoffs</li>
+        </ul>
+        <p class="px-4 mt-3 text-xs text-base-content/60">Unsubscribe anytime. No spam.</p>
       </div>
     </div>
   </div>
