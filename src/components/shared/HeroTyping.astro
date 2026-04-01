@@ -16,10 +16,10 @@ const {
   prefix,
   suffix,
   class: className = '',
-  typeSpeedMs = 85,
-  deleteSpeedMs = 55,
-  holdMs = 2400,
-  startDelayMs = 350,
+  typeSpeedMs = 110,
+  deleteSpeedMs = 70,
+  holdMs = 2800,
+  startDelayMs = 450,
   loop = false,
 } = Astro.props as Props;
 
@@ -68,7 +68,7 @@ const maxChars = Math.max(...sanitizedPhrases.map((phrase) => phrase.length), fi
           phrases = [];
         }
 
-        if (phrases.length < 2 || prefersReducedMotion) {
+        if (phrases.length === 0 || prefersReducedMotion) {
           return;
         }
 
@@ -77,6 +77,10 @@ const maxChars = Math.max(...sanitizedPhrases.map((phrase) => phrase.length), fi
         const hold = Number(element.dataset.hold ?? '1800');
         const startDelay = Number(element.dataset.startDelay ?? '250');
         const shouldLoop = element.dataset.loop !== 'false';
+
+        if (!shouldLoop) {
+          element.textContent = '';
+        }
 
         let phraseIndex = 0;
         let charIndex = 0;
@@ -110,7 +114,7 @@ const maxChars = Math.max(...sanitizedPhrases.map((phrase) => phrase.length), fi
             element.textContent = currentPhrase.slice(0, charIndex);
 
             if (charIndex >= currentPhrase.length) {
-              if (!shouldLoop && phraseIndex === phrases.length - 1) {
+              if (!shouldLoop) {
                 cancelTimer();
                 return;
               }

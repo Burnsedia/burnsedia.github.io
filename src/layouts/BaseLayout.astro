@@ -84,8 +84,7 @@ const {
           'main [data-anim="typing"]'
         ].join(', ');
 
-        const MAX_TARGETS = 220;
-        const MAX_TYPING_TARGETS = 48;
+        const MAX_TARGETS = 180;
 
         const shouldSkip = (element) => {
           if (!(element instanceof HTMLElement)) {
@@ -107,58 +106,6 @@ const {
           return false;
         };
 
-        const isShortTextNode = (element) => {
-          if (!(element instanceof HTMLElement)) {
-            return false;
-          }
-
-          if (element.children.length > 0) {
-            return false;
-          }
-
-          const text = element.textContent?.trim() ?? '';
-          return text.length > 0 && text.length <= 90;
-        };
-
-        const runTyping = (element, reduceMotion) => {
-          if (!(element instanceof HTMLElement) || element.dataset.animDone === 'true') {
-            return;
-          }
-
-          const fullText = (element.dataset.animText ?? element.textContent ?? '').trim();
-          if (!fullText.length) {
-            return;
-          }
-
-          if (reduceMotion) {
-            element.textContent = fullText;
-            element.dataset.animDone = 'true';
-            element.classList.add('is-done', 'is-visible');
-            return;
-          }
-
-          const speed = Number(element.dataset.typeSpeed ?? '18');
-          element.dataset.animText = fullText;
-          element.textContent = '';
-          element.classList.add('type-on-visible');
-
-          let index = 0;
-          const tick = () => {
-            index += 1;
-            element.textContent = fullText.slice(0, index);
-
-            if (index < fullText.length) {
-              window.setTimeout(tick, speed);
-              return;
-            }
-
-            element.dataset.animDone = 'true';
-            element.classList.add('is-done', 'is-visible');
-          };
-
-          tick();
-        };
-
         const initTextReveal = () => {
           const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
           const targets = Array.from(document.querySelectorAll(SELECTOR))
@@ -178,21 +125,9 @@ const {
             return;
           }
 
-          let typedCount = 0;
-
-          const revealOrType = (element, order) => {
-            const animMode = element.getAttribute('data-anim');
-            const canType = typedCount < MAX_TYPING_TARGETS && (animMode === 'typing' || isShortTextNode(element));
-
-            if (canType) {
-              typedCount += 1;
-              const delay = Math.min(order * 20, 260);
-              window.setTimeout(() => runTyping(element, reduceMotion), delay);
-              return;
-            }
-
+          const revealElement = (element, order) => {
             element.classList.add('reveal-on-visible');
-            element.style.setProperty('transition-delay', `${Math.min(order * 18, 260)}ms`);
+            element.style.setProperty('transition-delay', `${Math.min(order * 14, 180)}ms`);
             element.classList.add('is-visible');
             element.dataset.animDone = 'true';
           };
@@ -206,7 +141,7 @@ const {
 
                 const element = entry.target;
                 const order = Number(element.getAttribute('data-reveal-order') ?? '0');
-                revealOrType(element, order);
+                revealElement(element, order);
                 observer.unobserve(element);
               });
             },
@@ -224,7 +159,7 @@ const {
             const isInInitialViewport = rect.top < window.innerHeight * 0.9;
 
             if (isInInitialViewport) {
-              revealOrType(element, index);
+              revealElement(element, index);
               return;
             }
 
@@ -240,6 +175,107 @@ const {
         }
 
         document.addEventListener('astro:page-load', initTextReveal);
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const EVENT_NAMES = new Set([
+          'cta_click',
+          'newsletter_submit',
+          'github_sponsor_click',
+          'patreon_click',
+          'social_follow_click',
+          'work_with_me_click',
+        ]);
+
+        const RECENT_EVENT_WINDOW_MS = 500;
+        const recentEvents = new Map();
+
+        const getPageType = () => {
+          const path = window.location.pathname;
+          if (path === '/') return 'home';
+          if (path.startsWith('/blog/')) return path === '/blog/' ? 'blog_index' : 'blog_post';
+          if (path.startsWith('/newsletter')) return 'newsletter';
+          if (path.startsWith('/thank-you')) return 'thank_you';
+          if (path.startsWith('/service')) return 'service';
+          return 'other';
+        };
+
+        const track = (eventName, payload) => {
+          if (!EVENT_NAMES.has(eventName)) {
+            return;
+          }
+
+          const dedupeKey = `${eventName}:${payload.placement ?? 'na'}:${payload.label ?? 'na'}:${window.location.pathname}`;
+          const now = Date.now();
+          const previous = recentEvents.get(dedupeKey) ?? 0;
+          if (now - previous < RECENT_EVENT_WINDOW_MS) {
+            return;
+          }
+
+          recentEvents.set(dedupeKey, now);
+
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, payload);
+          }
+        };
+
+        const handleClick = (event) => {
+          const target = event.target instanceof Element ? event.target : null;
+          if (!target) {
+            return;
+          }
+
+          const element = target.closest('[data-track-event]');
+          if (!(element instanceof HTMLElement)) {
+            return;
+          }
+
+          const eventName = element.dataset.trackEvent;
+          if (!eventName) {
+            return;
+          }
+
+          track(eventName, {
+            source: element.dataset.trackSource ?? 'unknown',
+            placement: element.dataset.trackPlacement ?? 'unknown',
+            label: element.dataset.trackLabel ?? element.textContent?.trim() ?? 'unknown',
+            social_platform: element.dataset.trackPlatform,
+            destination_url: element instanceof HTMLAnchorElement ? element.href : undefined,
+            page_path: window.location.pathname,
+            page_type: getPageType(),
+          });
+        };
+
+        const handleNewsletterSubmit = (event) => {
+          const form = event.target;
+          if (!(form instanceof HTMLFormElement)) {
+            return;
+          }
+
+          if (form.name !== 'newsletter') {
+            return;
+          }
+
+          track('newsletter_submit', {
+            source: form.dataset.trackSource ?? 'newsletter_page',
+            placement: form.dataset.trackPlacement ?? 'newsletter_form',
+            label: 'newsletter-form-submit',
+            form_id: form.name,
+            page_path: window.location.pathname,
+            page_type: getPageType(),
+          });
+        };
+
+        const initTracking = () => {
+          document.removeEventListener('click', handleClick, true);
+          document.removeEventListener('submit', handleNewsletterSubmit, true);
+          document.addEventListener('click', handleClick, true);
+          document.addEventListener('submit', handleNewsletterSubmit, true);
+        };
+
+        initTracking();
+        document.addEventListener('astro:page-load', initTracking);
       })();
     </script>
   </body>
