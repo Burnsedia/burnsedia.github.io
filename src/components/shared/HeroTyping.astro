@@ -1,0 +1,187 @@
+---
+interface Props {
+  phrases: string[];
+  prefix?: string;
+  suffix?: string;
+  class?: string;
+  typeSpeedMs?: number;
+  deleteSpeedMs?: number;
+  holdMs?: number;
+  startDelayMs?: number;
+  loop?: boolean;
+}
+
+const {
+  phrases,
+  prefix,
+  suffix,
+  class: className = '',
+  typeSpeedMs = 55,
+  deleteSpeedMs = 35,
+  holdMs = 1800,
+  startDelayMs = 250,
+  loop = true,
+} = Astro.props as Props;
+
+const sanitizedPhrases = phrases.filter(Boolean);
+const firstPhrase = sanitizedPhrases[0] ?? '';
+const maxChars = Math.max(...sanitizedPhrases.map((phrase) => phrase.length), firstPhrase.length, 1);
+---
+
+<p class={className}>
+  {prefix && <span>{prefix} </span>}
+  <span
+    data-hero-typing
+    data-phrases={JSON.stringify(sanitizedPhrases)}
+    data-type-speed={String(typeSpeedMs)}
+    data-delete-speed={String(deleteSpeedMs)}
+    data-hold={String(holdMs)}
+    data-start-delay={String(startDelayMs)}
+    data-loop={loop ? 'true' : 'false'}
+    class="inline-block align-baseline"
+    style={`min-width: ${maxChars + 1}ch;`}
+  >{firstPhrase}</span>
+  {suffix && <span> {suffix}</span>}
+</p>
+
+<script is:inline>
+  (() => {
+    const initializeTyping = () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      document.querySelectorAll('[data-hero-typing]').forEach((element) => {
+        if (!(element instanceof HTMLElement) || element.dataset.typingInitialized === 'true') {
+          return;
+        }
+
+        element.dataset.typingInitialized = 'true';
+
+        const phraseValue = element.dataset.phrases ?? '[]';
+        let phrases = [];
+
+        try {
+          const parsed = JSON.parse(phraseValue);
+          if (Array.isArray(parsed)) {
+            phrases = parsed.filter((entry) => typeof entry === 'string' && entry.length > 0);
+          }
+        } catch {
+          phrases = [];
+        }
+
+        if (phrases.length < 2 || prefersReducedMotion) {
+          return;
+        }
+
+        const typeSpeed = Number(element.dataset.typeSpeed ?? '55');
+        const deleteSpeed = Number(element.dataset.deleteSpeed ?? '35');
+        const hold = Number(element.dataset.hold ?? '1800');
+        const startDelay = Number(element.dataset.startDelay ?? '250');
+        const shouldLoop = element.dataset.loop !== 'false';
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+        let completedCycles = 0;
+        let active = true;
+        let timeoutId = 0;
+
+        const cancelTimer = () => {
+          if (timeoutId) {
+            window.clearTimeout(timeoutId);
+            timeoutId = 0;
+          }
+        };
+
+        const queueNext = (delay) => {
+          cancelTimer();
+          timeoutId = window.setTimeout(tick, delay);
+        };
+
+        const tick = () => {
+          if (!active || !document.contains(element)) {
+            cancelTimer();
+            return;
+          }
+
+          const currentPhrase = phrases[phraseIndex] ?? phrases[0];
+
+          if (!deleting) {
+            charIndex += 1;
+            element.textContent = currentPhrase.slice(0, charIndex);
+
+            if (charIndex >= currentPhrase.length) {
+              if (!shouldLoop && phraseIndex === phrases.length - 1) {
+                cancelTimer();
+                return;
+              }
+
+              deleting = true;
+              queueNext(hold);
+              return;
+            }
+
+            queueNext(typeSpeed);
+            return;
+          }
+
+          charIndex -= 1;
+          element.textContent = currentPhrase.slice(0, Math.max(charIndex, 0));
+
+          if (charIndex <= 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+
+            if (phraseIndex === 0) {
+              completedCycles += 1;
+            }
+
+            if (!shouldLoop && completedCycles >= 1) {
+              element.textContent = phrases[phrases.length - 1] ?? '';
+              cancelTimer();
+              return;
+            }
+
+            queueNext(typeSpeed);
+            return;
+          }
+
+          queueNext(deleteSpeed);
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const [entry] = entries;
+            active = Boolean(entry?.isIntersecting) && document.visibilityState === 'visible';
+
+            if (active) {
+              queueNext(startDelay);
+            } else {
+              cancelTimer();
+            }
+          },
+          { threshold: 0.25 }
+        );
+
+        observer.observe(element);
+
+        document.addEventListener('visibilitychange', () => {
+          active = document.visibilityState === 'visible';
+
+          if (active) {
+            queueNext(startDelay);
+          } else {
+            cancelTimer();
+          }
+        });
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeTyping, { once: true });
+    } else {
+      initializeTyping();
+    }
+
+    document.addEventListener('astro:page-load', initializeTyping);
+  })();
+</script>
