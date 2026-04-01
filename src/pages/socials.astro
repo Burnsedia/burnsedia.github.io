@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/shared/PageHeader.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<BaseLayout
+  title={`Socials | ${SITE_TITLE}`}
+  description="Follow Burnsedia, support open builds, and connect for practical software execution."
+  canonical="/socials/"
+>
+  <PageHeader
+    eyebrow="Connect"
+    title="Follow the builds and support the mission"
+    description="Pick how you want to stay in the loop: follow updates, support with sponsorship, or work together directly."
+    typingPrefix="Choose"
+    typingPhrases={['Follow updates', 'Support open source', 'Work together']}
+  />
+
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-primary/25 bg-base-100/5 p-5 sm:p-6 shadow-[0_0_24px] shadow-primary/15">
+        <div class="space-y-6">
+          <section>
+            <h2 class="text-sm uppercase tracking-wide text-primary mb-3">Follow</h2>
+            <div class="flex flex-col gap-3">
+              <a href="https://github.com/Burnsedia" class="btn btn-outline w-full justify-between" target="_blank" rel="noopener noreferrer" data-track-event="social_follow_click" data-track-source="socials_page" data-track-placement="socials_follow" data-track-platform="github" data-track-label="github-follow">
+                <span>GitHub</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://x.com/baileyburnsed" class="btn btn-outline w-full justify-between" target="_blank" rel="noopener noreferrer" data-track-event="social_follow_click" data-track-source="socials_page" data-track-placement="socials_follow" data-track-platform="x" data-track-label="x-follow">
+                <span>X</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://www.linkedin.com/in/bailey-burnsed-50051115a/" class="btn btn-outline w-full justify-between" target="_blank" rel="noopener noreferrer" data-track-event="social_follow_click" data-track-source="socials_page" data-track-placement="socials_follow" data-track-platform="linkedin" data-track-label="linkedin-follow">
+                <span>LinkedIn</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-sm uppercase tracking-wide text-primary mb-3">Support</h2>
+            <div class="flex flex-col gap-3">
+              <a href="https://github.com/sponsors/Burnsedia" class="btn btn-primary btn-outline w-full justify-between" target="_blank" rel="noopener noreferrer" data-track-event="github_sponsor_click" data-track-source="socials_page" data-track-placement="socials_support" data-track-label="github-sponsor">
+                <span>GitHub Sponsors</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://www.patreon.com/burnsedia" class="btn btn-outline w-full justify-between" target="_blank" rel="noopener noreferrer" data-track-event="patreon_click" data-track-source="socials_page" data-track-placement="socials_support" data-track-label="patreon">
+                <span>Patreon</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-sm uppercase tracking-wide text-primary mb-3">Need Execution?</h2>
+            <div class="flex flex-col gap-3">
+              <a href="/service" class="btn btn-outline w-full justify-between" data-track-event="work_with_me_click" data-track-source="socials_page" data-track-placement="socials_client" data-track-label="work-with-me">
+                <span>Work With Me</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <a href="/newsletter" class="btn btn-outline w-full justify-between" data-track-event="cta_click" data-track-source="socials_page" data-track-placement="socials_client_newsletter" data-track-label="newsletter">
+                <span>Get Weekly Build Notes</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
