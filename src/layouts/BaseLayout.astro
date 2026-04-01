@@ -65,5 +65,97 @@ const {
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      (() => {
+        const SELECTOR = [
+          'main section h1',
+          'main section h2',
+          'main section h3',
+          'main section p',
+          'main section li',
+          'main section blockquote',
+          'main .blog-markdown h4',
+          'main .blog-markdown h5',
+          'main .blog-markdown h6'
+        ].join(', ');
+
+        const MAX_TARGETS = 180;
+
+        const shouldSkip = (element) => {
+          if (!(element instanceof HTMLElement)) {
+            return true;
+          }
+
+          if (element.dataset.animIgnore === 'true') {
+            return true;
+          }
+
+          if (element.closest('header, footer, nav, pre, code, table, thead, tbody, tfoot')) {
+            return true;
+          }
+
+          if (element.classList.contains('btn') || element.classList.contains('badge')) {
+            return true;
+          }
+
+          return false;
+        };
+
+        const initTextReveal = () => {
+          const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const targets = Array.from(document.querySelectorAll(SELECTOR))
+            .filter((node) => !shouldSkip(node))
+            .slice(0, MAX_TARGETS);
+
+          if (!targets.length) {
+            return;
+          }
+
+          if (reduceMotion) {
+            targets.forEach((element) => {
+              element.classList.remove('reveal-on-visible');
+              element.classList.add('is-visible');
+              element.style.removeProperty('transition-delay');
+            });
+            return;
+          }
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                  return;
+                }
+
+                const element = entry.target;
+                const order = Number(element.getAttribute('data-reveal-order') ?? '0');
+                element.style.setProperty('transition-delay', `${Math.min(order * 18, 260)}ms`);
+                element.classList.add('is-visible');
+                observer.unobserve(element);
+              });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+          );
+
+          targets.forEach((element, index) => {
+            if (element.classList.contains('is-visible')) {
+              return;
+            }
+
+            element.setAttribute('data-reveal-order', String(index));
+            element.classList.add('reveal-on-visible');
+            observer.observe(element);
+          });
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initTextReveal, { once: true });
+        } else {
+          initTextReveal();
+        }
+
+        document.addEventListener('astro:page-load', initTextReveal);
+      })();
+    </script>
   </body>
 </html>

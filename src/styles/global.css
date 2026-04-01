@@ -150,3 +150,25 @@ img {
 .blog-markdown :where(th) {
 	background-color: var(--color-base-200);
 }
+
+.reveal-on-visible {
+	opacity: 0;
+	transform: translateY(0.5rem);
+	transition-property: opacity, transform;
+	transition-duration: 360ms;
+	transition-timing-function: ease;
+	will-change: opacity, transform;
+}
+
+.reveal-on-visible.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal-on-visible {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
