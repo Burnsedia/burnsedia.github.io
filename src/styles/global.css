@@ -59,9 +59,6 @@ strong
 b {
 	color: var(--color-base-content);
 }
-p{
-  padding: 10px;
-}
 nav a {
 	margin-right: 10px;
 }
