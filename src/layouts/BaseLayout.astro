@@ -71,15 +71,21 @@ const {
           'main section h1',
           'main section h2',
           'main section h3',
+          'main section h4',
+          'main section h5',
+          'main section h6',
           'main section p',
           'main section li',
           'main section blockquote',
-          'main .blog-markdown h4',
-          'main .blog-markdown h5',
-          'main .blog-markdown h6'
+          'main .blog-markdown p',
+          'main .blog-markdown li',
+          'main .blog-markdown blockquote',
+          'main [data-anim="reveal"]',
+          'main [data-anim="typing"]'
         ].join(', ');
 
-        const MAX_TARGETS = 180;
+        const MAX_TARGETS = 220;
+        const MAX_TYPING_TARGETS = 48;
 
         const shouldSkip = (element) => {
           if (!(element instanceof HTMLElement)) {
@@ -90,7 +96,7 @@ const {
             return true;
           }
 
-          if (element.closest('header, footer, nav, pre, code, table, thead, tbody, tfoot')) {
+          if (element.closest('header, footer, nav, pre, code, table, thead, tbody, tfoot, textarea, input, select, button')) {
             return true;
           }
 
@@ -99,6 +105,58 @@ const {
           }
 
           return false;
+        };
+
+        const isShortTextNode = (element) => {
+          if (!(element instanceof HTMLElement)) {
+            return false;
+          }
+
+          if (element.children.length > 0) {
+            return false;
+          }
+
+          const text = element.textContent?.trim() ?? '';
+          return text.length > 0 && text.length <= 90;
+        };
+
+        const runTyping = (element, reduceMotion) => {
+          if (!(element instanceof HTMLElement) || element.dataset.animDone === 'true') {
+            return;
+          }
+
+          const fullText = (element.dataset.animText ?? element.textContent ?? '').trim();
+          if (!fullText.length) {
+            return;
+          }
+
+          if (reduceMotion) {
+            element.textContent = fullText;
+            element.dataset.animDone = 'true';
+            element.classList.add('is-done', 'is-visible');
+            return;
+          }
+
+          const speed = Number(element.dataset.typeSpeed ?? '18');
+          element.dataset.animText = fullText;
+          element.textContent = '';
+          element.classList.add('type-on-visible');
+
+          let index = 0;
+          const tick = () => {
+            index += 1;
+            element.textContent = fullText.slice(0, index);
+
+            if (index < fullText.length) {
+              window.setTimeout(tick, speed);
+              return;
+            }
+
+            element.dataset.animDone = 'true';
+            element.classList.add('is-done', 'is-visible');
+          };
+
+          tick();
         };
 
         const initTextReveal = () => {
@@ -120,6 +178,25 @@ const {
             return;
           }
 
+          let typedCount = 0;
+
+          const revealOrType = (element, order) => {
+            const animMode = element.getAttribute('data-anim');
+            const canType = typedCount < MAX_TYPING_TARGETS && (animMode === 'typing' || isShortTextNode(element));
+
+            if (canType) {
+              typedCount += 1;
+              const delay = Math.min(order * 20, 260);
+              window.setTimeout(() => runTyping(element, reduceMotion), delay);
+              return;
+            }
+
+            element.classList.add('reveal-on-visible');
+            element.style.setProperty('transition-delay', `${Math.min(order * 18, 260)}ms`);
+            element.classList.add('is-visible');
+            element.dataset.animDone = 'true';
+          };
+
           const observer = new IntersectionObserver(
             (entries) => {
               entries.forEach((entry) => {
@@ -129,8 +206,7 @@ const {
 
                 const element = entry.target;
                 const order = Number(element.getAttribute('data-reveal-order') ?? '0');
-                element.style.setProperty('transition-delay', `${Math.min(order * 18, 260)}ms`);
-                element.classList.add('is-visible');
+                revealOrType(element, order);
                 observer.unobserve(element);
               });
             },
@@ -143,6 +219,15 @@ const {
             }
 
             element.setAttribute('data-reveal-order', String(index));
+
+            const rect = element.getBoundingClientRect();
+            const isInInitialViewport = rect.top < window.innerHeight * 0.9;
+
+            if (isInInitialViewport) {
+              revealOrType(element, index);
+              return;
+            }
+
             element.classList.add('reveal-on-visible');
             observer.observe(element);
           });
