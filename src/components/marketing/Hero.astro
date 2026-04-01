@@ -1,7 +1,7 @@
 ---
 import { SITE_DESCRIPTION } from '../../consts';
+import { Typing } from '../typing';
 import HeroLogo from '../shared/HeroLogo.astro';
-import HeroTyping from '../shared/HeroTyping.astro';
 ---
 
 <div class="hero py-12 noise">
@@ -12,11 +12,7 @@ import HeroTyping from '../shared/HeroTyping.astro';
     <div class="">
       <div class="items-center px-3 ">
          <h1 class="text-2xl sm:text-6xl font-bold px-3">{SITE_DESCRIPTION}</h1>
-         <HeroTyping
-           class="text-lg sm:text-3xl px-3 mt-2 text-base-content/80"
-           prefix="I ship"
-           phrases={['Mobile apps', 'Web platforms', 'AI tools', 'Open software']}
-         />
+          <Typing client:load />
       </div>
       <div class="px-3 py-6">
         <h2 class="text-2xl font-bold">Here's how it works:</h2>
