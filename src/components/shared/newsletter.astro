@@ -1,5 +1,6 @@
 ---
 import HeroLogo from './HeroLogo.astro';
+import HeroTyping from './HeroTyping.astro';
 ---
 <div class="hero py-12 w-full noise">
   <div class="hero-content flex-col lg:flex-row w-full">
@@ -9,6 +10,11 @@ import HeroLogo from './HeroLogo.astro';
     <div class="">
       <div class="items-center px-3 ">
          <h1 class="text-4xl sm:text-6xl font-bold p-4">Join the Newsletter</h1>
+         <HeroTyping
+           class="px-4 mt-1 text-base sm:text-lg text-base-content/80"
+           prefix="Get"
+           phrases={['Weekly build notes', 'Tactical AI workflows', 'No fluff, just execution', 'One useful email per week']}
+         />
         <form name="newsletter" method="POST" data-netlify="true" action="/thank-you" class="join">
   <div>
     <label class="input validator join-item">

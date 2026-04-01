@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroTyping from '../components/shared/HeroTyping.astro';
 import HeroLogo from '../components/shared/HeroLogo.astro';
 import { SITE_TITLE } from '../consts';
 ---
@@ -18,6 +19,11 @@ import { SITE_TITLE } from '../consts';
         <p class="text-lg sm:text-xl text-base-content/80 max-w-3xl mb-8">
           No hype. No lock-in. No vaporware. I help founders and small businesses ship practical systems that are maintainable and actually useful.
         </p>
+        <HeroTyping
+          class="text-base sm:text-xl text-base-content/80 mb-6"
+          prefix="I focus on"
+          phrases={['Product velocity', 'Systems ownership', 'Clear delivery', 'Sustainable growth']}
+        />
         <a href="/service" class="btn btn-primary">Work With Me</a>
       </div>
     </div>

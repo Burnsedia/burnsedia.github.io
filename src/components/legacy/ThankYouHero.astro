@@ -1,5 +1,6 @@
 ---
 import HeroLogo from '../shared/HeroLogo.astro';
+import HeroTyping from '../shared/HeroTyping.astro';
 ---
 <div class="hero py-12 w-full noise">
   <div class="hero-content flex-col lg:flex-row w-full">
@@ -10,6 +11,11 @@ import HeroLogo from '../shared/HeroLogo.astro';
       <div class="items-center px-3 ">
          <h1 class="text-4xl sm:text-6xl font-bold px-3">Thank You</h1>
          <h2 class="text-3xl sm:text-3xl px-3">See your shortly</h2>
+         <HeroTyping
+           class="text-base sm:text-lg text-base-content/70 px-3 mt-2"
+           phrases={['Subscription confirmed', 'Check your inbox', 'New issue drops weekly']}
+           loop={false}
+         />
       </div>
     </div>
   </div>
