@@ -37,32 +37,6 @@ const isServicePage = pathname.startsWith('/service');
 const includeBusinessSchema = isHomePage || isServicePage;
 const isProd = import.meta.env.PROD;
 const enableAnalytics = isProd;
-
-const keywords = [
-  "Bailey Burnsed","Burnsedia","Software consulting","Custom software development","Full stack developer",
-  "AI consulting","Artificial Intelligence strategy","LLM integration","LangChain expert","GPT-4 developer",
-  "Django developer","Vue.js expert","Flutter mobile developer","DevOps consultant","Serverless architecture",
-  "CI/CD pipelines","Kubernetes & Docker","IT audit services","technology risk assessment","Cloud cost optimization",
-  "AWS certified developer","GCP deployments","Azure expert",
-  "Atlanta software development","Metro Atlanta software consultant","Freelance developer Atlanta",
-  "East Point software consultant","College Park AI developer","Hapeville software developer",
-  "Atlanta custom websites","Metro Atlanta custom websites","East Point custom websites",
-  "College Park website developer","Hapeville website design","Atlanta small business technology",
-  "Custom website design and development","Small business IT services","Small business tech consulting",
-  "Affordable websites for small business Atlanta","CRM setup for small business","Ecommerce websites Atlanta",
-  "Booking and scheduling software","Payment processor integration","Local SEO consulting Atlanta",
-  "Python tutoring Atlanta","Programming lessons East Point","DevOps tutoring","Linux tutoring",
-  "Neovim productivity training","Cloud computing classes","AI and ChatGPT tutoring",
-  "Game development tutoring Godot","Flutter app dev tutoring",
-  "Indie game development Atlanta","Godot game engine developer","Game design consulting",
-  "Cross platform game builds","Steam and itch.io publishing support","Open source game dev tools",
-  "BulkPost social media automation","Virtue Tracker productivity and issue tracker",
-  "Client portal SaaS","Appointment booking SaaS","Lead generation SaaS for developers",
-  "AI agents for marketing and analytics","Bookkeeping SaaS for freelancers","DIY SaaS templates",
-  "White label SaaS deployment","API integrations for small business",
-  "Astro Vue Django developer","PostgreSQL optimization","Docker and Kubernetes consulting",
-  "Fly.io developer","Netlify developer","Linux server setup and optimization"
-].join(", ");
 ---
 
 <!-- ====================================================================== -->
@@ -105,7 +79,6 @@ const keywords = [
 <meta name="language" content="en" />
 <meta name="robots" content={robots} />
 <meta name="author" content={author} />
-<meta name="keywords" content={keywords} />
 
 <!-- Geo tags for local SEO -->
 <meta name="geo.region" content="US-GA" />

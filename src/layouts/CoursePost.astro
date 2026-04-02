@@ -1,22 +1,34 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/legacy/FormattedDate.astro';
+import { SITE_TITLE } from '../consts';
+import { getEntrySlug } from '../utils/content';
 import BaseLayout from './BaseLayout.astro';
 
 const post = Astro.props as CollectionEntry<'courses'>;
 const { Content } = await render(post);
-const { title, pubDate, updatedDate, heroImage } = post.data;
+const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
+const slug = getEntrySlug(post.id);
 ---
-<BaseLayout>
+<BaseLayout
+  title={`${title} | ${SITE_TITLE}`}
+  description={description}
+  image={heroImage}
+  type="article"
+  canonical={`/courses/${slug}/`}
+  publishedTime={pubDate.toISOString()}
+  updatedTime={updatedDate ? updatedDate.toISOString() : undefined}
+  tags={tags}
+>
   <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
-    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt="" />}
+    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt={title} />}
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
     <div class="text-center">
       <FormattedDate date={pubDate} />
       {updatedDate && <div class="last-updated-on">Last updated on <FormattedDate date={updatedDate} /></div>}
     </div>
     <hr />
-    <div class="prose lg:prose-lg max-w-none text-base-content">
+    <div class="blog-markdown prose lg:prose-lg max-w-none text-base-content">
       <Content />
     </div>
   </article>
