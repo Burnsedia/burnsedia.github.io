@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import CoursePost from '../../../layouts/CoursePost.astro';
+import { groupCourseLessons } from '../../../utils/courses';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('courses');
+  const groupedCourses = groupCourseLessons(entries);
+
+  return groupedCourses.flatMap((course) =>
+    course.lessons.map((lesson, index) => ({
+      params: {
+        course: course.slug,
+        lesson: lesson.lessonSlug,
+      },
+      props: {
+        post: lesson.entry,
+        courseSlug: course.slug,
+        courseTitle: course.title,
+        previousLesson: course.lessons[index - 1]
+          ? {
+              title: course.lessons[index - 1].entry.data.title,
+              href: `/courses/${course.slug}/${course.lessons[index - 1].lessonSlug}/`,
+            }
+          : undefined,
+        nextLesson: course.lessons[index + 1]
+          ? {
+              title: course.lessons[index + 1].entry.data.title,
+              href: `/courses/${course.slug}/${course.lessons[index + 1].lessonSlug}/`,
+            }
+          : undefined,
+      },
+    }))
+  );
+}
+---
+
+<CoursePost {...Astro.props} />

@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../../../consts';
+import { groupCourseLessons } from '../../../utils/courses';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('courses');
+  const groupedCourses = groupCourseLessons(entries);
+
+  return groupedCourses.map((course) => ({
+    params: { course: course.slug },
+    props: { course },
+  }));
+}
+
+interface CourseIndexProps {
+  course: {
+    slug: string;
+    title: string;
+    description: string;
+    lessons: Array<{
+      lessonSlug: string;
+      entry: {
+        data: {
+          title: string;
+          description: string;
+          pubDate: Date;
+        };
+      };
+    }>;
+  };
+}
+
+const { course } = Astro.props as CourseIndexProps;
+---
+
+<BaseLayout
+  title={`${course.title} | Courses | ${SITE_TITLE}`}
+  description={course.description}
+  canonical={`/courses/${course.slug}/`}
+>
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <a class="btn btn-ghost btn-sm" href="/courses/">← All courses</a>
+      <header class="mt-4 mb-10">
+        <p class="text-sm uppercase tracking-wide text-primary">Course</p>
+        <h1 class="mt-2 text-3xl font-bold sm:text-5xl">{course.title}</h1>
+        <p class="mt-4 max-w-3xl text-base-content/75">{course.description}</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="badge badge-outline">{course.lessons.length} lessons</span>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {course.lessons.map((lesson, index) => (
+          <article class="card border border-base-content/10 bg-base-100/5 shadow-sm transition hover:shadow-lg">
+            <div class="card-body gap-3">
+              <div class="flex items-center gap-2 text-sm">
+                <span class="badge badge-primary badge-sm">Lesson {index + 1}</span>
+                <time datetime={lesson.entry.data.pubDate.toISOString()} class="text-base-content/60">
+                  {lesson.entry.data.pubDate.toLocaleDateString('en-us', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </time>
+              </div>
+              <h2 class="card-title text-xl">{lesson.entry.data.title}</h2>
+              <p class="text-base-content/75">{lesson.entry.data.description}</p>
+              <div class="card-actions mt-2 justify-between">
+                <a class="btn btn-primary btn-sm" href={`/courses/${course.slug}/${lesson.lessonSlug}/`}>
+                  {index === 0 ? 'Start lesson' : 'Open lesson'}
+                </a>
+                <a class="btn btn-ghost btn-sm" href={`/courses/${course.slug}/${lesson.lessonSlug}/`}>View details</a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
