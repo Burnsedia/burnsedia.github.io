@@ -1,0 +1,61 @@
+---
+import type { CourseGroup } from '../../utils/courses';
+
+interface Props {
+  courses: CourseGroup[];
+}
+
+const { courses } = Astro.props as Props;
+
+const [featuredCourse, ...remainingCourses] = courses;
+---
+
+<section class="w-full max-w-5xl px-4 pb-12">
+  {featuredCourse && (
+    <article class="mb-10 rounded-2xl border border-primary/40 bg-base-200/30 p-6">
+      <p class="mb-2 text-xs uppercase tracking-wide text-primary">Featured Course</p>
+      <a href={`/courses/${featuredCourse.slug}/`} class="block">
+        <h2 class="text-3xl font-bold leading-tight transition-colors hover:text-primary">{featuredCourse.title}</h2>
+      </a>
+      <p class="mt-3 text-base text-base-content/85">{featuredCourse.description}</p>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-base-content/70">
+        <span class="badge badge-outline badge-sm">{featuredCourse.lessons.length} lessons</span>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="btn btn-primary btn-sm" href={`/courses/${featuredCourse.slug}/`}>Start course</a>
+        <a class="btn btn-outline btn-sm" href={`/courses/${featuredCourse.slug}/`}>View syllabus</a>
+      </div>
+    </article>
+  )}
+
+  <div class="space-y-0">
+    {remainingCourses.map((course) => (
+      <article class="border-t border-primary/40 py-6">
+        <div class="mb-2 flex flex-wrap items-center gap-3 text-sm text-base-content/70">
+          <span class="badge badge-outline badge-sm">{course.lessons.length} lessons</span>
+        </div>
+        <a href={`/courses/${course.slug}/`} class="block">
+          <h3 class="text-2xl font-semibold leading-snug transition-colors hover:text-primary">{course.title}</h3>
+        </a>
+        <p class="mt-2 text-base text-base-content/80">{course.description}</p>
+      </article>
+    ))}
+  </div>
+
+  <section class="mt-10 rounded-2xl border border-base-300 bg-base-200/30 p-6 text-center">
+    <h3 class="text-2xl font-bold">Want help implementing this in your stack?</h3>
+    <p class="mt-2 text-base-content/80">I help teams ship practical systems with clear tradeoffs and clean ownership.</p>
+    <a
+      class="btn btn-primary mt-4"
+      href="https://calendly.com/baileyburnsed/15min"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-track-event="work_with_me_click"
+      data-track-source="courses_index"
+      data-track-placement="courses_index_bottom_work_with_me"
+      data-track-label="book-call-bottom"
+    >
+      Book a 15-minute call
+    </a>
+  </section>
+</section>
