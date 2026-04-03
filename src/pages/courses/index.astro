@@ -1,45 +1,71 @@
 ---
 import { getCollection } from 'astro:content';
+import CoursesList from '../../components/legacy/CoursesList.astro';
+import PageHeader from '../../components/shared/PageHeader.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
 import { groupCourseLessons } from '../../utils/courses';
 
 const entries = await getCollection('courses');
 const courses = groupCourseLessons(entries);
+
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const coursesBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Courses',
+      item: toAbsoluteUrl('/courses/'),
+    },
+  ],
+};
+
+const coursesItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Burnsedia Courses',
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  numberOfItems: courses.length,
+  itemListElement: courses.map((course, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: toAbsoluteUrl(`/courses/${course.slug}/`),
+    name: course.title,
+    description: `${course.description} (${course.lessons.length} lessons)`,
+  })),
+};
 ---
 <BaseLayout
   title={`Courses | ${SITE_TITLE}`}
   description="Browse practical software courses with structured lesson paths and production-focused implementation guides."
   canonical="/courses/"
 >
-  <section class="w-full py-16 md:py-20 noise">
-    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-10 text-center">
-        <p class="text-sm uppercase tracking-wide text-primary">Course Directory</p>
-        <h1 class="mt-2 text-3xl font-bold sm:text-5xl">Structured paths, practical outcomes</h1>
-        <p class="mx-auto mt-4 max-w-3xl text-base-content/75">
-          Pick a course path and move lesson by lesson. Every lesson links to the next step so you can ship without getting lost.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {courses.map((course) => (
-          <article class="card border border-base-content/10 bg-base-100/5 shadow-md transition hover:shadow-xl">
-            <div class="card-body gap-4">
-              <div class="flex flex-wrap items-center gap-2 text-sm">
-                <span class="badge badge-primary badge-sm">Course</span>
-                <span class="badge badge-outline badge-sm">{course.lessons.length} lessons</span>
-              </div>
-              <h2 class="card-title text-2xl">{course.title}</h2>
-              <p class="text-base-content/75">{course.description}</p>
-              <div class="card-actions mt-2 justify-between">
-                <a class="btn btn-primary btn-sm" href={`/courses/${course.slug}/`}>Start course</a>
-                <a class="btn btn-ghost btn-sm" href={`/courses/${course.slug}/`}>View syllabus</a>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+  <script type="application/ld+json" set:html={JSON.stringify(coursesBreadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(coursesItemListSchema)} />
+  <PageHeader
+    eyebrow="Course Directory"
+    title="Structured paths, practical outcomes"
+    description="Pick a course path and move lesson by lesson. Every lesson links to the next step so you can ship without getting lost."
+    typingPrefix="Tracks"
+    typingPhrases={['Django', 'DRF', 'SaaS systems', 'Shipping workflows']}
+  >
+    <div class="mt-6 flex flex-wrap gap-3">
+      {courses[0] && <a class="btn btn-primary" href={`/courses/${courses[0].slug}/`}>Start course</a>}
+      <a class="btn btn-outline" href="/blog">Read build log</a>
+      <a class="btn btn-ghost" href="/projects">Browse projects</a>
     </div>
-  </section>
+  </PageHeader>
+
+  <CoursesList courses={courses} />
 </BaseLayout>

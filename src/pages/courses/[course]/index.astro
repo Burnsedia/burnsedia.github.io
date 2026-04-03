@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
+import CourseLessonsList from '../../../components/legacy/CourseLessonsList.astro';
+import PageHeader from '../../../components/shared/PageHeader.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../../consts';
-import { groupCourseLessons } from '../../../utils/courses';
+import { groupCourseLessons, type CourseGroup } from '../../../utils/courses';
 
 export async function getStaticPaths() {
   const entries = await getCollection('courses');
@@ -14,25 +16,50 @@ export async function getStaticPaths() {
   }));
 }
 
-interface CourseIndexProps {
-  course: {
-    slug: string;
-    title: string;
-    description: string;
-    lessons: Array<{
-      lessonSlug: string;
-      entry: {
-        data: {
-          title: string;
-          description: string;
-          pubDate: Date;
-        };
-      };
-    }>;
-  };
-}
+const { course } = Astro.props as { course: CourseGroup };
 
-const { course } = Astro.props as CourseIndexProps;
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const courseBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Courses',
+      item: toAbsoluteUrl('/courses/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: course.title,
+      item: toAbsoluteUrl(`/courses/${course.slug}/`),
+    },
+  ],
+};
+
+const lessonsItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `${course.title} Lessons`,
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  numberOfItems: course.lessons.length,
+  itemListElement: course.lessons.map((lesson, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: toAbsoluteUrl(`/courses/${course.slug}/${lesson.lessonSlug}/`),
+    name: lesson.entry.data.title,
+    description: lesson.entry.data.description,
+  })),
+};
 ---
 
 <BaseLayout
@@ -40,44 +67,21 @@ const { course } = Astro.props as CourseIndexProps;
   description={course.description}
   canonical={`/courses/${course.slug}/`}
 >
-  <section class="w-full py-16 md:py-20 noise">
-    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-      <a class="btn btn-ghost btn-sm" href="/courses/">← All courses</a>
-      <header class="mt-4 mb-10">
-        <p class="text-sm uppercase tracking-wide text-primary">Course</p>
-        <h1 class="mt-2 text-3xl font-bold sm:text-5xl">{course.title}</h1>
-        <p class="mt-4 max-w-3xl text-base-content/75">{course.description}</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="badge badge-outline">{course.lessons.length} lessons</span>
-        </div>
-      </header>
-
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-        {course.lessons.map((lesson, index) => (
-          <article class="card border border-base-content/10 bg-base-100/5 shadow-sm transition hover:shadow-lg">
-            <div class="card-body gap-3">
-              <div class="flex items-center gap-2 text-sm">
-                <span class="badge badge-primary badge-sm">Lesson {index + 1}</span>
-                <time datetime={lesson.entry.data.pubDate.toISOString()} class="text-base-content/60">
-                  {lesson.entry.data.pubDate.toLocaleDateString('en-us', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })}
-                </time>
-              </div>
-              <h2 class="card-title text-xl">{lesson.entry.data.title}</h2>
-              <p class="text-base-content/75">{lesson.entry.data.description}</p>
-              <div class="card-actions mt-2 justify-between">
-                <a class="btn btn-primary btn-sm" href={`/courses/${course.slug}/${lesson.lessonSlug}/`}>
-                  {index === 0 ? 'Start lesson' : 'Open lesson'}
-                </a>
-                <a class="btn btn-ghost btn-sm" href={`/courses/${course.slug}/${lesson.lessonSlug}/`}>View details</a>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+  <script type="application/ld+json" set:html={JSON.stringify(courseBreadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(lessonsItemListSchema)} />
+  <PageHeader
+    eyebrow="Course"
+    title={course.title}
+    description={course.description}
+    typingPrefix="Path"
+    typingPhrases={['Lesson by lesson', 'Production-ready patterns', 'Practical implementation']}
+  >
+    <div class="mt-6 flex flex-wrap gap-3">
+      {course.lessons[0] && <a class="btn btn-primary" href={`/courses/${course.slug}/${course.lessons[0].lessonSlug}/`}>Start lesson</a>}
+      <a class="btn btn-outline" href="/courses/">All courses</a>
+      <span class="badge badge-outline self-center">{course.lessons.length} lessons</span>
     </div>
-  </section>
+  </PageHeader>
+
+  <CourseLessonsList course={course} />
 </BaseLayout>
