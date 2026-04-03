@@ -6,6 +6,51 @@
   NODE_VERSION = "24.2.0"
   PUBLIC_GA_ID = "G-LRMSZ4V1XG"
 
+[[redirects]]
+  from = "/courses/lesson-01-getting-started-with-django-on-flyio/"
+  to = "/courses/django-saas-foundations/lesson-01-getting-started-with-django-on-flyio/"
+  status = 301
+
+[[redirects]]
+  from = "/courses/lesson-02-building-a-rest-api-with-django-and-drf/"
+  to = "/courses/django-saas-foundations/lesson-02-building-a-rest-api-with-django-and-drf/"
+  status = 301
+
+[[redirects]]
+  from = "/courses/lesson-03-adding-authentication-with-djoser-and-simplejwt/"
+  to = "/courses/django-saas-foundations/lesson-03-adding-authentication-with-djoser-and-simplejwt/"
+  status = 301
+
+[[redirects]]
+  from = "/courses/lesson-04-connecting-django-and-vuejs/"
+  to = "/courses/django-saas-foundations/lesson-04-connecting-django-and-vuejs/"
+  status = 301
+
+[[redirects]]
+  from = "/courses/lesson-05-django-ci-cd-pipeline-with-github-actions/"
+  to = "/courses/django-saas-foundations/lesson-05-django-ci-cd-pipeline-with-github-actions/"
+  status = 301
+
+[[redirects]]
+  from = "/courses/lesson-06-how-to-use-django-for-multi-tenant-saas/"
+  to = "/courses/django-saas-foundations/lesson-06-how-to-use-django-for-multi-tenant-saas/"
+  status = 301
+
+[[redirects]]
+  from = "/courses/lesson-07-how-i-build-mvps-in-7-days/"
+  to = "/courses/django-saas-foundations/lesson-07-how-i-build-mvps-in-7-days/"
+  status = 301
+
+[[redirects]]
+  from = "/courses/lesson-08-how-to-build-white-label-saas-for-clients/"
+  to = "/courses/django-saas-foundations/lesson-08-how-to-build-white-label-saas-for-clients/"
+  status = 301
+
+[[redirects]]
+  from = "/courses/lesson-09-how-to-turn-your-github-into-a-lead-magnet/"
+  to = "/courses/django-saas-foundations/lesson-09-how-to-turn-your-github-into-a-lead-magnet/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -15,4 +60,3 @@
       connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com;
       img-src 'self' data: https://www.google-analytics.com;
     """
-
