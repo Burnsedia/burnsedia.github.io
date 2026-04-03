@@ -1,9 +1,18 @@
 ---
 title: "The $5 Fly.io Stack — Deploying Django and Vue for Indie Founders"
 description: "How I run full-stack SaaS apps for $5/month using Fly.io, Docker, and PostgreSQL — perfect for indie founders and freelancers."
+seoTitle: "Deploy Django + Vue on Fly.io for $5/Month"
+seoDescription: "Step-by-step Fly.io deployment for Django and Vue with Docker and Postgres. Low-cost setup, practical commands, and production tradeoffs."
 pubDate: "Oct 23 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["Fly.io", "Django", "Vue.js", "Docker", "indie dev", "hosting"]
+faq:
+  - question: "Can I run Django and Vue on Fly.io for around $5/month?"
+    answer: "Yes, for early-stage products with modest traffic. Start small with one app VM and right-size as usage grows."
+  - question: "Do I need Docker to deploy on Fly.io?"
+    answer: "You can deploy without writing everything from scratch, but a Docker-first setup gives you repeatable local and production behavior."
+  - question: "When should I move beyond the $5 setup?"
+    answer: "Move up when response times, queue backlog, or database pressure affect user experience. Scale by bottleneck, not by fear."
 ---
 
 # The $5 Fly.io Stack — Deploying Django and Vue for Indie Founders

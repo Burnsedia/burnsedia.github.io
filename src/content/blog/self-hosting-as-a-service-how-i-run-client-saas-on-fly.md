@@ -1,9 +1,18 @@
 ---
 title: "Self-Hosting as a Service: How I Run Client SaaS on Fly.io"
 description: "How I combine Docker, Django, and Fly.io to deliver white-label SaaS apps that clients fully own — the self-hosting model that keeps performance high and costs low."
+seoTitle: "Run Client SaaS on Fly.io: Self-Hosting as a Service"
+seoDescription: "How to deliver client-owned SaaS with Django, Docker, and Fly.io. Practical deployment model for predictable cost and control."
 pubDate: "Dec 16 2025"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["Fly.io", "Docker", "Django", "DevOps", "SaaS", "self-hosting"]
+faq:
+  - question: "What does self-hosting as a service mean for clients?"
+    answer: "Clients get ownership of app, data, and deployment while still getting implementation and operational support."
+  - question: "Why use Fly.io for client SaaS deployments?"
+    answer: "Fly.io gives a simple global deployment model, predictable pricing at small scale, and clean Docker-based workflows."
+  - question: "Is this model better than shared multi-tenant hosting for all clients?"
+    answer: "Not always. It is best when ownership, isolation, and long-term portability matter more than maximizing shared infrastructure efficiency."
 ---
 
 # Self-Hosting as a Service: How I Run Client SaaS on Fly.io

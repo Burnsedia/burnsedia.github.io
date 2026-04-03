@@ -34,10 +34,13 @@ const featuredPostSlug = featuredPost ? getEntrySlug(featuredPost.id) : null;
         </div>
       )}
       <div class="mt-6 flex flex-wrap gap-3">
-        <a class="btn btn-primary btn-sm" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-track-event="work_with_me_click" data-track-source="blog_index" data-track-placement="blog_featured_work_with_me" data-track-label="book-call-featured">
-          Book a 15-minute call
+        <a class="btn btn-primary btn-sm" href="https://boomerbill.net" target="_blank" rel="noopener noreferrer" data-track-event="cta_click" data-track-source="blog_index" data-track-placement="blog_featured_boomerbill" data-track-label="try-boomerbill-featured">
+          Try boomerbill
         </a>
         <a class="btn btn-outline btn-sm" href={`/blog/${featuredPostSlug}/`}>Read article</a>
+        <a class="btn btn-ghost btn-sm" href="https://calendly.com/baileyburnsed/15min" target="_blank" rel="noopener noreferrer" data-track-event="work_with_me_click" data-track-source="blog_index" data-track-placement="blog_featured_work_with_me" data-track-label="book-call-featured">
+          Book a 15-minute call
+        </a>
       </div>
     </article>
   )}

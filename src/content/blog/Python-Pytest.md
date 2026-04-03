@@ -1,9 +1,18 @@
 ---
 title: "Pytest and Selenium"
 description: "A beginner-friendly tutorial on using Pytest and Selenium to test web apps with repeatable, maintainable, and confidence-building workflows."
+seoTitle: "Pytest and Selenium Tutorial for Python Web Apps"
+seoDescription: "Learn how to set up Pytest and Selenium for browser testing in Python with practical setup steps and maintainable test workflows."
 pubDate: "Feb 09 2023"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["python", "testing", "selenium", "tutorial"]
+faq:
+  - question: "Should I use Pytest with Selenium for UI testing?"
+    answer: "Yes, Pytest gives clean test structure and Selenium handles browser automation, which is a practical combo for Python UI tests."
+  - question: "What is the first thing to set up for Selenium tests?"
+    answer: "Install Selenium and a browser driver, then build one stable smoke test before scaling test coverage."
+  - question: "How do I keep UI tests maintainable?"
+    answer: "Use reusable helpers, stable selectors, and avoid asserting fragile UI details that change often."
 ---
 
 ## How to Develop a UI Test Sweet

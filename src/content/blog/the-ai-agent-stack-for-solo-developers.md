@@ -1,12 +1,26 @@
 ---
 title: "The AI Agent Stack for Solo Developers"
 description: "How solo developers can scale their output using an agentic AI stack — automating marketing, coding, and client work without hiring a team."
+seoTitle: "AI Agent Stack for Solo Developers: Django + PydanticAI Guide"
+seoDescription: "Build a practical AI agent stack with Django, Celery, and PydanticAI to automate repetitive work without adding team overhead."
 pubDate: "Dec 17 2025"
+updatedDate: "2026-04-02"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["AI", "agents", "automation", "solo dev", "PydanticAI", "indie dev", "BulkPost"]
+faq:
+  - question: "How can a solo developer build an AI agent stack on a small budget?"
+    answer: "Start with one painful workflow, automate it with Python, and run it on a low-cost VPS. Add Django and Celery only when the workflow repeats enough to justify orchestration."
+  - question: "What backend stack works best for production AI agents in 2025?"
+    answer: "A practical stack is Django for APIs, Celery for queues, Postgres for state, and typed agent outputs using PydanticAI."
+  - question: "Should I use local models or hosted APIs?"
+    answer: "Use a hybrid approach: local models for cheap drafts and hosted APIs for quality-critical final outputs."
 ---
 
 # The AI Agent Stack for Solo Developers
+
+## Quick answer
+
+If you are solo, your bottleneck is not raw coding speed. It is repetitive work that drains attention. A small AI agent stack can remove that drag if each agent has a narrow job, clear schema, and measurable output.
 
 ## How I Started Replacing Busywork With Agents
 
@@ -64,6 +78,12 @@ The hybrid model keeps costs low while maintaining creative diversity —
 one local model for draft generation, another for refinement.
 ## Building Your Own Agent Stack
 
+## Who this is for
+
+- Solo developers juggling shipping, marketing, and support
+- Indie founders with repeatable tasks and no ops team
+- Builders who want leverage, not hype dashboards
+
 ### Step 1 — Start Small
 Automate one annoying task.
 Maybe it’s tweeting, sending follow-ups, or summarizing Slack messages.
@@ -104,6 +124,12 @@ This is one practical way solo developers can operate at a higher leverage point
 The more agents you create, the more time you buy back.
 That operating leverage creates meaningful room for better product decisions.
 Want to build your own agentic AI system for marketing, SaaS, or client automation?
-That’s exactly what I help developers and founders do.
-[Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
-Or [start your 30-day development plan](https://baileyburnsed.dev)
+That is exactly what this stack is for: fewer repetitive tasks and more shipping.
+
+## Next step
+
+Use the same operating model inside [boomerbill](https://boomerbill.net) to track automation output against real business outcomes.
+
+Get weekly implementation notes in plain English on the [newsletter](/newsletter).
+
+If you want this designed and implemented with your stack, start on the [service page](/service).

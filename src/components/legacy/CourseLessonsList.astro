@@ -66,19 +66,36 @@ const [featuredLesson, ...remainingLessons] = course.lessons;
   </div>
 
   <section class="mt-10 rounded-2xl border border-base-300 bg-base-200/30 p-6 text-center">
-    <h3 class="text-2xl font-bold">Need help implementing these lessons?</h3>
-    <p class="mt-2 text-base-content/80">I work with teams to apply these patterns in production with clear handoffs and timelines.</p>
-    <a
-      class="btn btn-primary mt-4"
-      href="https://calendly.com/baileyburnsed/15min"
-      target="_blank"
-      rel="noopener noreferrer"
-      data-track-event="work_with_me_click"
-      data-track-source="course_index"
-      data-track-placement="course_index_bottom_work_with_me"
-      data-track-label="book-call-bottom"
-    >
-      Book a 15-minute call
-    </a>
+    <h3 class="text-2xl font-bold">Apply this in production</h3>
+    <p class="mt-2 text-base-content/80">Use these patterns in a live stack, keep your lesson momentum, and ship with fewer dead ends.</p>
+    <div class="mt-4 flex flex-wrap justify-center gap-3">
+      <a
+        class="btn btn-primary"
+        href="https://boomerbill.net"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-event="cta_click"
+        data-track-source="course_index"
+        data-track-placement="course_index_bottom_boomerbill"
+        data-track-label="try-boomerbill"
+      >
+        Apply this in boomerbill
+      </a>
+      {remainingLessons[0] && (
+        <a class="btn btn-outline" href={`/courses/${course.slug}/${remainingLessons[0].lessonSlug}/`}>Get the next lesson</a>
+      )}
+      <a
+        class="btn btn-ghost"
+        href="https://calendly.com/baileyburnsed/15min"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-event="work_with_me_click"
+        data-track-source="course_index"
+        data-track-placement="course_index_bottom_work_with_me"
+        data-track-label="book-call-bottom"
+      >
+        Need hands-on help?
+      </a>
+    </div>
   </section>
 </section>

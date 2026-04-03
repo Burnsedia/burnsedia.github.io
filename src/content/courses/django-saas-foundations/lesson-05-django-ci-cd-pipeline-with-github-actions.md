@@ -1,9 +1,18 @@
 ---
 title: "Django CI/CD Pipeline with GitHub Actions"
 description: "Automate your Django app deployment to Fly.io using Docker and GitHub Actions — test, build, and ship with zero manual steps."
+seoTitle: "Django CI/CD with GitHub Actions and Fly.io"
+seoDescription: "Build a practical CI/CD pipeline for Django with GitHub Actions, Docker, tests, and Fly.io deployment automation."
 pubDate: "2025-10-24"
 tags: ["Django", "Fly.io", "CI/CD", "GitHub Actions", "Docker", "DevOps"]
 heroImage: "/CyberPunkLogo2.jpg"
+faq:
+  - question: "What should run first in a Django CI pipeline?"
+    answer: "Run linting and tests first, then build and deploy only if checks pass on your main branch."
+  - question: "Do I need Docker for Django CI/CD on Fly.io?"
+    answer: "Docker is the cleanest path because it keeps local, CI, and production environments consistent."
+  - question: "How do I keep secrets safe in GitHub Actions?"
+    answer: "Store credentials in GitHub Secrets, rotate them regularly, and avoid hardcoding environment values in workflow files."
 ---
 
 # Django CI/CD Pipeline with GitHub Actions

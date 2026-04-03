@@ -1,9 +1,18 @@
 ---
 title: "Multi-Tenant SaaS with django-tenants (Don’t Reinvent the Wheel)"
 description: "A production-ready guide to building a multi-tenant Django app using the battle-tested django-tenants library: schemas, domains, middleware, and deploy notes."
+seoTitle: "Build Multi-Tenant SaaS in Django with django-tenants"
+seoDescription: "Production-ready multi-tenant Django setup using django-tenants with PostgreSQL schemas, domain routing, and migration patterns."
 pubDate: "2025-10-24"
 tags: ["Django", "SaaS", "Multi-tenant", "django-tenants", "PostgreSQL", "Fly.io"]
 heroImage: "/CyberPunkLogo2.jpg"
+faq:
+  - question: "Is django-tenants better than custom tenant middleware?"
+    answer: "For most teams, yes. It gives you proven schema and routing patterns without rebuilding fragile tenant logic."
+  - question: "Can I run multi-tenant Django on one PostgreSQL database?"
+    answer: "Yes. django-tenants uses one database with isolated schemas per tenant."
+  - question: "What breaks most often in multi-tenant setups?"
+    answer: "Migration order, domain routing mistakes, and shared/public schema assumptions are the most common failure points."
 ---
 
 # Multi-Tenant SaaS with `django-tenants` (Don’t Reinvent the Wheel)

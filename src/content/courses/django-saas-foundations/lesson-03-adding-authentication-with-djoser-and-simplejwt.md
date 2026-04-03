@@ -2,9 +2,18 @@
 title: "Lesson 3: Adding Authentication with Djoser and SimpleJWT"
 tags: ["authentication", "jwt", "django", "security", "tutorial"]
 description: "Complete setup for Django REST auth using Djoser + SimpleJWT — includes the required URLs/settings, email-as-username, custom User model, email verification, and token blacklist logout."
+seoTitle: "Django Auth with Djoser + SimpleJWT (Lesson 3)"
+seoDescription: "Set up production-ready Django REST authentication using Djoser and SimpleJWT with email login, verification, and secure logout."
 pubDate: "Oct 12 2025"
 lesson: 3
 heroImage: "/CyberPunkLogo2.jpg"
+faq:
+  - question: "Should I use Djoser with SimpleJWT for Django API auth?"
+    answer: "Yes, it gives you a fast, battle-tested baseline for token auth, account flows, and easier onboarding for API clients."
+  - question: "Can I use email instead of username with Djoser?"
+    answer: "Yes. Use a custom User model and configure your auth settings so email is the login identifier."
+  - question: "How should logout work with JWT?"
+    answer: "Use refresh token blacklisting and rotate tokens so logout invalidates future refresh attempts cleanly."
 ---
 
 # Adding Authentication with Djoser and SimpleJWT (Updated)

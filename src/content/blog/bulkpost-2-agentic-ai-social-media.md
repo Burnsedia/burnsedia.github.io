@@ -1,12 +1,26 @@
 ---
 title: "BulkPost 2.0 — Turning My Twitter Bot Into an Agentic AI Social Media System"
 description: "How I'm rebuilding my old BulkPost codebase into an open-source, agentic AI that plans, writes, posts, and learns across multiple social media platforms — including a tiny 81-line Twitter bot tested via cron."
+seoTitle: "BulkPost 2.0: Build an Agentic AI Social Media System"
+seoDescription: "How BulkPost 2.0 uses Django, Celery, and AI agents to plan, publish, and improve social content from real performance data."
 pubDate: "Dec 9 2025"
+updatedDate: "2026-04-02"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["AI", "automation", "social media", "BulkPost", "Django", "indie dev", "agentic", "Twitter"]
+faq:
+  - question: "Can I start an agentic social system with a simple bot first?"
+    answer: "Yes. Start with a tiny cron bot to validate cadence and format, then promote winning patterns into a larger agent pipeline."
+  - question: "How do I keep AI social automation from going off-brand?"
+    answer: "Split planning, writing, and analysis into separate agents, then enforce tone and output constraints with typed schemas and review rules."
+  - question: "What stack is practical for AI social automation?"
+    answer: "Django, Celery, Postgres, and structured agent outputs are enough to run a reliable system before adding extra complexity."
 ---
 
 # BulkPost 2.0 — Turning My Twitter Bot Into an Agentic AI Social Media System
+
+## Quick answer
+
+This is not a "fully autonomous marketing machine." It is a layered system: test ideas with a tiny bot, promote winners into agent workflows, and iterate on metrics that actually matter.
 
 ## Context
 
@@ -19,7 +33,13 @@ That’s when I realized something: BulkPost could evolve into more than just a 
 It could become **agentic** — a system that thinks, plans, and adapts on its own.
 
 Now I’m rebuilding BulkPost as an open-source, AI-driven automation engine for creators and developers who want to grow without burning out.
-## 2 What Makes BulkPost 2.0 Different
+## Who this is for
+
+- Solo builders who need consistent social output without content burnout
+- Small teams that want repeatable posting workflows with feedback loops
+- Developers who prefer open-source systems over black-box SaaS lock-in
+
+## What Makes BulkPost 2.0 Different
 
 ### Agentic Core
 Instead of one big monolithic app, BulkPost 2.0 runs **modular AI agents**:
@@ -140,7 +160,13 @@ Use **Vue.js** or **Astro + Vue** for a clean dashboard:
 - **Fly.io:** Scale API/Celery workers globally when traffic grows.
 
 ## Work With Me
-Follow the rebuild.
-BulkPost 2.0 will be open-source and fully self-hostable — an AI social media engine you own.
-[Schedule a 15-minute Zoom call](https://calendly.com/baileyburnsed/15min)
-Or [Start your 30-day development plan now](https://baileyburnsed.dev/)
+
+Follow the rebuild. BulkPost 2.0 stays open-source and self-hostable.
+
+## Next step
+
+Use [boomerbill](https://boomerbill.net) to tie social output to pipeline and invoice outcomes.
+
+Get weekly implementation notes from this rebuild on the [newsletter](/newsletter).
+
+Need this architecture implemented for your team? Start on the [service page](/service).
