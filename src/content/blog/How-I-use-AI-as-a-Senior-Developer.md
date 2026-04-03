@@ -1,7 +1,7 @@
 ---
 title: "How I use AI as a Senior Developer"
 description: "How I intergrate AI into my neovim, linux and devops work"
-pubDate: "Jan 24 2026"
+pubDate: "Apr 03 2026"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["AI", "freelancing", "workflow", "AI workflow", "neovim"]
 ---
@@ -12,7 +12,9 @@ AI is extremely useful but overhyped in my humble opinion. AI can be used to spe
 
 Studies have shown that developers feel 20% faster but are actually 19% slower, other studies show AI only speeds senior devs up by 3.6% while having no material impact on joiner devs.
 
-I believe that it depends on how you actually use AI, VibeCoding, AI Augmented coding and AI First Development are terms that get thrown around a lot in developer circles.
+I believe that how useful AI is depends on how you actually use AI.
+
+VibeCoding, AI Augmented coding and AI First Development are terms that get thrown around a lot in developer circles.
 
 When I here VibeCoding, I think that you just Vibe with the AI and blindly use the output of the LLM, if the UI it made feels right, use it, if the UX is right use it, but this create the problem of unmaintainable code.
 
@@ -44,3 +46,8 @@ I use OpenCode agents and subagents that handle:
 
 - building the generic views with django generic viewsets
 - the cloud infra schofolding for my project
+
+This allows me to build MVP fast, like in a day. To be honest I could do this withouot ai and just snippiets and templates but I can use then with AI and get better results faster
+
+
+
