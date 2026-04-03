@@ -1,70 +1,45 @@
 ---
-import Hero from '../../components/marketing/Hero.astro';
-import Card from '../../components/shared/Card.astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
-import { getEntrySlug } from '../../utils/content';
-const courses = await getCollection('courses');
-courses.sort((a, b) => (a.data.lesson || 999) - (b.data.lesson || 999));
+import { groupCourseLessons } from '../../utils/courses';
 
-// Collect unique tags
-const allTags = Array.from(new Set(courses.flatMap(course => course.data.tags || [])));
+const entries = await getCollection('courses');
+const courses = groupCourseLessons(entries);
 ---
 <BaseLayout
   title={`Courses | ${SITE_TITLE}`}
-  description="Practical software courses on Django, APIs, SaaS architecture, and shipping production-ready products as an indie developer."
+  description="Browse practical software courses with structured lesson paths and production-focused implementation guides."
   canonical="/courses/"
 >
-  <Hero />
-  <section class="py-12">
-		<div class="flex justify-center w-full">
-			<div class="w-full max-w-6xl px-4">
-			<h1 class="text-3xl font-bold mb-8 text-center">Courses</h1>
-			<div class="mb-8 flex flex-wrap gap-2 justify-center">
-			  <button class="btn btn-outline btn-sm" data-filter="all">All</button>
-				{allTags.map(tag => <button class="btn btn-outline btn-sm" data-filter={tag}>{tag}</button>)}
-			</div>
-			<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 items-center" id="courses-list">
-					{courses.map((course) => (
-					  <div class="py-4 px-4 course-item" data-tags={course.data.tags ? course.data.tags.join(',') : ''}>
-						    <time datetime={course.data.pubDate.toISOString()} class="block text-sm text-base-content/60 mb-2">
-								  {course.data.pubDate.toLocaleDateString('en-us', {
-									  year: 'numeric',
-									  month: 'short',
-									  day: 'numeric',
-								  })}
-								</time>
-					  <a href={`/courses/${getEntrySlug(course.id)}/`}>
-						  <Card title={course.data.title} description={course.data.description} tags={course.data.tags} />
-					  </a>
-						</div>
-					))}
-				</div>
-			</div>
-		</div>
-	</section>
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const filterButtons = document.querySelectorAll('[data-filter]');
-  const courseItems = document.querySelectorAll('.course-item');
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center">
+        <p class="text-sm uppercase tracking-wide text-primary">Course Directory</p>
+        <h1 class="mt-2 text-3xl font-bold sm:text-5xl">Structured paths, practical outcomes</h1>
+        <p class="mx-auto mt-4 max-w-3xl text-base-content/75">
+          Pick a course path and move lesson by lesson. Every lesson links to the next step so you can ship without getting lost.
+        </p>
+      </div>
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter') || '';
-      courseItems.forEach(item => {
-        const tags = (item as HTMLElement).getAttribute('data-tags')?.split(',') || [];
-        if (filter === 'all' || tags.includes(filter)) {
-          (item as HTMLElement).style.display = 'block';
-        } else {
-          (item as HTMLElement).style.display = 'none';
-        }
-      });
-      // Update active button
-      filterButtons.forEach(btn => (btn as HTMLElement).classList.remove('btn-active'));
-      (button as HTMLElement).classList.add('btn-active');
-    });
-  });
-});
-</script>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {courses.map((course) => (
+          <article class="card border border-base-content/10 bg-base-100/5 shadow-md transition hover:shadow-xl">
+            <div class="card-body gap-4">
+              <div class="flex flex-wrap items-center gap-2 text-sm">
+                <span class="badge badge-primary badge-sm">Course</span>
+                <span class="badge badge-outline badge-sm">{course.lessons.length} lessons</span>
+              </div>
+              <h2 class="card-title text-2xl">{course.title}</h2>
+              <p class="text-base-content/75">{course.description}</p>
+              <div class="card-actions mt-2 justify-between">
+                <a class="btn btn-primary btn-sm" href={`/courses/${course.slug}/`}>Start course</a>
+                <a class="btn btn-ghost btn-sm" href={`/courses/${course.slug}/`}>View syllabus</a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
