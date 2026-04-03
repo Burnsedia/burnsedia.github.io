@@ -65,7 +65,7 @@ Convert your methods into tutorials, templates, and assisted workflows people ca
 
 ## Next step
 
-Track automation impact in one place with [boomerbill](https://boomerbill.net).
+Track automation impact in one place with a simple weekly operating dashboard.
 
 Get one practical workflow breakdown each week in the [newsletter](/newsletter).
 

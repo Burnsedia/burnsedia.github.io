@@ -13,13 +13,10 @@ export interface Props {
   slug: string;
   title: string;
   description: string;
-  seoTitle?: string;
-  seoDescription?: string;
   pubDate: Date;
   updatedDate?: Date;
   heroImage?: string;
   tags?: string[];
-  faq?: { question: string; answer: string }[];
   relatedPosts?: RelatedPost[];
 }
 
@@ -27,19 +24,14 @@ const {
   slug,
   title,
   description,
-  seoTitle,
-  seoDescription,
   pubDate,
   updatedDate,
   heroImage,
   tags = [],
-  faq = [],
   relatedPosts = [],
 } = Astro.props;
 
 const normalizedTags = getNormalizedTags(tags);
-const pageTitle = seoTitle ?? title;
-const pageDescription = seoDescription ?? description;
 const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
 const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
 
@@ -67,27 +59,11 @@ const breadcrumbSchema = {
     },
   ],
 };
-
-const faqSchema =
-  faq.length > 0
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: faq.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.answer,
-          },
-        })),
-      }
-    : null;
 ---
 
 <BaseLayout
-  title={`${pageTitle} | ${SITE_TITLE}`}
-  description={pageDescription}
+  title={`${title} | ${SITE_TITLE}`}
+  description={description}
   image={heroImage}
   type="article"
   canonical={`/blog/${slug}/`}
@@ -96,7 +72,6 @@ const faqSchema =
   tags={tags}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
     {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt={title} />}
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
@@ -118,32 +93,23 @@ const faqSchema =
       <slot />
     </div>
 
-    {faq.length > 0 && (
-      <section class="mt-8 rounded-2xl border border-primary/20 bg-base-200/20 p-6">
-        <h2 class="text-2xl font-bold">Frequently asked questions</h2>
-        <div class="mt-4 space-y-4">
-          {faq.map((item) => (
-            <details class="rounded-xl border border-base-300 bg-base-100/60 p-4">
-              <summary class="cursor-pointer font-semibold">{item.question}</summary>
-              <p class="mt-2 text-base-content/80">{item.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <section class="mt-8 rounded-2xl border border-primary/20 bg-base-200/20 p-6">
-      <h2 class="text-2xl font-bold">Apply this in boomerbill</h2>
-      <p class="mt-2 text-base-content/80">Use this workflow in a real product and avoid rebuilding the same plumbing from scratch.</p>
-      <div class="mt-4 flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="https://boomerbill.net" target="_blank" rel="noopener noreferrer" data-track-event="cta_click" data-track-source="blog_post" data-track-placement="blog_post_end_boomerbill" data-track-label="try-boomerbill">Try boomerbill</a>
-        <a class="btn btn-outline" href="/newsletter" data-track-event="newsletter_click" data-track-source="blog_post" data-track-placement="blog_post_end_newsletter" data-track-label="join-newsletter">Get weekly build notes</a>
-        <a class="btn btn-ghost" href="/service" data-track-event="work_with_me_click" data-track-source="blog_post" data-track-placement="blog_post_end_work_with_me" data-track-label="work-with-me">Need implementation help?</a>
-      </div>
-    </section>
-
     <section class="mt-8">
       <NewsletterCtaCard placement="blog_post_end_newsletter" source="blog_post" />
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-base-content/10 bg-base-100/5 p-6">
+      <h2 class="text-2xl font-bold">Need help shipping this faster?</h2>
+      <p class="mt-2 text-base-content/80">I work with founders and teams to ship practical systems with clear tradeoffs and clean ownership.</p>
+      <a
+        class="btn btn-outline btn-primary mt-4"
+        href="/service"
+        data-track-event="work_with_me_click"
+        data-track-source="blog_post"
+        data-track-placement="blog_post_end_work_with_me"
+        data-track-label="work-with-me"
+      >
+        Work With Me
+      </a>
     </section>
 
     {relatedPosts.length > 0 && (

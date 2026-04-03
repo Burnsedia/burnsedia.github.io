@@ -165,7 +165,7 @@ Follow the rebuild. BulkPost 2.0 stays open-source and self-hostable.
 
 ## Next step
 
-Use [boomerbill](https://boomerbill.net) to tie social output to pipeline and invoice outcomes.
+Use this system to tie social output to pipeline and invoice outcomes.
 
 Get weekly implementation notes from this rebuild on the [newsletter](/newsletter).
 

@@ -86,7 +86,7 @@ Migrating to a private cloud saved over 99% in hosting costs while preserving pe
 
 ## Next step
 
-Use [boomerbill](https://boomerbill.net) to model infrastructure decisions against revenue and margin.
+Use this framework to model infrastructure decisions against revenue and margin.
 
 Get weekly build and cost notes in the [newsletter](/newsletter).
 

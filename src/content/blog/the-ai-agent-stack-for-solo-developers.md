@@ -128,7 +128,7 @@ That is exactly what this stack is for: fewer repetitive tasks and more shipping
 
 ## Next step
 
-Use the same operating model inside [boomerbill](https://boomerbill.net) to track automation output against real business outcomes.
+Use the same operating model to track automation output against real business outcomes.
 
 Get weekly implementation notes in plain English on the [newsletter](/newsletter).
 
