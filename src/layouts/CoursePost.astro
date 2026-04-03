@@ -29,10 +29,51 @@ const {
 const { Content } = await render(post);
 const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
 const slug = getEntrySlug(post.id);
+const lessonSlug = slug.split('/').pop() || slug;
 const canonicalPath = courseSlug
-  ? `/courses/${courseSlug}/${slug.split('/').pop() || slug}/`
+  ? `/courses/${courseSlug}/${lessonSlug}/`
   : `/courses/${slug}/`;
 const backToCourseHref = courseSlug ? `/courses/${courseSlug}/` : '/courses/';
+
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+
+const breadcrumbItems = [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: 'Home',
+    item: toAbsoluteUrl('/'),
+  },
+  {
+    '@type': 'ListItem',
+    position: 2,
+    name: 'Courses',
+    item: toAbsoluteUrl('/courses/'),
+  },
+  ...(courseSlug
+    ? [
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: courseTitle ?? 'Course',
+          item: toAbsoluteUrl(`/courses/${courseSlug}/`),
+        },
+      ]
+    : []),
+  {
+    '@type': 'ListItem',
+    position: courseSlug ? 4 : 3,
+    name: title,
+    item: toAbsoluteUrl(canonicalPath),
+  },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems,
+};
 ---
 <BaseLayout
   title={`${title} | ${SITE_TITLE}`}
@@ -44,6 +85,7 @@ const backToCourseHref = courseSlug ? `/courses/${courseSlug}/` : '/courses/';
   updatedTime={updatedDate ? updatedDate.toISOString() : undefined}
   tags={tags}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
     <div class="mb-4 flex flex-wrap items-center gap-2 text-sm">
       <a class="btn btn-ghost btn-sm" href="/courses/">All courses</a>
@@ -61,7 +103,7 @@ const backToCourseHref = courseSlug ? `/courses/${courseSlug}/` : '/courses/';
     </div>
 
     {(previousLesson || nextLesson) && (
-      <nav class="mt-10 grid gap-3 border-t border-base-300 pt-6 sm:grid-cols-2" aria-label="Course lesson navigation">
+      <nav class="mt-10 grid gap-3 border-t border-primary/40 pt-6 sm:grid-cols-2" aria-label="Course lesson navigation">
         {previousLesson ? (
           <a class="btn btn-outline justify-start" href={previousLesson.href}>← {previousLesson.title}</a>
         ) : (
