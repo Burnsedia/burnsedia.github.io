@@ -57,6 +57,8 @@
     Content-Security-Policy = """
       default-src 'self';
       script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
+      style-src 'self' 'unsafe-inline';
       connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com;
+      font-src 'self' data:;
       img-src 'self' data: https://www.google-analytics.com;
     """

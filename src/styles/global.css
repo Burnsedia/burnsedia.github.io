@@ -151,6 +151,20 @@ img {
 	background-color: var(--color-base-200);
 }
 
+.title {
+	font-size: 2em;
+	margin: 0.25em 0 0;
+}
+
+hr {
+	border-top: 1px solid var(--color-base-300);
+	margin: 1rem 0;
+}
+
+.last-updated-on {
+	font-style: italic;
+}
+
 .reveal-on-visible {
 	--text-reveal-duration: 260ms;
 	opacity: 0;
