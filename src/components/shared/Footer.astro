@@ -1,0 +1,32 @@
+---
+const today = new Date();
+---
+<footer class="mt-10 border-t border-base-300">
+  <div class="footer footer-vertical sm:footer-horizontal p-8 text-base-content">
+    <nav>
+      <h6 class="footer-title">Site</h6>
+      <a href="/blog" class="link link-hover">Build Log</a>
+      <a href="/socials" class="link link-hover">Socials</a>
+      <a href="/newsletter" class="link link-hover" data-track-event="cta_click" data-track-source="footer" data-track-placement="footer_newsletter_module" data-track-label="subscribe">Newsletter</a>
+      <a href="/legal" class="link link-hover">Legal</a>
+    </nav>
+
+    <nav>
+      <h6 class="footer-title">Support</h6>
+      <a href="https://github.com/sponsors/Burnsedia" class="link link-hover" target="_blank" rel="noopener noreferrer" data-track-event="github_sponsor_click" data-track-source="footer" data-track-placement="footer_github_sponsor" data-track-label="github-sponsor">GitHub Sponsors</a>
+      <a href="https://www.patreon.com/burnsedia" class="link link-hover" target="_blank" rel="noopener noreferrer" data-track-event="patreon_click" data-track-source="footer" data-track-placement="footer_patreon" data-track-label="patreon">Patreon</a>
+      <a href="/service" class="link link-hover" data-track-event="work_with_me_click" data-track-source="footer" data-track-placement="footer_work_with_me" data-track-label="work-with-me">Work With Me</a>
+    </nav>
+
+    <nav>
+      <h6 class="footer-title">Follow</h6>
+      <a href="https://github.com/Burnsedia" class="link link-hover" target="_blank" rel="noopener noreferrer" data-track-event="social_follow_click" data-track-source="footer" data-track-placement="footer_social_follow" data-track-platform="github" data-track-label="github-follow">GitHub</a>
+      <a href="https://x.com/baileyburnsed" class="link link-hover" target="_blank" rel="noopener noreferrer" data-track-event="social_follow_click" data-track-source="footer" data-track-placement="footer_social_follow" data-track-platform="x" data-track-label="x-follow">X</a>
+      <a href="https://www.linkedin.com/in/bailey-burnsed-50051115a/" class="link link-hover" target="_blank" rel="noopener noreferrer" data-track-event="social_follow_click" data-track-source="footer" data-track-placement="footer_social_follow" data-track-platform="linkedin" data-track-label="linkedin-follow">LinkedIn</a>
+    </nav>
+  </div>
+
+  <div class="border-t border-base-300 px-8 py-4 text-sm text-base-content/80">
+    <p>&copy; {today.getFullYear()} Bailey Burnsed. All rights reserved.</p>
+  </div>
+</footer>
