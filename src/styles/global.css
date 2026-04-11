@@ -77,4 +77,8 @@
   .blog-content ol {
     @apply list-disc pl-6 space-y-2; /* exact match to Legal lists */
   }
+
+  .blog-content blockquote {
+    @apply border-l-4 border-primary/30 pl-6 py-3 italic text-base-content/90 my-8;
+  }
 }

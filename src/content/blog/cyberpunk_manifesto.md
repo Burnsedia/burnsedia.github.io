@@ -6,9 +6,7 @@ heroImage: "/CyberPunkLogo2.jpg"
 tags: ["cyberpunk", "manifesto", "opinion", "tech"]
 ---
 
-# Cypherpunk Manifesto
-
-## I. Identity
+# I. Identity
 
 - I grew up online --- IRC, mailing lists, and text-to-speech helped
   me overcome dyslexia.
@@ -18,7 +16,7 @@ tags: ["cyberpunk", "manifesto", "opinion", "tech"]
   scarcity.
 - I wasn't high-risk. I was early.
 
-## II. The System
+# II. The System
 
 - Elites want markets for them, not for us.
 - Property, information, and even freedom are treated as
@@ -30,7 +28,7 @@ tags: ["cyberpunk", "manifesto", "opinion", "tech"]
 - It's **totalitarian corporatism**: authoritarian control in the mask
   of democracy.
 
-## III. Scarcity & Abundance
+# III. Scarcity & Abundance
 
 - Scarcity of land and raw resources real. Scarcity of refined and manufactured goods is artificial.
 - Housing, food, and medicine exist in abundance but are hoarded,
@@ -40,7 +38,7 @@ tags: ["cyberpunk", "manifesto", "opinion", "tech"]
 - AI will be the next battleground of enforced scarcity vs. open
   abundance.
 
-## IV. Open Source: Capitalism Perfected
+# IV. Open Source: Capitalism Perfected
 
 - Open source is a true free-market without gatekeepers.
 - Value comes from what you create and share --- not what you hoard.
@@ -49,7 +47,7 @@ tags: ["cyberpunk", "manifesto", "opinion", "tech"]
 - Linux, Python, PostgreSQL, Sqlite , Ollama, PGP: the backbone of real
   freedom.
 
-## V. Optimism
+# V. Optimism
 
 - Privacy is no longer "weird" --- it's responsible.
 - Linux is mainstreaming --- Steam Deck, Android, servers.
@@ -59,7 +57,7 @@ tags: ["cyberpunk", "manifesto", "opinion", "tech"]
 - Decentralization is alive in federated systems, even if small.
 - The counterculture is growing.
 
-## VI. Declaration
+# VI. Declaration
 
 - We live in a cyberpunk dystopia.
 - But we don't just imagine it --- we resist it, subvert it, and build

@@ -16,8 +16,6 @@ faq:
     answer: "Containerize first, keep CI/CD intact, and shift deployment targets while preserving your existing build and release workflow."
 ---
 
-# Case Study: Saving Over 99% by Migrating from Public Cloud to Private Cloud
-
 ## Quick answer
 
 This migration was not about ideology. It was about margin. We moved a low-traffic SaaS workload from public cloud to a private cloud setup and cut infrastructure cost by over 99% while keeping shipping speed intact.
