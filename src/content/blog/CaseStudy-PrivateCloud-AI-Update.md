@@ -55,7 +55,7 @@ To retain the same ease of use that platforms like Vercel and [Fly.io](https://f
 - **Docker** for containerization
 - **Watchtower** for automatic container updates
 
-This setup delivered the same developer velocity—at **less than 1% of the cost**.
+This setup delivered the same developer velocity at **less than 1% of the cost**.
 
 ## Results
 
@@ -69,7 +69,7 @@ This made the infrastructure sustainable for early-stage scaling and dramaticall
 
 Private cloud hosting is ideal for **bootstrapped startups** validating a business idea. With Docker-based deployments, you can scale to 100k daily users on a fixed monthly cost.
 
-When you hit the performance ceiling of your private cloud provider, your app is already Dockerized—making it easy to migrate to scalable public cloud platforms like:
+When you hit the performance ceiling of your private cloud provider, your app is already Dockerized making it easy to migrate to scalable public cloud platforms like:
 
 - [Fly.io](https://fly.io)
 - AWS Fargate

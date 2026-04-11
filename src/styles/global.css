@@ -48,3 +48,33 @@
   --depth: 0;
   --noise: 0;
 }
+
+
+/* ── Blog Markdown styles that perfectly match your Legal page ── */
+@layer components {
+  .blog-content {
+    @apply max-w-3xl mx-auto space-y-6 text-base-content/80;
+  }
+
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3,
+  .blog-content h4,
+  .blog-content h5,
+  .blog-content h6 {
+    @apply text-base-content font-bold;
+  }
+
+  .blog-content h2 {
+    @apply text-2xl; /* exact match to Legal page h2 */
+  }
+
+  .blog-content p {
+    @apply text-base-content/80;
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    @apply list-disc pl-6 space-y-2; /* exact match to Legal lists */
+  }
+}

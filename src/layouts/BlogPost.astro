@@ -72,8 +72,16 @@ const breadcrumbSchema = {
   tags={tags}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  <article class="w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16">
-    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt={title} />}
+  <article class="w-full">
+  <!-- Exact same padded container as your Legal page -->
+  <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    {heroImage && (
+      <img 
+        class="w-full max-w-4xl mx-auto rounded-md shadow-lg mask mask-hexagon mt-25" 
+        src={heroImage} 
+        alt={title} 
+      />
+    )}
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
     <div class="text-center">
       <FormattedDate date={pubDate} />
@@ -88,15 +96,14 @@ const breadcrumbSchema = {
         ))}
       </div>
     )}
-    <hr />
-    <div class="blog-markdown prose lg:prose-lg max-w-none text-base-content">
+    <!-- Markdown content now matches Legal page spacing perfectly -->
+    <div class="blog-content">
       <slot />
     </div>
-
+    <!-- All your existing sections (newsletter, work-with-me, related posts) stay inside the padded container -->
     <section class="mt-8">
       <NewsletterCtaCard placement="blog_post_end_newsletter" source="blog_post" />
     </section>
-
     <section class="mt-6 rounded-2xl border border-base-content/10 bg-base-100/5 p-6">
       <h2 class="text-2xl font-bold">Need help shipping this faster?</h2>
       <p class="mt-2 text-base-content/80">I work with founders and teams to ship practical systems with clear tradeoffs and clean ownership.</p>
@@ -111,7 +118,6 @@ const breadcrumbSchema = {
         Work With Me
       </a>
     </section>
-
     {relatedPosts.length > 0 && (
       <section class="mt-10 border-t border-base-300 pt-6">
         <h2 class="text-2xl font-bold mb-4">Related reads</h2>
@@ -127,5 +133,6 @@ const breadcrumbSchema = {
         </ul>
       </section>
     )}
-  </article>
+  </div>
+</article>
 </BaseLayout>
