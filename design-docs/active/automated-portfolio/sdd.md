@@ -62,6 +62,24 @@ GitHub Push → Webhook → Netlify Build Hook → Astro Build
 - R8: Netlify build hook must trigger on GitHub push to rebuild
 - R9: Site must link to baileyburnsed.dev for personal blog content
 
+
+
+## Two-Phase Roadmap
+
+### Phase 1: Learning Lab (Now)
+burnsedia.dev runs as an automated AI site generation experiment. The goal is learning how to build pipelines that generate SEO/GEO-optimized pages from source data. The site content is generated from public GitHub repos under personal account.
+
+### Phase 2: Business Site (When legally formed)
+After the business entity is formed, burnsedia.dev transitions to the canonical business site:
+- Point the automation to the Burnsedia GitHub org instead of personal account
+- Product copy shifts from generated/experimental to intentional
+- Services, SaaS, sponsorware, and API/MCP pages become the primary content
+- baileyburnsed.dev remains the personal blog and build log
+- The domain already has search rankings, structured data, and page authority from Phase 1
+
+**Key insight:** Phase 1 is free SEO groundwork. When the business launches, the domain isn't cold — it's been building authority the whole time.
+
+
 ## Acceptance Criteria
 
 - Site deploys at burnsedia.dev
