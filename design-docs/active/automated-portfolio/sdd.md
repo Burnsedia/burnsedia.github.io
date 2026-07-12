@@ -8,11 +8,11 @@ Related Issues: None
 
 ## Context
 
-burnsedia.dev is currently unused. The domain matches the GitHub username (Burnsedia) and is the natural home for an automated portfolio that reflects everything built on GitHub. With the existing plan to have two sites (personal blog on baileyburnsed.dev, product/brand on burnsedia.dev), burnsedia.dev is the ideal candidate for a fully automated JAMStack site that generates itself from GitHub data with no manual content management.
+burnsedia.dev is a learning sandbox for exploring AI-powered automated site creation. The point is not to build a canonical portfolio or business site — it's to learn how to build systems that generate SEO/GEO-optimized pages automatically from source data. The site is the artifact, but the learning is the point. This lives alongside baileyburnsed.dev, which remains the primary site.
 
 ## Goal
 
-Create a fully automated Astro static site on Netlify at burnsedia.dev that generates SEO/GEO-optimized pages from GitHub API data. Every repo, release, and sponsorware project gets its own discoverable page. The site rebuilds automatically via webhook whenever GitHub activity happens.
+As a learning exercise, create a fully automated Astro static site on Netlify at burnsedia.dev that generates SEO/GEO-optimized pages from GitHub API data. Every repo, release, and sponsorware project gets its own discoverable page. The site rebuilds automatically via webhook whenever GitHub activity happens.
 
 ## Non-Goals
 
