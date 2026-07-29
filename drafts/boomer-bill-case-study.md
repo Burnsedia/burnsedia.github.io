@@ -13,7 +13,7 @@ tags: ["vibe-coding", "postmortem", "indie-dev", "startup-lessons", "open-source
 
 ## The Origin
 
-> "My mom keeps interrupting my work."
+> "My mom keeps interrupting my work. How much money am I losing"
 
 That was the entire product spec. One sentence. Zero market research. No competitor analysis. No ICP.
 
@@ -21,10 +21,10 @@ BoomerBill started as a weekend spit-build — a tracker for unpaid family tech 
 
 I opened Codex and started typing. The code was garbage. I'm not being modest — the commit history is a museum of AI failure:
 
-
-commit "the AI ran out of tokens"
-commit "I am not ever again using AI, it completely fuck my codebase"
-
+```bash
+git commit "the AI ran out of tokens"
+git commit "I am not ever again using AI, it completely fuck my codebase"
+```
 
 The AI literally ran out of context mid-session and left my codebase in pieces. I was so mad I swore off AI forever. Then I used it again the next day because the code was already AI spaghetti and only AI could untangle it.
 
@@ -88,7 +88,7 @@ I pulled the servers. No announcement. No farewell blog post. Just — gone.
 The code is still on GitHub, AGPL licensed. 170 commits. 46 open issues (P0 performance, P2 UI polish, and everything in between). 2 stars. A ghost repo that looks
 alive but has no backend.
 
-The Real Lessons
+## The Real Lessons
 
 1. Distribution can exist without monetization, but scale will bankrupt you.
 
@@ -108,6 +108,8 @@ The repo was full of professional-looking strategy docs. They were all generated
 
 Fly.io + managed Postgres is a beautiful stack until you check the bill. For a $5/month budget, the right answer is a $5 VPS with SQLite. Or a static PWA that doesn't
 hit a backend at all — which was exactly the pivot I was making when the bills arrived.
+
+AI Vibe coding by itself often writes really bad code, but it can augment a developer
 
 
 
