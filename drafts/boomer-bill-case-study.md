@@ -66,7 +66,6 @@ integration — nothing to convert engagement into revenue.
 I had one public account. In the "boomer hall of shame." Me.
 
 
-
 ## The Numbers That Matter
 
     | Metric              | Value                |
@@ -108,9 +107,6 @@ The repo was full of professional-looking strategy docs. They were all generated
 
 Fly.io + managed Postgres is a beautiful stack until you check the bill. For a $5/month budget, the right answer is a $5 VPS with SQLite. Or a static PWA that doesn't
 hit a backend at all — which was exactly the pivot I was making when the bills arrived.
-
-AI Vibe coding by itself often writes really bad code, but it can augment a developer
-
 
 
 ## The Postmortem
