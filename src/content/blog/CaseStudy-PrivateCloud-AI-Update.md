@@ -28,13 +28,13 @@ This migration was not about ideology. It was about margin. We moved a low-traff
 
 ## Background
 
-Client had their SaaS MVP on a public cloud provider. Under 100 daily users and the hosting bill was already painful. Not because they were doing anything wrong — the pricing model just doesn't favor small workloads.
+Our client initially hosted their SaaS MVP on a public cloud provider. While this setup offered convenience, it quickly became unsustainable—despite having fewer than 100 daily users, the hosting costs were unreasonably high for the size and usage of the project.
 
 ## Challenge
 
-Find infrastructure that handles 10,000 daily users without cost spiraling.
+The main challenge was to find a more cost-effective infrastructure that could handle up to 10,000 daily users without incurring substantial overage fees.
 
-Evaluated options. Vercel was a great DX experience, terrible for this budget. Hostinger was cheap but needed manual setup. The gap between "works great" and "affordable" was where the actual work was.
+I evaluated several options. Public cloud providers like Vercel offered a great developer experience but came with a high price tag. Private cloud providers like Hostinger were significantly more affordable but required manual setup and DevOps effort.
 
 ## Solution
 
@@ -63,15 +63,24 @@ This setup delivered the same developer velocity at **less than 1% of the cost**
 
 This made the infrastructure sustainable for early-stage scaling and dramatically reduced burn rate.
 
-## Why This Matters
+## Strategic Insight
 
-If your SaaS is bootstrapped and under 100 users, a $1,200/month cloud bill is not scaling — it's bleeding. Dockerize early so you can move between providers without rewriting everything.
+Private cloud hosting is ideal for **bootstrapped startups** validating a business idea. With Docker-based deployments, you can scale to 100k daily users on a fixed monthly cost.
 
-When you outgrow the $7/month box, your app is already containerized. Migrate to Fly.io, Fargate, or whatever fits the next stage.
+When you hit the performance ceiling of your private cloud provider, your app is already Dockerized making it easy to migrate to scalable public cloud platforms like:
 
-## Bottom Line
+- [Fly.io](https://fly.io)
+- AWS Fargate
+- Google Cloud Run
+- Azure Container Apps
 
-$1,200/month → $7/month. Same CI/CD, same shipping speed. Containerize your app, pick the right provider for your stage, and don't pay for scale you're not using.
+## Recommendation
+
+Use private cloud providers in the early stages of building your SaaS. Once a cost-benefit analysis favors moving, transition to an [Open Cloud Stack-compliant](https://www.opencloud.tech/) public provider.
+
+## Conclusion
+
+Migrating to a private cloud saved over 99% in hosting costs while preserving performance and scalability. This case study shows how a strategic shift in infrastructure can create massive efficiency gains for early-stage startups.
 
 ## Next step
 

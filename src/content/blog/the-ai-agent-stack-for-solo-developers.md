@@ -103,17 +103,27 @@ A $5/month VPS can run your agent system just fine until you’re ready to scale
 ### Step 5 — Scale on Fly.io
 Once it’s stable, move your containers to Fly.io for global uptime and distributed task runners.
 Now your agents work while you sleep — everywhere.
-## The Idea
+## The Philosophy: Build Leverage, Not Workload
 
-I don’t need a team. I need a stack that handles the boring parts so I can focus on the parts that matter.
+AI isn’t about replacing developers — it’s about multiplying them.
+As a solo dev, I don’t need a team of 10 people.
+I need one good **stack** that does the repetitive tasks for me.
+That’s what agentic systems are for:
+- Less context switching
+- More creative time
+- Consistent output
+- Exponential leverage
+This is one practical way solo developers can operate at a higher leverage point.
+## Lessons Learned
 
-Less context switching, more shipping. That's the whole point.
-## What I've Learned
-
-- Treat each automation like a junior dev: define its job clearly, check its work, fire it if it causes more problems than it solves.
-- AI doesn’t need to be clever. It needs to be consistent.
-- Cron + Docker + Django goes a surprisingly long way.
-- PydanticAI is the glue that turns “AI ideas” into something that works predictably.
+- Treat every automation like an employee: define its job, limits, and success metrics.
+- AI doesn’t need to be fancy — it needs to be consistent.
+- Cron + Docker + Django = reliable agent infrastructure.
+- PydanticAI is the bridge between “AI ideas” and “production systems.”
+The more agents you create, the more time you buy back.
+That operating leverage creates meaningful room for better product decisions.
+Want to build your own agentic AI system for marketing, SaaS, or client automation?
+That is exactly what this stack is for: fewer repetitive tasks and more shipping.
 
 ## Next step
 

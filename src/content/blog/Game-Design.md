@@ -1,16 +1,17 @@
 ---
 title: "The Hive Game Design: Ship Crafting and Modules"
-description: "A breakdown of ship crafting systems for The Hive — modules, hardpoints, and design decisions."
-pubDate: "2022-07-08"
+description: "A practical breakdown of ship crafting design decisions, balancing systems, and implementation lessons for indie game developers."
+pubDate: "Jul 08 2022"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["game-design", "godot", "python", "tutorial"]
 ---
 
 # Tech Tree - Ship Modules
 
-The Hive is getting a ship crafting system. You build ships from modules — cores, forward sections, aft sections — each with their own hardpoints for weapons, sensors, and subsystems.
+Do you like ships? Do you like the meta-game of crafting your ships and weapons?  
+Well, I have a surprise for you! _The Hive: Interstellar Despot Sim_ is getting a ship crafting and customization system. This new crafting system will allow you to play the way you want.
 
-Modules will have internal slots, mount points, and hardpoints. Internal slots are for subsystems like reactors, fuel tanks, and hangar bays. External hardpoints are for sensors, communications, weapons, and engines. Mount points connect modules together.
+Modules will have internal slots, mount points, and hardpoints. Internal slots are for subsystems like reactors, fuel tanks, and hangar bays. External hardpoints are for sensors/communication systems, weapons, and engines. Mount points are for adding ship modules.
 
 ## Core Modules
 
@@ -18,22 +19,23 @@ Modules will have internal slots, mount points, and hardpoints. Internal slots a
 - Ship Forward
 - Ship Aft
 
-Ships in this update will have at least three core modules. These core modules will have hardpoints that allow sensors, weapons, and hangars for your fighters.
+Ships in this update will have at least three core modules.  
+These core modules will have hardpoints that allow sensors, weapons, and hangars for your fighters.
 
 ### Ship Cores
 
-The core is the central hub of the ship. It holds the bridge, crew quarters, and primary systems. Core modules have the most internal slots but limited external hardpoints.
+Ship cores contain 3 to 5 internal slots, 2 mount points, and 3–4 hardpoints to mount external subsystems.
 
-### Ship Forward
+## Advanced Modules
 
-The forward section determines sensor range and weapon accuracy. More advanced forward modules give better targeting data but cost more resources and have less internal space.
+- Hangars
+- Command Structure
+- Mining Systems
+- Station Construction Systems
 
-### Ship Aft
+## Subsystems
 
-The aft section handles propulsion and power generation. Better aft modules mean faster travel and more energy for weapons and shields, but they're vulnerable to attacks from behind.
-
-## Design Philosophy
-
-I wanted a system that forces tradeoffs. You can build a ship with maximum firepower, but it'll be fragile and slow. Or max out shields and engines, but you won't have room for cargo or advanced sensors.
-
-There's no best ship. There are only ships built for different roles.
+- Heat Sinks and Radiators
+- Power Generators
+- Power Storage
+- Cargo Storage
