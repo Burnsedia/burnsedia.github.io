@@ -1,91 +1,69 @@
 ---
 title: "Godot and GDScript for Python Devs"
-description: "A beginner-friendly guide for Python developers transitioning to Godot, covering core concepts, workflows, and game scripting patterns."
-pubDate: "Sep 07, 2023"
+description: "I picked up Godot because GDScript looks like Python and I didn't want to learn C# just to make a game. Here's how it went."
+pubDate: "2023-09-07"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["godot", "python", "game-development", "tutorial"]
 ---
 
-# TL;DR 
+# Godot and GDScript for Python Devs
 
-If you've ever dreamt of diving into the world of game development, there's a powerful and versatile tool waiting for you – Godot. While Python has been your trusty companion for web development, data analysis, and automation, Godot is here to open up a new realm of possibilities by allowing you to create games with ease and flexibility. In this blog post, we'll introduce Godot and explain how it can become a game-changer for Python developers.
+I know Python. I wanted to make a game. Godot uses GDScript which is basically Python with different keywords. That was enough of a reason to try it.
+
+GDScript is similar enough that you'll be writing working game code on day one. The differences are mostly around how Godot handles scenes, nodes, and the game loop. But the syntax — indentation, functions, loops — that part is familiar.
+
+This is what I learned transitioning from Python to Godot for 32bit-Spacer.
 
 ## What is Godot?
-Godot is an open-source, cross-platform game engine that empowers developers to create 2D and 3D games. It is known for its user-friendly interface, powerful scripting capabilities, and vibrant community. Created by Juan Linietsky, it has rapidly gained popularity among game developers worldwide.
 
-Godot uses a custom scripting language called GDScript, which is quite similar to Python in terms of syntax. If you're familiar with Python, transitioning to GDScript will be a breeze. You'll find yourself at home with familiar concepts like variables, functions, and object-oriented programming.
+Godot is an open-source game engine for 2D and 3D games. It uses a scene system where everything is a tree of nodes. You write scripts in GDScript, though it also supports C# and a visual scripting language.
 
-## Benefits of Using Python with Godot:
-* Ease of Learning: Since GDScript is Pythonic, Python developers will find it relatively simple to pick up and start coding in Godot.
+It was created by Juan Linietsky and has a solid community. It's also completely free with no royalties or engine cuts.
 
-* Robust Libraries: Godot's Python API provides access to the engine's powerful features, allowing you to create complex and interactive games easily.
+## Why GDScript Works for Python Devs
 
-## Versatile Game Development
-Godot doesn't limit you to a particular genre or style of game. Whether you're interested in developing 2D platformers, top-down RPGs, first-person shooters, or even complex 3D simulations, Godot has you covered. It offers extensive tools and features for designing, scripting, and managing game assets.
+GDScript is designed to be approachable. If you know Python, you already know:
 
-Key Features:
-1. Scene System: Godot's scene system simplifies game design by breaking it into manageable components, making it easier to create complex game worlds.
+- Indentation-based blocks
+- Functions defined with `func` (instead of `def`)
+- `if/elif/else`, `for`, `while` loops
+- Dynamic typing (though Godot 4 added optional typing)
+- Dictionary and array literals
 
-2. Physics Engine: Godot has a built-in 2D and 3D physics engine, making creating realistic interactions between game objects effortless.
+The main things to learn:
+- Godot uses `extends` instead of class inheritance
+- Signals instead of event listeners
+- The node tree replaces the game loop structure you'd write in Pygame
 
-3. Animation: Create stunning animations and cinematic sequences with Godot's intuitive animation editor.
+## Setting Up
 
-## Active Community and Resources
+Download Godot from the website. That's it. No package manager, no virtualenv, no dependency hell. Unzip and run.
 
-One of the significant advantages of choosing Godot is its thriving community. Numerous tutorials, forums, and online courses are dedicated to Godot game development. Whether you're stuck on a specific problem or looking to expand your knowledge, you'll have many resources at your fingertips.
+Create a new project. Godot gives you a 2D or 3D scene. Attach a script to a node and start coding.
 
-## Cross-Platform Deployment
-
-Godot enables you to deploy your games on various platforms, including Windows, macOS, Linux, Android, iOS, HTML5, and more. Thanks to its cross-platform capabilities, you can target multiple platforms without rewriting your code.
-
-## Syntax Differences to Python
-
-1. In Python, you can declare variables without explicitly specifying their types or Keywords. 
-GDScript, on the other hand, requires you to declare variables with the 'var' keyword and optionally declare the variable type using a colon (:).
-
-2. In Python, you declare functions with the 'def' keyword.
-
-```python
-def foo(bar):
-    pass
-```
-As in Gdscript, you declare functions with the "func" keyword.
+## Your First Script
 
 ```gdscript
+extends Node
 
-func foo(bar):
+func _ready():
+    print("Hello from Godot")
+
+func _process(delta):
+    # Called every frame
     pass
 ```
 
-Python and Gdscript have optional static typing, and you use them similarly in functions.
+`_ready()` is your `__init__` equivalent. `_process(delta)` is your main game loop.
 
-```python
-def foo(bar) -> None:
-    pass
-```
-```gdscript
-func foo(bar) -> void:
-    pass
-```
+## Where Godot Differs
 
-3. Constants: Godot actually has Constance; you declare them with the "const" keyword.
+- **Scenes are data, scripts are behavior.** You build scenes in the editor, attach scripts to nodes.
+- **Signals replace callbacks.** Instead of passing functions around, you connect signals.
+- **The editor is the API.** You'll spend as much time in the editor as in code.
 
-```gdscript
-const maxHP = 1000
-```
+## Final Thought
 
-4. Every file in gdscript is a class that extends a base class in Godot
+If you know Python and want to make games, Godot is the path of least resistance. You're not learning a new language — you're learning a new way to structure interactive systems.
 
-5. Godot uses companion over inheritance, which saves time and simplifies your projects
-
-6. Godot uses a tree data structure
-
-
-## Conclusion
-
-Godot is a game engine that offers a smooth transition for Python developers into the world of game development. With its Python-like scripting language, versatile game development features, active community, and cross-platform deployment options, it's a powerful tool that empowers you to bring your game ideas to life.
-
-If you're a Python developer with a passion for gaming or a desire to explore a new creative avenue, Godot is the game-changer you've been waiting for. Dive in, start experimenting, and embark on your exciting journey into the world of game development with Godot.
-
-
-
+That transition is smaller than you think.

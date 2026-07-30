@@ -1,153 +1,146 @@
 ---
 title: "SaaS Checklist for Non-Technical Entrepreneurs"
-description: "A complete checklist for building SaaS as a non-technical founder, including MVP planning and scaling"
-pubDate: "Jan. 02, 2025"
+description: "A checklist for building SaaS as a non-technical founder — from someone who's built a few."
+pubDate: "2025-01-02"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["saas", "checklist", "business", "entrepreneurs", "guide"]
 ---
 
-## **Planning Stage**
+## Planning Stage
 
 1. **Identify the Problem**
 
-- Define the specific problem your SaaS will solve.
-- Ensure there is a market need for the solution.
+- What's the specific pain you're solving? Vague problems get vague solutions.
+- Is anyone actually paying to solve this? If not, rethink.
 
-1. **Target Audience**
+2. **Target Audience**
 
-- Specify your ideal customer profile (e.g., small businesses, freelancers, enterprise clients).
-- Conduct market research to validate demand.
+- Who exactly needs this? "Small businesses" is too broad. "Dental clinics with 5-20 staff" is not.
+- Talk to potential users before writing code. Their answers will save you months.
 
-1. **Define Your MVP (Minimum Viable Product)**
+3. **Define Your MVP**
 
-- List essential features to solve the core problem.
-- Avoid feature creep—focus on simplicity.
+- List the absolute minimum features to solve the core problem.
+- If a feature isn't essential for the first paying user, cut it.
 
-1. **Budget and Funding**
+4. **Budget and Funding**
 
-- Estimate initial costs (development, marketing, hosting, etc.).
-- Plan for ongoing operational expenses.
-- Explore funding options (self-funding, investors, loans).
+- Estimate real costs: development, hosting, marketing, compliance.
+- Plan for ongoing expenses — servers don't run on goodwill.
+- Bootstrap if you can. Investors are not a substitute for revenue.
 
-## **Development Stage**
+## Development Stage
 
 1. **Hire the Right Team**
 
-- Look for experienced developers or agencies with SaaS experience.
-- Ensure the team understands your vision and priorities.
+- Look for people who have shipped similar products, not just polished resumes.
+- Make sure they understand the difference between building features and solving problems.
 
-1. **Choose a Tech Stack**
+2. **Choose a Tech Stack**
 
-- Select a reliable backend (e.g., Python/Django, Node.js).
-- Consider scalability and performance for your tech stack.
-- Choose a cloud hosting provider (e.g., AWS, Google Cloud, Fly.io).
+- Pick something boring and proven. Python/Django, Node.js, or Rails.
+- Avoid cutting-edge frameworks for your first version. You want reliability, not resume appeal.
+- Choose a hosting provider that won't surprise you with bills (see the case study on this site about cutting costs 99%).
 
-1. **Design User-Friendly Interfaces**
+3. **Design User-Friendly Interfaces**
 
-- Hire a UX/UI designer if needed.
-- Focus on simplicity, accessibility, and responsiveness.
+- Simple and usable beats beautiful and confusing.
+- Test the design with non-technical users before writing frontend code.
 
-1. **Secure Your Platform**
+4. **Secure Your Platform**
 
-- Implement SSL/TLS for encrypted connections.
-- Use secure authentication methods (e.g., OAuth, 2FA).
-- Ensure data protection compliance (e.g., GDPR, CCPA).
+- SSL/TLS is non-negotiable in 2025.
+- Use OAuth or magic links for auth — don't roll your own.
+- Know what regulations apply (GDPR, CCPA, HIPAA) and plan for them.
 
-1. **Develop Core Features**
+5. **Build Core Features**
 
-- Build out your MVP’s essential features.
-- Test functionality regularly to catch bugs early.
+- Ship the MVP fast. You'll learn more from real users in a week than from spec documents in a month.
+- Test regularly. Bugs found early cost nothing to fix.
 
-## **Pre-Launch Stage**
+## Pre-Launch Stage
 
 1. **Testing and Quality Assurance**
 
-- Conduct beta testing with a small group of target users.
-- Gather feedback and iterate on improvements.
-- Stress test for performance and scalability.
+- Beta test with a small group of actual target users, not friends and family.
+- Stress test for scale. Better to find bottlenecks before launch day.
 
-1. **Set Up Analytics and Monitoring**
+2. **Set Up Analytics and Monitoring**
 
-- Integrate tools like Google Analytics or Mixpanel for user behavior insights.
-- Use monitoring tools (e.g., New Relic, Datadog) for uptime and performance.
+- Track user behavior from day one. You can't improve what you don't measure.
+- Set up uptime monitoring and error tracking before launch.
 
-1. **Pricing Strategy**
+3. **Pricing Strategy**
 
-- Research competitor pricing.
-- Offer tiered pricing plans (free trial, basic, premium).
-- Clearly communicate value at each pricing level.
+- Research what competitors charge, then price based on the value you deliver.
+- Offer a free trial or freemium tier. Let people use the product before they buy it.
+- Keep pricing simple. Three tiers max.
 
-1. **Create Documentation**
+4. **Create Documentation**
 
-- Write user manuals and FAQs for customers.
-- Provide developer documentation for APIs (if applicable).
+- Write user guides and FAQs before launch. Support requests drop significantly.
+- If you have an API, document it thoroughly.
 
-1. **Prepare Marketing Materials**
+5. **Prepare Marketing Materials**
 
-- Build a landing page with a clear call-to-action.
-- Create an email list and social media presence.
+- Build a landing page that explains the problem and your solution clearly.
+- Start building an email list and social media presence before launch day.
 
-## **Launch Stage**
+## Launch Stage
 
 1. **Launch the MVP**
 
-- Start with a soft launch or limited rollout to control initial feedback.
-- Monitor user behavior and address issues quickly.
+- Soft launch to a small audience first. Fix issues before the press release.
+- Monitor user behavior closely for the first week.
 
-1. **Marketing Campaign**
+2. **Marketing Campaign**
 
-- Leverage email marketing, social media, and paid ads.
-- Reach out to influencers or industry blogs for reviews.
+- Email your list, post on social media, reach out to relevant communities.
+- Word of mouth from happy users is the best marketing channel. Make it easy for them to share.
 
-1. **Customer Support**
+3. **Customer Support**
 
-- Set up support channels (e.g., email, chat, helpdesk).
-- Provide prompt and helpful responses to early users.
+- Be responsive in the first weeks. Early users who feel heard become loyal advocates.
+- Set up a simple support system — email is fine to start.
 
-## **Post-Launch Stage**
+## Post-Launch Stage
 
 1. **Collect Feedback**
 
-- Use surveys and interviews to understand user needs.
-- Track usage metrics to identify popular features.
+- Survey users regularly. Ask what's broken, not what features they want.
+- Watch usage metrics to see what people actually do, not what they say they do.
 
-1. **Iterate and Improve**
+2. **Iterate and Improve**
 
-- Regularly release updates based on user feedback.
-- Add new features gradually, focusing on customer priorities.
+- Release updates based on real usage, not hunches.
+- Add features slowly. Each new feature is a maintenance burden.
 
-1. **Optimize Retention**
+3. **Optimize Retention**
 
-- Provide tutorials, webinars, or onboarding materials.
-- Encourage annual subscriptions with discounts.
-- Use automated tools to remind users of expiring trials or subscriptions.
+- Onboard users actively in the first week. Users who understand the value stay longer.
+- Annual subscriptions reduce churn. Offer a discount for committing.
 
-1. **Scale Your Business**
+4. **Scale Your Business**
 
-- Plan for scaling infrastructure as your user base grows.
-- Consider partnerships or integrations to expand functionality.
+- Plan infrastructure scaling before you need it, not during a traffic spike.
+- Consider partnerships and integrations that expand your reach without expanding your team.
 
-1. **Monitor KPIs**
+5. **Monitor KPIs**
 
-- Track metrics like Monthly Recurring Revenue (MRR), churn rate, and customer acquisition cost (CAC).
-- Adjust strategies to meet growth targets.
+- Track the numbers that actually matter: MRR, churn, CAC, activation rate.
+- Ignore vanity metrics. "Page views" and "signups" don't pay the bills.
 
-## **Checklist Summary**
+## Checklist Summary
 
-- ✅ Problem Identification
-- ✅ Market Research
-- ✅ MVP Defined
-- ✅ Development Team Hired
-- ✅ Budget Finalized
-- ✅ Tech Stack Chosen
-- ✅ Security Measures Implemented
-- ✅ User-Friendly Design
-- ✅ Beta Testing Completed
-- ✅ Pricing Strategy Set
-- ✅ Marketing Campaign Ready
-- ✅ Documentation Prepared
-- ✅ Launch Executed
-- ✅ Feedback Collected
-- ✅ Regular Updates Released
-
-By following this checklist, you can transform your SaaS idea into a scalable, market-ready product.
+- Problem identified and validated with real conversations
+- Target audience defined narrowly
+- MVP scoped to essentials
+- Budget planned with runway buffer
+- Tech stack chosen for reliability
+- Security measures in place
+- Beta testing completed with target users
+- Pricing set and documented
+- Marketing materials ready before launch
+- Launch executed to a warm audience
+- User feedback loop established
+- Regular updates shipping based on usage data

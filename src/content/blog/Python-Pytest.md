@@ -1,127 +1,69 @@
 ---
 title: "Pytest and Selenium"
-description: "A beginner-friendly tutorial on using Pytest and Selenium to test web apps with repeatable, maintainable, and confidence-building workflows."
-seoTitle: "Pytest and Selenium Tutorial for Python Web Apps"
-seoDescription: "Learn how to set up Pytest and Selenium for browser testing in Python with practical setup steps and maintainable test workflows."
-pubDate: "Feb 09 2023"
+description: "How I set up Pytest with Selenium for browser testing in Python — the practical setup, not the theory."
+pubDate: "2023-02-09"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["python", "testing", "selenium", "tutorial"]
 faq:
   - question: "Should I use Pytest with Selenium for UI testing?"
     answer: "Yes, Pytest gives clean test structure and Selenium handles browser automation, which is a practical combo for Python UI tests."
   - question: "What is the first thing to set up for Selenium tests?"
-    answer: "Install Selenium and a browser driver, then build one stable smoke test before scaling test coverage."
+    answer: "Install Selenium and a browser driver, build one stable smoke test before scaling coverage."
   - question: "How do I keep UI tests maintainable?"
-    answer: "Use reusable helpers, stable selectors, and avoid asserting fragile UI details that change often."
+    answer: "Use reusable helpers, stable selectors, and avoid asserting on UI details that change often."
 ---
 
-## How to Develop a UI Test Sweet
+# Pytest and Selenium
 
-### What is Pytest
+I test web apps with Pytest and Selenium. Here's the setup I use — nothing fancy, just what works.
 
-Pytest is a Python testing framework that originated from the PyPy project. It can be used to write various types of software tests, including unit tests, integration tests, end-to-end tests, and functional tests. Its features include parametrized testing, fixtures, and assert re-writing. It is often used with the Functional Programming Pattern but can be used in OOP tests. Pytest is Simple to use and easy to understand. Just create a function, pass its parameters, and simply assert that a function returns the expected result.
+## What is Pytest
 
-### What is Selenium
+Pytest is a Python testing framework. It handles unit tests, integration tests, end-to-end tests, and functional tests. Parametrized tests, fixtures, assert rewriting — it has the features you actually need without ceremony.
 
-Selenium is an open-source umbrella project for various tools and libraries to support browser automation. It provides a playback tool for authoring functional tests across most modern web browsers without learning a test scripting language. Selenium has Python, Java, JavaScript, and Ruby bindings. Selenium can be used for automating and testing any browser-based task.
+Write a function, assert something, run it. That's the pattern.
 
-### Functional or OOP
+## What is Selenium
 
-Selenium and Pytest both work very well in Functional and OOP styles of programming, although I think Functional is far easier for Pytest, but do you need to create and call a Utility Function for pure functional programming to work with selenium? This is unnecessary for OOP test classes; you just call the selenium constructor in the Class constructor. But for ease of use, I recommend Functional Tests, and if you require OOP for your business requirements, I recommend the Singleton Pattern for your test sweet.
+Selenium automates browsers. You write code that clicks buttons, fills forms, and checks that things appear on the page. Useful for testing web apps end-to-end.
 
-### How to Setup Function Testing
+It works with Chrome, Firefox, and other browsers. You need a WebDriver for each browser — that's the binary that translates your Python commands into actual browser actions.
 
-We first need to install Pytest and Python Selenium Bindings.
-To do this, run the following commands.
-
+Setting up Selenium:
 ```bash
-pip install pytest
 pip install selenium
 ```
+Download the appropriate WebDriver (chromedriver for Chrome, geckodriver for Firefox) and put it in your PATH.
 
-Then, we need to download the Selenium driver on Windows, go to the site, and put the binary in the same directory as the project. On Linux and MacOS, you can use a package manager. I am running a base Distro, So I will run.
-
-```bash
-sudo yay -S chromedriver
-```
-
-I recommend the Nix package manager if you are on MacOS or Any other Linux Distro. Nix is a lovely package manager with almost everything.
-
-```bash
-nix-shell -p chromedriver
-```
-
-Now that we have the chromedriver we can start writing the test. Of course, we need to import Pytest and Selenium.
+## Basic Test Structure
 
 ```python
 import pytest
-import selenium
-```
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
-Now, we need to create a test setup function.
-
-```python
-def test_setup():
-    global driver
-    driver_path = "/path/to/chromedriver"
-    driver = webdriver.Chrome(driver_path)
-    #Wait for the Page to Load
-    driver.implicitly_wait(10)
-    # get a website so demo
-    driver.get(https://initpro.dev/)
-```
-
-Now let's find the contact form and send an Email
-
-```python
-def email_form_test():
-    driver.find_element_by_id("name")
-    driver.find_element_by_id("email")
-    driver.find_element_by_id("message")
-```
-
-We can also test other things like the website's title.
-
-```python
-def title_test():
-    x = driver.title
-    assert x == "iniPro - initPro"
-```
-
-You can test almost anything on the website, such as Modals, Forms, and Menus. After all tests have passed, you must "tare down" the webdriver.
-To do this, I recommend just having a function at the end call.
-
-```python
-def test_teardown():
-    driver.close()
+@pytest.fixture
+def browser():
+    driver = webdriver.Chrome()
+    yield driver
     driver.quit()
-    print("Test Complete")
+
+def test_page_title(browser):
+    browser.get("https://example.com")
+    assert "Example" in browser.title
 ```
 
-Here is the Full Code
+The fixture starts the browser before each test and shuts it down after. Simple, reliable.
 
-```python
-import pytest
-import selenium
+## Making Tests Maintainable
 
-def test_setup():
-    global driver
-    driver_path = "/path/to/chromedriver"
-    driver = webdriver.Chrome(driver_path)
-    driver.implicitly_wait(10)
-    driver.get(https://initpro.dev/)
+Two patterns that save time:
 
-def email_form_test():
-    driver.find_element_by_id("name")
-    driver.find_element_by_id("email")
-    driver.find_element_by_id("message")
+1. **Page Objects.** Wrap page interactions in classes so you don't repeat selectors.
+2. **Stable Selectors.** Use data attributes instead of CSS classes that change. `button[data-testid="submit"]` survives redesigns. `.btn-primary` does not.
 
-def title_test():
-    x = driver.title
-    assert x == "iniPro - initPro"
+## What I Actually Do
 
-def test_teardown():
-    driver.close()
-    driver.quit()
-    print("Test Complete")
-```
+I keep tests focused on user workflows, not UI polish. Test that login works, that forms submit, that error messages show up. Don't test that a button is the right shade of blue — that breaks for no value.
+
+One smoke test that covers the critical path is worth more than 50 unit tests that cover nothing real.
