@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnsedia — Synthwave OpenCode (variant 8)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: oklch(0% 0 0);
+    --surface: oklch(14% 0.004 49.25);
+    --raised: oklch(21% 0.006 56.043);
+    --text: oklch(100% 0 0);
+    --muted: oklch(100% 0 0 / 0.6);
+    --faint: oklch(100% 0 0 / 0.38);
+    --primary: oklch(71% 0.202 349.761);
+    --on-primary: oklch(28% 0.109 3.907);
+    --secondary: oklch(82% 0.111 230.318);
+    --tertiary: oklch(75% 0.183 55.934);
+    --success: oklch(77% 0.152 181.912);
+    --warning: oklch(90% 0.182 98.111);
+    --border: oklch(100% 0 0 / 0.16);
+    --border-soft: oklch(100% 0 0 / 0.09);
+  }
+  body {
+    font-family: "Berkeley Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* header — opencode flat style, synth colors */
+  header {
+    display: flex; align-items: center; gap: 26px;
+    padding: 18px 0; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: oklch(0% 0 0 / 0.92); backdrop-filter: blur(8px); z-index: 50;
+  }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
+  .brand svg { width: 18px; height: 18px; }
+  .brand svg path { fill: var(--primary); }
+  nav { display: flex; gap: 24px; margin-left: auto; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.88rem; }
+  nav a:hover { color: var(--text); }
+  nav a.active { color: var(--text); }
+  .btn-accent { background: var(--primary); color: var(--on-primary); border: none; border-radius: 0; padding: 9px 18px; font-family: inherit; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .15s ease; }
+  .btn-accent:hover { background: var(--tertiary); color: oklch(26% 0.079 36.259); }
+
+  /* hero — hexagon left (current site) + opencode type */
+  .hero { padding: 80px 0 50px; }
+  .hero-grid { display: grid; grid-template-columns: minmax(180px, 290px) 1fr; gap: 52px; align-items: center; }
+  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } }
+  .hexagon {
+    width: 100%; aspect-ratio: 1;
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    background: linear-gradient(160deg, var(--raised), var(--surface));
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--primary);
+  }
+  .hexagon .inner { font-size: 3rem; font-weight: 800; color: var(--primary); }
+  .hero .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); padding: 4px 12px; font-size: 0.76rem; color: var(--muted); margin-bottom: 20px; }
+  .hero .badge b { color: var(--tertiary); font-weight: 700; }
+  .hero .badge a { color: var(--secondary); text-decoration: none; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.01em; }
+  .hero h1 .hl { color: var(--primary); }
+  .hero .sub { color: var(--muted); font-size: 0.98rem; margin-top: 14px; max-width: 60ch; }
+  .hero .typing { margin-top: 20px; color: var(--secondary); font-size: 0.92rem; min-height: 1.7em; }
+  .hero .typing .caret { display: inline-block; width: 8px; height: 1em; background: var(--secondary); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero .cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-outline { font-family: inherit; font-size: 0.85rem; font-weight: 700; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 0; padding: 9px 18px; cursor: pointer; text-decoration: none; transition: all .15s ease; }
+  .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
+
+  /* tabs — opencode install pattern, synth colors */
+  .tabs { margin-top: 34px; }
+  .tablist { display: flex; border-bottom: 1px solid var(--border); }
+  .tab { font-family: inherit; font-size: 0.8rem; color: var(--muted); background: none; border: none; padding: 10px 16px; cursor: pointer; border-bottom: 1px solid transparent; margin-bottom: -1px; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--text); border-bottom-color: var(--primary); }
+  .tabpanel { display: none; border: 1px solid var(--border); border-top: none; padding: 18px 20px; font-size: 0.84rem; }
+  .tabpanel.active { display: block; }
+  .tabpanel .cmd { color: var(--muted); }
+  .tabpanel .cmd b { color: var(--text); font-weight: 600; }
+  .tabpanel .cmd .hl { color: var(--primary); }
+  .copy-btn { margin-top: 14px; background: none; border: 1px solid var(--border); color: var(--muted); font-family: inherit; font-size: 0.76rem; padding: 7px 14px; cursor: pointer; }
+  .copy-btn:hover { color: var(--text); border-color: var(--primary); }
+
+  /* live build strip */
+  .live-strip { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border: 1px solid var(--border); border-left: 3px solid var(--success); background: var(--surface); padding: 12px 18px; margin-top: 34px; font-size: 0.84rem; }
+  .live-strip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); box-shadow: 0 0 6px var(--success); animation: pulse 2s infinite; flex-shrink: 0; }
+  @keyframes pulse { 50% { opacity: 0.4; } }
+  .live-strip .lb { color: var(--faint); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
+  .live-strip .lt { color: var(--text); }
+  .live-strip .lt a { color: var(--secondary); text-decoration: none; }
+  .live-strip .lt a:hover { text-decoration: underline; }
+  .live-strip .lmore { margin-left: auto; color: var(--faint); font-size: 0.74rem; }
+
+  /* stats band */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 70px 0 0; }
+  .stat { background: var(--bg); padding: 28px 24px; }
+  .stat .num { font-size: 1.9rem; font-weight: 700; color: var(--primary); font-variant-numeric: tabular-nums; }
+  .stat .lab { color: var(--muted); font-size: 0.8rem; margin-top: 6px; }
+  .stat .src { color: var(--faint); font-size: 0.7rem; margin-top: 4px; }
+  .stat .num.small { font-size: 1.15rem; line-height: 1.4; word-break: break-word; }
+
+  /* sections */
+  .sec { margin: 76px 0 26px; display: flex; align-items: baseline; gap: 14px; }
+  .sec h2 { font-size: 1.45rem; font-weight: 700; }
+  .sec .rule { flex: 1; height: 1px; background: var(--border-soft); }
+  .sec .mono { color: var(--faint); font-size: 0.75rem; }
+
+  /* about */
+  .about { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start; }
+  @media (max-width: 800px) { .about { grid-template-columns: 1fr; } }
+  .about p { color: var(--muted); font-size: 0.93rem; margin-bottom: 14px; }
+  .about p b { color: var(--text); }
+  .about .mono-box { border: 1px solid var(--border); padding: 18px; font-size: 0.8rem; color: var(--muted); background: var(--surface); }
+  .about .mono-box .p { color: var(--primary); }
+  .about .mono-box pre { margin-top: 10px; color: var(--text); white-space: pre-wrap; font-family: inherit; }
+
+  /* projects */
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .proj { border: 1px solid var(--border); background: var(--surface); padding: 22px; text-decoration: none; display: block; transition: all .15s ease; }
+  .proj:hover { border-color: var(--primary); background: var(--raised); }
+  .proj .top { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+  .proj .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .proj .dot.a { background: var(--secondary); box-shadow: 0 0 6px var(--secondary); }
+  .proj .dot.l { background: var(--success); box-shadow: 0 0 6px var(--success); }
+  .proj .dot.d { background: var(--tertiary); box-shadow: 0 0 6px var(--tertiary); }
+  .proj h3 { font-size: 0.98rem; font-weight: 700; }
+  .proj .desc { color: var(--muted); font-size: 0.84rem; margin-bottom: 12px; }
+  .proj .status { color: var(--primary); font-size: 0.76rem; }
+  .proj .detail { color: var(--faint); font-size: 0.76rem; margin-top: 4px; }
+
+  /* build log rows */
+  .log-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+  .log { display: flex; gap: 18px; padding: 16px 8px; border-bottom: 1px solid var(--border); text-decoration: none; align-items: baseline; transition: background .12s ease; }
+  .log:hover { background: var(--surface); }
+  .log .date { color: var(--faint); font-size: 0.76rem; white-space: nowrap; }
+  .log .tag { color: var(--secondary); font-size: 0.7rem; white-space: nowrap; }
+  .log .title { color: var(--text); font-size: 0.93rem; font-weight: 600; }
+  .log:hover .title { color: var(--primary); }
+
+  /* FAQ */
+  .faq { border-top: 1px solid var(--border); }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 14px; background: none; border: none; color: var(--text); font-family: inherit; font-size: 0.92rem; font-weight: 600; padding: 18px 6px; cursor: pointer; text-align: left; }
+  .faq-q .plus { color: var(--muted); font-size: 1rem; transition: transform .2s ease; }
+  .faq-item.open .plus { transform: rotate(45deg); color: var(--primary); }
+  .faq-a { display: none; padding: 0 6px 20px; color: var(--muted); font-size: 0.86rem; max-width: 70ch; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* CTA split */
+  .cta-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 14px; }
+  @media (max-width: 800px) { .cta-grid { grid-template-columns: 1fr; } }
+  .cta-main { border: 1px solid var(--border); background: var(--surface); padding: 30px; }
+  .cta-main h2 { font-size: 1.3rem; margin-bottom: 10px; }
+  .cta-main p { color: var(--muted); font-size: 0.88rem; margin-bottom: 20px; max-width: 44ch; }
+  .cta-why { border: 1px solid var(--primary); background: var(--surface); padding: 26px; }
+  .cta-why .lbl { font-size: 0.72rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+  .cta-why ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .cta-why li { color: var(--muted); font-size: 0.84rem; display: flex; gap: 8px; }
+  .cta-why li::before { content: ">"; color: var(--primary); }
+
+  /* newsletter */
+  .newsletter { margin-top: 70px; border: 1px solid var(--border); background: var(--surface); padding: 40px; text-align: center; }
+  .newsletter h2 { font-size: 1.3rem; margin-bottom: 8px; }
+  .newsletter p { color: var(--muted); font-size: 0.86rem; margin-bottom: 22px; }
+  .newsletter form { display: flex; gap: 0; justify-content: center; flex-wrap: wrap; }
+  .newsletter input { background: var(--bg); border: 1px solid var(--border); border-right: none; color: var(--text); padding: 11px 16px; font-family: inherit; font-size: 0.86rem; width: 300px; max-width: 70vw; }
+  .newsletter input:focus { outline: none; border-color: var(--primary); }
+
+  footer { margin-top: 70px; border-top: 1px solid var(--border); padding: 30px 0 50px; display: flex; gap: 22px; flex-wrap: wrap; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--primary); }
+  footer .copy { margin-left: auto; color: var(--faint); }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#"><svg viewBox="0 0 24 24"><path d="M12 1l9.5 5.5v11L12 23l-9.5-5.5v-11L12 1z"/></svg>burnsedia.dev</a>
+  <nav>
+    <a href="#" class="active">Build Log</a>
+    <a href="#">Products</a>
+    <a href="#">Membership</a>
+    <a href="#">Socials</a>
+  </nav>
+  <a class="btn-accent" href="#">Work With Me</a>
+</header>
+
+<div class="wrap">
+
+  <!-- hero: current site hexagon + opencode layout -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hexagon"><span class="inner">B</span></div>
+      <div>
+        <span class="badge"><b>New</b> content business · build logs weekly <a href="#">read the announcement →</a></span>
+        <h1>I build <span class="hl">shit</span> that works.</h1>
+        <p class="sub">Apps, games, and open tools. No hype, no lock-in, no vaporware. Built in public — every commit, every tradeoff, every win.</p>
+        <p class="typing"><span id="typedText"></span><span class="caret"></span></p>
+        <div class="cta">
+          <a class="btn-accent" href="#">Work With Me</a>
+          <a class="btn-outline" href="#">Follow My Builds</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- opencode tabs pattern -->
+    <div class="tabs">
+      <div class="tablist">
+        <button class="tab active" data-tab="t-dev">dev service</button>
+        <button class="tab" data-tab="t-saas">saas tools</button>
+        <button class="tab" data-tab="t-games">games</button>
+        <button class="tab" data-tab="t-support">support</button>
+      </div>
+      <div class="tabpanel active" id="t-dev">
+        <p class="cmd">$ <b>Unlimited Dev Service</b> — flat <span class="hl">$4,000/mo</span>. Full-stack, fixed scope, no hourly tracking.</p>
+        <button class="copy-btn" onclick="this.textContent='✓ done'">book a call →</button>
+      </div>
+      <div class="tabpanel" id="t-saas">
+        <p class="cmd">$ <b>boomerbill</b> — billing &amp; labor tracking · <b>BulkPost</b> — agentic social media automation</p>
+        <button class="copy-btn" onclick="this.textContent='✓ done'">see products →</button>
+      </div>
+      <div class="tabpanel" id="t-games">
+        <p class="cmd">$ <b>32bit-Spacer</b> — retro-futurist space game built in Godot, in public.</p>
+        <button class="copy-btn" onclick="this.textContent='✓ done'">view on Itch.io →</button>
+      </div>
+      <div class="tabpanel" id="t-support">
+        <p class="cmd">$ <b>Membership</b> — <span class="hl">$5–100/mo</span>. Sponsorware access, dev calls, behind-the-scenes.</p>
+        <button class="copy-btn" onclick="this.textContent='✓ done'">support the builds →</button>
+      </div>
+    </div>
+
+    <!-- live build strip (GitHub API) -->
+    <div class="live-strip" id="liveStrip">
+      <span class="dot"></span>
+      <span class="lb">live build</span>
+      <span class="lt" id="liveText">fetching latest from GitHub…</span>
+      <span class="lmore" id="liveMeta"></span>
+    </div>
+  </section>
+
+  <!-- stats — live via GitHub API -->
+  <div class="stats">
+    <div class="stat"><div class="num" id="statRepos">–</div><div class="lab">public repos</div><div class="src">api.github.com/users/Burnsedia</div></div>
+    <div class="stat"><div class="num" id="statStars">–</div><div class="lab">GitHub stars</div><div class="src">summed across repos</div></div>
+    <div class="stat"><div class="num" id="statFollowers">–</div><div class="lab">GitHub followers</div><div class="src">live via API</div></div>
+    <div class="stat"><div class="num small" id="statTop">–</div><div class="lab">top repo by stars</div><div class="src" id="statTopSrc">live via API</div></div>
+    <div class="stat"><div class="num small" id="statRecent">–</div><div class="lab">most recently pushed</div><div class="src" id="statRecentSrc">live via API</div></div>
+  </div>
+
+  <!-- about -->
+  <section>
+    <div class="sec"><h2>About Bailey</h2><span class="rule"></span><span class="mono">$ whoami</span></div>
+    <div class="about">
+      <div>
+        <p>I started coding at <b>9 years old</b> — C/C++, Command &amp; Conquer mods in Lua, Civ 5 mods, then my own games after Harvard CS50. After high school I started freelancing and shipping software for real clients.</p>
+        <p>I'm a <b>former artist</b> and an <b>autistic hacker nerd</b>. I build local-first when possible, cloud when needed. <b>No hype. Just shipped.</b></p>
+      </div>
+      <div class="mono-box">
+        <span class="p">$</span> whoami
+        <pre>bailey@burnsedia
+├── 15+ yrs full-stack
+├── open source advocate
+├── PyATL co-organizer
+└── building in public since 2023</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section>
+    <div class="sec"><h2>What I am building right now</h2><span class="rule"></span><span class="mono">$ ls ~/projects</span></div>
+    <div class="proj-grid">
+      <a class="proj" href="#">
+        <div class="top"><span class="dot a"></span><h3>Unlimited Dev Service</h3></div>
+        <p class="desc">Ongoing development for teams that need shipping, not theater.</p>
+        <p class="status">Status: Active client delivery</p>
+        <p class="detail">Built for maintainability, ownership, and clear scope.</p>
+      </a>
+      <a class="proj" href="#">
+        <div class="top"><span class="dot l"></span><h3>boomerbill</h3></div>
+        <p class="desc">Billing and labor tracking for nerds tired of unpaid tech support.</p>
+        <p class="status">Status: Live hosted user</p>
+        <p class="detail">Local-first mindset with practical workflows, no lock-in.</p>
+      </a>
+      <a class="proj" href="#">
+        <div class="top"><span class="dot d"></span><h3>32bit-Spacer</h3></div>
+        <p class="desc">Retro-futurist space game built in public.</p>
+        <p class="status">Status: Playable systems in active development</p>
+        <p class="detail">Lean architecture and iterative releases.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- build log -->
+  <section>
+    <div class="sec"><h2>From the build log</h2><span class="rule"></span><span class="mono">$ tail -n 5</span></div>
+    <div class="log-list">
+      <a class="log" href="#"><span class="date">2026-07-29</span><span class="tag">opinion</span><span class="title">Why I'm pivoting this site to a content business</span></a>
+      <a class="log" href="#"><span class="date">2026-07-25</span><span class="tag">tutorial</span><span class="title">Rust ownership finally clicked while building nerdtime</span></a>
+      <a class="log" href="#"><span class="date">2026-07-21</span><span class="tag">build log</span><span class="title">The AI agent stack I actually use for solo dev</span></a>
+      <a class="log" href="#"><span class="date">2026-07-18</span><span class="tag">tutorial</span><span class="title">Godot for Python programmers — shader edition</span></a>
+      <a class="log" href="#"><span class="date">2026-07-14</span><span class="tag">opinion</span><span class="title">Why I charge $4,000 a month and not less</span></a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="sec"><h2>FAQ</h2><span class="rule"></span></div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q">How much does the Unlimited Dev Service cost?<span class="plus">+</span></button>
+        <div class="faq-a">$4,000/month flat. Full-stack, fixed scope per sprint, direct communication with me — no account managers, no agency layers.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is sponsorware and how does early access work?<span class="plus">+</span></button>
+        <div class="faq-a">Sponsorware releases code to supporters first (Patreon / GitHub Sponsors) and opens it to everyone later. It funds development while building in public.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's the difference between Patreon and GitHub Sponsors tiers?<span class="plus">+</span></button>
+        <div class="faq-a">Patreon tiers focus on behind-the-scenes content and community; GitHub Sponsors tiers focus on sponsorware code access and direct input into the roadmap.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you take on clients?<span class="plus">+</span></button>
+        <div class="faq-a">Yes — the Unlimited Dev Service is open, and I do fixed-scope sprints for one-off needs. Book a 15-minute call, no pressure.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA split (current layout) -->
+  <section>
+    <div class="sec"><h2>Need it built right?</h2><span class="rule"></span></div>
+    <div class="cta-grid">
+      <div class="cta-main">
+        <p>If you want practical systems with clear tradeoffs and clean ownership, let's talk.</p>
+        <a class="btn-accent" href="#">Work With Me</a>
+      </div>
+      <div class="cta-why">
+        <p class="lbl">Why this works</p>
+        <ul>
+          <li>Clear scope and delivery cadence</li>
+          <li>Direct communication, no agency layers</li>
+          <li>Built for maintainability and ownership</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- newsletter -->
+  <section class="newsletter">
+    <h2>Be the first to know what ships</h2>
+    <p>Build notes weekly + the free Indie Dev Stack guide on signup.</p>
+    <form onsubmit="event.preventDefault(); document.getElementById('n8').textContent='✓ You\u2019re on the list — check your inbox for the guide.';">
+      <input type="email" placeholder="Email address" aria-label="Email">
+      <button class="btn-accent" type="submit">Subscribe</button>
+    </form>
+    <p id="n8" style="color: var(--success); margin-top: 14px; font-size: 0.84rem;"></p>
+  </section>
+
+  <footer>
+    <a href="#">GitHub</a><a href="#">Docs</a><a href="#">Changelog</a>
+    <a href="#">Discord</a><a href="#">X</a><a href="#">RSS</a>
+    <span class="copy">© 2026 Bailey Burnsed · built in public</span>
+  </footer>
+</div>
+
+<script>
+  const phrases = ["Founders", "Small teams", "Creators", "Operators"];
+  const tEl = document.getElementById("typedText");
+  let pi = 0, ci = 0, deleting = false;
+  (function tick() {
+    const cur = "Built for " + phrases[pi];
+    tEl.textContent = cur.slice(0, ci);
+    if (!deleting && ci < cur.length) { ci++; setTimeout(tick, 90); }
+    else if (!deleting) { deleting = true; setTimeout(tick, 2200); }
+    else if (ci > 0) { ci--; setTimeout(tick, 35); }
+    else { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 400); }
+  })();
+
+  document.querySelectorAll(".tab").forEach(t => {
+    t.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
+      document.querySelectorAll(".tabpanel").forEach(x => x.classList.remove("active"));
+      t.classList.add("active");
+      document.getElementById(t.dataset.tab).classList.add("active");
+    });
+  });
+
+  // ── live GitHub stats (unauthenticated REST API, CORS-enabled) ──
+  const GITHUB_USER = "Burnsedia";
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function animateCount(el, target, suffix = "") {
+    if (!el) return;
+    if (reduceMotion || !Number.isFinite(target)) { el.textContent = target.toLocaleString() + suffix; return; }
+    const start = performance.now(); const dur = 1100;
+    (function frame(now) {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString() + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    })(start);
+  }
+
+  async function loadGitHub() {
+    try {
+      const [userRes, reposRes] = await Promise.all([
+        fetch(`https://api.github.com/users/${GITHUB_USER}`),
+        fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`),
+      ]);
+      if (!userRes.ok || !reposRes.ok) throw new Error(`GitHub API ${userRes.status}/${reposRes.status}`);
+      const user = await userRes.json();
+      const repos = await reposRes.json();
+      const owned = repos.filter(r => !r.fork && !r.archived);
+      const totalStars = owned.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+      const top = owned.reduce((best, r) => (r.stargazers_count > (best?.stargazers_count ?? -1) ? r : best), null);
+      const recent = owned[0]; // repos already sorted by pushed desc
+
+      animateCount(document.getElementById("statRepos"), user.public_repos);
+      animateCount(document.getElementById("statStars"), totalStars);
+      animateCount(document.getElementById("statFollowers"), user.followers);
+      if (top) {
+        document.getElementById("statTop").textContent = top.name;
+        document.getElementById("statTopSrc").textContent = `${top.stargazers_count}★ · ${top.language || "—"}`;
+      }
+      if (recent) {
+        const d = new Date(recent.pushed_at);
+        document.getElementById("statRecent").textContent = recent.name;
+        document.getElementById("statRecentSrc").textContent = `pushed ${d.toLocaleDateString()}`;
+        document.getElementById("liveText").innerHTML =
+          `<a href="${recent.html_url}" target="_blank" rel="noopener">${recent.name}</a> — ${recent.description || "latest commit"}`;
+        document.getElementById("liveMeta").textContent = `${recent.language || ""} · ${recent.stargazers_count}★`.trim();
+      }
+    } catch (err) {
+      // fail-safe: keep the placeholder dashes and say so
+      document.getElementById("liveText").textContent = "GitHub API unreachable — showing fallback.";
+      document.getElementById("liveMeta").textContent = "offline";
+      console.warn("GitHub stats failed:", err);
+    }
+  }
+  loadGitHub();
+
+  document.querySelectorAll(".faq-q").forEach(q => {
+    q.addEventListener("click", () => q.parentElement.classList.toggle("open"));
+  });
+</script>
+</body>
+</html>
