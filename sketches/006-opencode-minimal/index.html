@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnsedia — OpenCode Minimal (variant 6)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: oklch(0% 0 0);
+    --surface: oklch(14% 0.004 49.25);
+    --surface-raised: oklch(21% 0.006 56.043);
+    --text: oklch(100% 0 0);
+    --muted: oklch(100% 0 0 / 0.55);
+    --faint: oklch(100% 0 0 / 0.35);
+    --primary: oklch(71% 0.202 349.761);
+    --on-primary: oklch(28% 0.109 3.907);
+    --secondary: oklch(82% 0.111 230.318);
+    --tertiary: oklch(75% 0.183 55.934);
+    --success: oklch(77% 0.152 181.912);
+    --border: oklch(100% 0 0 / 0.14);
+    --border-soft: oklch(100% 0 0 / 0.08);
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 34px;
+  }
+  .mono { font-family: ui-monospace, "JetBrains Mono", "Hack", Menlo, Consolas, monospace; }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  /* header: quiet, OpenCode-style */
+  header {
+    display: flex; align-items: center; gap: 18px;
+    padding: 16px 0; border-bottom: 1px solid var(--border-soft);
+    position: sticky; top: 0; background: oklch(0% 0 0 / 0.9); backdrop-filter: blur(8px); z-index: 40;
+  }
+  .brand { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .brand svg { width: 16px; height: 16px; }
+  .brand svg path { fill: var(--primary); }
+  nav { display: flex; gap: 20px; margin-left: auto; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+  nav a:hover, nav a.active { color: var(--text); }
+  nav a.active { color: var(--primary); }
+  .kbd { font-family: ui-monospace, monospace; font-size: 11px; color: var(--muted); border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px; padding: 3px 8px; cursor: pointer; }
+  .kbd:hover { color: var(--text); border-color: var(--primary); }
+
+  /* hero — same structure as current site: hexagon + text */
+  .hero { padding: 72px 0 56px; }
+  .hero-grid { display: grid; grid-template-columns: minmax(180px, 300px) 1fr; gap: 48px; align-items: center; }
+  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; gap: 26px; } }
+  .hexagon {
+    width: 100%; aspect-ratio: 1;
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    background: linear-gradient(160deg, var(--surface-raised), var(--surface));
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border);
+  }
+  .hexagon .inner { font-size: 3rem; font-weight: 800; color: var(--primary); }
+  .hero h1 { font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.1; letter-spacing: -0.025em; font-weight: 800; }
+  .hero h1 .hl { color: var(--primary); }
+  .hero .sub { color: var(--muted); margin-top: 12px; font-size: 1.02rem; }
+  .hero .typing { margin-top: 18px; color: var(--secondary); font-size: 0.95rem; min-height: 1.7em; font-family: ui-monospace, monospace; }
+  .hero .typing .caret { display: inline-block; width: 8px; height: 1em; background: var(--secondary); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero .cta { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { font-family: inherit; font-size: 0.92rem; font-weight: 700; background: var(--primary); color: var(--on-primary); border: none; border-radius: 7px; padding: 10px 20px; cursor: pointer; text-decoration: none; transition: background .15s ease; }
+  .btn-primary:hover { background: var(--tertiary); }
+  .btn-outline { font-family: inherit; font-size: 0.92rem; font-weight: 700; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 7px; padding: 10px 20px; cursor: pointer; text-decoration: none; transition: all .15s ease; }
+  .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
+
+  /* section labels — OpenCode quiet */
+  .sec { margin: 58px 0 20px; }
+  .sec .tag { display: flex; align-items: center; gap: 10px; font-family: ui-monospace, monospace; font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .sec .tag::after { content: ""; flex: 1; height: 1px; background: var(--border-soft); }
+  .sec .tag b { color: var(--primary); font-weight: 700; }
+  .sec h2 { font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .sec .lede { color: var(--muted); font-size: 0.95rem; max-width: 56ch; }
+
+  /* about */
+  .about p { color: var(--muted); font-size: 0.98rem; max-width: 66ch; margin-bottom: 12px; }
+  .about p b { color: var(--text); }
+
+  /* project cards — keep current border/hover pattern */
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; }
+  .proj {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px; text-decoration: none; display: block; transition: all .15s ease;
+  }
+  .proj:hover { border-color: var(--primary); background: var(--surface-raised); }
+  .proj .top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .proj .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .proj .dot.a { background: var(--secondary); }
+  .proj .dot.l { background: var(--success); }
+  .proj .dot.d { background: var(--tertiary); }
+  .proj h3 { font-size: 1rem; font-weight: 700; }
+  .proj .desc { color: var(--muted); font-size: 0.88rem; margin-bottom: 10px; }
+  .proj .status { color: var(--primary); font-size: 0.8rem; }
+  .proj .detail { color: var(--faint); font-size: 0.8rem; margin-top: 4px; }
+
+  /* build log — grid of quiet cards */
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+  .post {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px; text-decoration: none; display: flex; flex-direction: column; gap: 8px;
+    transition: all .15s ease;
+  }
+  .post:hover { border-color: var(--primary); background: var(--surface-raised); }
+  .post .date { font-family: ui-monospace, monospace; font-size: 0.72rem; color: var(--faint); }
+  .post h3 { font-size: 0.98rem; line-height: 1.4; color: var(--text); }
+  .post:hover h3 { color: var(--primary); }
+  .post .tag { align-self: flex-start; font-family: ui-monospace, monospace; font-size: 0.68rem; color: var(--secondary); border: 1px solid oklch(82% 0.111 230.318 / 0.3); border-radius: 999px; padding: 2px 9px; }
+
+  /* stats — same count-up, cleaner cards */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .stat .num { font-size: 1.6rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
+  .stat .lab { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+  .stat .src { font-family: ui-monospace, monospace; font-size: 0.68rem; color: var(--faint); margin-top: 3px; }
+
+  /* CTA — current two-column split */
+  .cta-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 14px; }
+  @media (max-width: 820px) { .cta-grid { grid-template-columns: 1fr; } }
+  .cta-main { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 30px; }
+  .cta-main h2 { font-size: 1.35rem; margin-bottom: 10px; }
+  .cta-main p { color: var(--muted); font-size: 0.92rem; margin-bottom: 20px; max-width: 44ch; }
+  .cta-why { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 26px; }
+  .cta-why .lbl { font-family: ui-monospace, monospace; font-size: 0.72rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+  .cta-why ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .cta-why li { color: var(--muted); font-size: 0.88rem; display: flex; gap: 8px; }
+  .cta-why li::before { content: ">"; color: var(--primary); font-family: ui-monospace, monospace; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--border-soft); padding: 26px 0 8px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.84rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--primary); }
+
+  /* status bar — OpenCode signature, quiet */
+  .statusbar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+    display: flex; align-items: center; gap: 14px;
+    background: var(--surface); border-top: 1px solid var(--border);
+    padding: 4px 16px; font-size: 11px; color: var(--muted);
+    font-family: ui-monospace, "JetBrains Mono", monospace; white-space: nowrap; overflow-x: auto;
+  }
+  .statusbar .live { color: var(--success); }
+  .statusbar .spacer { flex: 1; }
+  .statusbar b { color: var(--text); font-weight: 600; }
+
+  /* palette */
+  .palette { position: fixed; inset: 0; z-index: 100; display: none; align-items: flex-start; justify-content: center; background: oklch(0% 0 0 / 0.72); backdrop-filter: blur(3px); padding-top: 12vh; }
+  .palette.open { display: flex; }
+  .palette-box { width: min(540px, 92vw); background: var(--surface-raised); border: 1px solid var(--primary); border-radius: 10px; overflow: hidden; }
+  .palette-input { width: 100%; background: transparent; border: none; outline: none; color: var(--text); font-family: inherit; font-size: 14px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+  .palette-input::placeholder { color: var(--faint); }
+  .palette-list { max-height: 300px; overflow-y: auto; padding: 6px; }
+  .palette-item { display: flex; gap: 10px; padding: 8px 12px; border-radius: 6px; font-size: 13px; color: var(--text); cursor: pointer; }
+  .palette-item .cat { margin-left: auto; font-size: 11px; color: var(--faint); }
+  .palette-item:hover, .palette-item.sel { background: var(--surface); color: var(--primary); }
+  .palette-empty { padding: 16px; color: var(--faint); font-size: 12.5px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#"><svg viewBox="0 0 24 24"><path d="M12 1l9.5 5.5v11L12 23l-9.5-5.5v-11L12 1z"/></svg>burnsedia.dev</a>
+  <nav>
+    <a href="#" class="active">Build Log</a>
+    <a href="#">Products</a>
+    <a href="#">Membership</a>
+    <a href="#">Socials</a>
+  </nav>
+  <button class="kbd" onclick="openPalette()">⌘K</button>
+</header>
+
+<div class="wrap">
+
+  <!-- hero — current structure -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hexagon"><span class="inner">B</span></div>
+      <div>
+        <h1>I build <span class="hl">shit</span> that works.</h1>
+        <p class="sub">Apps, games, and open tools. No hype. No lock-in. No vaporware.</p>
+        <p class="typing"><span id="typedText"></span><span class="caret"></span></p>
+        <div class="cta">
+          <a class="btn-primary" href="#">Work With Me</a>
+          <a class="btn-outline" href="#">Follow My Builds</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- about -->
+  <section class="about">
+    <div class="sec"><div class="tag"><b>01</b> about</div><h2>About Bailey</h2></div>
+    <p>I started coding at 9 years old — C/C++, <b>Command and Conquer mods in Lua</b>, Civ 5 mods, then my own games after Harvard CS50. After high school I started freelancing and shipping software for real clients.</p>
+    <p>I'm an <b>autistic hacker nerd</b> and former artist. I build local-first when possible, cloud when needed. <b>No hype. Just shipped.</b></p>
+  </section>
+
+  <!-- projects -->
+  <section>
+    <div class="sec"><div class="tag"><b>02</b> active builds</div><h2>What I am building right now</h2><p class="lede">Three active lanes. Real status, no theater.</p></div>
+    <div class="proj-grid">
+      <a class="proj" href="#">
+        <div class="top"><span class="dot a"></span><h3>Unlimited Dev Service</h3></div>
+        <p class="desc">Ongoing development for teams that need shipping, not theater.</p>
+        <p class="status">Status: Active client delivery</p>
+        <p class="detail">Built for maintainability, ownership, and clear scope.</p>
+      </a>
+      <a class="proj" href="#">
+        <div class="top"><span class="dot l"></span><h3>boomerbill</h3></div>
+        <p class="desc">Billing and labor tracking for nerds tired of unpaid tech support.</p>
+        <p class="status">Status: Live hosted user</p>
+        <p class="detail">Local-first mindset with practical workflows, no lock-in.</p>
+      </a>
+      <a class="proj" href="#">
+        <div class="top"><span class="dot d"></span><h3>32bit-Spacer</h3></div>
+        <p class="desc">Retro-futurist space game built in public.</p>
+        <p class="status">Status: Playable systems in active development</p>
+        <p class="detail">Lean architecture and iterative releases.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- build log -->
+  <section>
+    <div class="sec"><div class="tag"><b>03</b> build log</div><h2>From the build log</h2><p class="lede">Notes on architecture, tradeoffs, and what actually shipped.</p></div>
+    <div class="blog-grid">
+      <a class="post" href="#"><span class="date">2026-07-29</span><span class="tag">opinion</span><h3>Why I'm pivoting this site to a content business</h3></a>
+      <a class="post" href="#"><span class="date">2026-07-25</span><span class="tag">tutorial</span><h3>Rust ownership finally clicked while building nerdtime</h3></a>
+      <a class="post" href="#"><span class="date">2026-07-21</span><span class="tag">build log</span><h3>The AI agent stack I actually use for solo dev</h3></a>
+      <a class="post" href="#"><span class="date">2026-07-18</span><span class="tag">tutorial</span><h3>Godot for Python programmers — shader edition</h3></a>
+      <a class="post" href="#"><span class="date">2026-07-14</span><span class="tag">opinion</span><h3>Why I charge $4,000 a month and not less</h3></a>
+      <a class="post" href="#"><span class="date">2026-07-10</span><span class="tag">build log</span><h3>Own, don't rent: the hidden cost of SaaS</h3></a>
+    </div>
+  </section>
+
+  <!-- stats -->
+  <section>
+    <div class="sec"><div class="tag"><b>04</b> receipts</div><h2>Building in public</h2><p class="lede">Stats, not slogans. Real delivery and community work.</p></div>
+    <div class="stats-grid">
+      <div class="stat"><div class="num" data-count="101">0</div><div class="lab">public repos</div><div class="src">github.com/Burnsedia</div></div>
+      <div class="stat"><div class="num" data-count="150" data-suffix="+">0</div><div class="lab">GitHub stars</div><div class="src">across repos</div></div>
+      <div class="stat"><div class="num" data-count="80">0</div><div class="lab">YouTube videos</div><div class="src">channel</div></div>
+      <div class="stat"><div class="num" data-count="15" data-suffix="+">0</div><div class="lab">years coding</div><div class="src">since 2011</div></div>
+      <div class="stat"><div class="num" data-count="2023">0</div><div class="lab">PyATL co-organizer</div><div class="src">since</div></div>
+    </div>
+  </section>
+
+  <!-- CTA — current two-column split -->
+  <section>
+    <div class="sec"><div class="tag"><b>05</b> hire / support</div></div>
+    <div class="cta-grid">
+      <div class="cta-main">
+        <h2>Need it built right?</h2>
+        <p>If you want practical systems with clear tradeoffs and clean ownership, let's talk.</p>
+        <a class="btn-primary" href="#">Work With Me</a>
+      </div>
+      <div class="cta-why">
+        <p class="lbl">Why this works</p>
+        <ul>
+          <li>Clear scope and delivery cadence</li>
+          <li>Direct communication, no agency layers</li>
+          <li>Built for maintainability and ownership</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#">GitHub</a><a href="#">YouTube</a><a href="#">X/Twitter</a>
+    <a href="#">Patreon</a><a href="#">Itch.io</a><a href="#">RSS</a>
+    <span style="margin-left:auto">© 2026 Bailey Burnsed</span>
+  </footer>
+</div>
+
+<div class="statusbar">
+  <span><span class="live">●</span> nerdtime <b>main</b></span>
+  <span>6 commits this week</span>
+  <span class="spacer"></span>
+  <span>⌘K palette</span>
+</div>
+
+<div class="palette" id="palette">
+  <div class="palette-box">
+    <input class="palette-input" id="paletteInput" placeholder="Type a command or search…" autocomplete="off">
+    <div class="palette-list" id="paletteList"></div>
+  </div>
+</div>
+
+<script>
+  const phrases = ["Founders", "Small teams", "Creators", "Operators"];
+  const tEl = document.getElementById("typedText");
+  let pi = 0, ci = 0, deleting = false;
+  (function tick() {
+    const cur = "Built for " + phrases[pi];
+    tEl.textContent = cur.slice(0, ci);
+    if (!deleting && ci < cur.length) { ci++; setTimeout(tick, 90); }
+    else if (!deleting) { deleting = true; setTimeout(tick, 2200); }
+    else if (ci > 0) { ci--; setTimeout(tick, 35); }
+    else { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 400); }
+  })();
+
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target; io.unobserve(el);
+      const target = Number(el.dataset.count);
+      const suffix = el.dataset.suffix ?? "";
+      if (reduceMotion || !Number.isFinite(target)) { el.textContent = target + suffix; return; }
+      const start = performance.now(); const dur = 1000;
+      (function frame(now) {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+      })(start);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll("[data-count]").forEach(el => io.observe(el));
+
+  const items = [
+    { label: "Build Log", cat: "page" },
+    { label: "Products", cat: "page" },
+    { label: "Membership", cat: "page" },
+    { label: "Socials", cat: "page" },
+    { label: "Work With Me", cat: "action" },
+    { label: "Support the Builds", cat: "action" },
+  ];
+  let sel = 0;
+  const palette = document.getElementById("palette");
+  const input = document.getElementById("paletteInput");
+  const list = document.getElementById("paletteList");
+  function renderPalette() {
+    const q = input.value.toLowerCase();
+    const filtered = items.filter(i => i.label.toLowerCase().includes(q));
+    if (!filtered.length) { list.innerHTML = '<div class="palette-empty">No results.</div>'; return; }
+    sel = Math.min(sel, filtered.length - 1);
+    list.innerHTML = filtered.map((i, idx) =>
+      `<div class="palette-item${idx === sel ? " sel" : ""}" data-idx="${idx}"><span>${i.label}</span><span class="cat">${i.cat}</span></div>`).join("");
+  }
+  function openPalette() { palette.classList.add("open"); input.value = ""; sel = 0; renderPalette(); setTimeout(() => input.focus(), 10); }
+  function closePalette() { palette.classList.remove("open"); }
+  document.querySelector(".kbd").addEventListener("click", openPalette);
+  document.addEventListener("keydown", e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); palette.classList.contains("open") ? closePalette() : openPalette(); }
+    if (!palette.classList.contains("open")) return;
+    if (e.key === "Escape") closePalette();
+    if (e.key === "ArrowDown") { e.preventDefault(); sel++; renderPalette(); }
+    if (e.key === "ArrowUp") { e.preventDefault(); sel--; renderPalette(); }
+    if (e.key === "Enter") { closePalette(); }
+  });
+  input.addEventListener("input", renderPalette);
+  palette.addEventListener("click", e => { if (e.target === palette) closePalette(); });
+</script>
+</body>
+</html>
