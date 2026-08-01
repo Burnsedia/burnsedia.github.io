@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnsedia — Content-First Cards (variant 2)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: oklch(0% 0 0);
+    --surface: oklch(14% 0.004 49.25);
+    --surface-raised: oklch(21% 0.006 56.043);
+    --text: oklch(100% 0 0);
+    --muted: oklch(100% 0 0 / 0.6);
+    --primary: oklch(71% 0.202 349.761);
+    --secondary: oklch(82% 0.111 230.318);
+    --tertiary: oklch(75% 0.183 55.934);
+    --neutral: oklch(45% 0.24 277.023);
+    --border: oklch(100% 0 0 / 0.12);
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── header ── */
+  header {
+    display: flex; align-items: center; gap: 24px;
+    padding: 18px 0; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--bg); z-index: 50;
+  }
+  .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
+  .logo span { color: var(--primary); }
+  .logo .mono { font-family: ui-monospace, monospace; color: var(--muted); font-size: 0.75rem; font-weight: 400; }
+  nav { display: flex; gap: 22px; margin-left: auto; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+  nav a:hover, nav a.active { color: var(--primary); }
+  .subscribe { background: var(--primary); color: oklch(28% 0.109 3.907); border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
+  .subscribe:hover { background: var(--tertiary); }
+
+  /* ── hero ── */
+  .hero { padding: 70px 0 40px; text-align: center; }
+  .hero .kicker { color: var(--secondary); font-family: ui-monospace, monospace; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .hero h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.08; letter-spacing: -0.03em; margin: 14px 0 16px; }
+  .hero h1 em { font-style: normal; color: var(--primary); }
+  .hero p { color: var(--muted); max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+  .hero-cta { margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { font-size: 0.95rem; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block; border: 1px solid transparent; cursor: pointer; transition: all .15s ease; }
+  .btn-primary { background: var(--primary); color: oklch(28% 0.109 3.907); }
+  .btn-primary:hover { background: var(--tertiary); }
+  .btn-outline { background: transparent; color: var(--text); border-color: var(--border); }
+  .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
+
+  /* ── status bar (live build) ── */
+  .statusbar {
+    margin: 40px 0 12px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 20px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .statusbar .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--success); box-shadow: 0 0 10px var(--success); animation: pulse 2s infinite; flex-shrink: 0; }
+  @keyframes pulse { 50% { opacity: 0.4; } }
+  .statusbar .sb-label { font-family: ui-monospace, monospace; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .statusbar .sb-text { font-weight: 600; }
+  .statusbar .sb-text a { color: var(--secondary); text-decoration: none; }
+  .statusbar .sb-text a:hover { text-decoration: underline; }
+  .statusbar .sb-meta { margin-left: auto; font-family: ui-monospace, monospace; font-size: 0.8rem; color: var(--muted); }
+
+  /* ── stats ── */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 50px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
+  .stat .num { font-size: 1.7rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
+  .stat .lab { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+  .stat .note { font-size: 0.7rem; color: var(--muted); opacity: 0.7; margin-top: 2px; }
+
+  /* ── section headers ── */
+  .sec { margin: 56px 0 22px; display: flex; align-items: baseline; gap: 14px; }
+  .sec h2 { font-size: 1.5rem; letter-spacing: -0.02em; }
+  .sec .mono { font-family: ui-monospace, monospace; font-size: 0.75rem; color: var(--muted); }
+  .sec .more { margin-left: auto; color: var(--secondary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+  .sec .more:hover { text-decoration: underline; }
+
+  /* ── blog grid ── */
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 22px; text-decoration: none; display: flex; flex-direction: column; gap: 10px;
+    transition: all .15s ease;
+  }
+  .card:hover { background: var(--surface-raised); border-color: var(--primary); transform: translateY(-2px); }
+  .card .tag { align-self: flex-start; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; background: var(--neutral); color: oklch(87% 0.065 274.039); }
+  .card .tag.tut { background: oklch(82% 0.111 230.318 / 0.15); color: var(--secondary); }
+  .card .tag.opinion { background: oklch(75% 0.183 55.934 / 0.15); color: var(--tertiary); }
+  .card h3 { font-size: 1.05rem; line-height: 1.35; color: var(--text); }
+  .card:hover h3 { color: var(--primary); }
+  .card p { font-size: 0.88rem; color: var(--muted); flex: 1; }
+  .card .meta { font-family: ui-monospace, monospace; font-size: 0.75rem; color: var(--muted); border-top: 1px solid oklch(100% 0 0 / 0.08); padding-top: 10px; }
+
+  /* ── tutorials ── */
+  .tut-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .tut { background: linear-gradient(160deg, var(--surface-raised), var(--surface)); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-decoration: none; display: block; transition: all .15s ease; }
+  .tut:hover { border-color: var(--secondary); }
+  .tut .k { font-family: ui-monospace, monospace; font-size: 0.7rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
+  .tut h3 { font-size: 1.05rem; margin: 12px 0 8px; color: var(--text); }
+  .tut p { font-size: 0.88rem; color: var(--muted); }
+  .tut .free { display: inline-block; margin-top: 14px; font-size: 0.75rem; font-weight: 700; color: var(--tertiary); }
+
+  /* ── newsletter ── */
+  .newsletter { margin: 60px 0; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 40px; text-align: center; }
+  .newsletter h2 { font-size: 1.5rem; margin-bottom: 8px; }
+  .newsletter p { color: var(--muted); font-size: 0.95rem; max-width: 460px; margin: 0 auto 22px; }
+  .newsletter form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .newsletter input { background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 12px 16px; font-size: 0.95rem; width: 280px; font-family: inherit; }
+  .newsletter input:focus { outline: none; border-color: var(--primary); }
+  .newsletter .btn { border: none; }
+
+  footer { padding: 30px 0 50px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+  footer .links { display: flex; gap: 18px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--primary); }
+  footer .copy { margin-left: auto; font-family: ui-monospace, monospace; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">burnsedia<span>.</span><span class="mono">dev</span></a>
+    <nav>
+      <a href="#" class="active">Build Log</a>
+      <a href="#">Products</a>
+      <a href="#">Membership</a>
+      <a href="#">Socials</a>
+    </nav>
+    <button class="subscribe">Subscribe</button>
+  </header>
+
+  <section class="hero">
+    <div class="kicker">building in public · atlanta, ga</div>
+    <h1>I build <em>shit</em> that works.</h1>
+    <p>Senior full-stack dev, indie hacker, and PyATL co-organizer shipping tools, games, and open source — and writing down everything I learn along the way.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#">Read the Build Log</a>
+      <a class="btn btn-outline" href="#">See What I Sell</a>
+    </div>
+  </section>
+
+  <!-- live build status -->
+  <div class="statusbar">
+    <span class="pulse"></span>
+    <span class="sb-label">now building</span>
+    <span class="sb-text"><a href="#">nerdtime</a> — v0.3 pomodoro mode · 6 commits this week</span>
+    <span class="sb-meta">github.com/Burnsedia/nerdtime</span>
+  </div>
+
+  <!-- verifiable stats -->
+  <div class="stats">
+    <div class="stat"><div class="num">15+</div><div class="lab">years coding</div><div class="note">since 2011</div></div>
+    <div class="stat"><div class="num">101</div><div class="lab">public repos</div><div class="note">github.com/Burnsedia</div></div>
+    <div class="stat"><div class="num">150+</div><div class="lab">GitHub stars</div><div class="note">across repos</div></div>
+    <div class="stat"><div class="num">80</div><div class="lab">videos on YouTube</div><div class="note">AI tooling shorts pop</div></div>
+    <div class="stat"><div class="num">$4k</div><div class="lab">flat-rate dev service</div><div class="note">no hourly tracking</div></div>
+  </div>
+
+  <!-- blog grid -->
+  <div class="sec">
+    <h2>Latest from the build log</h2>
+    <span class="mono">// 60% builds · 25% tutorials · 15% takes</span>
+    <a class="more" href="#">All posts →</a>
+  </div>
+  <div class="blog-grid">
+    <a class="card" href="#">
+      <span class="tag opinion">opinion</span>
+      <h3>Why I'm pivoting this site to a content business</h3>
+      <p>The freelance-to-product shift: what changed, what I'm betting on, and why build logs beat landing pages.</p>
+      <span class="meta">2026-07-29 · 8 min read</span>
+    </a>
+    <a class="card" href="#">
+      <span class="tag tut">tutorial</span>
+      <h3>Rust ownership finally clicked while building nerdtime</h3>
+      <p>Borrow checker fights become design wins once you stop fighting. The exact refactor that made it click.</p>
+      <span class="meta">2026-07-25 · 12 min read</span>
+    </a>
+    <a class="card" href="#">
+      <span class="tag">build log</span>
+      <h3>The AI agent stack I actually use for solo dev</h3>
+      <p>My real setup: which agents, which models, which parts I still do by hand. No affiliate links, no hype.</p>
+      <span class="meta">2026-07-21 · 10 min read</span>
+    </a>
+    <a class="card" href="#">
+      <span class="tag tut">tutorial</span>
+      <h3>Godot for Python programmers — shader edition</h3>
+      <p>Your Python brain maps surprisingly well onto GDScript. The shader parts are where it gets fun.</p>
+      <span class="meta">2026-07-18 · 9 min read</span>
+    </a>
+    <a class="card" href="#">
+      <span class="tag opinion">opinion</span>
+      <h3>Why I charge $4,000 a month and not less</h3>
+      <p>Pricing is positioning. The math behind flat-rate dev and why cheaper clients cost more.</p>
+      <span class="meta">2026-07-14 · 6 min read</span>
+    </a>
+    <a class="card" href="#">
+      <span class="tag">build log</span>
+      <h3>Own, don't rent: the hidden cost of SaaS</h3>
+      <p>Every subscription you're on is a tax on your future. Here's what I self-host instead.</p>
+      <span class="meta">2026-07-10 · 7 min read</span>
+    </a>
+  </div>
+
+  <!-- tutorials -->
+  <div class="sec">
+    <h2>Learn from the builds</h2>
+    <span class="mono">// courses &amp; guides</span>
+    <a class="more" href="#">All courses →</a>
+  </div>
+  <div class="tut-grid">
+    <a class="tut" href="#">
+      <span class="k">course</span>
+      <h3>Rust through real builds</h3>
+      <p>Learn Rust by building a CLI time tracker. No toy examples — real tradeoffs from day one.</p>
+      <span class="free">Coming soon</span>
+    </a>
+    <a class="tut" href="#">
+      <span class="k">course</span>
+      <h3>Godot for Python programmers</h3>
+      <p>Your Python brain, mapped to game dev. Scenes, signals, shaders — with the aha moments.</p>
+      <span class="free">Coming soon</span>
+    </a>
+    <a class="tut" href="#">
+      <span class="k">free guide</span>
+      <h3>The Indie Dev Stack 2025</h3>
+      <p>The exact tools, configs, and workflows I ship with. Get it free when you subscribe.</p>
+      <span class="free">Free on signup</span>
+    </a>
+  </div>
+
+  <!-- newsletter -->
+  <section class="newsletter">
+    <h2>Build notes, weekly.</h2>
+    <p>What I shipped, what broke, what I learned. Plus the free Indie Dev Stack guide on signup. No spam, unsubscribe anytime.</p>
+    <form onsubmit="event.preventDefault(); document.getElementById('thanks').textContent='✓ You\u2019re on the list. Check your inbox for the guide.';">
+      <input type="email" placeholder="you@example.com" aria-label="Email">
+      <button class="btn btn-primary" type="submit">Get the guide + updates</button>
+    </form>
+    <p id="thanks" style="color: var(--success); font-weight: 600; margin-top: 14px;"></p>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="#">GitHub</a><a href="#">YouTube</a><a href="#">X/Twitter</a>
+      <a href="#">Patreon</a><a href="#">Itch.io</a><a href="#">RSS</a>
+    </div>
+    <div class="copy">© 2026 Bailey Burnsed · built in public</div>
+  </footer>
+</div>
+
+</body>
+</html>

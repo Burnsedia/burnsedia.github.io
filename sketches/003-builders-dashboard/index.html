@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnsedia — Builder's Dashboard (variant 3)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: oklch(0% 0 0);
+    --surface: oklch(14% 0.004 49.25);
+    --surface-raised: oklch(21% 0.006 56.043);
+    --text: oklch(100% 0 0);
+    --muted: oklch(100% 0 0 / 0.6);
+    --primary: oklch(71% 0.202 349.761);
+    --secondary: oklch(82% 0.111 230.318);
+    --tertiary: oklch(75% 0.183 55.934);
+    --neutral: oklch(45% 0.24 277.023);
+    --border: oklch(100% 0 0 / 0.12);
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── topbar ── */
+  header {
+    display: flex; align-items: center; gap: 22px;
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--bg); z-index: 50;
+  }
+  .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
+  .logo span { color: var(--primary); }
+  nav { display: flex; gap: 20px; margin-left: auto; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; }
+  nav a:hover, nav a.active { color: var(--primary); }
+  .hire { background: var(--tertiary); color: oklch(26% 0.079 36.259); border: none; border-radius: 8px; padding: 9px 16px; font-weight: 700; font-size: 0.88rem; cursor: pointer; }
+  .hire:hover { background: var(--primary); color: oklch(28% 0.109 3.907); }
+
+  /* ── hero compact ── */
+  .hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; padding: 56px 0 36px; flex-wrap: wrap; }
+  .hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.03em; }
+  .hero h1 em { font-style: normal; color: var(--primary); }
+  .hero .sub { color: var(--muted); margin-top: 12px; max-width: 520px; font-size: 1.02rem; }
+  .hero .tagline-mono { font-family: ui-monospace, monospace; font-size: 0.78rem; color: var(--secondary); border: 1px solid oklch(82% 0.111 230.318 / 0.3); border-radius: 6px; padding: 8px 12px; white-space: nowrap; }
+
+  /* ── stats band ── */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; }
+  .stat .num { font-size: 1.6rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
+  .stat .lab { font-size: 0.78rem; color: var(--muted); }
+  .stat .src { font-size: 0.68rem; color: var(--muted); opacity: 0.7; font-family: ui-monospace, monospace; margin-top: 4px; }
+
+  /* ── live build strip ── */
+  .live { margin: 40px 0 10px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--success); border-radius: 8px; padding: 14px 18px; }
+  .live .pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--success); box-shadow: 0 0 8px var(--success); animation: pulse 2s infinite; }
+  @keyframes pulse { 50% { opacity: 0.4; } }
+  .live .lb { font-family: ui-monospace, monospace; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .live .lt { font-weight: 600; font-size: 0.95rem; }
+  .live .lt a { color: var(--secondary); text-decoration: none; }
+  .live .lt a:hover { text-decoration: underline; }
+  .live .lmore { margin-left: auto; font-size: 0.82rem; color: var(--muted); font-family: ui-monospace, monospace; }
+
+  /* ── main grid: content + sidebar ── */
+  .main { display: grid; grid-template-columns: 1fr 320px; gap: 40px; margin-top: 30px; align-items: start; }
+  @media (max-width: 900px) { .main { grid-template-columns: 1fr; } }
+
+  .sec { margin: 44px 0 18px; display: flex; align-items: baseline; gap: 12px; }
+  .sec h2 { font-size: 1.35rem; letter-spacing: -0.02em; }
+  .sec .mono { font-family: ui-monospace, monospace; font-size: 0.72rem; color: var(--muted); }
+  .sec .more { margin-left: auto; color: var(--secondary); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .sec .more:hover { text-decoration: underline; }
+
+  /* posts — list style (denser than grid) */
+  .posts { display: flex; flex-direction: column; }
+  .post { display: flex; gap: 16px; align-items: baseline; padding: 16px 10px; border-bottom: 1px solid oklch(100% 0 0 / 0.08); text-decoration: none; transition: background .12s ease; border-radius: 6px; }
+  .post:hover { background: var(--surface); }
+  .post .date { font-family: ui-monospace, monospace; font-size: 0.75rem; color: var(--muted); white-space: nowrap; width: 84px; flex-shrink: 0; }
+  .post .pt { flex: 1; }
+  .post .pt h3 { font-size: 1rem; color: var(--text); font-weight: 600; }
+  .post:hover .pt h3 { color: var(--primary); }
+  .post .pt p { font-size: 0.85rem; color: var(--muted); margin-top: 3px; }
+  .post .tag { font-size: 0.68rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--neutral); color: oklch(87% 0.065 274.039); white-space: nowrap; }
+  .post .tag.tut { background: oklch(82% 0.111 230.318 / 0.15); color: var(--secondary); }
+  .post .tag.opinion { background: oklch(75% 0.183 55.934 / 0.15); color: var(--tertiary); }
+
+  /* sidebar */
+  .side { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 90px; }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
+  .panel h3 { font-size: 0.95rem; margin-bottom: 12px; }
+  .panel .pmono { font-family: ui-monospace, monospace; font-size: 0.7rem; color: var(--muted); display: block; margin-bottom: 10px; }
+  .prod { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid oklch(100% 0 0 / 0.07); font-size: 0.88rem; }
+  .prod:last-child { border-bottom: none; }
+  .prod .pn { font-weight: 600; }
+  .prod .pn a { color: var(--text); text-decoration: none; }
+  .prod .pn a:hover { color: var(--primary); }
+  .prod .price { font-family: ui-monospace, monospace; font-size: 0.78rem; color: var(--tertiary); }
+  .badge { font-size: 0.62rem; font-weight: 700; padding: 2px 7px; border-radius: 999px; background: oklch(77% 0.152 181.912 / 0.15); color: var(--success); vertical-align: 2px; }
+  .newsletter input { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 11px 14px; font-size: 0.9rem; margin-bottom: 10px; font-family: inherit; }
+  .newsletter input:focus { outline: none; border-color: var(--primary); }
+  .btn { display: block; width: 100%; text-align: center; font-size: 0.9rem; font-weight: 700; padding: 11px 16px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: all .15s ease; }
+  .btn-primary { background: var(--primary); color: oklch(28% 0.109 3.907); }
+  .btn-primary:hover { background: var(--tertiary); color: oklch(26% 0.079 36.259); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); margin-top: 8px; }
+  .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
+
+  footer { padding: 34px 0 50px; margin-top: 60px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.84rem; display: flex; gap: 20px; flex-wrap: wrap; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--primary); }
+  footer .copy { margin-left: auto; font-family: ui-monospace, monospace; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">burnsedia<span>.</span>dev</a>
+    <nav>
+      <a href="#" class="active">Build Log</a>
+      <a href="#">Products</a>
+      <a href="#">Membership</a>
+      <a href="#">Socials</a>
+    </nav>
+    <button class="hire">Hire Me</button>
+  </header>
+
+  <!-- hero compact -->
+  <section class="hero">
+    <div>
+      <h1>I build <em>shit</em> that works.</h1>
+      <p class="sub">Senior full-stack dev &amp; indie hacker in Atlanta. 15+ years shipping, now in public: tools, games, open source, and the write-ups that come with them.</p>
+    </div>
+    <div class="tagline-mono">$ whoami → autistic hacker-builder</div>
+  </section>
+
+  <!-- stats -->
+  <div class="stats">
+    <div class="stat"><div class="num">101</div><div class="lab">public repos</div><div class="src">github.com/Burnsedia</div></div>
+    <div class="stat"><div class="num">150+</div><div class="lab">GitHub stars</div><div class="src">live via API</div></div>
+    <div class="stat"><div class="num">80</div><div class="lab">YouTube videos</div><div class="src">channel since 2023</div></div>
+    <div class="stat"><div class="num">15+</div><div class="lab">years coding</div><div class="src">since 2011</div></div>
+    <div class="stat"><div class="num">$4k/mo</div><div class="lab">flat-rate dev</div><div class="src">unlimited dev service</div></div>
+  </div>
+
+  <!-- live build -->
+  <div class="live">
+    <span class="pulse"></span>
+    <span class="lb">live build</span>
+    <span class="lt"><a href="#">nerdtime</a> — pomodoro mode landed, v0.3 in the oven</span>
+    <span class="lmore">6 commits this week</span>
+  </div>
+
+  <div class="main">
+    <!-- content column -->
+    <div>
+      <div class="sec">
+        <h2>Build Log</h2>
+        <span class="mono">// 60% builds · 25% tutorials · 15% takes</span>
+        <a class="more" href="#">All posts →</a>
+      </div>
+      <div class="posts">
+        <a class="post" href="#">
+          <span class="date">2026-07-29</span>
+          <div class="pt"><h3>Why I'm pivoting this site to a content business</h3><p>The freelance-to-product shift and why build logs beat landing pages.</p></div>
+          <span class="tag opinion">opinion</span>
+        </a>
+        <a class="post" href="#">
+          <span class="date">2026-07-25</span>
+          <div class="pt"><h3>Rust ownership finally clicked while building nerdtime</h3><p>Borrow checker fights become design wins once you stop fighting.</p></div>
+          <span class="tag tut">tutorial</span>
+        </a>
+        <a class="post" href="#">
+          <span class="date">2026-07-21</span>
+          <div class="pt"><h3>The AI agent stack I actually use for solo dev</h3><p>Real setup, no affiliate links, no hype.</p></div>
+          <span class="tag">build log</span>
+        </a>
+        <a class="post" href="#">
+          <span class="date">2026-07-18</span>
+          <div class="pt"><h3>Godot for Python programmers — shader edition</h3><p>Your Python brain maps well onto GDScript.</p></div>
+          <span class="tag tut">tutorial</span>
+        </a>
+        <a class="post" href="#">
+          <span class="date">2026-07-14</span>
+          <div class="pt"><h3>Why I charge $4,000 a month and not less</h3><p>Pricing is positioning.</p></div>
+          <span class="tag opinion">opinion</span>
+        </a>
+        <a class="post" href="#">
+          <span class="date">2026-07-10</span>
+          <div class="pt"><h3>Own, don't rent: the hidden cost of SaaS</h3><p>Every subscription is a tax on your future.</p></div>
+          <span class="tag">build log</span>
+        </a>
+      </div>
+
+      <div class="sec">
+        <h2>Courses &amp; Guides</h2>
+        <span class="mono">// learn from the builds</span>
+        <a class="more" href="#">All →</a>
+      </div>
+      <div class="posts">
+        <a class="post" href="#">
+          <span class="date">course</span>
+          <div class="pt"><h3>Rust through real builds</h3><p>Learn Rust by building a CLI time tracker — no toy examples.</p></div>
+          <span class="tag">coming soon</span>
+        </a>
+        <a class="post" href="#">
+          <span class="date">guide</span>
+          <div class="pt"><h3>The Indie Dev Stack 2025</h3><p>The exact tools and configs I ship with. Free on newsletter signup.</p></div>
+          <span class="tag tut">free</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- sidebar -->
+    <aside class="side">
+      <div class="panel">
+        <h3>Revenue streams</h3>
+        <span class="pmono">// things I sell</span>
+        <div class="prod"><span class="pn"><a href="#">Unlimited Dev</a></span><span class="price">$4k/mo</span></div>
+        <div class="prod"><span class="pn"><a href="#">boomerbill</a></span><span class="price">live</span></div>
+        <div class="prod"><span class="pn"><a href="#">BulkPost</a></span><span class="price">waitlist</span></div>
+        <div class="prod"><span class="pn"><a href="#">Indie Dev Stack guide</a></span><span class="price">$9.99</span></div>
+        <div class="prod"><span class="pn"><a href="#">Membership</a></span><span class="price">$5–100/mo</span></div>
+      </div>
+
+      <div class="panel newsletter">
+        <h3>Build notes weekly</h3>
+        <span class="pmono">// free guide on signup</span>
+        <form onsubmit="event.preventDefault(); document.getElementById('thanks2').textContent='✓ You\u2019re on the list!';">
+          <input type="email" placeholder="you@example.com" aria-label="Email">
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+        <p id="thanks2" style="color: var(--success); font-weight: 600; font-size: 0.85rem; margin-top: 8px;"></p>
+        <a class="btn btn-outline" href="#">Support on Patreon →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <a href="#">GitHub</a><a href="#">YouTube</a><a href="#">X/Twitter</a>
+    <a href="#">Patreon</a><a href="#">Itch.io</a><a href="#">RSS</a>
+    <div class="copy">© 2026 Bailey Burnsed · built in public</div>
+  </footer>
+</div>
+
+</body>
+</html>
