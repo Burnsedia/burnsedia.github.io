@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnsedia — OpenCode Session (variant 5)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: oklch(0% 0 0);
+    --surface: oklch(14% 0.004 49.25);
+    --surface-raised: oklch(21% 0.006 56.043);
+    --text: oklch(100% 0 0);
+    --muted: oklch(100% 0 0 / 0.55);
+    --faint: oklch(100% 0 0 / 0.35);
+    --primary: oklch(71% 0.202 349.761);
+    --on-primary: oklch(28% 0.109 3.907);
+    --secondary: oklch(82% 0.111 230.318);
+    --tertiary: oklch(75% 0.183 55.934);
+    --success: oklch(77% 0.152 181.912);
+    --warning: oklch(90% 0.182 98.111);
+    --border: oklch(100% 0 0 / 0.14);
+    --border-soft: oklch(100% 0 0 / 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: ui-monospace, "JetBrains Mono", "Hack", Menlo, Consolas, monospace;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column;
+  }
+
+  /* ── title bar ── */
+  .titlebar {
+    display: flex; align-items: center; gap: 12px;
+    padding: 9px 14px; background: var(--surface);
+    border-bottom: 1px solid var(--border); font-size: 12.5px; color: var(--muted);
+    flex-shrink: 0;
+  }
+  .titlebar .brand { display: flex; align-items: center; gap: 8px; color: var(--text); font-weight: 700; text-decoration: none; }
+  .titlebar .brand svg { width: 16px; height: 16px; }
+  .titlebar .brand svg path { fill: var(--primary); }
+  .titlebar .sess { color: var(--faint); }
+  .titlebar .sess b { color: var(--secondary); font-weight: 600; }
+  .titlebar .right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+  .kbd { font-size: 10.5px; color: var(--muted); border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; cursor: pointer; }
+  .kbd:hover { color: var(--text); border-color: var(--primary); }
+
+  /* ── body: sidebar + chat ── */
+  .body { display: flex; flex: 1; min-height: 0; }
+  .sidebar {
+    width: 250px; flex-shrink: 0; background: var(--surface);
+    border-right: 1px solid var(--border); overflow-y: auto; padding: 10px 8px;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  @media (max-width: 760px) { .sidebar { display: none; } }
+  .side-label { font-size: 10.5px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.1em; padding: 10px 10px 4px; }
+  .side-item { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 6px; font-size: 12.5px; color: var(--muted); cursor: pointer; text-decoration: none; }
+  .side-item:hover { background: var(--surface-raised); color: var(--text); }
+  .side-item.active { background: var(--surface-raised); color: var(--text); }
+  .side-item .ico { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+  .side-item .ico.folder { background: var(--tertiary); }
+  .side-item .ico.file { background: var(--faint); }
+  .side-item .ico.pink { background: var(--primary); }
+  .side-item .count { margin-left: auto; font-size: 10.5px; color: var(--faint); }
+  .side-item.active .count { color: var(--secondary); }
+
+  /* ── chat area ── */
+  .chat { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .chat-scroll { flex: 1; overflow-y: auto; padding: 24px 0 30px; }
+  .chat-inner { max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 26px; }
+
+  /* hero as first message */
+  .msg { display: flex; flex-direction: column; gap: 8px; }
+  .msg .who { display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--faint); }
+  .msg .who .av { width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; }
+  .msg .who .av.user { background: var(--secondary); color: oklch(29% 0.066 243.157); }
+  .msg .who .av.assistant { background: var(--primary); color: var(--on-primary); }
+  .msg .who .name { color: var(--muted); }
+  .msg .body-text { font-size: 14.5px; color: var(--text); }
+  .msg .body-text .hl { color: var(--primary); font-weight: 700; }
+  .msg .body-text .dim { color: var(--muted); }
+  .msg .body-text .cy { color: var(--secondary); }
+
+  .msg.assistant .body-text { color: var(--text); }
+
+  /* typing line */
+  .typing-line { color: var(--secondary); font-size: 14px; min-height: 1.6em; }
+  .typing-line .caret { display: inline-block; width: 8px; height: 1.05em; background: var(--secondary); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* stat chips row */
+  .chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+  .chip { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+  .chip .n { font-size: 1.35rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
+  .chip .l { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* project cards inline */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-decoration: none; display: block; transition: all .15s ease; }
+  .card:hover { border-color: var(--primary); background: var(--surface-raised); }
+  .card .row { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; }
+  .card .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .card .dot.a { background: var(--secondary); box-shadow: 0 0 5px var(--secondary); }
+  .card .dot.l { background: var(--success); box-shadow: 0 0 5px var(--success); }
+  .card .dot.d { background: var(--tertiary); box-shadow: 0 0 5px var(--tertiary); }
+  .card h4 { font-size: 13.5px; font-weight: 700; }
+  .card p { font-size: 12px; color: var(--muted); margin-top: 5px; }
+  .card .st { font-size: 11px; color: var(--primary); margin-top: 8px; }
+
+  /* post rows */
+  .posts { display: flex; flex-direction: column; }
+  .post { display: flex; gap: 12px; padding: 11px 8px; border-bottom: 1px solid var(--border-soft); text-decoration: none; align-items: baseline; }
+  .post:hover .t { color: var(--primary); }
+  .post .t { color: var(--text); font-size: 13.5px; font-weight: 600; transition: color .12s ease; }
+  .post .d { margin-left: auto; color: var(--faint); font-size: 11.5px; white-space: nowrap; }
+
+  /* CTA bubble */
+  .cta-bubble { background: var(--surface); border: 1px solid var(--primary); border-radius: 10px; padding: 22px 24px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .cta-bubble .txt { flex: 1; min-width: 220px; }
+  .cta-bubble .txt h3 { font-size: 15px; margin-bottom: 4px; }
+  .cta-bubble .txt p { font-size: 12.5px; color: var(--muted); }
+  .btn-primary { font-family: inherit; font-size: 13px; font-weight: 700; background: var(--primary); color: var(--on-primary); border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; text-decoration: none; }
+  .btn-primary:hover { background: var(--tertiary); }
+  .btn-outline { font-family: inherit; font-size: 13px; font-weight: 700; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 8px 16px; cursor: pointer; text-decoration: none; }
+  .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
+
+  /* input area (OpenCode composer) */
+  .composer { border-top: 1px solid var(--border); background: var(--surface); flex-shrink: 0; }
+  .composer-inner { max-width: 760px; margin: 0 auto; padding: 14px 20px; }
+  .composer-box { display: flex; align-items: center; gap: 10px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; }
+  .composer-box:focus-within { border-color: var(--primary); }
+  .composer-box .prompt { color: var(--primary); font-size: 14px; }
+  .composer-box input { flex: 1; background: transparent; border: none; outline: none; color: var(--text); font-family: inherit; font-size: 13.5px; }
+  .composer-box input::placeholder { color: var(--faint); }
+  .composer-box .send { color: var(--faint); font-size: 12px; }
+  .composer-hints { display: flex; gap: 14px; margin-top: 8px; font-size: 10.5px; color: var(--faint); }
+  .composer-hints kbd { border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; color: var(--muted); }
+
+  /* status bar */
+  .statusbar {
+    display: flex; align-items: center; gap: 14px; background: var(--surface-raised);
+    border-top: 1px solid var(--border); padding: 4px 14px; font-size: 11px; color: var(--muted);
+    flex-shrink: 0; white-space: nowrap; overflow-x: auto;
+  }
+  .statusbar .live { color: var(--success); }
+  .statusbar .spacer { flex: 1; }
+  .statusbar b { color: var(--text); font-weight: 600; }
+
+  /* palette */
+  .palette { position: fixed; inset: 0; z-index: 100; display: none; align-items: flex-start; justify-content: center; background: oklch(0% 0 0 / 0.72); backdrop-filter: blur(3px); padding-top: 12vh; }
+  .palette.open { display: flex; }
+  .palette-box { width: min(540px, 92vw); background: var(--surface-raised); border: 1px solid var(--primary); border-radius: 10px; overflow: hidden; }
+  .palette-input { width: 100%; background: transparent; border: none; outline: none; color: var(--text); font-family: inherit; font-size: 14px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+  .palette-input::placeholder { color: var(--faint); }
+  .palette-list { max-height: 300px; overflow-y: auto; padding: 6px; }
+  .palette-item { display: flex; gap: 10px; padding: 8px 12px; border-radius: 6px; font-size: 13px; color: var(--text); cursor: pointer; }
+  .palette-item .cat { margin-left: auto; font-size: 11px; color: var(--faint); }
+  .palette-item:hover, .palette-item.sel { background: var(--surface); color: var(--primary); }
+  .palette-empty { padding: 16px; color: var(--faint); font-size: 12.5px; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="titlebar">
+  <a class="brand" href="#"><svg viewBox="0 0 24 24"><path d="M12 1l9.5 5.5v11L12 23l-9.5-5.5v-11L12 1z"/></svg>burnsedia.dev</a>
+  <span class="sess">session: <b>build-log · 2026-07-29</b></span>
+  <div class="right">
+    <button class="kbd" onclick="openPalette()">⌘K</button>
+  </div>
+</div>
+
+<div class="body">
+  <!-- sidebar: file tree -->
+  <aside class="sidebar">
+    <div class="side-label">explorer</div>
+    <a class="side-item active" href="#"><span class="ico pink"></span>Home<span class="count">now</span></a>
+    <div class="side-label">projects</div>
+    <a class="side-item" href="#"><span class="ico folder"></span>unlimited-dev<span class="count">active</span></a>
+    <a class="side-item" href="#"><span class="ico folder"></span>boomerbill<span class="count">live</span></a>
+    <a class="side-item" href="#"><span class="ico folder"></span>32bit-Spacer<span class="count">dev</span></a>
+    <a class="side-item" href="#"><span class="ico folder"></span>nerdtime<span class="count">6 commits</span></a>
+    <div class="side-label">build log</div>
+    <a class="side-item" href="#"><span class="ico file"></span>2026-07-29 content pivot</a>
+    <a class="side-item" href="#"><span class="ico file"></span>2026-07-25 rust ownership</a>
+    <a class="side-item" href="#"><span class="ico file"></span>2026-07-21 ai agent stack</a>
+    <a class="side-item" href="#"><span class="ico file"></span>2026-07-18 godot shaders</a>
+    <div class="side-label">commerce</div>
+    <a class="side-item" href="#"><span class="ico folder"></span>products</a>
+    <a class="side-item" href="#"><span class="ico folder"></span>membership</a>
+    <a class="side-item" href="#"><span class="ico folder"></span>newsletter</a>
+  </aside>
+
+  <!-- chat -->
+  <div class="chat">
+    <div class="chat-scroll">
+      <div class="chat-inner">
+
+        <div class="msg user">
+          <div class="who"><span class="av user">V</span><span class="name">visitor</span></div>
+          <div class="body-text">who are you and what are you building?</div>
+        </div>
+
+        <div class="msg assistant">
+          <div class="who"><span class="av assistant">B</span><span class="name">burnsedia</span></div>
+          <div class="body-text">
+            I build <span class="hl">shit that works</span>. Apps, games, and open tools —
+            <span class="dim">no hype, no lock-in, no vaporware</span>. Autistic hacker nerd,
+            former artist, 15+ years shipping. Here's the live session:
+          </div>
+        </div>
+
+        <!-- hero typing as an assistant message -->
+        <div class="msg assistant">
+          <div class="who"><span class="av assistant">B</span><span class="name">burnsedia</span></div>
+          <div class="typing-line"><span id="typedText"></span><span class="caret"></span></div>
+        </div>
+
+        <!-- stats as assistant output -->
+        <div class="msg assistant">
+          <div class="who"><span class="av assistant">B</span><span class="name">burnsedia · uptime</span></div>
+          <div class="chips">
+            <div class="chip"><div class="n" data-count="101">0</div><div class="l">public repos</div></div>
+            <div class="chip"><div class="n" data-count="150" data-suffix="+">0</div><div class="l">GitHub stars</div></div>
+            <div class="chip"><div class="n" data-count="80">0</div><div class="l">YouTube videos</div></div>
+            <div class="chip"><div class="n" data-count="15" data-suffix="+">0</div><div class="l">years coding</div></div>
+          </div>
+        </div>
+
+        <div class="msg user">
+          <div class="who"><span class="av user">V</span><span class="name">visitor</span></div>
+          <div class="body-text">what are you building right now?</div>
+        </div>
+
+        <div class="msg assistant">
+          <div class="who"><span class="av assistant">B</span><span class="name">burnsedia · active projects</span></div>
+          <div class="cards">
+            <a class="card" href="#">
+              <div class="row"><span class="dot a"></span><h4>Unlimited Dev Service</h4></div>
+              <p>Ongoing development for teams that need shipping, not theater.</p>
+              <p class="st">Status: Active client delivery</p>
+            </a>
+            <a class="card" href="#">
+              <div class="row"><span class="dot l"></span><h4>boomerbill</h4></div>
+              <p>Billing and labor tracking for nerds tired of unpaid tech support.</p>
+              <p class="st">Status: Live hosted user</p>
+            </a>
+            <a class="card" href="#">
+              <div class="row"><span class="dot d"></span><h4>32bit-Spacer</h4></div>
+              <p>Retro-futurist space game built in public.</p>
+              <p class="st">Status: Playable systems in development</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="msg user">
+          <div class="who"><span class="av user">V</span><span class="name">visitor</span></div>
+          <div class="body-text">show me the recent build log</div>
+        </div>
+
+        <div class="msg assistant">
+          <div class="who"><span class="av assistant">B</span><span class="name">burnsedia · tail -n 5</span></div>
+          <div class="posts">
+            <a class="post" href="#"><span class="t">Why I'm pivoting this site to a content business</span><span class="d">07-29</span></a>
+            <a class="post" href="#"><span class="t">Rust ownership finally clicked while building nerdtime</span><span class="d">07-25</span></a>
+            <a class="post" href="#"><span class="t">The AI agent stack I actually use for solo dev</span><span class="d">07-21</span></a>
+            <a class="post" href="#"><span class="t">Godot for Python programmers — shader edition</span><span class="d">07-18</span></a>
+            <a class="post" href="#"><span class="t">Why I charge $4,000 a month and not less</span><span class="d">07-14</span></a>
+          </div>
+        </div>
+
+        <div class="msg assistant">
+          <div class="who"><span class="av assistant">B</span><span class="name">burnsedia · cta</span></div>
+          <div class="cta-bubble">
+            <div class="txt">
+              <h3>Need it built right?</h3>
+              <p>Practical systems, clear tradeoffs, clean ownership. Or support the builds for $5/mo.</p>
+            </div>
+            <a class="btn-primary" href="#">Work With Me</a>
+            <a class="btn-outline" href="#">Membership →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- composer -->
+    <div class="composer">
+      <div class="composer-inner">
+        <div class="composer-box">
+          <span class="prompt">&gt;</span>
+          <input placeholder="Ask the build log anything… (try: what are you building?)" aria-label="Ask the build log">
+          <span class="send">⏎</span>
+        </div>
+        <div class="composer-hints">
+          <span><kbd>⌘K</kbd> command palette</span>
+          <span><kbd>esc</kbd> cancel</span>
+          <span>session: build-log</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="statusbar">
+  <span><span class="live">●</span> nerdtime <b>main</b></span>
+  <span>6 commits this week</span>
+  <span class="spacer"></span>
+  <span>⌘K palette</span>
+</div>
+
+<!-- palette -->
+<div class="palette" id="palette">
+  <div class="palette-box">
+    <input class="palette-input" id="paletteInput" placeholder="Type a command or search…" autocomplete="off">
+    <div class="palette-list" id="paletteList"></div>
+  </div>
+</div>
+
+<script>
+  // typing
+  const phrases = ["Built for Founders", "Built for Small teams", "Built for Creators", "Built for Operators"];
+  const tEl = document.getElementById("typedText");
+  let pi = 0, ci = 0, deleting = false;
+  (function tick() {
+    const cur = phrases[pi];
+    tEl.textContent = cur.slice(0, ci);
+    if (!deleting && ci < cur.length) { ci++; setTimeout(tick, 90); }
+    else if (!deleting) { deleting = true; setTimeout(tick, 2000); }
+    else if (ci > 0) { ci--; setTimeout(tick, 35); }
+    else { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 400); }
+  })();
+
+  // count-up
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target; io.unobserve(el);
+      const target = Number(el.dataset.count);
+      const suffix = el.dataset.suffix ?? "";
+      if (reduceMotion || !Number.isFinite(target)) { el.textContent = target + suffix; return; }
+      const start = performance.now(); const dur = 1000;
+      (function frame(now) {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+      })(start);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll("[data-count]").forEach(el => io.observe(el));
+
+  // composer: fake reply
+  const composerInput = document.querySelector(".composer-box input");
+  composerInput.addEventListener("keydown", e => {
+    if (e.key === "Enter" && composerInput.value.trim()) {
+      const scroll = document.querySelector(".chat-scroll");
+      const inner = document.querySelector(".chat-inner");
+      const userMsg = document.createElement("div");
+      userMsg.className = "msg user";
+      userMsg.innerHTML = `<div class="who"><span class="av user">V</span><span class="name">visitor</span></div><div class="body-text">${composerInput.value.replace(/</g, "&lt;")}</div>`;
+      const aiMsg = document.createElement("div");
+      aiMsg.className = "msg assistant";
+      aiMsg.innerHTML = `<div class="who"><span class="av assistant">B</span><span class="name">burnsedia</span></div><div class="body-text"><span class="dim">// demo — full chat lives on the real site</span></div>`;
+      inner.appendChild(userMsg); inner.appendChild(aiMsg);
+      composerInput.value = "";
+      scroll.scrollTop = scroll.scrollHeight;
+    }
+  });
+
+  // palette
+  const items = [
+    { label: "Home", cat: "page" },
+    { label: "Build Log", cat: "page" },
+    { label: "Products", cat: "page" },
+    { label: "Membership", cat: "page" },
+    { label: "Socials", cat: "page" },
+    { label: "Work With Me", cat: "action" },
+    { label: "Support the Builds", cat: "action" },
+  ];
+  let sel = 0;
+  const palette = document.getElementById("palette");
+  const input = document.getElementById("paletteInput");
+  const list = document.getElementById("paletteList");
+  function renderPalette() {
+    const q = input.value.toLowerCase();
+    const filtered = items.filter(i => i.label.toLowerCase().includes(q));
+    if (!filtered.length) { list.innerHTML = '<div class="palette-empty">No results.</div>'; return; }
+    sel = Math.min(sel, filtered.length - 1);
+    list.innerHTML = filtered.map((i, idx) =>
+      `<div class="palette-item${idx === sel ? " sel" : ""}" data-idx="${idx}"><span>${i.label}</span><span class="cat">${i.cat}</span></div>`).join("");
+  }
+  function openPalette() { palette.classList.add("open"); input.value = ""; sel = 0; renderPalette(); setTimeout(() => input.focus(), 10); }
+  function closePalette() { palette.classList.remove("open"); }
+  document.querySelector(".kbd").addEventListener("click", openPalette);
+  document.addEventListener("keydown", e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); palette.classList.contains("open") ? closePalette() : openPalette(); }
+    if (!palette.classList.contains("open")) return;
+    if (e.key === "Escape") closePalette();
+    if (e.key === "ArrowDown") { e.preventDefault(); sel++; renderPalette(); }
+    if (e.key === "ArrowUp") { e.preventDefault(); sel--; renderPalette(); }
+    if (e.key === "Enter") { closePalette(); }
+  });
+  input.addEventListener("input", renderPalette);
+  palette.addEventListener("click", e => { if (e.target === palette) closePalette(); });
+</script>
+</body>
+</html>
