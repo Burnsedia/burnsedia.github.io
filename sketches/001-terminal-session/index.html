@@ -198,7 +198,7 @@
   <div class="build-widget">
     <div class="bw-head">
       <span class="status-dot"></span>
-      <span class="bw-title">currently building: nerdtime</span>
+      <span class="bw-title" id="bwTitle">currently building: nerdtime</span>
       <div class="bw-tabs">
         <button class="bw-tab active" data-tab="commits">commits</button>
         <button class="bw-tab" data-tab="status">status</button>
@@ -212,15 +212,15 @@
       <div class="bw-line"><span class="hash">e40f8aa</span><span class="msg">docs: write the why-behind-nerdtime devlog</span><span class="meta">3d ago</span></div>
     </div>
     <div class="bw-body hidden" id="tab-status">
-      <div class="bw-now"><span class="label">branch:</span><span class="val">main</span></div>
-      <div class="bw-now"><span class="label">status:</span><span class="val" style="color:var(--success)">● active — 6 commits this week</span></div>
-      <div class="bw-now"><span class="label">stars:</span><span class="val">2</span></div>
-      <div class="bw-now"><span class="label">next milestone:</span><span class="val">v0.3 — pomodoro + export</span></div>
+      <div class="bw-now"><span class="label">branch:</span><span class="val" id="bwBranch">main</span></div>
+      <div class="bw-now"><span class="label">status:</span><span class="val" style="color:var(--success)" id="bwStatus">● active — live via GitHub API</span></div>
+      <div class="bw-now"><span class="label">stars:</span><span class="val" id="bwStars">–</span></div>
+      <div class="bw-now"><span class="label">followers:</span><span class="val" id="bwFollowers">–</span></div>
+      <div class="bw-now"><span class="label">top repo:</span><span class="val" id="bwTop">–</span></div>
     </div>
     <div class="bw-body hidden" id="tab-next">
-      <div class="bw-cmd"><span class="p">$</span> cat roadmap</div>
-      <div style="margin-top:10px">
-        <div class="bw-line"><span class="msg">[x] v0.2 — weekly rollups</span><span class="meta">done</span></div>
+      <div class="bw-cmd"><span class="p">$</span> gh issue list --state open</div>
+      <div style="margin-top:10px" id="nextList">
         <div class="bw-line"><span class="msg">[ ] v0.3 — pomodoro timers</span><span class="meta">in progress</span></div>
         <div class="bw-line"><span class="msg">[ ] v0.4 — CSV/JSON export</span><span class="meta">next</span></div>
         <div class="bw-line"><span class="msg">[ ] v1.0 — sponsorware release</span><span class="meta">planned</span></div>
@@ -231,11 +231,11 @@
   <!-- stats -->
   <div class="section-label"><span class="p">$</span> uptime --proof</div>
   <div class="stats">
-    <div class="stat"><div class="num">15+</div><div class="lab">years coding</div></div>
-    <div class="stat"><div class="num">101</div><div class="lab">public repos</div></div>
-    <div class="stat"><div class="num">150+</div><div class="lab">GitHub stars</div></div>
-    <div class="stat"><div class="num">80</div><div class="lab">YouTube videos</div></div>
-    <div class="stat"><div class="num">2023</div><div class="lab">PyATL co-organizer</div></div>
+    <div class="stat"><div class="num" id="statRepos">–</div><div class="lab">public repos</div></div>
+    <div class="stat"><div class="num" id="statStars">–</div><div class="lab">GitHub stars</div></div>
+    <div class="stat"><div class="num" id="statFollowers">–</div><div class="lab">GitHub followers</div></div>
+    <div class="stat"><div class="num" id="statTop">–</div><div class="lab">top repo</div></div>
+    <div class="stat"><div class="num" id="statRecent">–</div><div class="lab">last push</div></div>
   </div>
 
   <!-- build log -->
@@ -307,6 +307,109 @@
       document.getElementById("tab-" + btn.dataset.tab).classList.remove("hidden");
     });
   });
+
+  // ── live GitHub stats (unauthenticated REST API, CORS-enabled) ──
+  const GITHUB_USER = "Burnsedia";
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function timeAgo(iso) {
+    const s = Math.floor((Date.now() - new Date(iso)) / 1000);
+    if (s < 60) return "just now";
+    if (s < 3600) return Math.floor(s / 60) + "m ago";
+    if (s < 86400) return Math.floor(s / 3600) + "h ago";
+    if (s < 604800) return Math.floor(s / 86400) + "d ago";
+    return new Date(iso).toLocaleDateString();
+  }
+
+  function escapeHtml(str) {
+    return String(str ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  function animateCount(el, target, suffix = "") {
+    if (!el) return;
+    if (reduceMotion || !Number.isFinite(target)) { el.textContent = target.toLocaleString() + suffix; return; }
+    const start = performance.now(); const dur = 1100;
+    (function frame(now) {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString() + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    })(start);
+  }
+
+  async function loadGitHub() {
+    try {
+      const [userRes, reposRes] = await Promise.all([
+        fetch(`https://api.github.com/users/${GITHUB_USER}`),
+        fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`),
+      ]);
+      if (!userRes.ok || !reposRes.ok) throw new Error(`GitHub API ${userRes.status}/${reposRes.status}`);
+      const user = await userRes.json();
+      const repos = await reposRes.json();
+      const owned = repos.filter(r => !r.fork && !r.archived);
+      const totalStars = owned.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+      const top = owned.reduce((best, r) => (r.stargazers_count > (best?.stargazers_count ?? -1) ? r : best), null);
+      const recent = owned[0]; // repos sorted by pushed desc
+
+      animateCount(document.getElementById("statRepos"), user.public_repos);
+      animateCount(document.getElementById("statStars"), totalStars);
+      animateCount(document.getElementById("statFollowers"), user.followers);
+      if (top) {
+        document.getElementById("statTop").textContent = top.name;
+        document.getElementById("bwTop").textContent = `${top.name} (${top.stargazers_count}★)`;
+      }
+      if (recent) {
+        const d = new Date(recent.pushed_at);
+        document.getElementById("statRecent").textContent = d.toLocaleDateString();
+        document.getElementById("bwTitle").textContent = `currently building: ${recent.name}`;
+        document.getElementById("bwStars").textContent = String(totalStars);
+        document.getElementById("bwFollowers").textContent = String(user.followers);
+        document.getElementById("bwBranch").textContent = recent.default_branch ?? "main";
+        document.getElementById("bwStatus").textContent =
+          `● ${recent.language || "—"} · ${recent.open_issues_count ?? 0} open issues · pushed ${d.toLocaleDateString()}`;
+
+        // commits tab — real recent commits
+        try {
+          const commitsRes = await fetch(
+            `https://api.github.com/repos/${GITHUB_USER}/${recent.name}/commits?per_page=4`
+          );
+          if (commitsRes.ok) {
+            const commits = await commitsRes.json();
+            if (Array.isArray(commits) && commits.length) {
+              document.getElementById("tab-commits").innerHTML = commits.map(c => {
+                const msg = (c.commit?.message ?? "").split("\n")[0] || "commit";
+                const hash = (c.sha ?? "").slice(0, 7);
+                const when = timeAgo(c.commit?.author?.date);
+                return `<div class="bw-line"><span class="hash">${escapeHtml(hash)}</span><span class="msg">${escapeHtml(msg)}</span><span class="meta">${when}</span></div>`;
+              }).join("");
+            }
+          }
+        } catch (e) { /* keep fallback */ }
+
+        // next tab — open issues as roadmap
+        try {
+          const issuesRes = await fetch(
+            `https://api.github.com/repos/${GITHUB_USER}/${recent.name}/issues?state=open&per_page=5`
+          );
+          if (issuesRes.ok) {
+            const issues = await issuesRes.json();
+            const real = (Array.isArray(issues) ? issues : []).filter(i => !i.pull_request);
+            if (real.length) {
+              document.getElementById("nextList").innerHTML = real.map(i =>
+                `<div class="bw-line"><span class="msg">[ ] #${i.number} — ${escapeHtml(i.title)}</span><span class="meta">${i.labels?.length ? i.labels.map(l => l.name).join(", ") : "open"}</span></div>`
+              ).join("");
+            } else {
+              document.getElementById("nextList").innerHTML =
+                `<div class="bw-line"><span class="msg">no open issues — all clear</span><span class="meta">✓</span></div>`;
+            }
+          }
+        } catch (e) { /* keep fallback */ }
+      }
+    } catch (err) {
+      document.getElementById("bwTitle").textContent = "currently building: (API offline)";
+      console.warn("GitHub stats failed:", err);
+    }
+  }
+  loadGitHub();
 </script>
 </body>
 </html>
