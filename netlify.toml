@@ -51,6 +51,11 @@
   to = "/courses/django-saas-foundations/lesson-09-how-to-turn-your-github-into-a-lead-magnet/"
   status = 301
 
+[[redirects]]
+  from = "/service/"
+  to = "/services/unlimited-dev/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
