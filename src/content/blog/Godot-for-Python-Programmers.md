@@ -4,6 +4,25 @@ description: "A beginner-friendly guide for Python developers transitioning to G
 pubDate: "Sep 07, 2023"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["godot", "python", "game-development", "tutorial"]
+schema: "howto"
+steps:
+  - name: "Understand Godot and GDScript"
+    text: "Learn what Godot is and how GDScript maps to the Python syntax you already know."
+  - name: "Learn the scene system"
+    text: "Break your game into reusable scenes and nodes instead of one monolithic script."
+  - name: "Build with the built-in physics engine"
+    text: "Use Godot's 2D and 3D physics for movement and collisions instead of writing your own."
+  - name: "Deploy cross-platform"
+    text: "Export to Windows, macOS, Linux, Android, iOS, and HTML5 from one codebase."
+faq:
+  - question: "Is GDScript similar to Python?"
+    answer: "Yes, GDScript's syntax is Pythonic, so Python developers pick it up quickly."
+  - question: "Can I use Python instead of GDScript in Godot?"
+    answer: "Godot uses GDScript natively; Python bindings exist but GDScript is the intended scripting language."
+  - question: "What kinds of games can I build with Godot?"
+    answer: "2D platformers, top-down RPGs, first-person shooters, and 3D simulations."
+  - question: "Is Godot good for beginners?"
+    answer: "Yes, it's free, open-source, and has a large community with plenty of tutorials."
 ---
 
 # TL;DR 
@@ -15,7 +34,7 @@ Godot is an open-source, cross-platform game engine that empowers developers to 
 
 Godot uses a custom scripting language called GDScript, which is quite similar to Python in terms of syntax. If you're familiar with Python, transitioning to GDScript will be a breeze. You'll find yourself at home with familiar concepts like variables, functions, and object-oriented programming.
 
-## Benefits of Using Python with Godot:
+## What Are the Benefits of Using Godot with Python?
 * Ease of Learning: Since GDScript is Pythonic, Python developers will find it relatively simple to pick up and start coding in Godot.
 
 * Robust Libraries: Godot's Python API provides access to the engine's powerful features, allowing you to create complex and interactive games easily.

@@ -6,6 +6,16 @@ seoDescription: "Learn how to set up Pytest and Selenium for browser testing in 
 pubDate: "Feb 09 2023"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["python", "testing", "selenium", "tutorial"]
+schema: "howto"
+steps:
+  - name: "Install Pytest and Selenium"
+    text: "Run pip install pytest and pip install selenium to get both tools ready."
+  - name: "Set up a smoke test"
+    text: "Write one stable test that opens a page and asserts a known element to verify the driver works."
+  - name: "Build reusable helpers"
+    text: "Extract common setup into fixtures so tests stay maintainable as coverage grows."
+  - name: "Choose a test style"
+    text: "Pick functional tests for Pytest, or OOP with the Singleton pattern if your business logic requires it."
 faq:
   - question: "Should I use Pytest with Selenium for UI testing?"
     answer: "Yes, Pytest gives clean test structure and Selenium handles browser automation, which is a practical combo for Python UI tests."

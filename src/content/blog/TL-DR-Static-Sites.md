@@ -4,6 +4,15 @@ description: "A concise guide to static sites for client projects, including spe
 pubDate: "Mar 14 2023"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["static-sites", "guide", "web-development"]
+faq:
+  - question: "When should I use a static site vs dynamic?"
+    answer: "Use a static site when content rarely changes and you want speed, security, and low maintenance."
+  - question: "Are static sites more secure?"
+    answer: "Yes, because there's no server-side code to exploit, which removes common attack surfaces like SQL injection."
+  - question: "How do static sites handle scalability?"
+    answer: "They scale by serving pre-built files through a CDN, so traffic spikes don't require extra servers."
+  - question: "What is a static site generator?"
+    answer: "A tool that builds static HTML, CSS, and JS from content like Markdown, ready to host on a CDN."
 ---
 
 A static site generator is a tool that takes content, usually written in a markup language like Markdown, and generates static HTML, CSS, and JavaScript files, hosted on a web server or CDN.
@@ -15,19 +24,19 @@ The advantages of using a static site generator include the following:
 3. Scalability: As static sites don't require server-side processing, they can handle large amounts of traffic without expensive infrastructure or complex caching mechanisms.
 4. Simplicity: With a static site generator, developers can focus on creating content and designing the site without worrying about complex server code or database management.
 
-## Speed
+## Why Static Sites Are Faster Than Dynamic Sites
 
 Static sites are faster than dynamic sites because they don't require server processing or database queries to generate the content. Instead, the content is pre-built as static HTML, CSS, and JavaScript files that can be served directly to the user's browser without additional processing; this means the site loads faster. Additionally, static sites can use caching mechanisms such as CDNs, which further improve their speed by storing the content closer to the user and reducing the amount of data transmitted over the network.
 
-## Security
+## How Static Sites Improve Security
 
 A static website is more secure because it doesn't have a server application that hackers can target. When you visit a website, your web browser sends a request to the website's server, which responds by sending back the website's content. With a dynamic website, the server application generates the website's content on the fly. Hackers can exploit vulnerabilities in server-side applications to gain access to sensitive information or inject malicious code into the website. However, with a static website, there are no server-related vulnerabilities for hackers to exploit.
 
-## Scalability
+## Why Static Sites Scale Better
 
 Static sites are more scalable than dynamic sites because they don't require server-side processing or database queries to generate the content. Additionally, dynamic sites often require more complex server architecture, such as load balancing or database sharding, to handle high traffic volumes, which can be expensive and time-consuming to set up. On the other hand, scaling is as simple with static sites as using a CDN to distribute the content globally. This makes static sites more scalable and cost-effective than dynamic sites, especially for sites that experience large traffic spikes.
 
-## Simplicity
+## Why Static Sites Are Simpler to Maintain
 
 Static sites are simpler than dynamic sites because their content is pre-built as static HTML, CSS, and JavaScript files that can be hosted on a CDN. This makes the development process faster and less complex, as developers can focus on creating content and designing the site without worrying about servers or database management. This makes static sites an ideal choice for simple websites or projects with a small development team or budget. Overall, the simplicity of static sites makes them a faster, easier, and more cost-effective choice than dynamic sites for many web projects.
 

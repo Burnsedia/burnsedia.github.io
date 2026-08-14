@@ -12,6 +12,25 @@ tags:
     "vim",
     "terminal workflow",
   ]
+schema: "howto"
+steps:
+  - name: "Switch from VS Code to Neovim"
+    text: "Install Neovim and start with a minimal config so you can learn modal editing without extension chaos."
+  - name: "Learn modal editing"
+    text: "Practice normal, insert, and visual modes until moving the cursor without a mouse becomes muscle memory."
+  - name: "Add plugins incrementally"
+    text: "Introduce a plugin manager and add one or two plugins at a time, learning each before adding more."
+  - name: "Automate your workflow"
+    text: "Wire up LSP, fuzzy finding, and terminal integration to remove context switching across projects."
+faq:
+  - question: "Why switch from VS Code to Neovim?"
+    answer: "Neovim removes editor lag and keeps you keyboard-first, which cuts context switching and makes you faster across any machine."
+  - question: "How long does the Neovim learning curve take?"
+    answer: "A few weeks of daily use is enough to feel comfortable; the payoff compounds the more you practice modal editing."
+  - question: "Is Neovim faster than VS Code for development?"
+    answer: "Yes in practice, because it avoids the UI overhead and freezes that slow down VS Code on large projects."
+  - question: "What plugins do you use for Neovim?"
+    answer: "I keep it lean: a plugin manager, LSP, fuzzy finder, and terminal integration rather than a bloated config."
 ---
 
 # TL;DR

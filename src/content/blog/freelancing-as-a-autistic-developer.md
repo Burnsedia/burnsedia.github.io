@@ -4,6 +4,13 @@ description: "My experiance as a developer freelancing"
 pubDate: "2026-03-11"
 heroImage: "/CyberPunkLogo2.jpg"
 tags: ["freelancing", "productized services", "ai automation", "small business", "autistic entrepreneurs"]
+faq:
+  - question: "What is a productized service?"
+    answer: "A service with a fixed scope and fixed price you can systematize and repeat, instead of billing by the hour."
+  - question: "How do I start freelancing as an autistic developer?"
+    answer: "Start with a narrow, well-scoped offer and systematize delivery so you aren't second-guessing what to bill."
+  - question: "Why are productized services good for autistic entrepreneurs?"
+    answer: "They have clear scope and pricing, which removes the ambiguity and social guesswork of hourly billing."
 ---
 For the past few years I have been freelancing instead of working on my art and my games. I needed to do this because I needed the money.
 
@@ -15,7 +22,7 @@ I was only getting really shitty clients, the absolute bottom-of-the-barrel clie
 
 I got ghosted so many times I stopped counting. That is when I started looking for other business models. That is where I discovered Productized Services.
 
-I explored various productized services like my "Unlimited Dev Service". That actually worked really well.
+I explored various productized services like my ["Unlimited Dev Service"](/service). That actually worked really well.
 
 Running my Productized Developer Service was really successful. I made more money from Dec 2023 to Sep 2025.
 
