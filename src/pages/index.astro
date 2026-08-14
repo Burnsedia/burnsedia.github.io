@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, SITE_META_DESCRIPTION } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from "../components/homepage/HomeHero.astro";
 import HomeAbout from "../components/homepage/HomeAbout.astro";
@@ -9,8 +9,8 @@ import HomeStats from "../components/homepage/HomeStats.astro"
 import HomeCTA from "../components/homepage/HomeCTA.astro"
 ---
 <BaseLayout
-  title={SITE_TITLE}
-	description="I build shit that works. Apps, games, and open tools."
+  title={`${SITE_TITLE} — Full-Stack Dev, AI Systems & SaaS Consulting`}
+  description={SITE_META_DESCRIPTION}
 >
  <Hero />
  <HomeAbout />

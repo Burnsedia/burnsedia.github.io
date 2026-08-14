@@ -2,6 +2,6 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'baileyburnsed.dev';
-export const SITE_DESCRIPTION = 'I Build Software for:  ';
-export const SITE_META_DESCRIPTION = 'Burnsedia builds practical AI systems, SaaS products, and full-stack software for founders, creators, and small businesses.';
+export const SITE_DESCRIPTION = 'Autistic hacker-builder shipping apps, games, and AI systems. Consulting on practical software, AI automation, and lean SaaS for founders and small businesses.';
+export const SITE_META_DESCRIPTION = 'Burnsedia builds practical AI systems, SaaS products, and full-stack software for founders, creators, and small businesses across Metro Atlanta.';
 export const BLOG_DESCRIPTION = 'Actionable articles on AI agents, indie SaaS growth, developer tools, and shipping profitable software products.';
