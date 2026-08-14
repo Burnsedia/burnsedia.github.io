@@ -1,7 +1,6 @@
 ---
 import { SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FAQSchema from '../components/shared/FAQSchema.astro';
 import Hero from "../components/marketing/Hero.astro";
 import Tech from "../components/legacy/Technolgy.astro";
 import SalesHero from "../components/shared/SalesHero.astro";
@@ -9,57 +8,12 @@ import Projects from "../components/marketing/projects.astro";
 import ContactForm from "../components/marketing/ContactForm.astro";
 import Bio from "../components/legacy/Bio.astro";
 import Testimonials from "../components/legacy/testimonials.astro"
-
-const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
-const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
-
-const serviceFaq = [
-  {
-    question: 'What is the Unlimited Dev Service?',
-    answer: 'Flat-rate full-stack development at $4,000/month. You get senior-level engineering for web apps, AI features, and integrations without agency overhead.',
-  },
-  {
-    question: 'What do I get each month?',
-    answer: 'One active project at a time with clear scope, working increments shipped continuously, and direct access to me as the developer.',
-  },
-  {
-    question: 'How is this different from hiring an agency or freelancer?',
-    answer: 'No hourly billing, no account managers, no scope creep. You pay a flat rate and get direct, senior execution with clean ownership of the code.',
-  },
-  {
-    question: 'What if I need less than a full month?',
-    answer: 'The service is designed around a monthly engagement. For smaller, one-off work I can point you to a scoped project or a lighter arrangement.',
-  },
-  {
-    question: 'What tech stack do you work with?',
-    answer: 'Python, Django, JavaScript, Vue, React, Astro, and cloud infrastructure on AWS, GCP, Fly.io, and VPS providers — chosen for portability and no lock-in.',
-  },
-  {
-    question: 'Do you work with non-technical founders?',
-    answer: 'Yes. I translate business goals into practical systems, explain tradeoffs in plain language, and hand over clean documentation and ownership.',
-  },
-  {
-    question: 'Where are you based?',
-    answer: 'Metro Atlanta, Georgia. I work remotely with founders and small businesses across the US.',
-  },
-];
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: toAbsoluteUrl('/') },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: toAbsoluteUrl('/service/') },
-  ],
-};
 ---
 <BaseLayout
   title={`Services | ${SITE_TITLE}`}
 	description="Custom software, AI automation, and product development services for founders and small businesses."
   canonical="/service/"
 >
- <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
- <FAQSchema items={serviceFaq} />
  <Hero />
  <SalesHero />
  <Tech />
