@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQSchema from '../../components/shared/FAQSchema.astro';
+import { services, getService } from '../../data/services';
+import { SITE_TITLE } from '../../consts';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { id: service.id },
+    props: { service },
+  }));
+}
+
+interface Props {
+  service: (typeof services)[number];
+}
+
+const { service } = Astro.props;
+
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+const canonicalUrl = toAbsoluteUrl(`/services/${service.id}/`);
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: toAbsoluteUrl('/') },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: toAbsoluteUrl('/services/') },
+    { '@type': 'ListItem', position: 3, name: service.title, item: canonicalUrl },
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.title,
+  description: service.description,
+  url: canonicalUrl,
+  provider: { '@type': 'Organization', name: 'Burnsedia', url: toAbsoluteUrl('/') },
+  areaServed: [
+    { '@type': 'Place', name: 'Atlanta, GA' },
+    { '@type': 'Place', name: 'East Point, GA' },
+    { '@type': 'Place', name: 'College Park, GA' },
+    { '@type': 'Place', name: 'Hapeville, GA' },
+    { '@type': 'Place', name: 'Metro Atlanta Area, GA' },
+  ],
+};
+---
+
+<BaseLayout
+  title={`${service.title} | ${SITE_TITLE}`}
+  description={service.description}
+  canonical={`/services/${service.id}/`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <FAQSchema items={service.faq} />
+
+  <section class="w-full py-16 md:py-20">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-5xl font-bold mb-4">{service.title}</h1>
+      <p class="text-2xl font-semibold text-primary mb-6">{service.price}</p>
+      <p class="text-lg text-base-content/80 max-w-3xl mb-10">{service.longDescription}</p>
+
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">What you get</h2>
+      <ul class="list-disc pl-6 space-y-2 text-base-content/80 max-w-3xl mb-10">
+        {service.features.map((feature) => (
+          <li>{feature}</li>
+        ))}
+      </ul>
+
+      {service.faq.length > 0 && (
+        <section class="mb-10">
+          <h2 class="text-2xl sm:text-3xl font-bold mb-4">Common questions</h2>
+          <div class="space-y-4 max-w-3xl">
+            {service.faq.map((item) => (
+              <div class="p-5 border border-base-content/10 bg-base-100/5 rounded-2xl">
+                <h3 class="font-semibold mb-2">{item.question}</h3>
+                <p class="text-base-content/80">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <a href="/newsletter" class="btn btn-primary">Work With Me</a>
+    </div>
+  </section>
+</BaseLayout>

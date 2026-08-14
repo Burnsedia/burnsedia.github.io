@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { serviceLocations, services } from '../../../data/services';
+import { SITE_TITLE } from '../../../consts';
+
+export function getStaticPaths() {
+  return serviceLocations.map((location) => ({
+    params: { slug: location.slug },
+    props: { location },
+  }));
+}
+
+interface Props {
+  location: (typeof serviceLocations)[number];
+}
+
+const { location } = Astro.props;
+const primaryService = services[0];
+
+const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
+const toAbsoluteUrl = (path: string) => new URL(path, baseUrl).toString();
+const canonicalUrl = toAbsoluteUrl(`/services/location/${location.slug}/`);
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: toAbsoluteUrl('/') },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: toAbsoluteUrl('/services/') },
+    { '@type': 'ListItem', position: 3, name: location.name, item: canonicalUrl },
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${primaryService.title} in ${location.name}`,
+  description: location.intro,
+  url: canonicalUrl,
+  provider: { '@type': 'Organization', name: 'Burnsedia', url: toAbsoluteUrl('/') },
+  areaServed: { '@type': 'Place', name: `${location.name}, GA` },
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Burnsedia',
+  url: toAbsoluteUrl('/'),
+  description: location.intro,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: location.name,
+    addressRegion: location.region,
+    addressCountry: 'US',
+  },
+  areaServed: location.name,
+};
+---
+
+<BaseLayout
+  title={`${location.headline} | ${SITE_TITLE}`}
+  description={location.intro}
+  canonical={`/services/location/${location.slug}/`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+  <section class="w-full py-16 md:py-20">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-5xl font-bold mb-4">{location.headline}</h1>
+      <p class="text-lg text-base-content/80 max-w-3xl mb-6">{location.intro}</p>
+      <p class="text-base-content/80 max-w-3xl mb-10">{location.localContext}</p>
+
+      <a href={`/services/${primaryService.id}/`} class="btn btn-primary">
+        See the {primaryService.title}
+      </a>
+
+      <nav class="mt-10 border-t border-base-300 pt-6" aria-label="Nearby areas">
+        <h2 class="text-xl font-bold mb-4">Other areas I serve</h2>
+        <ul class="space-y-2">
+          {serviceLocations
+            .filter((other) => other.slug !== location.slug)
+            .map((other) => (
+              <li>
+                <a class="link link-hover" href={`/services/location/${other.slug}/`}>
+                  {other.name}, {other.region}
+                </a>
+              </li>
+            ))}
+        </ul>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>
