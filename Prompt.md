@@ -44,7 +44,6 @@ Here are some ideas on how I make money:
 - Productized services:
   - Leads
   - Data Analyse 
-  - 
   
 - Content Business:
   - blog
