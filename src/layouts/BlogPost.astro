@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/legacy/FormattedDate.astro';
 import NewsletterCtaCard from '../components/shared/NewsletterCtaCard.astro';
+import HowToSchema from '../components/shared/HowToSchema.astro';
 import { SITE_TITLE } from '../consts';
 import { getEntrySlug } from '../utils/content';
 import { getNormalizedTags, getTagLabel } from '../utils/tags';
@@ -13,10 +14,15 @@ export interface Props {
   slug: string;
   title: string;
   description: string;
+  seoTitle?: string;
+  seoDescription?: string;
   pubDate: Date;
   updatedDate?: Date;
   heroImage?: string;
   tags?: string[];
+  faq?: { question: string; answer: string }[];
+  schema?: 'article' | 'howto';
+  steps?: { name: string; text: string; image?: string }[];
   relatedPosts?: RelatedPost[];
 }
 
@@ -24,12 +30,20 @@ const {
   slug,
   title,
   description,
+  seoTitle,
+  seoDescription,
   pubDate,
   updatedDate,
   heroImage,
   tags = [],
+  faq = [],
+  schema = 'article',
+  steps = [],
   relatedPosts = [],
 } = Astro.props;
+
+const pageTitle = seoTitle || title;
+const pageDescription = seoDescription || description;
 
 const normalizedTags = getNormalizedTags(tags);
 const baseUrl = Astro.site?.toString() ?? 'https://baileyburnsed.dev';
@@ -61,8 +75,8 @@ const breadcrumbSchema = {
 };
 ---
 <BaseLayout
-  title={`${title} | ${SITE_TITLE}`}
-  description={description}
+  title={`${pageTitle} | ${SITE_TITLE}`}
+  description={pageDescription}
   image={heroImage}
   type="article"
   canonical={`/blog/${slug}/`}
@@ -71,6 +85,20 @@ const breadcrumbSchema = {
   tags={tags}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  {faq.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    })} />
+  )}
+  {schema === 'howto' && steps.length > 0 && (
+    <HowToSchema name={pageTitle} description={pageDescription} steps={steps} />
+  )}
   <article class="w-full">
   <!-- Exact same padded container as your Legal page -->
   <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
@@ -134,4 +162,77 @@ const breadcrumbSchema = {
     )}
   </div>
 </article>
+
+<script is:inline>
+  (() => {
+    if (window.location.hostname !== 'baileyburnsed.dev') {
+      return;
+    }
+
+    const gtag = window.gtag;
+    if (typeof gtag !== 'function') {
+      return;
+    }
+
+    const pagePath = window.location.pathname;
+
+    const depthMarks = [25, 50, 75, 100];
+    const fired = new Set();
+
+    const trackScrollDepth = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - window.innerHeight;
+
+      if (scrollable <= 0) {
+        return;
+      }
+
+      const percent = Math.round((window.scrollY / scrollable) * 100);
+
+      depthMarks.forEach((mark) => {
+        if (percent >= mark && !fired.has(mark)) {
+          fired.add(mark);
+          gtag('event', 'scroll_depth', {
+            event_category: 'engagement',
+            event_label: `${mark}%`,
+            page_path: pagePath,
+          });
+        }
+      });
+    };
+
+    let scrollTicking = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!scrollTicking) {
+          window.requestAnimationFrame(() => {
+            trackScrollDepth();
+            scrollTicking = false;
+          });
+          scrollTicking = true;
+        }
+      },
+      { passive: true }
+    );
+
+    document.addEventListener('click', (event) => {
+      const target = event.target instanceof Element
+        ? event.target.closest('[data-track-event]')
+        : null;
+
+      if (!target) {
+        return;
+      }
+
+      gtag('event', target.getAttribute('data-track-event'), {
+        event_category: 'engagement',
+        event_label: target.getAttribute('data-track-label') || undefined,
+        source: target.getAttribute('data-track-source') || undefined,
+        placement: target.getAttribute('data-track-placement') || undefined,
+        page_path: pagePath,
+      });
+    });
+  })();
+</script>
 </BaseLayout>
