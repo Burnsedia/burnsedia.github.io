@@ -26,6 +26,7 @@ const {
 const sanitizedPhrases = phrases.filter(Boolean);
 const firstPhrase = sanitizedPhrases[0] ?? '';
 const maxChars = Math.max(...sanitizedPhrases.map((phrase) => phrase.length), firstPhrase.length, 1);
+const staticPhraseList = sanitizedPhrases.join(', ');
 ---
 
 <p class={className}>
@@ -41,6 +42,7 @@ const maxChars = Math.max(...sanitizedPhrases.map((phrase) => phrase.length), fi
     class="inline-block align-baseline"
     style={`min-width: ${maxChars + 1}ch;`}
   >{firstPhrase}</span>
+  <noscript><span>{staticPhraseList}</span></noscript>
   {suffix && <span> {suffix}</span>}
 </p>
 
