@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnsedia — Store-first Homepage (hybrid)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../themes/storefront.css">
+</head>
+<body>
+
+<div class="sbar">
+  <span class="dot"></span><span>nerdtime</span><b>main</b>
+  <span class="sp"></span><span>live via GitHub API · ? for help</span>
+</div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#"><span class="hex sm" style="display:inline-flex;vertical-align:middle;margin-right:8px"><span class="in">B</span></span>bailey<span>burnsed</span>.dev</a>
+    <nav class="nav-links">
+      <a href="#">Build Log</a>
+      <a href="#" class="on">Store</a>
+      <a href="#">Gallery</a>
+      <a href="#">Music</a>
+      <a href="#">Membership</a>
+      <a href="#" class="cta">Follow the build</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- store hero -->
+  <section class="sec" style="padding-top:44px">
+    <div class="tag"><b>$</b> ls ~/store --all</div>
+    <h1 style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.08;font-weight:700;letter-spacing:-.02em">I build <span style="color:var(--primary)">shit</span> that works.<br><span style="font-size:.6em;color:var(--muted);font-weight:400">and I sell it here.</span></h1>
+    <p class="lede" style="margin-top:14px;font-size:16px;max-width:620px">Apps, services, games, and art — every one shipped, priced, and in public. Start here.</p>
+    <div class="frow" style="margin-top:18px">
+      <button class="fbtn on" data-cat="all">all</button>
+      <button class="fbtn" data-cat="saas">saas</button>
+      <button class="fbtn" data-cat="service">services</button>
+      <button class="fbtn" data-cat="game">games</button>
+      <button class="fbtn" data-cat="art">art &amp; skills</button>
+    </div>
+    <div class="grid" id="storeGrid">
+      <div class="card" data-cat="service"><div class="top"><span class="badge b-svc">service</span><span class="d d-live"></span></div><h3>Unlimited Dev Service</h3><p>Flat-rate full-stack development. Fixed scope, no scope creep.</p><div class="price">$4,000/mo</div><a class="go" href="#">book a call →</a></div>
+      <div class="card" data-cat="saas"><div class="top"><span class="badge b-saas">saas</span><span class="d d-live"></span></div><h3>boomerbill</h3><p>Billing + labor tracking for freelancers.</p><div class="price">$12/mo</div><a class="go" href="#">try it →</a></div>
+      <div class="card" data-cat="saas"><div class="top"><span class="badge b-saas">saas</span><span class="d d-beta"></span></div><h3>nerdtime</h3><p>Code time tracking + tasks. Open source.</p><div class="price">free <span class="x">· sponsorware</span></div><a class="go" href="#">star on GitHub →</a></div>
+      <div class="card" data-cat="game"><div class="top"><span class="badge b-game">game</span><span class="d d-live"></span></div><h3>32bit-Spacer</h3><p>Retro-futurist space game, built in public.</p><div class="price">on Itch.io</div><a class="go" href="#">play →</a></div>
+      <div class="card" data-cat="service"><div class="top"><span class="badge b-svc">service</span><span class="d d-beta"></span></div><h3>OpenClaw</h3><p>AI agent setup + management for small biz.</p><div class="price">custom</div><a class="go" href="#">learn more →</a></div>
+      <div class="card" data-cat="saas"><div class="top"><span class="badge b-saas">saas</span><span class="d d-plan"></span></div><h3>BulkPost</h3><p>Agentic social media automation.</p><div class="price">join waitlist</div><a class="go" href="#">get notified →</a></div>
+      <div class="card" data-cat="art"><div class="top"><span class="badge b-art">art</span><span class="d d-live"></span></div><h3>Blender Renders</h3><p>3D art + asset packs. Free previews.</p><div class="price">from $9</div><a class="go" href="#">view gallery →</a></div>
+      <div class="card" data-cat="art"><div class="top"><span class="badge b-art">skill</span><span class="d d-live"></span></div><h3>Indie Dev Stack</h3><p>Tools + configs I ship with. Guide.</p><div class="price">$47 <span class="x">on Gumroad</span></div><a class="go" href="#">get it →</a></div>
+      <div class="card" data-cat="service"><div class="top"><span class="badge b-svc">service</span><span class="d d-plan"></span></div><h3>Hermes Agent Mgmt</h3><p>Deploy + maintain Hermes for teams.</p><div class="price">custom</div><a class="go" href="#">learn more →</a></div>
+    </div>
+    <a class="more" href="#">view all 20+ products →</a>
+  </section>
+
+  <!-- build log -->
+  <section class="sec">
+    <div class="tag"><b>$</b> ls ~/build-log --recent</div>
+    <h2>From the build log</h2>
+    <p class="lede">The receipts behind everything above. Built in public, every commit.</p>
+    <a class="post" href="#"><span class="date">2026-07-29</span><span class="t">Why I&rsquo;m pivoting this site to a content business</span><span class="tag">opinion</span></a>
+    <a class="post" href="#"><span class="date">2026-07-25</span><span class="t">Boomerbill: what happens when users actually show up</span><span class="tag">build log</span></a>
+    <a class="post" href="#"><span class="date">2026-07-21</span><span class="t">The AI agent stack I use for solo dev</span><span class="tag">build log</span></a>
+    <a class="more" href="#">read the build log →</a>
+  </section>
+
+  <!-- services -->
+  <section class="sec">
+    <div class="tag"><b>$</b> ./services --flat-rate</div>
+    <h2>Productized services</h2>
+    <p class="lede">Hire me at a fixed price, not by the hour.</p>
+    <div class="svc">
+      <div class="card"><h3>Unlimited Dev Service</h3><div class="price">$4,000/mo <span class="x">· flat</span></div><p>A senior full-stack dev on retainer. One queue, fixed monthly scope.</p><ul><li>Full-stack web + AI systems</li><li>Direct line, no agency layers</li><li>Own the code and roadmap</li></ul><a class="btn btn-p" href="#" style="margin-top:auto">Book a call</a></div>
+      <div class="card"><h3>OpenClaw</h3><div class="price">custom <span class="x">· beta</span></div><p>AI agents that do a real job for your small business.</p><ul><li>Agent design + deployment</li><li>Monitoring + iteration</li><li>Hand-off docs</li></ul><a class="btn btn-o" href="#" style="margin-top:auto">Join the waitlist</a></div>
+      <div class="card"><h3>Hermes Agent Mgmt</h3><div class="price">custom <span class="x">· planned</span></div><p>I deploy, run, and maintain your Hermes agents.</p><ul><li>Infra + config</li><li>Skills + cron pipelines</li><li>SLA + response</li></ul><a class="btn btn-o" href="#" style="margin-top:auto">Get notified</a></div>
+    </div>
+  </section>
+
+  <!-- membership -->
+  <section class="sec">
+    <div class="tag"><b>$</b> cat membership/tiers</div>
+    <h2>Support the build</h2>
+    <p class="lede">Sponsorware, early access, direct input. One page, six tiers.</p>
+    <div class="tiers">
+      <div class="tier"><div class="t">Insider</div><div class="p">$5</div><div class="perk">behind the scenes</div></div>
+      <div class="tier"><div class="t">Early Access</div><div class="p">$10</div><div class="perk">sponsorware code</div></div>
+      <div class="tier hot"><div class="t">Member</div><div class="p">$15</div><div class="perk">+ Q&amp;A + skills</div></div>
+      <div class="tier"><div class="t">Builder</div><div class="p">$25</div><div class="perk">+ monthly dev call</div></div>
+      <div class="tier"><div class="t">Patron</div><div class="p">$50</div><div class="perk">+ quarterly 1:1</div></div>
+      <div class="tier"><div class="t">Sponsor</div><div class="p">$100</div><div class="perk">+ logo + shoutout</div></div>
+    </div>
+  </section>
+
+  <!-- newsletter -->
+  <section class="nl">
+    <div class="tag"><b>$</b> ./follow --weekly</div>
+    <h2>Follow the build</h2>
+    <p>Weekly notes on apps, games, art, and music — plus early access before anyone else.</p>
+    <form class="nl-form" onsubmit="event.preventDefault(); this.querySelector('input').value='✓ You\u2019re on the list. Talk soon.'; return false;">
+      <input type="email" placeholder="you@example.com" required>
+      <button class="btn btn-p" type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="links"><a href="#">GitHub</a><a href="#">YouTube</a><a href="#">X/Twitter</a><a href="#">Patreon</a><a href="#">Itch.io</a><a href="#">Gumroad</a><a href="#">RSS</a></div>
+    <div>baileyburnsed.dev — © 2026 Bailey Burnsed. Built in public.</div>
+  </footer>
+</div>
+
+<script>
+  const btns = document.querySelectorAll(".fbtn");
+  const cards = document.querySelectorAll("#storeGrid .card");
+  btns.forEach(b => b.addEventListener("click", () => {
+    btns.forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    const cat = b.dataset.cat;
+    cards.forEach(c => { c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none"; });
+  }));
+</script>
+</body>
+</html>

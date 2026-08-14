@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnsedia — The Store (hybrid products hub)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../themes/storefront.css">
+</head>
+<body>
+
+<div class="sbar">
+  <span class="dot"></span><span>nerdtime</span><b>main</b>
+  <span class="sp"></span><span>~/store · live via GitHub API</span>
+</div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#">bailey<span>burnsed</span>.dev</a>
+    <nav class="nav-links">
+      <a href="#">Build Log</a>
+      <a href="#" class="on">Store</a>
+      <a href="#">Gallery</a>
+      <a href="#">Music</a>
+      <a href="#">Membership</a>
+      <a href="#" class="cta">Follow the build</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- page header -->
+  <section class="sec" style="padding-top:44px">
+    <div class="tag"><b>$</b> cd ~/store</div>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.05;font-weight:700;letter-spacing:-.02em">The Store</h1>
+    <p class="lede" style="font-size:16px;max-width:640px">Everything I sell — apps, services, games, and art. One price, no surprises. Built in public, receipts included.</p>
+    <div class="frow" style="margin-top:10px">
+      <button class="fbtn on" data-cat="all">all</button>
+      <button class="fbtn" data-cat="service">services</button>
+      <button class="fbtn" data-cat="saas">saas</button>
+      <button class="fbtn" data-cat="game">games</button>
+      <button class="fbtn" data-cat="art">art &amp; skills</button>
+    </div>
+  </section>
+
+  <!-- shelf: services -->
+  <div class="sec" style="padding-top:18px"><div class="tag"><b>$</b> ls services/</div><h2>Services</h2><p class="lede">Flat-rate, fixed-scope. You hire me to ship, not to bill hours.</p></div>
+  <div class="svc" data-shelf>
+    <div class="card" data-cat="service"><div class="top"><span class="badge b-svc">service</span><span class="d d-live"></span></div><h3>Unlimited Dev Service</h3><p>Flat-rate full-stack development on retainer.</p><div class="price">$4,000/mo</div><a class="go" href="#">book a call →</a></div>
+    <div class="card" data-cat="service"><div class="top"><span class="badge b-svc">service</span><span class="d d-beta"></span></div><h3>OpenClaw</h3><p>AI agent setup + management for small biz.</p><div class="price">custom</div><a class="go" href="#">learn more →</a></div>
+    <div class="card" data-cat="service"><div class="top"><span class="badge b-svc">service</span><span class="d d-plan"></span></div><h3>Hermes Agent Mgmt</h3><p>Deploy, run, maintain Hermes for your team.</p><div class="price">custom</div><a class="go" href="#">learn more →</a></div>
+  </div>
+
+  <!-- shelf: saas -->
+  <div class="sec"><div class="tag"><b>$</b> ls saas/</div><h2>SaaS &amp; apps</h2><p class="lede">Self-serve tools you can use today.</p></div>
+  <div class="grid" data-shelf>
+    <div class="card" data-cat="saas"><div class="top"><span class="badge b-saas">saas</span><span class="d d-live"></span></div><h3>boomerbill</h3><p>Billing + labor tracking for freelancers.</p><div class="price">$12/mo</div><a class="go" href="#">try it →</a></div>
+    <div class="card" data-cat="saas"><div class="top"><span class="badge b-saas">saas</span><span class="d d-beta"></span></div><h3>nerdtime</h3><p>Code time tracking + tasks. Open source.</p><div class="price">free <span class="x">· sponsorware</span></div><a class="go" href="#">star on GitHub →</a></div>
+    <div class="card" data-cat="saas"><div class="top"><span class="badge b-saas">saas</span><span class="d d-plan"></span></div><h3>BulkPost</h3><p>Agentic social media automation.</p><div class="price">join waitlist</div><a class="go" href="#">get notified →</a></div>
+    <div class="card" data-cat="saas"><div class="top"><span class="badge b-saas">saas</span><span class="d d-plan"></span></div><h3>Virtue Tracker</h3><p>Habit formation, not tasks. Self-improvement.</p><div class="price">seed stage</div><a class="go" href="#">get notified →</a></div>
+  </div>
+
+  <!-- shelf: games -->
+  <div class="sec"><div class="tag"><b>$</b> ls games/</div><h2>Games</h2><p class="lede">Playable builds, sold on Itch.io.</p></div>
+  <div class="grid" data-shelf>
+    <div class="card" data-cat="game"><div class="top"><span class="badge b-game">game</span><span class="d d-live"></span></div><h3>32bit-Spacer</h3><p>Retro-futurist space game, built in public.</p><div class="price">on Itch.io</div><a class="go" href="#">play →</a></div>
+    <div class="card" data-cat="game"><div class="top"><span class="badge b-game">game</span><span class="d d-beta"></span></div><h3>The Hive</h3><p>Ship-crafting game design, in development.</p><div class="price">wishlist</div><a class="go" href="#">follow →</a></div>
+  </div>
+
+  <!-- shelf: art -->
+  <div class="sec"><div class="tag"><b>$</b> ls art/</div><h2>Art &amp; skills</h2><p class="lede">3D renders, asset packs, and the guides I write.</p></div>
+  <div class="grid" data-shelf>
+    <div class="card" data-cat="art"><div class="top"><span class="badge b-art">art</span><span class="d d-live"></span></div><h3>Blender Renders</h3><p>3D art + asset packs. Free previews on site.</p><div class="price">from $9</div><a class="go" href="#">view gallery →</a></div>
+    <div class="card" data-cat="art"><div class="top"><span class="badge b-art">skill</span><span class="d d-live"></span></div><h3>Indie Dev Stack</h3><p>The exact tools + configs I ship with.</p><div class="price">$47 <span class="x">on Gumroad</span></div><a class="go" href="#">get it →</a></div>
+    <div class="card" data-cat="art"><div class="top"><span class="badge b-art">skill</span><span class="d d-live"></span></div><h3>AI Agent Playbook</h3><p>How I run AI agents for real work.</p><div class="price">$49 <span class="x">on Gumroad</span></div><a class="go" href="#">get it →</a></div>
+  </div>
+
+  <!-- fallback cta -->
+  <section class="nl">
+    <div class="tag"><b>$</b> ./not-sure --help</div>
+    <h2>Not sure what you need?</h2>
+    <p>Tell me what you&rsquo;re trying to build and I&rsquo;ll point you at the right thing — or build it with you.</p>
+    <div class="nl-form">
+      <a class="btn btn-p" href="#">Book a 15-min call</a>
+      <a class="btn btn-o" href="#">Email me</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links"><a href="#">GitHub</a><a href="#">YouTube</a><a href="#">X/Twitter</a><a href="#">Patreon</a><a href="#">Itch.io</a><a href="#">Gumroad</a><a href="#">RSS</a></div>
+    <div>baileyburnsed.dev — © 2026 Bailey Burnsed. Built in public.</div>
+  </footer>
+</div>
+
+<script>
+  const btns = document.querySelectorAll(".fbtn");
+  const cards = document.querySelectorAll(".card[data-cat]");
+  const shelves = document.querySelectorAll("[data-shelf]");
+  btns.forEach(b => b.addEventListener("click", () => {
+    btns.forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    const cat = b.dataset.cat;
+    cards.forEach(c => { c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none"; });
+  }));
+</script>
+</body>
+</html>

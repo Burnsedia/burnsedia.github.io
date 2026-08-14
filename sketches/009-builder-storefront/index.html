@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en" data-theme="darksynthwave">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnsedia — Builder Storefront (daisyUI)</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  [data-theme="darksynthwave"] {
+    color-scheme: dark;
+    --color-base-100: oklch(0% 0 0);
+    --color-base-200: oklch(14% 0.004 49.25);
+    --color-base-300: oklch(21% 0.006 56.043);
+    --color-base-content: oklch(100% 0 0);
+    --color-primary: oklch(71% 0.202 349.761);
+    --color-primary-content: oklch(28% 0.109 3.907);
+    --color-secondary: oklch(82% 0.111 230.318);
+    --color-secondary-content: oklch(29% 0.066 243.157);
+    --color-accent: oklch(75% 0.183 55.934);
+    --color-accent-content: oklch(26% 0.079 36.259);
+    --color-neutral: oklch(45% 0.24 277.023);
+    --color-neutral-content: oklch(87% 0.065 274.039);
+    --color-info: oklch(74% 0.16 232.661);
+    --color-info-content: oklch(29% 0.066 243.157);
+    --color-success: oklch(77% 0.152 181.912);
+    --color-success-content: oklch(27% 0.046 192.524);
+    --color-warning: oklch(90% 0.182 98.111);
+    --color-warning-content: oklch(42% 0.095 57.708);
+    --color-error: oklch(73.7% 0.121 32.639);
+    --color-error-content: oklch(23.501% 0.096 290.329);
+    --radius-selector: 1rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 1;
+  }
+  body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .term-tag { font-family: "JetBrains Mono", ui-monospace, monospace; }
+</style>
+</head>
+<body class="bg-base-100 text-base-content min-h-screen pb-10">
+
+<!-- navbar -->
+<div class="navbar bg-base-100/70 backdrop-blur border-b border-base-300 sticky top-0 z-50 px-4">
+  <div class="navbar-start">
+    <a class="btn btn-ghost text-xl mono">bailey<span class="text-primary">burnsed</span>.dev</a>
+  </div>
+  <div class="navbar-end hidden lg:flex gap-1">
+    <a class="btn btn-ghost btn-sm" aria-current="page">Build Log</a>
+    <a class="btn btn-ghost btn-sm">Store</a>
+    <a class="btn btn-ghost btn-sm">Gallery</a>
+    <a class="btn btn-ghost btn-sm">Music</a>
+    <a class="btn btn-ghost btn-sm">Membership</a>
+    <a class="btn btn-outline btn-sm">Follow the build</a>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-4">
+
+  <!-- hero -->
+  <section class="hero py-14">
+    <div class="hero-content flex-col lg:flex-row gap-8 w-full">
+      <div class="mask mask-hexagon bg-gradient-to-br from-neutral to-base-300 w-40 h-44 grid place-items-center ring-2 ring-secondary/60 ring-offset-4 ring-offset-base-100 shrink-0">
+        <span class="text-primary text-4xl font-bold mono">B</span>
+      </div>
+      <div>
+        <p class="mono text-xs text-secondary mb-2">$ whoami</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">I build <span class="text-primary">shit</span> that works.</h1>
+        <p class="py-4 text-base-content/70 max-w-xl">Apps. Games. Digital art. Synthwave. All of it built in public — and the good stuff is for sale.</p>
+        <p class="mono text-sm text-secondary">$ built-for <span id="typed">apps</span><span class="text-primary">▊</span></p>
+        <div class="flex flex-wrap gap-3 mt-5">
+          <a class="btn btn-primary" href="#store">Explore the store</a>
+          <a class="btn btn-outline" href="#log">Follow my builds</a>
+        </div>
+        <div class="flex items-center gap-2 mt-6 bg-base-200 border border-base-300 rounded-box px-4 py-3 mono text-sm">
+          <span class="status status-success"></span>
+          <span class="text-base-content/60">currently building:</span>
+          <span class="text-secondary font-semibold">nerdtime</span>
+          <span class="ml-auto text-base-content/50 text-xs">main · 3h ago · 86★</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- store -->
+  <section class="py-10" id="store">
+    <p class="mono text-xs text-primary mb-1">$ ls ~/store --all</p>
+    <h2 class="text-3xl font-bold">What&rsquo;s in the store</h2>
+    <p class="text-base-content/60 mt-1 mb-6 max-w-xl">Apps, services, games, and art. Everything ships, everything has a price, nothing is vaporware.</p>
+    <div class="flex flex-wrap gap-2 mb-5" id="filters">
+      <button class="btn btn-sm" data-cat="all">all</button>
+      <button class="btn btn-sm btn-outline" data-cat="saas">saas</button>
+      <button class="btn btn-sm btn-outline" data-cat="service">services</button>
+      <button class="btn btn-sm btn-outline" data-cat="game">games</button>
+      <button class="btn btn-sm btn-outline" data-cat="art">art &amp; skills</button>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="storeGrid">
+      <div class="card card-border bg-base-200" data-cat="saas">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-secondary">saas</span>
+            <span class="status status-success ml-auto"></span>
+          </div>
+          <h3 class="card-title">boomerbill</h3>
+          <p class="text-base-content/70 text-sm">Billing + labor tracking for freelancers tired of unpaid tech support.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm font-semibold">$12/mo</span>
+            <a class="link link-hover link-secondary text-sm">try it →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200" data-cat="saas">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-secondary">saas</span>
+            <span class="status status-warning ml-auto"></span>
+          </div>
+          <h3 class="card-title">nerdtime</h3>
+          <p class="text-base-content/70 text-sm">Code time tracking + tasks. Open-source WakaTime alternative.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm font-semibold">free <span class="text-base-content/50 font-normal">· sponsorware</span></span>
+            <a class="link link-hover link-secondary text-sm">star on GitHub →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200" data-cat="saas">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-secondary">saas</span>
+            <span class="status status-neutral ml-auto"></span>
+          </div>
+          <h3 class="card-title">BulkPost</h3>
+          <p class="text-base-content/70 text-sm">Agentic social media automation that writes and schedules for you.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm">join waitlist</span>
+            <a class="link link-hover link-secondary text-sm">get notified →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200" data-cat="service">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-neutral">service</span>
+            <span class="status status-success ml-auto"></span>
+          </div>
+          <h3 class="card-title">Unlimited Dev Service</h3>
+          <p class="text-base-content/70 text-sm">Flat-rate full-stack development. Fixed scope, no scope creep.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm font-semibold text-accent">$4,000/mo</span>
+            <a class="link link-hover link-secondary text-sm">book a call →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200" data-cat="service">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-neutral">service</span>
+            <span class="status status-warning ml-auto"></span>
+          </div>
+          <h3 class="card-title">OpenClaw</h3>
+          <p class="text-base-content/70 text-sm">AI agent setup + management for small businesses.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm">custom</span>
+            <a class="link link-hover link-secondary text-sm">learn more →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200" data-cat="service">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-neutral">service</span>
+            <span class="status status-neutral ml-auto"></span>
+          </div>
+          <h3 class="card-title">Hermes Agent Mgmt</h3>
+          <p class="text-base-content/70 text-sm">Deploy, run, and maintain Hermes agents for your team.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm">custom</span>
+            <a class="link link-hover link-secondary text-sm">learn more →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200" data-cat="game">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-accent">game</span>
+            <span class="status status-success ml-auto"></span>
+          </div>
+          <h3 class="card-title">32bit-Spacer</h3>
+          <p class="text-base-content/70 text-sm">Retro-futurist space game, built in public in Godot.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm">on Itch.io</span>
+            <a class="link link-hover link-secondary text-sm">play →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200" data-cat="art">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-neutral">art</span>
+            <span class="status status-success ml-auto"></span>
+          </div>
+          <h3 class="card-title">Blender Renders</h3>
+          <p class="text-base-content/70 text-sm">3D art and asset packs. Free previews, paid packs on Gumroad.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm">from $9</span>
+            <a class="link link-hover link-secondary text-sm">view gallery →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200" data-cat="art">
+        <div class="card-body">
+          <div class="flex items-center gap-2">
+            <span class="badge badge-soft badge-neutral">skill</span>
+            <span class="status status-success ml-auto"></span>
+          </div>
+          <h3 class="card-title">Indie Dev Stack</h3>
+          <p class="text-base-content/70 text-sm">The exact tools and configs I ship with. Guide + Neovim workflow.</p>
+          <div class="card-actions items-center justify-between">
+            <span class="mono text-sm font-semibold text-accent">$47 <span class="text-base-content/50 font-normal">Gumroad</span></span>
+            <a class="link link-hover link-secondary text-sm">get it →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="link link-hover mono text-sm text-base-content/60 mt-4 inline-block">view all 20+ products →</a>
+  </section>
+
+  <!-- services -->
+  <section class="py-10" id="services">
+    <p class="mono text-xs text-primary mb-1">$ ./services --flat-rate</p>
+    <h2 class="text-3xl font-bold">Productized services</h2>
+    <p class="text-base-content/60 mt-1 mb-6 max-w-xl">Hire me at a fixed price, not by the hour. Clear scope, shipped every sprint.</p>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="card card-border bg-base-200">
+        <div class="card-body">
+          <h3 class="card-title">Unlimited Dev Service</h3>
+          <p class="mono text-sm text-accent font-semibold">$4,000/mo · flat</p>
+          <p class="text-base-content/70 text-sm">You get a senior full-stack dev on retainer. One queue, fixed monthly scope.</p>
+          <ul class="text-sm text-base-content/80 list-none space-y-1">
+            <li class="before:content-['›_'] before:text-primary">Full-stack web + AI systems</li>
+            <li class="before:content-['›_'] before:text-primary">Direct line, no agency layers</li>
+            <li class="before:content-['›_'] before:text-primary">Own the code and roadmap</li>
+          </ul>
+          <div class="card-actions mt-2"><a class="btn btn-outline btn-block">Book a call</a></div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200">
+        <div class="card-body">
+          <h3 class="card-title">OpenClaw</h3>
+          <p class="mono text-sm text-base-content/60">custom · beta</p>
+          <p class="text-base-content/70 text-sm">I set up and manage AI agents that do a real job for your small business.</p>
+          <ul class="text-sm text-base-content/80 list-none space-y-1">
+            <li class="before:content-['›_'] before:text-primary">Agent design + deployment</li>
+            <li class="before:content-['›_'] before:text-primary">Monitoring + iteration</li>
+            <li class="before:content-['›_'] before:text-primary">Hand-off docs included</li>
+          </ul>
+          <div class="card-actions mt-2"><a class="btn btn-ghost btn-block">Join the waitlist</a></div>
+        </div>
+      </div>
+      <div class="card card-border bg-base-200">
+        <div class="card-body">
+          <h3 class="card-title">Hermes Agent Mgmt</h3>
+          <p class="mono text-sm text-base-content/60">custom · planned</p>
+          <p class="text-base-content/70 text-sm">Running your own Hermes? I deploy, run, and maintain it so you don&rsquo;t have to.</p>
+          <ul class="text-sm text-base-content/80 list-none space-y-1">
+            <li class="before:content-['›_'] before:text-primary">Infra + config</li>
+            <li class="before:content-['›_'] before:text-primary">Skills + cron pipelines</li>
+            <li class="before:content-['›_'] before:text-primary">SLA + response</li>
+          </ul>
+          <div class="card-actions mt-2"><a class="btn btn-ghost btn-block">Get notified</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- build log -->
+  <section class="py-10" id="log">
+    <p class="mono text-xs text-primary mb-1">$ ls ~/build-log --recent</p>
+    <h2 class="text-3xl font-bold">From the build log</h2>
+    <p class="text-base-content/60 mt-1 mb-4 max-w-xl">Notes on architecture, tradeoffs, and what actually shipped.</p>
+    <div class="divide-y divide-base-300">
+      <a class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3 hover:text-secondary transition-colors">
+        <span class="mono text-xs text-base-content/50">2026-07-29</span>
+        <span class="font-semibold">Why I&rsquo;m pivoting this site to a content business</span>
+        <span class="badge badge-sm badge-outline">opinion</span>
+      </a>
+      <a class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3 hover:text-secondary transition-colors">
+        <span class="mono text-xs text-base-content/50">2026-07-25</span>
+        <span class="font-semibold">Boomerbill: what happens when users actually show up</span>
+        <span class="badge badge-sm badge-outline">build log</span>
+      </a>
+      <a class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3 hover:text-secondary transition-colors">
+        <span class="mono text-xs text-base-content/50">2026-07-21</span>
+        <span class="font-semibold">The AI agent stack I use for solo dev</span>
+        <span class="badge badge-sm badge-outline">build log</span>
+      </a>
+    </div>
+    <a class="link link-hover mono text-sm text-base-content/60 mt-4 inline-block">read the build log →</a>
+  </section>
+
+  <!-- art + music -->
+  <section class="py-10">
+    <p class="mono text-xs text-primary mb-1">$ ./art --featured &amp;&amp; ./music --now-playing</p>
+    <h2 class="text-3xl font-bold">Art &amp; music</h2>
+    <p class="text-base-content/60 mt-1 mb-6 max-w-xl">The artist half of the brand. Renders, models, and synthwave.</p>
+    <div class="grid gap-4 lg:grid-cols-[1.25fr_1fr]">
+      <div class="grid grid-cols-3 gap-3">
+        <div class="aspect-square rounded-box bg-gradient-to-br from-neutral to-base-300 border border-base-300 flex items-end p-2 mono text-xs text-base-content/60">synth city</div>
+        <div class="aspect-square rounded-box bg-gradient-to-br from-neutral to-base-300 border border-base-300 flex items-end p-2 mono text-xs text-base-content/60">neon grid</div>
+        <div class="aspect-square rounded-box bg-gradient-to-br from-neutral to-base-300 border border-base-300 flex items-end p-2 mono text-xs text-base-content/60">wireframe ship</div>
+      </div>
+      <div class="card card-border bg-base-200">
+        <div class="card-body">
+          <div class="flex items-end gap-1 h-6" aria-hidden="true">
+            <span class="w-1 bg-primary" style="animation:eq 1s ease-in-out infinite"></span>
+            <span class="w-1 bg-primary" style="animation:eq 1s ease-in-out .2s infinite"></span>
+            <span class="w-1 bg-primary" style="animation:eq 1s ease-in-out .4s infinite"></span>
+            <span class="w-1 bg-primary" style="animation:eq 1s ease-in-out .1s infinite"></span>
+          </div>
+          <h3 class="card-title mono text-base">Midnight Overdrive</h3>
+          <p class="text-sm text-base-content/60">Burnsedia — synthwave, 2026</p>
+          <div class="card-actions"><a class="link link-hover link-secondary text-sm">open player →</a></div>
+        </div>
+      </div>
+    </div>
+    <style>@keyframes eq{0%,100%{height:6px}50%{height:24px}}</style>
+  </section>
+
+  <!-- membership -->
+  <section class="py-10">
+    <p class="mono text-xs text-primary mb-1">$ cat membership/tiers</p>
+    <h2 class="text-3xl font-bold">Support the build</h2>
+    <p class="text-base-content/60 mt-1 mb-6 max-w-xl">Sponsorware, early access, and direct input. One page, six tiers.</p>
+    <div class="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+      <div class="card bg-base-200 items-center text-center"><div class="card-body"><h3 class="mono text-sm font-semibold">Insider</h3><p class="mono text-xl font-bold text-accent">$5</p><p class="text-xs text-base-content/60">behind the scenes</p></div></div>
+      <div class="card bg-base-200 items-center text-center"><div class="card-body"><h3 class="mono text-sm font-semibold">Early Access</h3><p class="mono text-xl font-bold text-accent">$10</p><p class="text-xs text-base-content/60">sponsorware code</p></div></div>
+      <div class="card bg-base-200 border-primary items-center text-center"><div class="card-body"><h3 class="mono text-sm font-semibold">Member</h3><p class="mono text-xl font-bold text-accent">$15</p><p class="text-xs text-base-content/60">+ Q&amp;A + skills</p></div></div>
+      <div class="card bg-base-200 items-center text-center"><div class="card-body"><h3 class="mono text-sm font-semibold">Builder</h3><p class="mono text-xl font-bold text-accent">$25</p><p class="text-xs text-base-content/60">+ dev call</p></div></div>
+      <div class="card bg-base-200 items-center text-center"><div class="card-body"><h3 class="mono text-sm font-semibold">Patron</h3><p class="mono text-xl font-bold text-accent">$50</p><p class="text-xs text-base-content/60">+ 1:1</p></div></div>
+      <div class="card bg-base-200 items-center text-center"><div class="card-body"><h3 class="mono text-sm font-semibold">Sponsor</h3><p class="mono text-xl font-bold text-accent">$100</p><p class="text-xs text-base-content/60">+ logo</p></div></div>
+    </div>
+    <a class="link link-hover mono text-sm text-base-content/60 mt-4 inline-block">see all perks →</a>
+  </section>
+
+  <!-- newsletter -->
+  <section class="py-10">
+    <div class="card card-border bg-base-200 text-center">
+      <div class="card-body items-center">
+        <p class="mono text-xs text-base-content/50">$ ./follow --weekly</p>
+        <h2 class="text-2xl font-bold">Follow the build</h2>
+        <p class="text-base-content/70 max-w-md">Weekly notes on apps, games, art, and music — plus early access before anyone else.</p>
+        <div class="flex flex-wrap gap-2 justify-center max-w-md w-full">
+          <input type="email" placeholder="you@example.com" class="input flex-1 min-w-48" />
+          <button class="btn btn-primary">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer sm:footer-horizontal bg-base-100 text-base-content border-t border-base-300 p-8">
+    <nav>
+      <h6 class="footer-title">Site</h6>
+      <a class="link link-hover">Build Log</a>
+      <a class="link link-hover">Store</a>
+      <a class="link link-hover">Membership</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Support</h6>
+      <a class="link link-hover">Patreon</a>
+      <a class="link link-hover">GitHub Sponsors</a>
+      <a class="link link-hover">Book a call</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Follow</h6>
+      <a class="link link-hover">GitHub</a>
+      <a class="link link-hover">YouTube</a>
+      <a class="link link-hover">X/Twitter</a>
+      <a class="link link-hover">Itch.io</a>
+      <a class="link link-hover">Gumroad</a>
+    </nav>
+  </footer>
+  <div class="text-center text-xs text-base-content/50 py-4 mono">baileyburnsed.dev — © 2026 Bailey Burnsed. Built in public.</div>
+</div>
+
+<script>
+  // typing
+  const phrases = ["apps", "games", "art", "music", "open source"];
+  let pi = 0, ci = 0, del = false;
+  const el = document.getElementById("typed");
+  (function tick() {
+    const cur = phrases[pi];
+    el.textContent = cur.slice(0, ci);
+    if (!del && ci < cur.length) { ci++; setTimeout(tick, 70); }
+    else if (!del) { del = true; setTimeout(tick, 1700); }
+    else if (ci > 0) { ci--; setTimeout(tick, 28); }
+    else { del = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 300); }
+  })();
+
+  // filter
+  const btns = document.querySelectorAll("#filters button");
+  const cards = document.querySelectorAll("#storeGrid [data-cat]");
+  btns.forEach(b => b.addEventListener("click", () => {
+    btns.forEach(x => { x.classList.remove("btn-outline"); x.classList.remove("btn"); x.classList.add("btn","btn-outline"); });
+    b.classList.remove("btn-outline");
+    const cat = b.dataset.cat;
+    cards.forEach(c => { c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none"; });
+  }));
+</script>
+</body>
+</html>
