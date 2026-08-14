@@ -1,0 +1,39 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  priceSuffix?: string;
+  description: string;
+  features: string[];
+  cta: string;
+  href: string;
+  highlighted?: boolean;
+}
+
+const { name, price, priceSuffix, description, features, cta, href, highlighted = false } = Astro.props as Props;
+---
+
+<article
+  class={`noise flex flex-col rounded-2xl border p-6 sm:p-7 ${
+    highlighted ? 'border-primary bg-base-100/5' : 'border-base-content/10 bg-base-100/5'
+  }`}
+>
+  {highlighted && <span class="badge badge-primary badge-sm self-start mb-3">Most Popular</span>}
+  <h3 class="text-xl font-bold">{name}</h3>
+  <p class="mt-1 text-sm text-base-content/70">{description}</p>
+  <p class="mt-4 font-mono text-3xl font-bold text-primary">
+    {price}
+    {priceSuffix && <span class="text-base font-normal text-base-content/50">{priceSuffix}</span>}
+  </p>
+  <ul class="mt-6 space-y-2 flex-1">
+    {features.map((feature) => (
+      <li class="flex items-start gap-2 text-sm">
+        <span class="mt-0.5 shrink-0 text-primary">→</span>
+        <span class="text-base-content/80">{feature}</span>
+      </li>
+    ))}
+  </ul>
+  <a href={href} class={`btn mt-8 w-full ${highlighted ? 'btn-primary' : 'btn-outline'}`}>
+    {cta}
+  </a>
+</article>

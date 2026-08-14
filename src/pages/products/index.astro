@@ -1,0 +1,155 @@
+---
+import { SITE_TITLE, CALENDLY_URL } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/shared/PageHeader.astro';
+import ProductCard from '../../components/products/ProductCard.astro';
+---
+
+<BaseLayout
+  title={`Products | ${SITE_TITLE}`}
+  description="Three ways to work with me: productized services, apps and tools I build, and content worth subscribing to."
+  canonical="/products/"
+>
+  <PageHeader
+    eyebrow="Storefront"
+    title="Three ways to work with me."
+    description="Productized services, apps and tools I build, and content worth subscribing to. Every one comes from real shipping — no hype, no vaporware."
+    typingPrefix="Lanes"
+    typingPhrases={['Productized services', 'Apps & tools', 'Content & membership']}
+  />
+
+  <!-- Services -->
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-2">Productized services</h2>
+      <p class="text-base-content/70 max-w-3xl mb-8">
+        Fixed scope, fixed price. I put AI agents and software to work in your business.
+      </p>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ProductCard
+          title="Discovery"
+          description="Free 45-minute call to find what's worth automating. You keep the notes either way."
+          price="Free"
+          href={CALENDLY_URL}
+          cta="Book free"
+        />
+        <ProductCard
+          title="Launch"
+          description="Agent stack installed on your infra + 2 working workflows + training + runbook you own."
+          price="$3,500"
+          href="/service"
+          cta="Learn more"
+        />
+        <ProductCard
+          title="Scale"
+          description="Up to 5 workflows, integrations, and a reporting dashboard."
+          price="$6,000"
+          href="/service"
+          cta="Learn more"
+        />
+        <ProductCard
+          title="Care plan"
+          description="Maintenance + 1 new workflow every month. The recurring engine."
+          price="$1,500/mo"
+          href="/service"
+          cta="Learn more"
+          badge="Recurring"
+        />
+        <ProductCard
+          title="Unlimited Dev"
+          description="A full-stack onshore developer for $4,000/month. One task at a time, no long-term contract."
+          price="$4,000/mo"
+          href="/service"
+          cta="Learn more"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Apps & tools -->
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-2">Apps &amp; tools</h2>
+      <p class="text-base-content/70 max-w-3xl mb-8">
+        Built in public. Store links (itch.io, Gumroad) get wired in as each product ships — for
+        now each card links to the live repo.
+      </p>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ProductCard
+          title="boomerbill"
+          description="Track unpaid labor. Web app, live with a real user."
+          href="https://github.com/Burnsedia/boomerbill"
+          cta="View repo"
+          badge="Live"
+        />
+        <ProductCard
+          title="BulkPost"
+          description="Bulk posting app for shipping content everywhere at once."
+          href="https://github.com/Burnsedia/BulkPost"
+          cta="View repo"
+          badge="In dev"
+        />
+        <ProductCard
+          title="32bit-Spacer"
+          description="A game in Godot. Playable systems in active development."
+          href="https://github.com/Burnsedia/32bit-Spacer"
+          cta="View repo"
+          badge="Game"
+        />
+        <ProductCard
+          title="nerdtime"
+          description="Time tracking CLI for devs. Track work without leaving the terminal."
+          href="https://github.com/Burnsedia/nerdtime"
+          cta="View repo"
+          badge="CLI"
+        />
+        <ProductCard
+          title="virtue-pwa"
+          description="Productivity tool for autistic and ADHD programmers."
+          href="https://github.com/Burnsedia/virtue-pwa"
+          cta="View repo"
+          badge="Niche"
+        />
+        <ProductCard
+          title="Django-Agent"
+          description="AI agent suite for indie hackers, built on Django."
+          href="https://github.com/Burnsedia/Django-Agent"
+          cta="View repo"
+          badge="AI"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Content & membership -->
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-2">Content &amp; membership</h2>
+      <p class="text-base-content/70 max-w-3xl mb-8">
+        Follow the builds, get the newsletter, or sponsor the work.
+      </p>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ProductCard
+          title="Newsletter"
+          description="Agents in Production — one real deployment story every week."
+          href="/newsletter"
+          cta="Subscribe"
+        />
+        <ProductCard
+          title="GitHub Sponsors"
+          description="Support open builds, get early access to sponsorware."
+          price="$10/mo"
+          href="https://github.com/sponsors/Burnsedia"
+          cta="Sponsor"
+        />
+        <ProductCard
+          title="Patreon"
+          description="Behind-the-scenes build notes and monthly Q&A."
+          price="$5/mo"
+          href="https://www.patreon.com/burnsedia"
+          cta="Join"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

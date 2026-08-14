@@ -1,24 +1,167 @@
 ---
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, CALENDLY_URL, CONTACT_EMAIL, UNLIMITED_DEV_STRIPE_URL } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from "../components/marketing/Hero.astro";
-import Tech from "../components/legacy/Technolgy.astro";
-import SalesHero from "../components/shared/SalesHero.astro";
-import Projects from "../components/marketing/projects.astro";
-import ContactForm from "../components/marketing/ContactForm.astro";
-import Bio from "../components/legacy/Bio.astro";
-import Testimonials from "../components/legacy/testimonials.astro"
+import PageHeader from '../components/shared/PageHeader.astro';
+import PricingCard from '../components/products/PricingCard.astro';
+import Bio from '../components/legacy/Bio.astro';
+import Testimonials from '../components/legacy/testimonials.astro';
+
+const bookHref = CALENDLY_URL;
+const askHref = `mailto:${CONTACT_EMAIL}?subject=Question%20about%20services`;
 ---
+
 <BaseLayout
   title={`Services | ${SITE_TITLE}`}
-	description="Custom software, AI automation, and product development services for founders and small businesses."
+  description="I put AI agents and software to work in your business. Fixed scope, fixed price — Discovery, Launch, Scale, and a Care plan."
   canonical="/service/"
 >
- <Hero />
- <SalesHero />
- <Tech />
- <Projects />
- <Testimonials />
- <Bio />
- <ContactForm />
+  <PageHeader
+    eyebrow="Services"
+    title="I put AI agents and software to work in your business."
+    description="Fixed scope, fixed price. No hourly billing, no custom quotes. Pick the lane that fits, or start with a free call and I'll tell you honestly whether it's worth it."
+    typingPrefix="I build for"
+    typingPhrases={['small businesses', 'founders', 'entrepreneurs', 'people tired of doing it by hand']}
+  >
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href={bookHref} class="btn btn-primary">Book a free call</a>
+      <a href={askHref} class="btn btn-outline">Ask a question</a>
+    </div>
+  </PageHeader>
+
+  <!-- Pricing: the four SKUs -->
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Pick your lane</h2>
+      <p class="text-base-content/70 max-w-3xl mb-10">
+        Start with a free Discovery call — 45 minutes to find the workflows you're doing by hand that
+        an agent can take over. Then pay a fixed price for a fixed scope. No surprises.
+      </p>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <PricingCard
+          name="Discovery"
+          price="Free"
+          description="A 30–45 min call to find what's worth automating."
+          features={[
+            'Audit of your repetitive work',
+            '1–3 automatable workflows identified',
+            'Honest recommendation, no obligation',
+            'You keep the notes either way',
+          ]}
+          cta="Book free call"
+          href={bookHref}
+        />
+        <PricingCard
+          name="Launch"
+          price="$3,500"
+          priceSuffix=" one-time"
+          description="I install the agent stack on your infra and wire up two working workflows."
+          features={[
+            'Agent stack installed on your infra',
+            '2 working automated workflows',
+            'Team training session',
+            'Runbook + docs you own',
+            '30 days of support',
+          ]}
+          cta="Book a call"
+          href={bookHref}
+        />
+        <PricingCard
+          name="Scale"
+          price="$6,000"
+          priceSuffix=" one-time"
+          description="Up to five workflows, integrations, and a dashboard."
+          features={[
+            'Everything in Launch',
+            'Up to 5 automated workflows',
+            'Integrations (email, calendar, CRM)',
+            'Reporting dashboard',
+            '60 days of support',
+          ]}
+          cta="Book a call"
+          href={bookHref}
+        />
+        <PricingCard
+          name="Care plan"
+          price="$1,500"
+          priceSuffix=" /mo"
+          description="Maintenance plus one new workflow every month. The engine that keeps it running."
+          features={[
+            'Everything in Launch, maintained',
+            '1 new workflow every month',
+            'Monitoring + proactive fixes',
+            'Priority support',
+            'Cancel anytime',
+          ]}
+          cta="Book a call"
+          href={bookHref}
+          highlighted={true}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-10">How it works</h2>
+      <ol class="grid gap-6 md:grid-cols-4">
+        <li class="rounded-2xl border border-base-content/10 bg-base-100/5 p-5">
+          <span class="font-mono text-primary">01</span>
+          <h3 class="mt-2 font-bold">Book a call</h3>
+          <p class="mt-1 text-sm text-base-content/70">Free 45-minute Discovery. We find the work worth automating.</p>
+        </li>
+        <li class="rounded-2xl border border-base-content/10 bg-base-100/5 p-5">
+          <span class="font-mono text-primary">02</span>
+          <h3 class="mt-2 font-bold">Pick a lane</h3>
+          <p class="mt-1 text-sm text-base-content/70">Fixed price, fixed scope. Launch, Scale, or Care.</p>
+        </li>
+        <li class="rounded-2xl border border-base-content/10 bg-base-100/5 p-5">
+          <span class="font-mono text-primary">03</span>
+          <h3 class="mt-2 font-bold">I build it</h3>
+          <p class="mt-1 text-sm text-base-content/70">Minimal meetings. You track progress, I ship.</p>
+        </li>
+        <li class="rounded-2xl border border-base-content/10 bg-base-100/5 p-5">
+          <span class="font-mono text-primary">04</span>
+          <h3 class="mt-2 font-bold">You own it</h3>
+          <p class="mt-1 text-sm text-base-content/70">Runbook, docs, and training — nothing is locked in.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Unlimited Dev anchor (upsell) -->
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-primary/25 bg-base-100/5 p-6 sm:p-8">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 class="text-2xl font-bold">Need full-time execution instead?</h2>
+            <p class="mt-1 text-base-content/70 max-w-2xl">
+              Unlimited Dev is a full-stack onshore developer for $4,000/month. One task at a time on
+              a Trello board, minimal meetings, no long-term contract.
+            </p>
+          </div>
+          <a href={UNLIMITED_DEV_STRIPE_URL} class="btn btn-outline shrink-0">Unlimited Dev — $4,000/mo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+  <Bio />
+
+  <!-- Final CTA -->
+  <section class="w-full py-16 md:py-20 noise">
+    <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Let's find what you're doing by hand.</h2>
+      <p class="text-base-content/70 max-w-2xl mx-auto mb-8">
+        Book a free 45-minute call. Worst case, you leave with a list of what to automate. Best case,
+        I take it off your plate.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href={bookHref} class="btn btn-primary">Book a free call</a>
+        <a href={askHref} class="btn btn-outline">Ask a question</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
