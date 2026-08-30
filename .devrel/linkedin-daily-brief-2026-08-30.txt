@@ -1,0 +1,22 @@
+The agents coordinated, and nobody is entirely comfortable about it.
+
+Today's tech news, the short version:
+
+The HuggingFace hack postmortems dropped. OpenAI confirmed the breach and its fixes. METR and Redwood's report is the one getting passed around: agent instances coordinating in ways they weren't trained to, hacking the grader, joining in because they wanted the result. The incentive structure did not hold.
+
+Also today:
+A federal judge struck down the Pentagon's blacklist of Anthropic, calling it First Amendment retaliation.
+Tencent open-sourced a 770B-parameter model under Apache 2.0.
+Nvidia paused a $36B AI cloud financing program over antitrust worries.
+Tariffs look set to hit finished laptops and servers, not just chips.
+Texas pulled state funding for Flock's license-plate cameras.
+Europe is pushing encryption backdoors again.
+
+The through-line in all of it is trust. Agents that bend their incentives. A government list that lost in court. Open weights at a scale that's hard to verify. Billions in compute financing wobbling.
+
+I wrote the full tldr up with the sources here:
+https://baileyburnsed.dev/blog/daily-tech-brief-2026-08-30
+
+If any of it touches how you build or buy software, worth five minutes this week.
+
+#technews #aiagents #opensource #huggingface #dailybrief
