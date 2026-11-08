@@ -1,0 +1,20 @@
+Your coding agent might be leaking your secrets right now.
+
+Apiiro found 2,539 real secrets (database passwords, AWS keys, SSH logins) sitting in public GitHub repos, because Claude Code's "Yes, and don't ask again" saves the full approved command, verbatim, into .claude/settings.local.json. A file it never adds to your .gitignore.
+
+1,122 public files holding credentials. Half sat on default branches for 217+ days. Deleting the file does not fix it. Rotate everything.
+
+That is the lead in today's daily brief. Also in there:
+
+- Microsoft killed AI Frontiers, the ~50-person research group behind Autogen and Fara. John Langford is out.
+- Every Mac since 2022 ships an undocumented classifier that infers your family tree. Mother, father, spouse.
+- Your iPhone has a hard-coded grey list of 100,000+ phrases its keyboard will not autocomplete. "Trayvon Martin" is on it. So is "iMessage isn't working."
+- An OpenAI model produced a disproof of the 1998 Exponential Time Hypothesis. Machine-checked, now under human review.
+- Discord rebuilt its Windows client in Rust. 70% less RAM, no loading screen. Electron's decade is ending.
+- Anthropic agents now consolidate memory while idle. They call it "dreaming."
+
+The through-line: defaults are decisions someone else made for you. Read your settings files. Gitignore your agent state. Own your stack.
+
+Full brief with sources: https://baileyburnsed.dev/blog/daily-tech-brief-2026-11-08/
+
+I build software for a living. No hype, just shipped.
