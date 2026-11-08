@@ -1,0 +1,41 @@
+Subject: Daily tech brief: your agent is leaking secrets, Microsoft kills AI Frontiers
+
+Sunday is not quiet. Today's tech news, tldr.
+
+1) Claude Code's "don't ask again" leaked 2,539 secrets to public GitHub
+Pick "Yes, and don't ask again" and Claude Code saves the full approved command, verbatim, to .claude/settings.local.json. Passwords, keys, tokens, all of it. It never adds the file to your .gitignore. Apiiro found 104,185 public copies; 1,122 hold at least one secret; 2,539 secrets across 1,994 repos when you count history and shared settings. Half sat on default branches for 217+ days. Deleting does not fix it. Rotate everything.
+Source: https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again
+
+2) Microsoft killed its AI Frontiers research group
+John Langford posted "The End of AI Frontiers" on Nov 6. The ~50-person team behind Autogen and Fara got folded into Microsoft AI in early September and is finished. His reason: ex-Inflection leadership believes in scaling and is "aggressively not research." Langford is leaving too.
+Source: https://hunch.net/?p=13764006
+
+3) Every Mac ships an undocumented family-member classifier
+Eighth Rank's writeup: every Mac since macOS 13 (2022) runs daemons that build a personal knowledge graph about you, including an XGBoost kinship classifier with predicates like "has mother," "has father," and "spouse." Undocumented. On by default.
+Source: https://8rank.ai/game/apple-intelligence-personal-knowledge-graph
+
+4) Your iPhone keeps a 100,000-word grey list
+The Guardian: researcher Derik Kauffman found a hard-coded iOS table of 100,000+ words and phrases predictive text will not complete. Drugs and sex, plus "Trayvon Martin," "Kashmir dispute," and "iMessage isn't working." Swipe "United Ireland" and you get "United Iceland." Apple says you can always type the words yourself.
+Source: https://www.theguardian.com/technology/2026/nov/06/struggling-to-spell-male-chauvinist-pig-apple-grey-list-means-your-iphone-wont-help-you
+
+5) OpenAI's model disproved a 1998 math conjecture
+NYT: an OpenAI model produced a natural-language disproof of the Exponential Time Hypothesis. Impagliazzo, who co-proposed it in 1998, called it "shocking news." A separate Anthropic proof exists. Both machine-checked, now under human review. Probable, not settled.
+Source: https://www.nytimes.com/2026/11/06/science/ai-exponential-time-hypothesis.html
+
+6) Discord dumped Electron, and it shows
+New Rust client ("Discord Phoenix") loads before the Electron one finishes its loading screen. 290.2MB RAM with two accounts signed in, roughly 70% less.
+Source: https://www.windowslatest.com/2026/11/06/every-windows-11-app-should-kill-electron-and-discord-just-showed-why-no-starting-screen-and-70-less-ram-even-with-two-accounts-signed-in/
+
+7) Anthropic's agents now "dream"
+Nov 6 research post: agent memory in layers. Notes during sessions, Opus 5.5 judges salience, then "dreaming" consolidates it all while idle. First public description of how Anthropic consolidates agent memory offline. What your agent decides to remember is the new attack surface.
+Source: https://www.anthropic.com/research/components-of-agent-memory
+
+The through-line: defaults.
+Claude Code defaults to saving your secrets. macOS defaults to mapping your family. iOS defaults to a list of phrases your keyboard pretends do not exist. Microsoft defaults to scaling over research. Agents default to remembering.
+Defaults are decisions someone else made for you. Read your settings files. Gitignore your agent state. Own your stack, or someone else's roadmap owns it for you.
+
+Full version with memes: https://baileyburnsed.dev/blog/daily-tech-brief-2026-11-08/
+
+Bailey
+baileyburnsed.dev
+No hype, just shipped.
