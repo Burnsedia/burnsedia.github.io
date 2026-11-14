@@ -11,7 +11,9 @@
 @tailwind utilities;
 
 @plugin "daisyui" {
-  themes: ["light", "dark"];
+  // #147: dark-only per DESIGN.md. Drop the built-in light theme so no toggle or
+  // fallback can render a light surface against the brand.
+  themes: ["darksynthwave"];
 }
 
 @plugin "daisyui/theme" {
@@ -85,4 +87,11 @@
   .blog-content a {
     @apply link;
   }
+}
+
+/* #102: subtle alternating section backgrounds for visual depth.
+   Flat by design (DESIGN.md), so this is surface layering only — a light
+   oklch(14%...) wash on every other section, no shadows. */
+main > section:nth-of-type(even) {
+  background: oklch(14% 0.004 49.25 / 0.35);
 }

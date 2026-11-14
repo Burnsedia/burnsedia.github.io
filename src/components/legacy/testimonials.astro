@@ -6,7 +6,7 @@
     <div class="flex transition-transform duration-700 ease-in-out" id="carousel-track">
       <!-- Each card -->
       <div class="flex-none w-full flex justify-center px-4">
-        <div class="noise border border-primary backdrop-blur shadow-pink card p-6 shadow-xl max-w-xl text-center">
+        <div class="border border-primary backdrop-blur card p-6 max-w-xl text-center">
           <p class="italic">
             “Bailey Burnsed created a landing page and facilitated process ideation for my app idea. Flexible, wonderful to work with, and has a wicked sense of humor.”
           </p>
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="flex-none w-full flex justify-center px-4">
-        <div class="noise border border-primary  backdrop-blur shadow-pink card p-6 shadow-xl max-w-xl text-center">
+        <div class="border border-primary backdrop-blur card p-6 max-w-xl text-center">
           <p class="italic">
             “Bailey has given great advice in seeing what works in my next pursuit. He dissects problems quickly and gives proper solutions.”
           </p>
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="flex-none w-full flex justify-center px-4">
-        <div class="noise border border-primary  backdrop-blur shadow-pink card p-6 shadow-xl max-w-xl text-center">
+        <div class="border border-primary backdrop-blur card p-6 max-w-xl text-center">
           <p class="italic">
             “It is with great pleasure that I officially hired an amazing full-stack developer, Bailey Burnsed. He has shown himself to be very knowledgeable and skilled, comprehending the needs of his clients and bringing their vision to reality.”
           </p>
@@ -37,18 +37,28 @@
   </div>
 </section>
 <script>
-  const track = document.getElementById("carousel-track");
-  const slides = track.children.length;
-  let index = 0;
+  const init = () => {
+    const trackEl = document.getElementById("carousel-track");
+    if (!trackEl) return;
+    let index = 0;
+    const slides = trackEl.children.length;
+    const style = trackEl.style;
 
-  function showSlide(i) {
-    index = (i + slides) % slides;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
+    function showSlide(i: number) {
+      index = (i + slides) % slides;
+      style.transform = `translateX(-${index * 100}%)`;
+    }
 
-  document.getElementById("prev").onclick = () => showSlide(index - 1);
-  document.getElementById("next").onclick = () => showSlide(index + 1);
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    prev?.setAttribute("aria-label", "previous testimonial");
+    next?.setAttribute("aria-label", "next testimonial");
+    prev?.addEventListener("click", () => showSlide(index - 1));
+    next?.addEventListener("click", () => showSlide(index + 1));
 
-  // Auto-slide every 6 s
-  setInterval(() => showSlide(index + 1), 6000);
+    // Auto-slide every 6 s
+    setInterval(() => showSlide(index + 1), 6000);
+  };
+
+  init();
 </script>

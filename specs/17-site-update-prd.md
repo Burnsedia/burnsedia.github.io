@@ -40,7 +40,7 @@ The backlog reads as 100+ independent tasks across design, SEO, payments, music,
 - Motion/media work will compound visual debt before the system is consistent.
 
 ### 2.3 Opportunity
-A disciplined, phased rollout turns the backlog from noise into a coherent product trajectory: a fast, accessible, SEO-optimized, revenue-ready site that matches the documented brand.
+A disciplined, phased rollout turns the backlog from noise into a coherent product trajectory: a fast, accessible, SEO-optimized portfolio site (building-in-public) that matches the documented brand.
 
 ---
 
@@ -50,7 +50,7 @@ A disciplined, phased rollout turns the backlog from noise into a coherent produ
 |---|------|---------------------|
 | G1 | Brand system enforced | No shadow-based elevation, dark-only theme, no dead CSS classes, hero components deduped |
 | G2 | SEO/GEO foundations in place | Meta descriptions fixed, JSON-LD (Article/FAQ/HowTo) present, OG images, clean titles/headings |
-| G3 | Revenue surface ships | One flagship product page live, reusable `/products/[slug]` template, Stripe/store links wired |
+| G3 | Portfolio ships | Reusable portfolio-entry template + first case study (boomerbill, building-in-public) live; storefront/store links deferred |
 | G4 | Stack simplified | React integration removed; typing done in Vue only |
 | G5 | Premium feel | Consistent radius/palette, gallery, 3D viewer, animations, music player (Phase D) |
 
@@ -122,20 +122,19 @@ A disciplined, phased rollout turns the backlog from noise into a coherent produ
 
 ---
 
-### PHASE D — Storefront / Revenue (business impact)
-**Why next:** This is where the site earns money. Sequenced around **one** flagship to avoid fragmentation.
+### PHASE D — Portfolio & Building-in-Public (NO storefront)
+**Why next:** Turns the site into a portfolio that documents what you build. Entries are case studies / devlogs — the process, not a sales pitch. Per Q2 decisions: no storefront, no sales, no service pages; first entry is **boomerbill** (in progress).
 
 | Issue | Task | Notes |
 |-------|------|-------|
-| #137 | **Pick the ONE app to push to revenue this quarter** | Decision first; ship its landing page |
-| #138 | Build reusable `/products/[slug]` landing page template | Reusable, per spec |
-| #141 | Create `/products/openclaw/` productized-service page | If OpenClaw is the pick |
-| #140 | Productize the hermes-skills bundle (instant-download) | Digital product |
-| #139 | Wire Stripe Payment Links + store links into `/products`, `/service` | itch.io, Gumroad, etc. |
-| #142 | Align newsletter offer with "Agents in Production" positioning | |
-| #143 | Add public roadmap + changelog pages | Sponsorware trust layer |
+| #138 | Build a reusable portfolio-entry template | Case-study/devlog layout; reusable for future entries |
+| #137 | Ship the **boomerbill** entry as the first portfolio piece | Building-in-public devlog format (in-progress) |
+| #143 | Public roadmap / changelog pages | Optional — documents what's being built (sponsorware trust layer). Keep only if it fits the portfolio identity |
+| #142 | Align newsletter offer with portfolio positioning | Drive the email list, not a sale |
 
-**Definition of Done:** Flagship product page live via the template; checkout/store links functional; newsletter offer aligned; roadmap/changelog published.
+**Deferred (not in scope now):** `/products/[slug]` storefront (#138 storefront variant), real product/service pages (OpenClaw, Hermes, other apps), store wiring/Stripe/itch.io/Gumroad (#139). Build when you're ready to sell.
+
+**Definition of Done:** First portfolio entry (boomerbill) ships as a building-in-public case study; template is reusable; no storefront, pricing, checkout, or service pages.
 
 ---
 
@@ -173,7 +172,7 @@ A disciplined, phased rollout turns the backlog from noise into a coherent produ
 | # | Decision | Options | Recommendation |
 |---|----------|---------|----------------|
 | Q1 | **Fonts (#100)** — custom vs. system? | A) Keep system (current `DESIGN.md`) B) Amend doc to allow JetBrains Mono + Inter | Confirm; if B, update `DESIGN.md` typography section first |
-| Q2 | **Flagship product for #137** | Pick ONE app | Decide with business input; gates Phases D |
+| Q2 | **Portfolio direction (#137/#138)** | Resolved: portfolio + building-in-public, no storefront. First entry = boomerbill. OpenClaw/Hermes out. | Decided with business input; gates Phase D. See `specs/17-site-update-prd-Q2-decision.md`. |
 | Q3 | **Shadow strategy (#108)** | A) Keep flat (current) B) Allow subtle shadows | Keep flat — it's core to the brand |
 | Q4 | **Ordering** | A) Phased above (recommended) B) Group by workstream only | Phased — lowest risk, coherent site each phase |
 
@@ -185,7 +184,7 @@ A disciplined, phased rollout turns the backlog from noise into a coherent produ
 - Dark-only, flat, no dead CSS (Phase A).
 - No React runtime (Phase B).
 - JSON-LD + meta + OG valid (Phase C).
-- Flagship product page + store links live (Phase D).
+- Portfolio entry (boomerbill) + reusable template live (Phase D).
 - All animation/font work respects reduced-motion and fails safe.
 
 ## 8. Verification (per AGENTS.md)
