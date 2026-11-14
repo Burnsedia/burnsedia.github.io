@@ -91,7 +91,7 @@ const breadcrumbSchema = {
       <a class="btn btn-ghost btn-sm" href="/courses/">All courses</a>
       {courseSlug && <a class="btn btn-ghost btn-sm" href={backToCourseHref}>{courseTitle ?? 'Course overview'}</a>}
     </div>
-    {heroImage && <img class="w-full max-w-4xl rounded-md shadow-lg mask mask-hexagon mt-25" src={heroImage} alt={title} />}
+    {heroImage && <img class="w-full max-w-4xl rounded-md mt-8" src={heroImage} alt={title} />}
     <h1 class="title py-4 text-3xl md:text-4xl lg:text-5xl text-center">{title}</h1>
     <div class="text-center">
       <FormattedDate date={pubDate} />
