@@ -1,0 +1,19 @@
+Yesterday the FAA grounded every departing flight in America for 4.5 hours. 7,000+ flights canceled. First full ground stop since January 2023.
+
+The official cause: routers in an outdated air traffic system "got overloaded with data." The question DHS is now asking: did the FAA's newly expanded AI air traffic tool play a role?
+
+Same day, the industry asked you to trust software with even more:
+
+- OpenAI launched ChatGPT Wallet. Its Dots agents can now spend your money. You approve each purchase with Face ID, and the agent only ever sees a one-transaction payment token from Amex, Mastercard, or Visa. ChatGPT has 1.2 billion weekly users. United and Amazon are already blocking agents.
+- Sierra shipped Poppy 1.0, a protocol where every Shopify store (175+ countries) now publishes a file telling your personal agent what it's allowed to do. 100+ design partners: Stripe, Visa, PayPal, Walmart, Target.
+- Tesla opened Cybercab orders at $29,990. No steering wheel, no pedals. Requires a $299/month subscription, only works inside Robotaxi geofences. That's $3,588 a year, forever. You're renting a driver; the car comes with it.
+- Nvidia got accused of funding AI startups so they'd buy Nvidia GPUs, manufacturing its own shortage. Alleged, not proven. Matches what procurement teams have felt for two years.
+- Jonathan Blow asked the question of the week: "If AI solved coding, why is my software still the same?"
+
+The through-line: delegation. Everyone shipped a way to hand a job to software this week. Then one overloaded router showed what a national system looks like when it hiccups.
+
+Keep the receipts. Keep the kill switch. Read what your agent is allowed to do before you let it do anything.
+
+Full brief with sources: https://baileyburnsed.dev/blog/daily-tech-brief-2026-11-14/
+
+I build software for a living. No hype, just shipped.

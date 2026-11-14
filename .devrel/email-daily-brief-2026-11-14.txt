@@ -1,0 +1,45 @@
+Subject: Daily Tech Brief: the FAA ground stop and the day everything became an agent
+
+Friday was not quiet. Here is today's tech news, tldr.
+
+1. THE FAA GROUNDED THE WHOLE COUNTRY FOR 4.5 HOURS
+
+At 3:54 p.m. ET Friday the FAA stopped all departing flights nationwide, "for reasons of safety," and said nothing else for hours. Lifted at 8:15 p.m. More than 7,000 flights canceled. First full ground stop since January 2023.
+
+Secretary Duffy's explanation: outdated air traffic routers "got overloaded with data," knocking out radar and comms stability at centers and TRACONs. The wrinkle: DHS is looking at whether the FAA's newly expanded SMART AI air traffic tool was involved. Amtrak's booking system broke the same night.
+
+2. OPENAI GAVE ITS AGENTS A CREDIT CARD
+
+ChatGPT Wallet lets Dots agents buy things for you. You approve each purchase with Face ID; the agent only gets a one-transaction payment token from Amex, Mastercard, or Visa and never sees your real card. Pro users in the US first. OpenAI takes no cut to start. ChatGPT has 1.2B weekly users. United and Amazon are already blocking agents.
+
+3. EVERY SHOPIFY STORE NOW SPEAKS AGENT
+
+Sierra shipped Poppy 1.0, the Personal Agent Protocol. A business publishes one file (/.well-known/poppy.json) declaring how your agent may interact with it. Live in Meta's Muse, auto-published on every Shopify store in 175+ countries, backed by 100+ partners including OpenAI, Stripe, Visa, PayPal, Walmart, and Target.
+
+4. TESLA OPENED CYBERCAB ORDERS
+
+$29,990, $1,000 non-refundable deposit, deliveries from December. No steering wheel, no pedals. Requires a $299/month Autonomy Subscription and only works inside Robotaxi geofences. That subscription is $3,588 a year. Over five years it costs more than half the car. Tesla is renting you a driver and throwing in a car.
+
+5. NVIDIA GOT ACCUSED OF MANUFACTURING ITS OWN SHORTAGE
+
+A TechPowerUp report topped HN: Nvidia allegedly funded AI startups that then spent the money on Nvidia GPUs, engineering the scarcity loop. Alleged, not adjudicated. Separately, the FT reports Huang never built direct access to the Chinese policymakers driving Beijing's chip self-sufficiency push.
+
+6. JONATHAN BLOW ASKED THE OBVIOUS QUESTION
+
+"If AI solved coding, why is my software still the same?" 271 comments on HN. Worth 40 minutes this weekend.
+
+7. GGML HIT 1.0
+
+The tensor library under llama.cpp and whisper.cpp shipped v1.0.0: deprecated API pruned, configurable YaRN truncation. Local inference keeps growing up.
+
+THE THROUGH-LINE: DELEGATION
+
+Every story today is about handing a job to software. Your agent gets your credit card. Your store talks to agents. Your car has no wheel. Your flight stopped because a router drowned in data, and DHS wants to know if the new AI layer helped drown it.
+
+Delegation works until the system hiccups. Keep the receipts, keep the kill switch, and read what your agent is allowed to do before you let it do anything.
+
+Read the full brief with sources and memes:
+https://baileyburnsed.dev/blog/daily-tech-brief-2026-11-14/
+
+No hype, just shipped.
+- Bailey
